@@ -8,6 +8,7 @@ use App\Models\Courier;
 use App\Models\Credit;
 use App\Models\Customer;
 use App\Models\CustomerDue;
+use App\Models\CustomerWallet;
 use App\Models\Order;
 use App\Models\OrderBarcode;
 use App\Models\OrderItem;
@@ -175,9 +176,9 @@ class OrderController extends Controller
             foreach($request->products as $product){
 
                 //update product stock
-                // $product_stock=Product::where('id',$product['id'])->first();
-                // $product_stock->stock=$product_stock->stock-$product['quantity'];
-                // $product_stock->save();
+                $product_stock=Product::where('id',$product['id'])->first();
+                $product_stock->stock=$product_stock->stock-$product['quantity'];
+                $product_stock->save();
 
                 $details=new OrderItem();
                 $details->order_id=$order->id;
@@ -268,8 +269,8 @@ class OrderController extends Controller
             'city' => 'required',
             'courier' => 'required',
             'shipping_cost' => 'required',
-            // 'commission' => 'required',
-                 'sub_city' => 'required',
+            //'commission' => 'required',
+            'sub_city' => 'required',
 
         ]);
 
@@ -299,7 +300,7 @@ class OrderController extends Controller
 
 
       // return $customer->name;
-            $paid=$request->paid-$order->paid;
+        $paid=$request->paid-$order->paid;
         $order->customer_id=$customer->id;
         $order->cutomer_phone=$request->customer_mobile;
         $order->city_id=$request->city;
@@ -313,12 +314,7 @@ class OrderController extends Controller
         //if order save then save the order details
         if($order->save()){
 
-
-
             //update credit
-
-
-
             if( $paid > 0){
 
                 $credit = new Credit();
@@ -332,11 +328,9 @@ class OrderController extends Controller
               }
 
             $order_items=OrderItem::where('order_id',$id)->get();
-
             //many of times when update order item, some item remove or some item add, so here we are delete previous item and insert new $rquest item
             foreach($order_items as $order_item){
-
-                //update product stock befere delete items
+            //update product stock befere delete items
                $product_stock=Product::where('id',$order_item->product_id)->first();
                $product_stock->stock=$product_stock->stock+$order_item->qty;
                $product_stock->save();
@@ -348,10 +342,10 @@ class OrderController extends Controller
 
                // return $product['product_id'];
                 //update product stock before insert item
-            //    $product_item=Product::where('id',$product['product_id'])->first();
-            //     $product_item->stock;
-            //     $product_item->stock=$product_item->stock-$product['quantity'];
-            //     $product_item->save();
+                $product_item=Product::where('id',$product['product_id'])->first();
+                $product_item->stock;
+                $product_item->stock=$product_item->stock-$product['quantity'];
+                $product_item->save();
 
                 $details=new OrderItem();
                 $details->order_id=$order->id;
@@ -430,69 +424,70 @@ class OrderController extends Controller
 
     public function delivered(Request $request,$id){
 
-    //  return $request->all();
-        $order=Order::find($id);
+        //  return $request->all();
+        $order=Order::findOrFail($id);
+        if($order->status!=4){
+            return response()->json("order not shipemnt");
+        }
 
-
-        if($order){
-
-            if($order->status!=4){
-                return response()->json("order not shipemnt");
-            }
+        DB::transaction(function() use($request,$order){
             $order->status=5;
             $order->delivered_admin_id=session()->get('admin')['id'];
             $order->delivery_date=Carbon::now();
+            $order->save();
+            //when order delievered,then order amount is created at a new credit.....
+            $total=$order->total-($order->paid+$order->discount)+$order->shipping_cost;
+            if($total > 0){
+                $comment='Delievred Order. Order Amount BDT '.$total.' Order Invoice number is '.$order->invoice_no;
+                $credit = new Credit();
+                $credit->purpose = "Delievred Order";
+                $credit->amount =( $order->total+$order->shipping_cost)-($order->paid+$order->discount);
+                $credit->comment =$comment;
+                $credit->date = date('Y-m-d');
+                $credit->insert_admin_id=session()->get('admin')['id'];
+                $credit->credit_in=$request->credit_in;
+                $credit->save();
+            }
 
-            if($order->save()){
+            $order_items=OrderItem::where('order_id',$order->id)->get();
+            $my_wallet=0 ;
+            foreach ($order_items as $item) {
+                $product=Product::where('id',$item->product_id)->first();
+                $my_wallet += $product->wallet_point * $item->quantity ;
+            }
+           //inserting to customer wallet
+             $w_customer=CustomerWallet::where('user_id',$order->customer_id)->first();
+             if (empty($w_customer)) {
+                $wallet= new CustomerWallet();
+                $wallet->user_id=$order->customer_id ;
+                $wallet->point=$my_wallet ;
+                $wallet->save();
+             } else {
+               $w_customer->point= $w_customer->point + $my_wallet ;
+               $w_customer->save();
+             }
 
-                //when order delievered,then order amount is created at a new credit.....
-                 $total=$order->total-($order->paid+$order->discount)+$order->shipping_cost;
-                  if($total > 0){
-                        $comment='Delievred Order. Order Amount BDT '.$total.' Order Invoice number is '.$order->invoice_no;
-                        $credit = new Credit();
-                        $credit->purpose = "Delievred Order";
-                        $credit->amount =( $order->total+$order->shipping_cost)-($order->paid+$order->discount);
-                        $credit->comment =$comment;
-                        $credit->date = date('Y-m-d');
-                        $credit->insert_admin_id=session()->get('admin')['id'];
-                        $credit->credit_in=$request->credit_in;
-                        $credit->save();
-                  }
+        });
 
-                return response()->json([
+         return response()->json([
                       'status'=>'SUCCESS',
                      'message'=>'Order was delivered successfully'
                 ]);
-            }
-        }
+
     }
 
-    public function shipment($id){
-        $order=Order::find($id);
+       public function shipment($id){
 
-        if(!empty($order->courier_id) && !empty($order->memo_no)){
+            $order=Order::findOrFail($id);
             $order->status=4;
             $order->shipment_admin_id=session()->get('admin')['id'];
             $order->shippment_date=Carbon::now();
-
-            if($order->save()){
-             //  Order::sendShipmentMenssage($order);
-            //    if($order->paid < $order->total+$order->shipping_cost){
-            //        $customer=Customer::where('phone',$order->cutomer_phone)->first();
-            //         DB::table('customer_dues')->insert([
-            //             'order_invoice_no'=>$order->invoice_no,
-            //             'customer_mobile_no'=>$customer->phone,
-            //             'customer_name'=>$customer->name,
-            //             'due_type'=>'Order Due',
-            //             'amount'=>( $order->total+$order->shipping_cost)-($order->paid+$order->discount),
-            //         ]);
-            //    }
-                return \response()->json([
+            $order->save();
+            Order::sendShipmentMenssage($order);
+             return \response()->json([
                     'status'=>'SUCCESS',
-                    'message'=>'Order was shipment successfully'
+                    'message'=>'Order was shiped successfully'
                 ]);
-            }
-        }
     }
 
     public function return($id){

@@ -89,12 +89,12 @@ class AuthController extends Controller
             $custom_member=DiscountMembership::where('customer_id',$user_id)->first();
             $member_type=$custom_member ? $custom_member->type : "" ;
             if (empty($member_type)) {
-              $total_purchase=Order::where('customer_id',$user_id)->where('order_type',1)->sum('total');
+              $total_purchase=Order::where('customer_id',$user_id)->where('order_type',1)->sum('paid');
                 $total=intval($total_purchase) ;
                 if ( $total > 4999 && $total < 9999 ) {
                     $member_type="silver";
                 }elseif ( $total > 9999 && $total < 15999) {
-                    $member_type="golden";
+                    $member_type="gold";
                 }elseif ( $total > 15999 ) {
                     $member_type="platinum";
                 }
@@ -104,7 +104,7 @@ class AuthController extends Controller
             $member_discount=0 ;
             if ($member_type == "silver") {
                $member_discount=5 ;
-            }elseif ($member_type == "golden") {
+            }elseif ($member_type == "gold") {
                $member_discount=10 ;
             }elseif ($member_type == "platinum") {
                $member_discount=15 ;

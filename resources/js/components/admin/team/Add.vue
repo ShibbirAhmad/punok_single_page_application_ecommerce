@@ -205,7 +205,6 @@ export default {
   data() {
     return {
       form: new Form({
-
         name: "",
         designation: "",
         email: "",

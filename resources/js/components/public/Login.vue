@@ -45,7 +45,7 @@
                   <br/>
 
                  <!-- <router-link  :to="{name:'UserRegister'}">Register here</router-link> -->
-                  <router-link  :to="{name:'UserPasswordReset'}">Forget Password</router-link>
+                  <router-link  :to="{name:'UserPasswordReset'}">Forgotten Password</router-link>
               </div>
                <button :disabled="form.busy" class="btn btn-block btn-primary" type="submit">
                   <i class="fa fa-spinner fa-spin" v-if="form.busy"></i>LOGIN
@@ -107,12 +107,12 @@ export default {
             localStorage.setItem("user_token", resp.data.token);
             this.$store.dispatch("user");
 
-            if (this.pre_route == "Chekout") {
-              this.$router.push({ name: "Chekout" });
-            } else {
-              this.$router.push({ name: "welcome" });
-            }
-
+            // if (this.pre_route == "Chekout") {
+            //   this.$router.push({ name: "Chekout" });
+            // } else {
+            //   this.$router.push({ name: "welcome" });
+            // }
+            this.$router.push({ name: "Chekout" });
             this.$toasted.show(resp.data.message, {
               type: "success",
               position: "top-center",

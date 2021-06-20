@@ -15,8 +15,8 @@
       </section>
       <section class="content">
         <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-10 col-lg-10 offset-1">
+          <div class="row ">
+            <div class="col-lg-11 col-md-11">
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <h3 class="box-title">User table</h3>
@@ -55,7 +55,7 @@
                   </div>
                 </div>
                 <div class="box-body">
-                  <table class="table">
+                  <table class="table table-striped table-bordered table-hover">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
@@ -112,6 +112,9 @@
                             v-else
                             ><i class="fa fa-check"></i
                           ></a>
+
+                          
+
                         </td>
                       </tr>
                     </tbody>
@@ -146,10 +149,13 @@
         </div>
       </section>
     </div>
+
   </div>
 </template>
 
 <script>
+import Vue from "vue";
+import { Form, HasError, AlertError } from "vform";
 export default {
   created() {
     setTimeout(() => {
@@ -161,12 +167,14 @@ export default {
     return {
       users: {},
       loading: true,
-     basePath: this.$store.getters.image_base_link,
+      basePath: this.$store.getters.image_base_link,
       item: 10,
       search: "",
+
     };
   },
   methods: {
+
 
     searchUser() {
         if (this.search.length >=2) {
@@ -294,7 +302,9 @@ export default {
       window.open('/api/export/users','_blank');
     }
   },
-  computed: {},
+  components:{
+    HasError
+  },
   watch: {
     item: function (value) {
       this.userList();

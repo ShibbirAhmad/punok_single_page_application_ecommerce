@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use App\Models\Courier;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -250,22 +251,23 @@ class Order extends Model
         return $output;
     }
 
-    public static function sendShipmentMenssage($order)
-    {
-      $total=0;
-      if(!empty($order->total)){
 
-        $total=($order->total)-($order->paid+$order->discount)+$order->shipping_cost;
-      }
-      $contacts=$order->cutomer_phone;
+
+    public static function sendShipmentMenssage($order){
+
+      // find courier and send shipment  message to customer
+        $shipment=Courier::where('id',$order->courier_id)->first();
+        $courier_name=$shipment->name;
+        $memo_no=$order->memo_no;
+        $total=$order->total;
+        $customer_name=$order->customer->name;
+        $contacts=$order->cutomer_phone;
 
         $api_key = "C20047545e16e1c02a1b38.69878796";
         $senderid = '8809601000740';
-        $courier=$order->courier->name;
-        $name=$order->customer->name;
-         $sms = 'Dear ' . $name .'.'. ' Your order has been shipped to '.$courier.' Courier.'.'Your memo no. ' .$order->memo_no.' and payable amount '.$total.' Tk.'.' Thanks by mohasagor.com';   // put here your dynamic message text here
+        $sms = 'Dear ' . $customer_name .'.'. ' Your order has been shiped to '.$courier_name.' courier.'.' Your memo number is ' .$memo_no.' and payable amount '.$total.' Tk.'.' Thanks by sufilifestyle.com';
+       // put here your dynamic message text here
         $URL = "http://bulk.fmsms.biz/smsapi?api_key=" . urlencode($api_key) . "&type=text&contacts=" . urlencode($contacts) . "&senderid=" . urlencode($senderid) . "&msg=" . urlencode($sms);
-
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $URL);
         curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -274,15 +276,11 @@ class Order extends Model
         curl_setopt($ch, CURLOPT_POST, 0);
         try {
             $output = $content = curl_exec($ch);
-            //  print_r($output);
+          //  print_r($output);
         } catch (Exception $ex) {
-            $output = "-100";
+           return back();
         }
         return $output;
-
-
-
-
     }
 
     public static function adminOrderAnalysis(){

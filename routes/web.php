@@ -752,6 +752,9 @@ Route::post('api/edit/site/footer/info/{id}','FooterSettingController@edit_foote
     Route::post('api/transfer/product/into/showroom','ShowroomController@transferProducts');
 
 
+    Route::post('api/apply/membership','CustomerController@addMemberShip');
+    Route::get('api/get/membership/list','CustomerController@membersipList');
+    Route::get('api/remove/membership/{id}','CustomerController@removeMemberShip');
 
 });
 

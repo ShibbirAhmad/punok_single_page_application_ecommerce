@@ -382,8 +382,8 @@ class ProductController extends Controller
 
     public function searchWithCode($code){
         $product=Product::where('product_code',$code)->where('status',1)->first();
-        $product->{'purchase_price'}= intval(Purchaseitem::where('product_id',$product->id)->avg('price')) ;
-        if($product){
+         if($product){
+            $product->{'purchase_price'}= intval(Purchaseitem::where('product_id',$product->id)->avg('price')) ;
             $product_attributes=ProductAttribute::where('product_id',$product->id)->with('attribute')->get();
             $product_variants=ProductVariant::where('product_id',$product->id)->with('variant')->get();
             $data[] = array_merge($product->toArray(),['attributes' => $product_attributes, 'variants' =>$product_variants]);

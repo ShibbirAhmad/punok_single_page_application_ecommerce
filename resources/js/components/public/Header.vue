@@ -8,9 +8,9 @@
             <i class="fa fa-bars" id="__icon_fa_menu"></i>
           </li> -->
           <li>
-            <router-link to="/">
+            <a href="/">
             <img :src="base_url+general_setting.logo" class="site-logo" />
-            </router-link>
+            </a>
           </li>
           <li>
             <form id="search_form" class="header_search_form"  @submit.prevent="subMitAutoComppleteForm">

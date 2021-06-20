@@ -561,5 +561,15 @@ export default {
 
 
 
+ .extra_d a {
+    height: 32px;
+    position: relative;
+    margin: 10px 0px;
+    border-radius: 5px;
+    width: 72%;
+
+}
+
+
 }
 </style>
