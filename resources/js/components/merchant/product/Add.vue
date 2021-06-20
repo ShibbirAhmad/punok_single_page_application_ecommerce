@@ -205,7 +205,7 @@
                       :class="{ 'is-invalid': form.errors.has('quantity') }"
                       autocomplete="off"
                       placeholder="quantity"
-                      
+
                     />
                     <has-error :form="form" field="quantity"></has-error>
                   </div>
@@ -272,7 +272,7 @@
                     Image Gallery
                     <small>
                       <b>
-                        <i>(Every image can not be bigger than 350*350 px)</i>
+                        <i>(Every image can not be bigger than 1200*1200 px)</i>
                       </b>
                     </small>
                   </h3>
@@ -565,20 +565,27 @@ export default {
         alert("this is not any kind of image");
         return;
       }
+     if(file.size/1024 > 300){
+        Swal.fire({
+          type:'warning',
+          text:'File size can not be bigger then 300kb.Reference file size is'+file.size/1024 +'KB',
+        });
+        return;
+      }
 
       let reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = (evt) => {
         let img = new Image();
         img.onload = () => {
-          if (img.width <= 350 && img.height <= 350) {
+          if (img.width <= 1200 && img.height <= 1200) {
             this.form.image.push(file);
             this.form.files.push(evt.target.result);
             return;
           } else {
             this.disabled = true;
             alert(
-              "Image maximu size 350*350px.But Upload image size" +
+              "Image maximu size 1200*1200px.But Upload image size" +
                 img.width +
                 "*" +
                 img.height +

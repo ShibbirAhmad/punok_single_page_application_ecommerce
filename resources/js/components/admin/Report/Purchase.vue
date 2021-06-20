@@ -13,7 +13,7 @@
       <section class="content">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-lg-11">
+            <div class="col-lg-10">
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <div class="row" style="margin-bottom: 3px">
@@ -227,7 +227,7 @@ export default {
       return total;
     },
      downloadPDF(){
-      
+
         let start_date="All";
         let end_date="All";
 
@@ -239,7 +239,7 @@ export default {
         }
 
         window.open('/api/get/purchase/pdf/'+start_date+'/'+end_date,'_blank');
-      
+
     },
 
   },

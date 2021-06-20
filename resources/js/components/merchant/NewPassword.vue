@@ -2,11 +2,11 @@
  <div>
 
     <div  class="container">
- 
+
     <div  class="text-center">
       <h2 class="logo_mohasagor">
         <a>
-          <b style="color: #000">sufilifestyle</b>.com
+          <b style="color: #000"> {{ general_setting.title }} </b>
         </a>
       </h2>
     </div>
@@ -33,7 +33,7 @@
                   <has-error :form="form" field="password"></has-error>
                 </div>
                 <br />
-                
+
                 <div class="form-group">
                   <button :disabled="form.busy" class="btn btn-block btn-primary" type="submit">
                   <i class="fa fa-spinner fa-spin" v-if="form.busy"></i>Update Password
@@ -45,7 +45,7 @@
       <div class="col-md-4 col-sm-12"> </div>
     </div>
 
-  
+
  </div>
  </div>
 </template>
@@ -58,7 +58,9 @@ import LoginVue from "../public/Login.vue";
 Vue.component(HasError.name, HasError);
 
 export default {
-  created() {},
+  created() {
+      this.$store.dispatch('general_setting');
+  },
   data() {
     return {
        form: new Form({
@@ -97,6 +99,12 @@ export default {
         });
     },
   },
+
+ computed:{
+       general_setting() {
+           return this.$store.getters.general_setting;
+       },
+    }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -117,9 +125,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 .form-wrapper {
-   
+
     margin: 0px 10px;
- 
+
 }
 
 .form_column{

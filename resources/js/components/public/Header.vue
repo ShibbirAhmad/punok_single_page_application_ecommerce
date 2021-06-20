@@ -4,16 +4,16 @@
     <div class="main-header">
       <div class="container flex">
         <div class="main-header-left">
-          <li id="toggle-menu" @click="menuShow">
+          <!-- <li >
             <i class="fa fa-bars" id="__icon_fa_menu"></i>
-          </li>
+          </li> -->
           <li>
             <router-link to="/">
             <img :src="base_url+general_setting.logo" class="site-logo" />
             </router-link>
           </li>
           <li>
-            <form @submit.prevent="subMitAutoComppleteForm">
+            <form id="search_form" class="header_search_form"  @submit.prevent="subMitAutoComppleteForm">
               <input
                 type="text"
                 placeholder="search products "
@@ -91,13 +91,13 @@
 
           </li>
            <li>
-             <router-link  target="_blank" :to="{name : 'merchant_login' }" > <i class="fa fa-users"></i> Merchant</router-link> 
+             <router-link  target="_blank" :to="{name : 'merchant_login' }" > <i class="fa fa-users"></i> Merchant</router-link>
           </li>
         </div>
       </div>
     </div>
     <div class="menu" id="navbar">
-      <ul class="menu-list" id="menu-list">
+      <ul class="menu-list" id="menu_list">
         <li v-for="category in categories" :key="category.id" class="menu-item">
           <router-link
             :to="{ name: 'PublcaCategory', params: { slug: category.slug } }"
@@ -154,7 +154,7 @@
       </ul>
     </div>
 
-    
+
   </div>
   <div class="cart" id="s-cart">
       <div class="cart-header" @click="cartClosed">
@@ -215,9 +215,10 @@
         <p>Your cart is empty</p>
       </div>
       <div class="cart-footer">
-        <a @click.prevent="goToCheckOut" class="btn btn-block placebtn" href="#"
-          >Place Order | <span> {{ cart.total }}</span></a
-        >
+        <router-link v-if="Object.keys(user).length" :to="{name:'Chekout'}" class="btn btn-block placebtn"
+          >Place Order | <span> {{ cart.total }}</span></router-link>
+           <router-link v-else :to="{name:'otpLogin'}" class="btn btn-block placebtn"
+          >Place Order | <span> {{ cart.total }}</span></router-link>
       </div>
     </div>
 
@@ -228,6 +229,25 @@
       </div>
       <div class="cart-item-total">{{ cart.itemCount }} items</div>
     </div>
+
+
+
+  <div class="__footer_nav">
+    <ul>
+      <li> <a href="/"><i class="fa fa-home footer_icon"></i></a> </li>
+      <li> <a  @click.prevent="menuShow" href="/"><i class="fa fa-th-large footer_icon"></i></a> </li>
+      <li> <a @click="cartOpen" > <sup class="customize_c_item">{{cart.itemCount}}</sup> <i class="fa fa-shopping-cart footer_icon"></i></a> </li>
+      <li>
+            <router-link v-if="Object.keys(user).length"  :to="{name:'UserDashboard'}"> <i class="fa fa-user footer_icon"></i> </router-link>
+            <router-link v-else  :to="{name:'otpLogin'}"> <i class="fa fa-user footer_icon"></i> </router-link>
+      </li>
+      <li> <a ><i @click="searchToggle"   class="fa fa-search footer_icon"></i></a> </li>
+      <li>  <a :href="'tel:'+general_setting.header_contact_number"><i class="fa fa-phone footer_icon"></i></a> </li>
+    </ul>
+  </div>
+
+
+
   </div>
 </template>
 
@@ -241,15 +261,16 @@ export default {
       renderComponent: false,
       cartContents: null,
       cartTotal: "",
-
       display: "none",
-
       base_url: this.$store.state.image_base_link,
       search_products: [],
       search: "",
     };
   },
   methods: {
+    searchToggle(){
+       document.getElementById("search_form").classList.toggle("search_toggle");
+    },
     category() {
       axios
         .get("_public/category")
@@ -343,11 +364,11 @@ export default {
     },
 
     autocomplteSearch() {
-      if (this.search.length > 1) {
+      if (this.search.length > 2 ) {
         axios
           .get("/_public/search/products/" + this.search)
           .then((resp) => {
-            if (resp.data.length) {
+            if (resp.data.length > 1 ) {
               this.search_products = [];
               this.search_products.push(...resp.data);
             } else {
@@ -369,48 +390,37 @@ export default {
     },
     menuShow() {
       let clickMenu = document.getElementById("toggle-menu");
-      let main_menu = document.getElementById("menu-list");
+      let main_menu = document.getElementById("menu_list");
       main_menu.classList.toggle("collapse-manu");
-      let menu_icon = document.getElementById("__icon_fa_menu");
+      //let menu_icon = document.getElementById("__icon_fa_menu");
 
-      if (menu_icon.classList.contains("fa-bars")) {
-        menu_icon.classList.remove("fa-bars");
-        menu_icon.classList.add("fa-close");
-      } else {
-        menu_icon.classList.add("fa-bars");
-        menu_icon.classList.remove("fa-close");
-      }
+      // if (menu_icon.classList.contains("fa-bars")) {
+      //   menu_icon.classList.remove("fa-bars");
+      //   menu_icon.classList.add("fa-close");
+      // } else {
+      //   menu_icon.classList.add("fa-bars");
+      //   menu_icon.classList.remove("fa-close");
+      // }
     },
     cartOpen() {
-      document.getElementById("s-cart").classList.add("colapse-cart");
+      document.getElementById("s-cart").classList.toggle("colapse-cart");
     },
     cartClosed() {
       document.getElementById("s-cart").classList.remove("colapse-cart");
     },
-    goToCheckOut() {
-      let user = this.user;
-      if (user.mobile_no) {
-        this.$router.push({ name: "Chekout" });
-      } else {
-        this.$router.push({ name: "otpLogin" });
-      }
-    },
     shownextElement(e) {
-      let target_element = e.target;
-      let sub_menu_ul = target_element.nextSibling.nextElementSibling;
-      sub_menu_ul.classList.toggle("show");
-      target_element.classList.toggle("rotate");
 
-      console.log(target_element);
+      e.target.nextSibling.nextElementSibling.classList.toggle("show");
+
     },
     handleScrol(){
         let header=document.getElementById('__header_main');
-      
+
             // if (window.pageYOffset > 1500 ) {
             //   header.classList.add("__sticky");
             // } else {
             //   header.classList.remove("__sticky");
-            // } 
+            // }
     }
   },
 
@@ -457,4 +467,13 @@ ul.p-image-name li {
   padding: 0px 2px;
   font-size: 12px;
 }
+
+
+
+
+
+
+
+
+
 </style>

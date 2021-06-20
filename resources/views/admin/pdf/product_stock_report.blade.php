@@ -1,12 +1,12 @@
 
 
-<?php 
-// this is for count total quantity 
+<?php
+// this is for count total quantity
 $total_stock_quantity=0;
-   foreach ($stock_items as  $item) { 
-      $total_stock_quantity += intval($item->insert_quantity) ;  
-   }  
-     
+   foreach ($stock_items as  $item) {
+      $total_stock_quantity += intval($item->insert_quantity) ;
+   }
+
    // this total amount counter man
    $total_amount=0;
    foreach ($stock_items as $stock_item) {
@@ -25,7 +25,7 @@ $total_stock_quantity=0;
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>Document</title>
    <style>
-       
+
      * {
            margin: 0;
            padding: 0;
@@ -37,7 +37,7 @@ $total_stock_quantity=0;
            margin-bottom: 20px;
            line-height: 25px;
            text-align: center;
-           
+
        }
 
        .logo {
@@ -46,19 +46,19 @@ $total_stock_quantity=0;
 
        }
 
-       .container{ 
+       .container{
                      position:absolute;
                      width: 100%;
                      height:auto ;
-                 
+
                  }
         .table_container{
-           
+
             text-align: center;
             margin:5px;
         }
 
-   
+
 
           th, td {
            border-bottom: 1px solid #ddd;
@@ -74,25 +74,23 @@ $total_stock_quantity=0;
           td {
             text-align: center;
            }
-   </style>    
+   </style>
 </head>
 <body>
+    <?php
+        $setting = App\Models\GeneralSetting::latest()->first();
+    ?>
     <div class="container">
 
        <div class="address">
-           <p class="logo">Mohasagor.com</p>
-           <p class="address_line">
-               Office: Houes:02, Lane:11,Block:A, Banarosi Polli, section-10,
-               Mirpur,Dhaka.
-           </p>
-           <p>Email: support@mohasagor.com</p>
-           <p>Hot Line: <strong> 09636 203040</strong></p>
+       <p class="logo">sufilifestyle.com</p>
+       <p> {!! $setting->invoice_address_details !!} </p>
 
        </div>
 
          <div class="table_container">
                  <table class="table table-striped">
-       
+
                        <tr>
                            <th scope="col">Serial No</th>
                            <th scope="col">Proudct Name & Code </th>
@@ -102,7 +100,7 @@ $total_stock_quantity=0;
                            <th scope="col">Avarage Purchase Price</th>
                            <th scope="col">Total Purchase Price</th>
                        </tr>
-           
+
                        <tbody>
                         <?php $sn=0 ; ?>
                        @foreach ($stock_items as $key=> $stock_item)
@@ -120,7 +118,7 @@ $total_stock_quantity=0;
                             <div style="page-break-before: always"></div>
                         @endif
                        @endforeach
-                   
+
                        <tr>
                            <td colspan="3"></td>
                            <td style="width: 120px;">
@@ -137,6 +135,6 @@ $total_stock_quantity=0;
 
          </div>
     </div>
- 
+
   </body>
 </html>

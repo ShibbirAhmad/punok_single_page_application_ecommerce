@@ -8,7 +8,7 @@ use App\Models\SubCity;
 
 class SubCityController extends Controller
 {
-   
+
 
 
     public function get_sub_city_list()
@@ -44,11 +44,11 @@ class SubCityController extends Controller
             return response()->json([
                 'status' => 'FAIL',
                 'message' => "Failed"
-            ]);  
+            ]);
         }
     }
 
- 
+
     public function get_edit_item($id)
     {
         $city = SubCity::find($id);
@@ -119,16 +119,16 @@ class SubCityController extends Controller
         }
     }
 
-    
+
       public function search_sub_city($data){
-              
+
            $cities = SubCity::where('name','like','%'.$data.'%')->with('city')->paginate(20);
-           return response()->json(['cities'=>$cities]);   
+           return response()->json(['cities'=>$cities]);
       }
 
       public function cityWiseSubCity($city_id){
 
-        $sub_city=SubCity::where('city_id',$city_id)->get();
+        $sub_city=SubCity::where('city_id',$city_id)->orderBy("name")->get();
         return \response()->json($sub_city);
 
       }

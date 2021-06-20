@@ -13,6 +13,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-loading-overlay/dist/vue-loading.css */ "./node_modules/vue-loading-overlay/dist/vue-loading.css");
 /* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_image_zoomer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-image-zoomer */ "./node_modules/vue-image-zoomer/dist/vueImageZoom.js");
+/* harmony import */ var vue_image_zoomer__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_image_zoomer__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lazysizes */ "./node_modules/lazysizes/lazysizes.js");
+/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lazysizes__WEBPACK_IMPORTED_MODULE_3__);
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -228,6 +232,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -286,7 +295,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         // console.log(resp);
         if (resp.data.status == "SUCCESS") {
           _this2.$toasted.show(resp.data.message, {
-            position: "bottom-left",
+            position: "top-center",
             type: "success",
             duration: 2000
           });
@@ -294,7 +303,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           _this2.$store.dispatch("getCartContent");
         } else if (resp.data.status == "error") {
           _this2.$toasted.show(resp.data.message, {
-            position: "bottom-center",
+            position: "top-center",
             type: "error",
             duration: 4000
           });
@@ -336,7 +345,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           }
         } else if (resp.data.status == "error") {
           _this3.$toasted.show(resp.data.message, {
-            position: "bottom-center",
+            position: "top-center",
             type: "error",
             duration: 4000
           });
@@ -414,7 +423,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
   },
   components: {
-    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_0___default.a
+    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_0___default.a,
+    imageZoom: vue_image_zoomer__WEBPACK_IMPORTED_MODULE_2___default.a
   },
   watch: {
     product_images: function product_images(value) {
@@ -525,11 +535,13 @@ var render = function() {
                               "col-lg-6 col-md-6 product-image-viewer"
                           },
                           [
-                            Object.keys(_vm.product_images).length
-                              ? _c("ProductZoomer", {
+                            _vm.product_images.length
+                              ? _c("image-zoom", {
                                   attrs: {
-                                    "base-images": _vm.product_images,
-                                    "base-zoomer-options": _vm.zoomerOptions
+                                    regular:
+                                      _vm.base_url +
+                                      _vm.product_images[0].product_image,
+                                    "img-class": "single_product_image"
                                   }
                                 })
                               : _vm._e()
@@ -677,7 +689,11 @@ var render = function() {
                                               },
                                               [
                                                 _vm._v(
-                                                  _vm._s(variant.variant.name)
+                                                  _vm._s(
+                                                    variant.variant
+                                                      ? variant.variant.name
+                                                      : ""
+                                                  )
                                                 )
                                               ]
                                             )
@@ -749,7 +765,7 @@ var render = function() {
                                 }
                               }
                             },
-                            [_vm._v("Add to Cart")]
+                            [_vm._v("Add to Bag ")]
                           )
                         ]),
                         _vm._v(" "),
@@ -865,7 +881,7 @@ var render = function() {
                       {
                         key: index,
                         staticClass:
-                          "col-lg-2 col-sm-6 col-md-6 col-xs-6 width-20"
+                          "col-lg-2 col-sm-6 col-md-6 col-xs-6 width-20 small_width"
                       },
                       [
                         _c("div", { staticClass: "product-card " }, [
@@ -930,7 +946,40 @@ var render = function() {
                                       ? _c(
                                           "span",
                                           { staticClass: "price-old" },
-                                          [_vm._v(_vm._s(product.sale_price))]
+                                          [
+                                            _vm._v(
+                                              "৳ " + _vm._s(product.sale_price)
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    product.discount > 0
+                                      ? _c(
+                                          "span",
+                                          { staticClass: "discount" },
+                                          [
+                                            _c("i", {
+                                              staticClass:
+                                                "fa fa-star discount_star"
+                                            }),
+                                            _vm._v(
+                                              " " +
+                                                _vm._s(
+                                                  (
+                                                    (product.discount /
+                                                      product.sale_price) *
+                                                    100
+                                                  ).toFixed(0)
+                                                ) +
+                                                "%  "
+                                            ),
+                                            _c(
+                                              "span",
+                                              { staticClass: "d_off" },
+                                              [_vm._v("off")]
+                                            )
+                                          ]
                                         )
                                       : _vm._e()
                                   ])

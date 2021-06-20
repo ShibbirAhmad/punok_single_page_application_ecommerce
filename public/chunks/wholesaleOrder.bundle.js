@@ -413,6 +413,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -626,8 +656,50 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
-    delivered: function delivered(order, index) {
+    OrderCourier: function OrderCourier() {
       var _this7 = this;
+
+      //start the progress bar
+      this.$Progress.start();
+      var order_index = this.courier.order_index;
+      axios.post("/order/courier/update/" + this.courier.order_id, {
+        courier_id: this.courier.courier_id,
+        memo_no: this.courier.memo_no
+      }).then(function (resp) {
+        //end progressbar after resp...........
+        _this7.$Progress.finish();
+
+        if (resp.data.status == "SUCCESS") {
+          _this7.$modal.hide("example");
+
+          console.log(resp.data.courier);
+
+          if (resp.data.order.courier_id) {
+            _this7.orders.data[order_index].courier_id = resp.data.order.courier_id;
+          }
+
+          if (resp.data.order.memo_no) {
+            _this7.orders.data[order_index].memo_no = resp.data.order.memo_no;
+          }
+
+          if (resp.data.courier) {
+            _this7.orders.data[order_index].courier = resp.data.courier;
+          }
+
+          _this7.courier.courier_id = "";
+          _this7.courier.memo_no = "", _this7.$toasted.show(resp.data.message, {
+            type: "success",
+            position: "top-center",
+            duration: 2000
+          });
+        }
+      })["catch"](function (error) {
+        console.log(error);
+        alert("some thing want wrong");
+      });
+    },
+    delivered: function delivered(order, index) {
+      var _this8 = this;
 
       /////index initial for update order from orderLit or order arrow.
       //start progress bar
@@ -635,43 +707,6 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("/delivered/order/" + order.id).then(function (resp) {
         console.log(resp); //end progress bar after resp
 
-        _this7.$Progress.finish(); //only success resp .......
-
-
-        if (resp.data.status == "SUCCESS") {
-          _this7.$toasted.show(resp.data.message, {
-            type: "success",
-            position: "top-center",
-            duration: 2000
-          });
-
-          _this7.orders.data[index].status = 5;
-        } //any kind of error resp
-        else {
-            _this7.$toasted.show("some thing want to wrong", {
-              type: "error",
-              position: "top-center",
-              duration: 2000
-            });
-          }
-      })["catch"](function (error) {
-        console.log(error);
-
-        _this7.$toasted.show("some thing want to wrong", {
-          type: "error",
-          position: "top-center",
-          duration: 4000
-        });
-      });
-    },
-    shipment: function shipment(order, index) {
-      var _this8 = this;
-
-      /////index initial for update order from orderLit or order arrow.
-      //start progress bar
-      this.$Progress.start();
-      axios.get("/shipment/order/" + order.id).then(function (resp) {
-        //end progress bar after resp
         _this8.$Progress.finish(); //only success resp .......
 
 
@@ -682,11 +717,9 @@ __webpack_require__.r(__webpack_exports__);
             duration: 2000
           });
 
-          _this8.orders.data[index].status = 4;
+          _this8.orders.data[index].status = 5;
         } //any kind of error resp
         else {
-            _this8.$Progress.finish();
-
             _this8.$toasted.show("some thing want to wrong", {
               type: "error",
               position: "top-center",
@@ -703,17 +736,22 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
-    pending: function pending(order, index) {
+    shipment: function shipment(order_id, index) {
       var _this9 = this;
 
-      /////index initial for update order from orderLit or order arrow.
-      //start progress bar
+      if (!this.orders.data[index].courier_id) {
+        alert('please select a courier');
+        return;
+      }
+
+      if (!this.orders.data[index].memo_no) {
+        alert('Must Be Need Memo Number');
+        return;
+      }
+
       this.$Progress.start();
-      axios.get("/pending/order/" + order.id).then(function (resp) {
-        console.log(resp); //end progress bar after resp
-
-        _this9.$Progress.finish(); //only success resp .......
-
+      axios.get("/shipment/order/" + order_id).then(function (resp) {
+        console.log(resp);
 
         if (resp.data.status == "SUCCESS") {
           _this9.$toasted.show(resp.data.message, {
@@ -722,12 +760,37 @@ __webpack_require__.r(__webpack_exports__);
             duration: 2000
           });
 
-          _this9.orders.data[index].status = 2;
+          _this9.orders.data[index].status = 4;
+
+          _this9.$Progress.finish();
+        }
+      });
+    },
+    pending: function pending(order, index) {
+      var _this10 = this;
+
+      /////index initial for update order from orderLit or order arrow.
+      //start progress bar
+      this.$Progress.start();
+      axios.get("/pending/order/" + order.id).then(function (resp) {
+        console.log(resp); //end progress bar after resp
+
+        _this10.$Progress.finish(); //only success resp .......
+
+
+        if (resp.data.status == "SUCCESS") {
+          _this10.$toasted.show(resp.data.message, {
+            type: "success",
+            position: "top-center",
+            duration: 2000
+          });
+
+          _this10.orders.data[index].status = 2;
         } //any kibd off error resp
         else {
-            _this9.$Progress.finish();
+            _this10.$Progress.finish();
 
-            _this9.$toasted.show("some thing want to wrong", {
+            _this10.$toasted.show("some thing want to wrong", {
               type: "error",
               position: "top-center",
               duration: 2000
@@ -736,7 +799,7 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
 
-        _this9.$toasted.show("some thing want to wrong", {
+        _this10.$toasted.show("some thing want to wrong", {
           type: "error",
           position: "top-center",
           duration: 4000
@@ -745,7 +808,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     //method initial for order search
     orderSearch: function orderSearch() {
-      var _this10 = this;
+      var _this11 = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
 
@@ -757,8 +820,8 @@ __webpack_require__.r(__webpack_exports__);
         axios.get("/order/search/" + this.search + "?page=" + page).then(function (resp) {
           //if success resp
           if (resp.data.status == "SUCCESS") {
-            _this10.orders = resp.data.orders;
-            _this10.loading = false;
+            _this11.orders = resp.data.orders;
+            _this11.loading = false;
           }
         }) //for any kind of error
         ["catch"](function (error) {
@@ -773,7 +836,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     //method initial for filter order, data to date, and single data......
     filterOrder: function filterOrder() {
-      var _this11 = this;
+      var _this12 = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       //start progressbar
@@ -791,13 +854,13 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (resp) {
         //only success resp ........
-        _this11.$Progress.finish();
+        _this12.$Progress.finish();
 
-        _this11.loading = false;
+        _this12.loading = false;
 
         if (resp.data.status == "SUCCESS") {
-          _this11.orders = resp.data.orders;
-          _this11.loading = false;
+          _this12.orders = resp.data.orders;
+          _this12.loading = false;
         }
       })["catch"](function (error) {
         console.log(error);
@@ -875,6 +938,23 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       console.log(this.bulk_status);
+    },
+    //method open for open courier modal
+    courierModal: function courierModal(order, index) {
+      //set courier list first
+      this.others(); //set courier -> order id
+
+      this.courier.order_id = order.id; // get courier from couerir order list by the index number
+
+      this.courier.order_index = index;
+
+      if (order.courier_id) {
+        //console.log(order.courier_id)
+        this.courier.courier_id = order.courier_id;
+      } //after set all data, open courier modal .........
+
+
+      this.$modal.show("example");
     }
   },
   watch: {
@@ -924,7 +1004,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.orders-heading {\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n  border-bottom: 2px solid #000;\r\n  margin-bottom: 10px;\n}\r\n", ""]);
+exports.push([module.i, "\n.orders-heading {\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n  border-bottom: 2px solid #000;\r\n  margin-bottom: 10px;\n}\n.box{\r\n  width:100%;\r\n  overflow-x: scroll;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -1085,7 +1165,7 @@ var render = function() {
         _c("section", { staticClass: "content" }, [
           _c("div", { staticClass: "container" }, [
             _c("div", { staticClass: "row justify-content-center" }, [
-              _c("div", { staticClass: "col-lg-11" }, [
+              _c("div", { staticClass: "col-lg-10" }, [
                 _c("div", { staticClass: "box box-primary" }, [
                   _c("div", { staticClass: "box-header with-border" }, [
                     _c("div", { staticClass: "row" }, [
@@ -1796,7 +1876,7 @@ var render = function() {
                                               on: {
                                                 click: function($event) {
                                                   return _vm.shipment(
-                                                    order,
+                                                    order.id,
                                                     index
                                                   )
                                                 }
@@ -1877,7 +1957,7 @@ var render = function() {
                                     1
                                   ),
                                   _vm._v(" "),
-                                  _c("td", [
+                                  _c("td", { staticStyle: { width: "1%" } }, [
                                     order.courier_id
                                       ? _c("small", [
                                           _vm._v(_vm._s(order.courier.name))
@@ -1891,7 +1971,21 @@ var render = function() {
                                         attrs: { if: "order.memo_no" }
                                       },
                                       [_vm._v(_vm._s(order.memo_no))]
-                                    )
+                                    ),
+                                    _vm._v(" "),
+                                    order.status == 3 || order.status == 4
+                                      ? _c("i", {
+                                          staticClass: "fa fa-edit",
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.courierModal(
+                                                order,
+                                                index
+                                              )
+                                            }
+                                          }
+                                        })
+                                      : _vm._e()
                                   ])
                                 ])
                               })
@@ -1950,6 +2044,121 @@ var render = function() {
                 ])
               ])
             ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("modal", { attrs: { name: "example", width: 300, height: 200 } }, [
+        _c("div", { staticClass: "card", staticStyle: { padding: "10px" } }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.OrderCourier($event)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Courier")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.courier.courier_id,
+                          expression: "courier.courier_id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.courier,
+                            "courier_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "" } }, [
+                        _vm._v("Select Courier")
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.couriers, function(courier) {
+                        return _c(
+                          "option",
+                          { domProps: { value: courier.id } },
+                          [
+                            _vm._v(
+                              "\n                " +
+                                _vm._s(courier.name) +
+                                "\n              "
+                            )
+                          ]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Memo_number")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.courier.memo_no,
+                        expression: "courier.memo_no"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { placeholder: "Enter memo number" },
+                    domProps: { value: _vm.courier.memo_no },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.courier, "memo_no", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group text-center" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("submit")]
+                  )
+                ])
+              ]
+            )
           ])
         ])
       ])

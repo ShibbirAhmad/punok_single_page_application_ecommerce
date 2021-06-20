@@ -125,6 +125,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -174,6 +187,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
           _this.form.title = resp.data.setting.title;
           _this.form.logo = resp.data.setting.logo;
           _this.form.icon = resp.data.setting.icon;
+          _this.form.wallet_point_value = resp.data.setting.wallet_point_value;
           _this.form.header_contact_number = resp.data.setting.header_contact_number;
           _this.form.invoice_address_details = resp.data.setting.invoice_address_details;
 
@@ -533,54 +547,111 @@ var render = function() {
                             })
                           ]),
                           _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "form-group" },
-                            [
-                              _c("label", [_vm._v(" Header Contact Number ")]),
-                              _vm._v(" "),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.form.header_contact_number,
-                                    expression: "form.header_contact_number"
-                                  }
-                                ],
-                                staticClass: "form-control",
-                                class: {
-                                  "is-invalid": _vm.form.errors.has(
-                                    "header_contact_number"
-                                  )
-                                },
-                                attrs: { type: "text" },
-                                domProps: {
-                                  value: _vm.form.header_contact_number
-                                },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-md-6" }, [
+                              _c(
+                                "div",
+                                { staticClass: "form-group" },
+                                [
+                                  _c("label", [
+                                    _vm._v(" Header Contact Number ")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.header_contact_number,
+                                        expression: "form.header_contact_number"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    class: {
+                                      "is-invalid": _vm.form.errors.has(
+                                        "header_contact_number"
+                                      )
+                                    },
+                                    attrs: { type: "text" },
+                                    domProps: {
+                                      value: _vm.form.header_contact_number
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "header_contact_number",
+                                          $event.target.value
+                                        )
+                                      }
                                     }
-                                    _vm.$set(
-                                      _vm.form,
-                                      "header_contact_number",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("has-error", {
-                                attrs: {
-                                  form: _vm.form,
-                                  field: "header_contact_number"
-                                }
-                              })
-                            ],
-                            1
-                          ),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("has-error", {
+                                    attrs: {
+                                      form: _vm.form,
+                                      field: "header_contact_number"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-6" }, [
+                              _c(
+                                "div",
+                                { staticClass: "form-group" },
+                                [
+                                  _vm._m(2),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.wallet_point_value,
+                                        expression: "form.wallet_point_value"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    class: {
+                                      "is-invalid": _vm.form.errors.has(
+                                        "wallet_point_value"
+                                      )
+                                    },
+                                    attrs: { type: "text" },
+                                    domProps: {
+                                      value: _vm.form.wallet_point_value
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "wallet_point_value",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("has-error", {
+                                    attrs: {
+                                      form: _vm.form,
+                                      field: "wallet_point_value"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ])
+                          ]),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -682,8 +753,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "box-header text-center with-border" }, [
       _c("h3", { staticClass: "box-title " }, [
-        _vm._v("\n                General Information \n              ")
+        _vm._v("\n                General Information\n              ")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v(" wallet point value "),
+      _c("small", [_vm._v(" ex: 2 point = 1 Taka")])
     ])
   }
 ]

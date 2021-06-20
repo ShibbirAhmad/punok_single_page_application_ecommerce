@@ -145,7 +145,8 @@ export default {
     });
   },
   components:{
-    Loading
+    Loading,
+    HasError
   }
 };
 </script>

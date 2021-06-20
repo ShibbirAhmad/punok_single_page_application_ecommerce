@@ -19,8 +19,11 @@ class Product extends Model
         'sale_price',
         'discount',
         'price',
+        'wallet_point',
         'status',
         'details',
+        'campaign_id',
+        'expired_date',
         'product_placement',
         'product_position'
     ];

@@ -9,11 +9,9 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
-/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Sidebar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sidebar.vue */ "./resources/js/components/public/user/Sidebar.vue");
-//
-//
+/* harmony import */ var _Sidebar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Sidebar.vue */ "./resources/js/components/public/user/Sidebar.vue");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -119,7 +117,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["categories"],
+  // props: ["categories"],
   created: function created() {
     this.getCity();
     this.user();
@@ -128,7 +126,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       order_lists: {},
       loading: true,
-      form: new vform__WEBPACK_IMPORTED_MODULE_0__["Form"]({
+      form: new vform__WEBPACK_IMPORTED_MODULE_1__["Form"]({
         name: "",
         email: "",
         mobile_no: "",
@@ -191,7 +189,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   components: {
-    sidebar: _Sidebar_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    sidebar: _Sidebar_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    HasError: vform__WEBPACK_IMPORTED_MODULE_1__["HasError"]
   }
 });
 
@@ -247,20 +246,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   crated: function crated() {
     this.$store.dispatch("user");
@@ -269,6 +254,15 @@ __webpack_require__.r(__webpack_exports__);
     return {
       base_url: this.$store.state.image_base_link
     };
+  },
+  methods: {
+    colorChange: function colorChange() {//  let list_i = document.getElementsByClassName("router-link-active");
+      //      if(list_i.parentElement.classList.contains('active')){
+      //         list_i.parentElement.classList.remove("active");
+      //       } else {
+      //         list_i.parentElement.classList.add("active");
+      //     }
+    }
   },
   computed: {
     user: function user() {
@@ -291,7 +285,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.content[data-v-286a7013]{\r\n  background:#fff;\r\n  padding: 20px 20px;\n}\r\n", ""]);
+exports.push([module.i, "\n.form-container[data-v-286a7013]{\n   height: 420px;\n   margin-bottom: 50px;\n   margin-top: 26px;\n   box-shadow:1px 1px 5px 3px #ddd;\n}\n.content[data-v-286a7013]{\n  background:#fff;\n  padding: 20px 20px;\n}\n", ""]);
 
 // exports
 
@@ -310,7 +304,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.user_profile_icon[data-v-7943ac3a]{\r\n\r\n       width:150px;height:150px;\n}\n@media screen and (max-width: 650px) {\n.user_profile_icon[data-v-7943ac3a]{\r\n\r\n       width:50px;height:50px;\n}\n}\r\n\r\n \r\n", ""]);
+exports.push([module.i, "\n.user_sidebar[data-v-7943ac3a]{\r\n\r\n    margin-top:25px;\r\n    height: 350px;\r\n    background: #F9DFC0;\n}\n.list-group[data-v-7943ac3a]{\r\n    padding-top:25px;\n}\nul li a[data-v-7943ac3a]{\r\n     color: #fff;\r\n    background-color: #dd8a24;\r\n    padding: 10px;\r\n    float: left;\r\n    display: block;\r\n    width: 100%;\r\n    margin-top:5px;\n}\n.router-link-exact-active[data-v-7943ac3a] {\r\n   background-color: #ff4d0c !important;\n}\ni[data-v-7943ac3a] {\r\n   font-size:14px;\n}\n.customer_icon[data-v-7943ac3a]{\r\n   font-size:80px;\n}\n.customer_name[data-v-7943ac3a]{\r\n   font-size:18px;\r\n   color:#000;\r\n   text-transform: uppercase;\n}\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -405,10 +399,7 @@ var render = function() {
           _c("div", { staticClass: "container" }, [
             _c(
               "div",
-              {
-                staticClass: "row flex",
-                staticStyle: { "min-height": "400px" }
-              },
+              { staticClass: "row ", staticStyle: { "min-height": "400px" } },
               [
                 _c("sidebar"),
                 _vm._v(" "),
@@ -619,7 +610,7 @@ var render = function() {
                               },
                               attrs: {
                                 type: "email",
-                                name: "mobile_no",
+                                name: "email",
                                 autocomplete: "off"
                               },
                               domProps: { value: _vm.form.email },
@@ -755,126 +746,85 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "col-md-2 col-sm-2" }, [
-      _c("div", { staticClass: "dropdown user_dropdown " }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "dropdown-menu",
-            attrs: { "aria-labelledby": "dropdownMenuButton" }
-          },
-          [
-            _c("ul", { staticClass: "list-group" }, [
-              _c(
-                "li",
-                { staticClass: "list-group-item" },
-                [
-                  _c(
-                    "router-link",
-                    { attrs: { to: { name: "UserDashboard" } } },
-                    [
-                      _c("i", { staticClass: "fa fa-dashboard" }),
-                      _vm._v(" Dashboard\n                ")
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "list-group-item" },
-                [
-                  _c(
-                    "router-link",
-                    { attrs: { to: { name: "UserProfile" } } },
-                    [
-                      _c("i", { staticClass: "fa fa-user" }),
-                      _vm._v(" profile\n                ")
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "list-group-item" },
-                [
-                  _c(
-                    "router-link",
-                    { attrs: { to: { name: "UserProfileEdit" } } },
-                    [
-                      _c("i", { staticClass: "fa fa-edit" }),
-                      _vm._v(" Edit Profile")
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "list-group-item" },
-                [
-                  _c(
-                    "router-link",
-                    { attrs: { to: { name: "PasswordEdit" } } },
-                    [
-                      _c("i", { staticClass: "fa fa-key" }),
-                      _vm._v(" change password")
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "list-group-item" },
-                [
-                  _c(
-                    "router-link",
-                    { attrs: { to: { name: "user_new_password_set" } } },
-                    [
-                      _c("i", { staticClass: "fa fa-key" }),
-                      _vm._v(" set new password")
-                    ]
-                  )
-                ],
-                1
-              )
+    _c("div", { staticClass: "col-md-2 " }, [
+      _c("div", { staticClass: "user_sidebar" }, [
+        _c("ul", { staticClass: "list-group", attrs: { id: "list_group" } }, [
+          _c("li", { staticClass: "text-center" }, [
+            _c("i", { staticClass: "fa fa-user customer_icon" }),
+            _vm._v(" "),
+            _c("p", { staticClass: "customer_name" }, [
+              _vm._v(" " + _vm._s(_vm.user.name) + " ")
             ])
-          ]
-        )
+          ]),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c("router-link", { attrs: { to: { name: "UserDashboard" } } }, [
+                _c("i", { staticClass: "fa fa-dashboard " }),
+                _vm._v(" Dashboard\n                ")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c("router-link", { attrs: { to: { name: "UserProfile" } } }, [
+                _c("i", { staticClass: "fa fa-user " }),
+                _vm._v(" Profile\n                ")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c(
+                "router-link",
+                { attrs: { to: { name: "UserProfileEdit" } } },
+                [
+                  _c("i", { staticClass: "fa fa-edit " }),
+                  _vm._v(" Edit Profile")
+                ]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c("router-link", { attrs: { to: { name: "PasswordEdit" } } }, [
+                _c("i", { staticClass: "fa fa-key " }),
+                _vm._v(" Change Password")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c(
+                "router-link",
+                { attrs: { to: { name: "user_new_password_set" } } },
+                [
+                  _c("i", { staticClass: "fa fa-key " }),
+                  _vm._v(" Set New Password")
+                ]
+              )
+            ],
+            1
+          )
+        ])
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn dropdown-toggle",
-        staticStyle: { background: "#fff" },
-        attrs: {
-          type: "button",
-          id: "dropdownMenuButton",
-          "data-toggle": "dropdown",
-          "aria-haspopup": "true",
-          "aria-expanded": "false"
-        }
-      },
-      [_c("i", { staticClass: "fa fa-bars" })]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

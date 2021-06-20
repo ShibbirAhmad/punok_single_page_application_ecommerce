@@ -61,7 +61,7 @@
       <section class="content">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-lg-11">
+            <div class="col-lg-10">
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <div class="row">
@@ -313,7 +313,7 @@
                           <button
                             class="btn btn-sm btn-primary action-btn"
                             v-if="order.status == 3"
-                            @click="shipment(order, index)"
+                            @click="shipment(order.id, index)"
                           >
                             Shipment
                           </button>
@@ -348,14 +348,17 @@
                             >View</router-link
                           >
                         </td>
-                        <td>
-                          <small v-if="order.courier_id">{{
-                            order.courier.name
-                          }}</small>
+                        <td style="width: 1%">
+                          <small v-if="order.courier_id">{{ order.courier.name }}</small>
                           <span class="badge" if="order.memo_no">{{
                             order.memo_no
                           }}</span>
-                        
+
+                          <i
+                            class="fa fa-edit"
+                            v-if="order.status == 3 || order.status == 4"
+                            @click="courierModal(order, index)"
+                          ></i>
                         </td>
                       </tr>
                     </tbody>
@@ -395,7 +398,34 @@
         </div>
       </section>
     </div>
- 
+    <modal name="example" :width="300" :height="200">
+      <div style="padding:10px" class="card">
+        <div class="card-body">
+          <form @submit.prevent="OrderCourier">
+            <div class="form-group">
+              <label>Courier</label>
+              <select name class="form-control" v-model="courier.courier_id">
+                <option value>Select Courier</option>
+                <option v-for="courier in couriers" :value="courier.id">
+                  {{ courier.name }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Memo_number</label>
+              <input
+                class="form-control"
+                v-model="courier.memo_no"
+                placeholder="Enter memo number"
+              />
+            </div>
+            <div class="form-group text-center">
+              <button type="submit" class="btn btn-success">submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </modal>
   </div>
 </template>
 
@@ -626,6 +656,46 @@ export default {
         });
     },
 
+      OrderCourier() {
+      //start the progress bar
+      this.$Progress.start();
+      let order_index = this.courier.order_index;
+      axios
+        .post("/order/courier/update/" + this.courier.order_id, {
+          courier_id: this.courier.courier_id,
+          memo_no: this.courier.memo_no,
+        })
+        .then((resp) => {
+          //end progressbar after resp...........
+          this.$Progress.finish();
+          if (resp.data.status == "SUCCESS") {
+            this.$modal.hide("example");
+            console.log(resp.data.courier);
+
+            if (resp.data.order.courier_id) {
+              this.orders.data[order_index].courier_id = resp.data.order.courier_id;
+            }
+            if (resp.data.order.memo_no) {
+              this.orders.data[order_index].memo_no = resp.data.order.memo_no;
+            }
+            if (resp.data.courier) {
+              this.orders.data[order_index].courier = resp.data.courier;
+            }
+            this.courier.courier_id = "";
+            (this.courier.memo_no = ""),
+              this.$toasted.show(resp.data.message, {
+                type: "success",
+                position: "top-center",
+                duration: 2000,
+              });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("some thing want wrong");
+        });
+    },
+
     delivered(order, index) {
       /////index initial for update order from orderLit or order arrow.
 
@@ -666,18 +736,22 @@ export default {
         });
     },
 
-    shipment(order, index) {
-      /////index initial for update order from orderLit or order arrow.
+      shipment(order_id, index) {
 
-      //start progress bar
-      this.$Progress.start();
-      axios
-        .get("/shipment/order/" + order.id)
+    if(!this.orders.data[index].courier_id){
+      alert('please select a courier')
+      return;
+    }
+
+    if(!this.orders.data[index].memo_no){
+      alert('Must Be Need Memo Number')
+      return;
+    }
+
+     this.$Progress.start();
+          axios.get("/shipment/order/"+ order_id)
         .then((resp) => {
-          //end progress bar after resp
-          this.$Progress.finish();
-
-          //only success resp .......
+          console.log(resp);
           if (resp.data.status == "SUCCESS") {
             this.$toasted.show(resp.data.message, {
               type: "success",
@@ -685,26 +759,13 @@ export default {
               duration: 2000,
             });
             this.orders.data[index].status = 4;
-          }
-          //any kind of error resp
-          else {
-            this.$Progress.finish();
 
-            this.$toasted.show("some thing want to wrong", {
-              type: "error",
-              position: "top-center",
-              duration: 2000,
-            });
+           this.$Progress.finish();
           }
+
         })
-        .catch((error) => {
-          console.log(error);
-          this.$toasted.show("some thing want to wrong", {
-            type: "error",
-            position: "top-center",
-            duration: 4000,
-          });
-        });
+
+
     },
 
     pending(order, index) {
@@ -892,6 +953,28 @@ export default {
 
       console.log(this.bulk_status);
     },
+        //method open for open courier modal
+
+    courierModal(order, index) {
+      //set courier list first
+      this.others();
+
+      //set courier -> order id
+      this.courier.order_id = order.id;
+
+      // get courier from couerir order list by the index number
+
+      this.courier.order_index = index;
+
+      if (order.courier_id) {
+        //console.log(order.courier_id)
+        this.courier.courier_id = order.courier_id;
+      }
+
+      //after set all data, open courier modal .........
+      this.$modal.show("example");
+    },
+
   },
 
   watch: {
@@ -936,4 +1019,9 @@ export default {
   border-bottom: 2px solid #000;
   margin-bottom: 10px;
 }
+.box{
+  width:100%;
+  overflow-x: scroll;
+}
+
 </style>

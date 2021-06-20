@@ -21,7 +21,7 @@
       <section class="content">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-lg-11">
+            <div class="col-lg-10">
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <div class="row">
@@ -112,13 +112,13 @@
                             v-if="debit.signature"
                             :src="basePath + debit.signature"
                             style="width:100px;height:40px;"
-                            
+
                           />
                          </a>
                         </td>
                         <td>{{ debit.admin.name }}</td>
                     <td>
-                          <router-link
+                          <!-- <router-link
                           v-if="$can('edit debit')"
                             :to="{
                               name: 'debitEdit',
@@ -126,7 +126,7 @@
                             }"
                             class="btn btn-success btn-sm"
                             ><i class="fa fa-edit"></i
-                          ></router-link>
+                          ></router-link> -->
 
                           <a
                             v-if="current_date == debit.date && $can('delete debit')"
@@ -213,7 +213,7 @@ export default {
           },
         })
         .then((resp) => {
-      
+
           this.debits = resp.data;
           this.loading = false;
         })
@@ -337,4 +337,7 @@ export default {
 </script>
 
 <style scoped>
+.box-primary{
+  overflow-x:scroll;
+}
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div>
-     <loading :active.sync="isLoading" 
-        
+     <loading :active.sync="isLoading"
+
         :is-full-page="fullPage"></loading>
       <div  v-if="quick_view_modal" style="display:block;" class="modal modal_overlay" >
         <div class="modal-dialog modal-xl" >
@@ -13,7 +13,7 @@
                <i  class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
                <span class="sr-only">Loading...</span>
               </div>
-               
+
               <div v-else class="quick_content">
                   <div class="modal-header">
                     <h5 class="modal-title"></h5>
@@ -22,14 +22,14 @@
                     </button>
                     </div>
                   <div class="modal-body">
-  
+
                     <div class="row">
                       <div class="col-md-4 col-sm-12">
                           <img class="quick_view_image" v-if="quick_view_product.product_image" :src="base_url+quick_view_product.product_image[0].product_image" alt="">
                       </div>
 
                        <div class="col-md-4 col-sm-12">
-                       
+
                       <ul class="list-unstyled description">
                                <li>
                       <h4 class="title" itemprop="name">{{  quick_view_product.name  }}</h4>
@@ -52,8 +52,10 @@
                           <ul class="price-box">
                           <li class="price">
                           <h3>
-                              <span class="price-old" v-if="quick_view_product.discount">&#2547 {{quick_view_product.sale_price}}</span>
-                            <span class="price-new">&#2547 {{quick_view_product.price}}</span>
+                            <span class="price-old" v-if="quick_view_product.discount">&#2547; {{quick_view_product.sale_price}}</span>
+                            <span class="price-new">&#2547; {{quick_view_product.price}}</span>
+                              <span v-if="quick_view_product.discount > 0" class="discount"> <i class="fa fa-star discount_star"> </i> {{ ((quick_view_product.discount/quick_view_product.sale_price)*100).toFixed(0) }}%  <span class="d_off">off</span> </span>
+
                           </h3>
                           </li>
                           <li></li>
@@ -109,9 +111,9 @@
                                 id="button-cart"
                                 class="btn btn-primary btn-lg  btn-block"
                                 style="margin-top:38px;"
-                              
-                          
-                          >Add to Cart</button>
+
+
+                          >Add to Bag </button>
                         </div>
                     </div>
                   </div>
@@ -119,20 +121,20 @@
 
                       <div class="col-md-4 col-sm-12 ">
                        <p class="quick_description" v-html="quick_view_product.details" >  </p>
-                        
+
                       </div>
                     </div>
 
                     <div class="row related_quick_row">
-                         <div class="r_quick_heading text-center"> 
+                         <div class="r_quick_heading text-center">
                             <h4 class="heading"> Recomended Products </h4>
                          </div>
                          <div class="r_quick_body">
 
-                            <div v-for="(r_product,index) in recommended_products " :key="index" class="col-md-2 "> 
+                            <div v-for="(r_product,index) in recommended_products " :key="index" class="col-md-2 ">
                                   <img :src="base_url+r_product.product_image[0].product_image" class="img-responsive r_p_image" >
                                   <a class="r_p_title" @mouseover.prevent="recommended_replace(index)" >{{ r_product.name }} </a>
-                                  
+
                             </div>
 
                          </div>
@@ -144,7 +146,7 @@
               </div>
             </div>
           </div>
-         
+
         </div>
       </div>
     </div>
@@ -184,10 +186,10 @@ export default {
   },
 
   methods: {
-    
+
     productQuickView() {
       this.$Progress.start();
-      
+
       axios
         .get(
           "/_public/api/get/single/prodocut/for/quick/view/" + this.quick_v_p_id

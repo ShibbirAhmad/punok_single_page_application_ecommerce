@@ -58,7 +58,7 @@
                         <option value="INVOICE PRINT">Invoice Print</option>
                       </select>
                     </div>
-                    <div class="col-lg-4 col-lg-offset-1 orders-heading">
+                    <div class="col-lg-4  orders-heading">
                       <h3 class="box-title">{{ heading }}</h3>
                     </div>
                   </div>
@@ -385,8 +385,8 @@
         </div>
       </section>
     </div>
-    <modal name="example" :width="400" :height="300">
-      <div class="card">
+    <modal name="example" :width="300" :height="200">
+      <div style="padding:10px"  class="card">
         <div class="card-body">
           <form @submit.prevent="OrderCourier">
             <div class="form-group">
@@ -406,7 +406,9 @@
                 placeholder="Enter memo number"
               />
             </div>
-            <button type="submit" class="btn btn-success btn-block">submit</button>
+            <div class="form-group text-center">
+              <button type="submit" class="btn btn-success ">submit</button>
+            </div>
           </form>
         </div>
       </div>
@@ -727,12 +729,23 @@ export default {
       ///index initial for update order from orderLit or order arrow.
 
       //start progress bar
-     
+
     },
 
     shipment(order_id, index) {
-      this.$Progress.start();
-      axios.get("/api/shipment/order/"+order_id)
+
+    if(!this.orders.data[index].courier_id){
+      alert('please select a courier')
+      return;
+    }
+
+    if(!this.orders.data[index].memo_no){
+      alert('Must Be Need Memo Number')
+      return;
+    }
+
+     this.$Progress.start();
+          axios.get("/shipment/order/"+order_id)
         .then((resp) => {
           console.log(resp);
           if (resp.data.status == "SUCCESS") {
@@ -742,11 +755,13 @@ export default {
               duration: 2000,
             });
             this.orders.data[index].status = 4;
-         
+
            this.$Progress.finish();
           }
-       
+
         })
+
+
     },
 
     pending(order, index) {
@@ -1093,4 +1108,6 @@ export default {
   border-bottom: 2px solid #000;
   margin-bottom: 10px;
 }
+
+
 </style>

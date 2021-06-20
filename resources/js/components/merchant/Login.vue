@@ -1,7 +1,7 @@
 <template>
   <div class="login-box" v-if="!isLoading">
     <div class="login-logo">
-      <a href="#"> <b>sufilifestyle</b>.com </a>
+      <a href="#"> <b> {{ general_setting.title }}  </b></a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
@@ -46,7 +46,7 @@
         <router-link class="span password_reset_button" :to="{name : 'merchant_password_reset'}">Forgotten Password</router-link>
         <a href="/public/merchant/register" class="btn btn-info btn-block" :to="{ name : 'merchant_register'}">Register</a>
       </form>
-      
+
     </div>
     <!-- /.login-box-body -->
   </div>
@@ -64,7 +64,7 @@ Vue.component(HasError.name, HasError);
 export default {
   created() {
     this.removeClass();
-
+    this.$store.dispatch('general_setting');
     setTimeout(() => {
       this.isLoading = false;
     }, 1000);
@@ -92,11 +92,11 @@ export default {
             localStorage.setItem("merchant_token", resp.data.merchant_token);
             this.$store.commit("merchant", resp.data.merchant);
             this.$router.push({ name: "merchant_dashboard" });
-            
+
             setTimeout(()=>{
                 location.reload();
              },1500)
-             
+
 
             this.addClass();
             this.$toasted.show(resp.data.message, {
@@ -141,6 +141,11 @@ export default {
       footer.classList.remove("none");
     },
   },
+    computed:{
+       general_setting() {
+      return this.$store.getters.general_setting;
+    },
+    }
 };
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -19,7 +19,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-10 col-lg-offset-1">
             <div class="box box-primary">
-              <div class="box-header with-border">
+              <div class="box-header text-center with-border">
                 <h3 class="box-title">Add Debit</h3>
               </div>
               <div class="box-body">
@@ -136,15 +136,18 @@
                     <!-- <button @click="save" variant="success" class="m-1"> save </button> -->
                   </div>
                   <!-- <canvas> </canvas> -->
+                    <br>
+                   <div class="form-group text-center">
 
-                  <br />
                   <button
-                    :disabled="form.busy "
+                    :disabled="form.busy || form.signature_write == false"
                     type="submit"
                     class="btn btn-primary"
                   >
                     <i class="fa fa-spin fa-spinner" v-if="form.busy"></i>Submit
                   </button>
+                  </div>
+
                 </form>
               </div>
             </div>
@@ -179,6 +182,12 @@ export default {
         supplier_id: "",
         signature: null,
         signature_write: false,
+        loaner_id:"",
+        investor_id:"",
+        investor_return_id:"",
+        print_house_id:"",
+        profit_month:"",
+        bill_statement_id:"",
       }),
 
       loading: true,
@@ -190,7 +199,20 @@ export default {
         format: "YYYY-MM-DD",
         useCurrent: false,
       },
-
+      months:{
+         'January'  : 'January',
+         'February' : 'February',
+         'March'    : 'March',
+         'April'    : 'April',
+         'May'      : 'May',
+         'June'     : 'June',
+         'July'     : 'July',
+         'August'   : 'August',
+         'September':'Septembaer',
+         'October'  :'October',
+         'November'  :'November',
+         'December'  :'December',
+      },
       //signature pad.......
       option: {
         penColor: "rgb(0, 0, 0)",
@@ -221,7 +243,19 @@ export default {
         this.employeeList();
       } else if (value == 9) {
         this.supplierList();
-      } else {
+      }else if (value == 11){
+        this.loanerList();
+      }else if( value == 12){
+         this.investorList();
+      }else if(value == 10){
+        this.printHoueList();
+      }else if(value == 21){
+        this.billStatementList();
+      }
+      else if(value == 22){
+        this.returnInvestorList();
+      }
+      else {
         this.form.employee_id = "";
         this.form.supplier_id = "";
       }
@@ -253,6 +287,35 @@ export default {
           console.log(e);
         });
     },
+      loanerList() {
+      axios
+        .get("/api/loaners")
+        .then((resp) => {
+          console.log(resp)
+          let options = {};
+          resp.data.forEach((element) => {
+            options[element.id] = element.name + "-" + element.mobile_no;
+          });
+          Swal.fire({
+            title: "Select a Loaner",
+            input: "select",
+            inputOptions: options,
+            inputPlaceholder: "Select One",
+            showCancelButton: true,
+          }).then((result) => {
+            if (result.value) {
+              this.form.loaner_id = result.value;
+            } else {
+              this.form.purpose = "";
+              this.form.loaner_id = "";
+            }
+          });
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+
     supplierList() {
       axios
         .get("/api/supplier/list")
@@ -305,6 +368,134 @@ export default {
         });
     },
 
+     investorList() {
+      axios
+        .get("/api/company/investor/list")
+        .then((resp) => {
+          console.log(resp)
+          let options = {};
+          resp.data.forEach((element) => {
+            options[element.id] = element.name + "-" + element.mobile_no;
+          });
+          Swal.fire({
+            title: "Select a Investor",
+            input: "select",
+            inputOptions: options,
+            inputPlaceholder: "Select One",
+            showCancelButton: true,
+          }).then((result) => {
+
+            if (result.value) {
+              this.form.investor_id = result.value;
+
+            Swal.fire({
+            title: "Select Profit Month",
+            input: "select",
+            inputOptions: this.months,
+            inputPlaceholder: "Select One",
+            showCancelButton: true,
+            }).then((month)=>{
+              if (month.value) {
+                this.form.profit_month=month.value ;
+              }else{
+                this.form.profit_month="";
+              }
+            });
+
+            } else {
+              this.form.purpose = "";
+              this.form.investor_id = "";
+            }
+          });
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+     returnInvestorList() {
+      axios
+        .get("/api/company/investor/list")
+        .then((resp) => {
+          console.log(resp)
+          let options = {};
+          resp.data.forEach((element) => {
+            options[element.id] = element.name + "-" + element.mobile_no;
+          });
+          Swal.fire({
+            title: "Select a Investor",
+            input: "select",
+            inputOptions: options,
+            inputPlaceholder: "Select One",
+            showCancelButton: true,
+          }).then((result) => {
+            if (result.value) {
+              this.form.investor_return_id = result.value;
+            } else {
+              this.form.purpose = "";
+              this.form.investor_return_id = "";
+            }
+          });
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+
+
+     printHoueList() {
+      axios
+        .get("/api/print/house/list")
+        .then((resp) => {
+          console.log(resp)
+          let options = {};
+          resp.data.forEach((element) => {
+            options[element.id] = element.company_name + "-" + element.mobile_no;
+          });
+          Swal.fire({
+            title: "Select a print-house",
+            input: "select",
+            inputOptions: options,
+            inputPlaceholder: "Select One",
+            showCancelButton: true,
+          }).then((result) => {
+            if (result.value) {
+              this.form.print_house_id = result.value;
+            } else {
+              this.form.purpose = "";
+              this.form.print_house_id = "";
+            }
+          });
+        })
+
+    },
+    billStatementList() {
+      axios
+        .get("/api/bill/statement/list")
+        .then((resp) => {
+          console.log(resp)
+          let options = {};
+          resp.data.bills.forEach((element) => {
+            options[element.id] = element.name;
+          });
+          Swal.fire({
+            title: "Select a bill",
+            input: "select",
+            inputOptions: options,
+            inputPlaceholder: "Select One",
+            showCancelButton: true,
+          }).then((result) => {
+            if (result.value) {
+              this.form.bill_statement_id = result.value;
+            } else {
+              this.form.purpose = "";
+              this.form.bill_statement_id = "";
+            }
+          });
+        })
+
+    },
+
+
     //method initial for  get current date
     pDate() {
       //current date
@@ -337,16 +528,16 @@ export default {
     },
     sigantureFocus() {
       let element = document.getElementById("signatur-pad");
-
-      element.classList.add("focus-signature");
+ element.classList.add("focus-signature");
     },
   },
   mounted() {
     this.pDate();
   },
-  components: {
-    sig,
-  },
+   components:{
+      sig
+    }
+
 };
 </script>
 

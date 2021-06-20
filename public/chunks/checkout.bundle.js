@@ -179,6 +179,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -190,6 +242,7 @@ __webpack_require__.r(__webpack_exports__);
     this.user();
     this.getCity();
     this.getCartContent();
+    this.$store.dispatch('general_setting');
     setTimeout(function () {
       _this.isLoading = false;
 
@@ -206,16 +259,27 @@ __webpack_require__.r(__webpack_exports__);
         total: "",
         cart: "",
         shipping_cost: "",
-        sub_city: ""
+        sub_city: "",
+        coupon_discount: 0,
+        premium_member_discount: 0,
+        coupon_type: "",
+        coupon_id: ""
       }),
       isLoading: true,
       fullPage: true,
       cities: "",
+      cart_content: {},
+      customer_wallet_point: 0,
+      member_type: 0,
+      member_discount: 0,
+      product_discount: 0,
       cart: {
         total: 0
       },
       disabled: true,
-      sub_cities: ""
+      sub_cities: "",
+      coupon_code: "",
+      coupon: false
     };
   },
   methods: {
@@ -231,7 +295,7 @@ __webpack_require__.r(__webpack_exports__);
           _this2.$store.dispatch("user");
 
           _this2.$router.push({
-            name: "welcome"
+            name: "UserDashboard"
           });
 
           _this2.$toasted.show(resp.data.message, {
@@ -279,10 +343,15 @@ __webpack_require__.r(__webpack_exports__);
       var _this4 = this;
 
       axios.get("/_public/userToCheck").then(function (resp) {
+        //   console.log(resp);
         if (resp.data.status == "AUTHORIZED") {
           _this4.form.mobile_no = resp.data.user.mobile_no;
           _this4.form.name = resp.data.user.name;
           _this4.form.address = resp.data.user.address;
+          _this4.customer_wallet_point = resp.data.customer_wallet.point;
+          _this4.member_type = resp.data.member_type;
+          _this4.member_discount = resp.data.member_discount;
+          _this4.product_discount = resp.data.product_discount;
         } else {
           localStorage.removeItem("user_token");
 
@@ -367,16 +436,97 @@ __webpack_require__.r(__webpack_exports__);
           _this6.isLoading = false;
         });
       }
+    },
+    applyCoupon: function applyCoupon() {
+      var _this7 = this;
+
+      if (this.coupon_code.length <= 0) {
+        alert("Coupon Code Is Empty");
+        document.getElementById("coupon_code").focus();
+        return;
+      }
+
+      if (this.form.city.length <= 0) {
+        alert("Please Select City First");
+        return;
+      }
+
+      axios.get("/_public/apply/coupon/code", {
+        params: {
+          coupoon_code: this.coupon_code
+        }
+      }).then(function (resp) {
+        if (resp.data.success == "OK") {
+          console.log(resp);
+          var discount = 0;
+          var coupon = resp.data.coupon;
+          var total = _this7.form.total;
+
+          if (coupon.discount_type == "percentage") {
+            discount = parseInt(total) / parseInt(100) * parseInt(coupon.discount_amount);
+          } else {
+            discount = parseInt(coupon.discount_amount);
+          }
+
+          _this7.form.coupon_discount = discount.toFixed(2);
+          _this7.form.coupon_id = coupon.id;
+
+          _this7.$toasted.show(resp.data.message, {
+            type: "success",
+            position: "top-center",
+            duration: 2000
+          });
+
+          _this7.coupon_code = "";
+        } else {
+          _this7.$toasted.show(resp.data, {
+            type: "error",
+            position: "top-center",
+            duration: 2000
+          });
+        }
+      })["catch"](function (e) {
+        _this7.$toasted.show("something went to Wrong ", {
+          type: "error",
+          position: "top-center",
+          duration: 2000
+        });
+      });
+    },
+    applyMemberDiscount: function applyMemberDiscount() {
+      if (this.product_discount > 0) {
+        this.$toasted.show('cart item products has already discount. your mimbership discount only apply if product has no discount', {
+          type: 'error',
+          position: 'top-center',
+          duration: 5000
+        });
+      } else {
+        var total = parseInt(this.form.total);
+        var discount = parseInt(this.member_discount); //this is parcent value
+
+        this.form.premium_member_discount = discount * total / 100;
+        this.$toasted.show('membership discount applied successfully', {
+          type: 'success',
+          position: 'top-center',
+          duration: 3000
+        });
+      }
     }
   },
   components: {
-    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_0___default.a
+    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_0___default.a,
+    HasError: vform__WEBPACK_IMPORTED_MODULE_2__["HasError"]
+  },
+  computed: {
+    general_setting: function general_setting() {
+      return this.$store.getters.general_setting;
+    }
   },
   mounted: function mounted() {
-    var _this7 = this;
+    var _this8 = this;
 
     setTimeout(function () {
-      _this7.selectCity();
+      _this8.selectCity();
     }, 1000);
   }
 });
@@ -395,7 +545,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.empty-cart {\r\n\r\n  width: 50%;\r\n  background: #fff;\r\n  text-align: center;\r\n  margin-left: 25%;\r\n  padding: 50px 50px;\r\n  box-shadow: 3px 3px 3px #ddd;\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\n.extra_d {\r\n  cursor: pointer;\r\n  font-size: 16px;\n}\n.extra_d a {\r\n \theight: 31px;\r\n\tposition: absolute;\r\n\tmargin: -8px 10px;\r\n\tborder-radius: 5px;\r\n\twidth: 34%;\n}\n.extra_d i {\r\n    font-size: 25px;\r\n    position: absolute;\r\n    margin: -3px 10px;\n}\n.empty-cart {\r\n    width: 50%;\r\n    background: #fff;\r\n    text-align: center;\r\n    margin-left: 25%;\r\n    padding: 50px 50px;\r\n    box-shadow: 3px 3px 3px #ddd;\n}\n.home_btn{\r\n    background: #ff4d03;\r\n    color: #fff;\r\n    padding: 12px 15px;\r\n    border-radius: 5px;\n}\n.empty_cart_icon{\r\n    margin-bottom: 50px;\r\n    margin-top: 50px;\n}\n@media screen and (max-width:768px) {\n.empty-cart {\r\n      width: 100%;\r\n      height: 430px;\r\n      background: #fff;\r\n      text-align: center;\r\n      margin-left: 1%;\r\n      padding: 10px 10px;\r\n      box-shadow: 3px 3px 3px #ddd;\n}\n.empty_cart_icon{\r\n      margin-bottom:30px;\r\n      margin-top: 5px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -522,7 +672,6 @@ var render = function() {
                                       type: "text",
                                       name: "name",
                                       autocomplete: "off",
-                                      maxlength: "11",
                                       autofocus: ""
                                     },
                                     domProps: { value: _vm.form.name },
@@ -894,7 +1043,7 @@ var render = function() {
                       [
                         _c("div", { staticClass: "custom-box" }, [
                           _c("div", { staticClass: "cart-total" }, [
-                            _c("table", [
+                            _c("table", { staticClass: "table" }, [
                               _c("tbody", [
                                 _c("tr", [
                                   _c("td", [_vm._v("Total")]),
@@ -912,6 +1061,59 @@ var render = function() {
                                       : _c("span", [_vm._v(".....")])
                                   ])
                                 ]),
+                                _vm._v(" "),
+                                _c("br"),
+                                _vm._v(" "),
+                                _vm.form.coupon_discount > 0
+                                  ? _c("tr", [
+                                      _c("td", [_vm._v("Coupon Discount")]),
+                                      _vm._v(" "),
+                                      _c("td", { attrs: { colspan: "4" } }),
+                                      _vm._v(" "),
+                                      _c("td", [
+                                        _vm._v(
+                                          "\n                          :\n                          "
+                                        ),
+                                        _vm.form.coupon_discount
+                                          ? _c("span", [
+                                              _vm._v(
+                                                "৳ " +
+                                                  _vm._s(
+                                                    _vm.form.coupon_discount
+                                                  )
+                                              )
+                                            ])
+                                          : _vm._e()
+                                      ])
+                                    ])
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("br"),
+                                _vm._v(" "),
+                                _vm.form.premium_member_discount > 0
+                                  ? _c("tr", [
+                                      _c("td", [_vm._v("Membership Discount")]),
+                                      _vm._v(" "),
+                                      _c("td", { attrs: { colspan: "4" } }),
+                                      _vm._v(" "),
+                                      _c("td", [
+                                        _vm._v(
+                                          "\n                          :\n                          "
+                                        ),
+                                        _vm.form.premium_member_discount
+                                          ? _c("span", [
+                                              _vm._v(
+                                                "৳ " +
+                                                  _vm._s(
+                                                    _vm.form
+                                                      .premium_member_discount
+                                                  )
+                                              )
+                                            ])
+                                          : _vm._e()
+                                      ])
+                                    ])
+                                  : _vm._e(),
                                 _vm._v(" "),
                                 _c("br"),
                                 _vm._v(" "),
@@ -944,7 +1146,7 @@ var render = function() {
                                   _vm._v(" "),
                                   _c("td", [
                                     _vm._v(
-                                      "\n                          :\n                          "
+                                      "\n                               :\n                          "
                                     ),
                                     _vm.form.shipping_cost
                                       ? _c("span", [
@@ -955,7 +1157,14 @@ var render = function() {
                                                   _vm.form.total.replace(
                                                     ",",
                                                     ""
-                                                  )
+                                                  ) -
+                                                    parseInt(
+                                                      _vm.form.coupon_discount
+                                                    ) -
+                                                    parseInt(
+                                                      _vm.form
+                                                        .premium_member_discount
+                                                    )
                                                 ) +
                                                   parseInt(
                                                     _vm.form.shipping_cost
@@ -971,11 +1180,139 @@ var render = function() {
                           ])
                         ])
                       ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col-lg-5 col-md-5 col-xs-12 col-sm-12",
+                        staticStyle: { "margin-top": "10px" }
+                      },
+                      [
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "custom-box" }, [
+                          _c("ul", { staticClass: "list-group" }, [
+                            _c(
+                              "li",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: _vm.member_type.length,
+                                    expression: "member_type.length"
+                                  }
+                                ],
+                                staticClass: "list-group-item"
+                              },
+                              [
+                                _c("h5", { staticClass: "extra_d " }, [
+                                  _vm._v(
+                                    " you are now " +
+                                      _vm._s(_vm.member_type) +
+                                      " member\n                       "
+                                  ),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "btn btn-primary p_a_btn",
+                                      on: { click: _vm.applyMemberDiscount }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "apply " +
+                                          _vm._s(_vm.member_discount) +
+                                          " % discount "
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("li", { staticClass: "list-group-item" }, [
+                              _c(
+                                "h5",
+                                {
+                                  staticClass: " extra_d coupon-apply",
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      _vm.coupon = !_vm.coupon
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v("Have you any cupon? "),
+                                  _c("i", { staticClass: "fa fa-angle-down" })
+                                ]
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _vm.coupon
+                            ? _c("div", { staticClass: "coupon" }, [
+                                _vm._m(0),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticStyle: { display: "flex" } },
+                                  [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.coupon_code,
+                                          expression: "coupon_code"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      staticStyle: { width: "60%" },
+                                      attrs: {
+                                        id: "coupon_code",
+                                        type: "text"
+                                      },
+                                      domProps: { value: _vm.coupon_code },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.coupon_code = $event.target.value
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-primary",
+                                        staticStyle: { "border-radius": "0px" },
+                                        attrs: {
+                                          disabled: _vm.coupon_code.length <= 0
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.applyCoupon($event)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Apply")]
+                                    )
+                                  ]
+                                )
+                              ])
+                            : _vm._e()
+                        ])
+                      ]
                     )
                   ])
                 ])
               ])
-            : _c("div", { staticClass: "row" }, [_vm._m(0)])
+            : _c("div", { staticClass: "row" }, [_vm._m(1)])
         ])
       ]),
       _vm._v(" "),
@@ -989,34 +1326,32 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "" } }, [
+      _c("strong", [_vm._v("Apply Coupon Here")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "empty-cart" }, [
       _c("h4", { staticClass: "text-uppercase" }, [
         _vm._v("your cart is empty")
       ]),
       _vm._v(" "),
       _c("img", {
-        staticStyle: { "margin-bottom": "50px", "margin-top": "50px" },
+        staticClass: "empty_cart_icon",
         attrs: {
           src:
-            "https://punok.com.bd/public/storage//images/static/cartEmpty.jpg"
+            "https://mohasagor.com/public/storage//images/static/cartEmpty.jpg"
         }
       }),
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticStyle: {
-            background: "#ff4d03",
-            color: "#fff",
-            padding: "12px 15px",
-            "border-radius": "5px"
-          },
-          attrs: { href: "/" }
-        },
-        [_vm._v(" Home Page")]
-      )
+      _c("a", { staticClass: "home_btn", attrs: { href: "/" } }, [
+        _vm._v(" Home Page")
+      ])
     ])
   }
 ]

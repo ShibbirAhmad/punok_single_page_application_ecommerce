@@ -2,11 +2,11 @@
     <div>
         <header class="main-header">
     <!-- Logo -->
-    <a :href="'http://punok.com.bd'" class="logo">
+    <a href="" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>punok</b>.com.bd</span>
+      <span class="logo-lg"><b>{{   general_setting.title }}</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -17,7 +17,7 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-    
+
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -53,10 +53,10 @@
               <li class="user-footer">
                     <div class="row">
                       <div class="col-md-3">
-                        <router-link :to="{ name: 'merchant_profile'}"  class="btn btn-primary " > profile </router-link>      
+                        <router-link :to="{ name: 'merchant_profile'}"  class="btn btn-primary " > profile </router-link>
                       </div>
 
-                      <div class="col-md-6"> 
+                      <div class="col-md-6">
                       <router-link :to="{ name: 'merchant_password_edit'}"  class="btn btn-primary ">change password</router-link>
                       </div>
 
@@ -64,13 +64,13 @@
                           <a @click="logout" class="btn btn-danger "> logout </a>
                       </div>
                     </div>
-                  
-                    
+
+
               </li>
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
-         
+
         </ul>
       </div>
     </nav>
@@ -83,8 +83,9 @@
 <script>
 export default {
   created() {
-    
+
     this.$store.dispatch("merchant");
+    this.$store.dispatch("general_setting");
   },
   data() {
     return {
@@ -108,17 +109,21 @@ export default {
             });
           }
         })
-        .catch()  
+        .catch()
      }
   },
   computed: {
     getMerchant() {
       return this.$store.getters.merchant;
     },
+
+    general_setting() {
+        return this.$store.getters.general_setting;
+    },
   },
 };
 </script>
 
 <style>
-       
+
 </style>

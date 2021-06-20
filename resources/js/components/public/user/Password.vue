@@ -2,46 +2,47 @@
   <div class="wrapper-wide">
 
     <frontend-header></frontend-header>
-
     <div id="container">
-       <div class="container">
-         <div style="min-height: 400px" class="row flex">
-         
+    <div class="container">
+       <div style="min-height: 400px" class="row">
          <sidebar> </sidebar>
-          <div class="col-md-4 col-sm-10">
+               
+         <div class="col-md-2 col-sm-0">  </div>
 
-              <div  class="card content">
+          <div class="col-md-4 col-sm-10 form-container">
+
+             <div  class="card">
                    <div class="card-heading text-center ">
-                       <h4 class="card-title">Change your password </h4>
+                       <h4 class="card-title">Change your current password </h4>
                   </div>
-                  <div class="card-body">
-                      <form @submit.prevent="changePassword" class="form">
+                  <div class="card-body ">
+                        <form @submit.prevent="changePassword" class="form">
 
                           <div  class="form-group ">
                                 <label for="old_password">Current password</label>
-                                <input type="password" v-model="form.old_password" :class="{'is-invalid' : form.errors.has('old_password') }" name="old_paasword" autofocus autocomplete="off" placeholder="your current password" class="form-control" id="">
+                                <input type="password" v-model="form.old_password" :class="{'is-invalid' : form.errors.has('old_password') }" name="old_paasword" autofocus autocomplete="off" placeholder="your current password" class="form-control" >
                                 <has-error :form="form" field="old_password "> </has-error>
                           </div>
 
                           <div class="form-group">
                                 <label for="old_password">New password</label>
-                                <input type="password" v-model="form.new_password" :class="{'is-invalid' : form.errors.has('new_password') }" name="new_paasword" autofocus autocomplete="off" placeholder=" new password" class="form-control" id="">
+                                <input type="password" v-model="form.new_password" :class="{'is-invalid' : form.errors.has('new_password') }" name="new_paasword" autofocus autocomplete="off" placeholder=" new password" class="form-control" >
                                 <has-error :form="form" field="new_password "> </has-error>
                           </div>
+                          <br/>
                          <div class="form-group text-center ">
-                              <button style="margin-bottom:10px;" :disabled="form.busy" class="btn btn-primary " type="submit"> <i class="fa fa-spiner" v-if="form.busy"></i> Change</button> 
+                              <button  :disabled="form.busy" class="btn btn-primary " type="submit"> <i class="fa fa-spiner" v-if="form.busy"></i> Change</button> 
                          </div>
                       </form>
                       
                   </div>
-              </div>    
+             </div>    
          </div>    
        </div>
-       </div>
  
-     
+    </div>
     <frontend-footer></frontend-footer>
-  </div>
+    </div>
   </div>
   
 </template>
@@ -83,32 +84,24 @@ export default {
   },
 
   components:{
-
-      sidebar
+      sidebar,
+      HasError
   }
 };
 </script>
 
-<style >
+<style scoped>
 
-
-
-
- @media screen and (max-width:650px) {
-    .card{
-   margin-left:20px;
-   margin-right:20px;
-   }
-
-   .extra{
-     display: none ;
-   }
-
+ 
+.form-container{
+   height: 280px;
+   margin-bottom: 50px;
+   margin-top: 26px;
+   box-shadow:1px 1px 5px 3px #ddd;
  }
- .content{
-  background:#fff;
-  padding: 20px 20px;
-}
 
+.card{
+  padding-top: 20px;
+}
 </style>
 

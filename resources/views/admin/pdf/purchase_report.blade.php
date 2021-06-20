@@ -1,13 +1,13 @@
 
-<?php 
-// this is for count total quantity 
+<?php
+// this is for count total quantity
 $total_insert_quantity=0;
    foreach ($purchases as  $purchase) {
       foreach ($purchase->purchaseItems as $item) {
            $total_insert_quantity += intval($item->insert_quantity) ;
       }
-   }  
-     
+   }
+
    //this purchases item counter house
    function salte_items($items){
         $s_item=0 ;
@@ -25,6 +25,7 @@ $total_insert_quantity=0;
    }
 
 
+   $setting = App\Models\GeneralSetting::latest()->first();
 
 ?>
 <!DOCTYPE html>
@@ -35,7 +36,7 @@ $total_insert_quantity=0;
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>Document</title>
    <style>
-       
+
      * {
            margin: 0;
            padding: 0;
@@ -47,7 +48,7 @@ $total_insert_quantity=0;
            margin-bottom: 20px;
            line-height: 25px;
            text-align: center;
-           
+
        }
 
        .logo {
@@ -56,19 +57,19 @@ $total_insert_quantity=0;
 
        }
 
-       .container{ 
+       .container{
                      position:absolute;
                      width: 100%;
                      height:auto ;
-                 
+
                  }
         .table_container{
-           
+
             text-align: center;
             margin:5px;
         }
 
-   
+
 
           th, td {
            border-bottom: 1px solid #ddd;
@@ -84,25 +85,21 @@ $total_insert_quantity=0;
           td {
             text-align: center;
            }
-   </style>    
+   </style>
 </head>
 <body>
     <div class="container">
 
        <div class="address">
-           <p class="logo">Mohasagor.com</p>
-           <p class="address_line">
-               Office: Houes:02, Lane:11,Block:A, Banarosi Polli, section-10,
-               Mirpur,Dhaka.
-           </p>
-           <p>Email: support@mohasagor.com</p>
-           <p>Hot Line: <strong> 09636 203040</strong></p>
+
+          <p class="logo">sufilifestyle.com</p>
+          <p> {!! $setting->invoice_address_details !!} </p>
 
        </div>
 
          <div class="table_container">
                  <table class="table table-striped">
-           
+
                        <tr>
                            <th scope="col">Serial No</th>
                            <th scope="col">Supplier</th>
@@ -128,7 +125,7 @@ $total_insert_quantity=0;
                         @endif
                         <?php $n++ ?>
                        @endforeach
-                   
+
                        <tr>
                            <td colspan="3"></td>
                            <td style="width: 120px;">
@@ -145,6 +142,6 @@ $total_insert_quantity=0;
 
          </div>
     </div>
- 
+
   </body>
 </html>

@@ -27,7 +27,7 @@
                   <has-error :form="form" field="password"></has-error>
                 </div>
                 <br />
-                
+
                 <button :disabled="form.busy" class="btn btn-block btn-primary" type="submit">
                   <i class="fa fa-spinner fa-spin" v-if="form.busy"></i>Update Password
                 </button>
@@ -56,7 +56,7 @@ export default {
       form: new Form({
         password: "",
       }),
-    
+
     };
   },
   methods: {
@@ -90,11 +90,12 @@ export default {
         });
     },
   },
- 
 
-  
+
+
   components: {
     Loading,
+    HasError
   },
 };
 </script>

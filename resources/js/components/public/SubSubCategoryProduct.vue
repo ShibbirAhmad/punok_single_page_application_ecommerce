@@ -110,7 +110,7 @@
           <div id="content" class="col-sm-9">
             <div class="row">
               <div
-                class="col-lg-3 col-sm-6 col-md-3 col-xs-6"
+                class="col-lg-3 col-sm-6 col-md-3 col-xs-6  small_width  "
                 v-for="product in products"
                 :key="product.id"
               >
@@ -131,11 +131,13 @@
                         >
                       </h4>
                       <p class="price">
-                        <span class="price-new">{{ product.price }}</span>
-                        <span class="price-old" v-if="product.discount">{{
+                        <span class="price-new"> &#2547; {{ product.price }}</span>
+                        <span class="price-old" v-if="product.discount"> &#2547; {{
                           product.sale_price
                         }}</span>
-                        <!-- <span class="saving">-26%</span> -->
+
+                    <span v-if="product.discount > 0" class="discount"> <i class="fa fa-star discount_star"> </i> {{ ((product.discount/product.sale_price)*100).toFixed(0) }}%  <span class="d_off">off</span> </span>
+
                       </p>
                     </div>
                   </div>

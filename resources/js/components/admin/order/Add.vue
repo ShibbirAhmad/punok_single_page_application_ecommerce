@@ -205,8 +205,8 @@
                           </tr>
                         </thead>
                         <tbody v-if="products.length > 0">
-                          <tr v-for="(product, index) in products.slice().reverse()" :key="index">
-                            <td>{{ index + 1 }}</td>
+                          <tr v-for="(product, index) in products" :key="index">
+                            <td>{{ index  }}</td>
                             <td>
                               {{ product.name + "-" + product.product_code }}
                               <input type="hidden" :value="product.id" />
@@ -537,7 +537,7 @@ export default {
       let length = this.product_code.length;
       console.log(length);
       //  alert(length)
-    
+
       if (length == 4) {
         this.$Progress.start();
         axios
@@ -695,7 +695,7 @@ export default {
         this.form.courier = 5;
       }
       this.totalCalculation();
-      
+
     },
     cityWiseSubCity(city_id){
 
@@ -714,7 +714,7 @@ export default {
 
         axios.get('/api/city/wise/sub/city/'+city_id)
         .then(resp=>{
-         
+
               if(resp.data.length){
                 this.sub_cities=resp.data;
 
@@ -724,14 +724,14 @@ export default {
                 alert('No sub city under selected city')
               }
             loader.hide();
-         
+
           console.log(resp)
         })
         .catch(e=>{
           console.log(e);
           loader.hide();
         })
-       
+
      },
 
     remove(index) {
@@ -802,8 +802,8 @@ export default {
   color: #ffffff;
 }
 .suggest-product img {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
 }
 .suggest-product {
   background: #ecf0f5;

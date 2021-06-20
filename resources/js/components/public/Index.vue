@@ -19,10 +19,10 @@
 
     <div class="container">
       <div class="new_arrival_section">
-        <h4 class="arrival_heading">TOP SELLING Products</h4>
+        <h4 class="arrival_heading">Top Selling Products</h4>
         <div class="row">
           <vue-horizontal-list
-            :items="new_arrival_products"
+            :items="best_selling_produtcs"
             :options="new_arrival_options"
           >
             <template v-slot:default="{ item }">
@@ -51,10 +51,23 @@
                         >
                       </p>
                       <p class="price">
-                        <span class="price-new">{{ item.price }}</span>
-                        <span class="price-old" v-if="item.discount">{{
-                          item.sale_price
-                        }}</span>
+                        <span class="price-new"> &#2547; {{ item.price }}</span>
+                        <span class="price-old" v-if="item.discount">
+                          &#2547; {{ item.sale_price }}</span
+                        >
+
+                        <span
+                          v-if="item.discount > 0"
+                          class="best_selling_discount"
+                        >
+                          <i class="fa fa-star best_s_star"> </i>
+                          {{
+                            (
+                              (item.discount / item.sale_price) *
+                              100
+                            ).toFixed(0)
+                          }}% <span class="d_off">off</span>
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -65,12 +78,12 @@
         </div>
       </div>
 
-      <div v-if="isScroll > 0">
+      <div>
         <div
           class="product_carousel sale_campaign"
+          v-if="campaign.campaign_products.length > 0"
           v-for="(campaign, index) in sale_campaign"
           :key="index"
-          v-if="campaign.campaign_products.length > 0"
           :style="{
             backgroundColor: campaign.background_color,
             border: campaign.border_width + 'px solid ' + campaign.border_color,
@@ -89,7 +102,7 @@
             :nav="false"
             :autoplay="true"
             :autoplayTimeout="4000"
-            :responsive="{ 0: { items: 3 }, 600: { items: 5 } }"
+            :responsive="{ 0: { items: 2 }, 600: { items: 5 } }"
           >
             <div
               class="product-thumb clearfix"
@@ -125,26 +138,53 @@
                   >
                 </h4>
                 <p class="price">
-                  <span class="price-new">{{ campaign_product.price }}</span>
-                  <span class="price-old" v-if="campaign_product.discount">{{
-                    campaign_product.sale_price
-                  }}</span>
+                  <span class="price-new">
+                    &#2547; {{ campaign_product.price }}</span
+                  >
+                  <span class="price-old" v-if="campaign_product.discount">
+                    &#2547; {{ campaign_product.sale_price }}</span
+                  >
+
+                       <span
+                          v-if="campaign_product.discount > 0"
+                          class="flas_selling_discount"
+                        >
+                          <i class="fa fa-star flash_s_star"> </i>
+                          {{
+                            (
+                              (campaign_product.discount / campaign_product.sale_price) *
+                              100
+                            ).toFixed(0)
+                          }}% <span class="d_off">off</span>
+                        </span>
                 </p>
               </div>
             </div>
           </carousel>
         </div>
 
-        <div :style="{backgroundImage:`url(${base_url+buy_get.banner})`}" class="parallax_background text-center">
+        <div
+          :style="{ backgroundImage: `url(${base_url + buy_get.banner})` }"
+          class="parallax_background text-center"
+        >
           <h2>
-            <router-link class="btn btn_shop_now" :to="{ name:'single',params:{slug:buy_get_p.slug} }"
+            <router-link
+              class="btn btn_shop_now"
+              :to="{ name: 'single', params: { slug: buy_get_p.slug } }"
               >SHOP NOW ></router-link
             >
           </h2>
         </div>
 
         <div class="row offer_collection">
-          <div :style="{backgroundImage:`url(${base_url+occasion_campaign.background_image})`}" class="col-lg-6 col-sm-12 col-md-6  collection_left">
+          <div
+            :style="{
+              backgroundImage: `url(${
+                base_url + occasion_campaign.background_image
+              })`,
+            }"
+            class="col-lg-6 col-sm-12 col-md-6 collection_left"
+          >
             <div class="row">
               <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class="container_offer_header text-center">
@@ -153,14 +193,24 @@
                 </div>
               </div>
               <div class="col-md-6 col-sm-12 col-xs-12">
-              
                 <div class="collection_content">
-                  <img v-if="occasion_p_top.product_image.length" :src="base_url+occasion_p_top.product_image[0].product_image" />
+                  <img
+                    v-if="occasion_p_top.product_image.length"
+                    :src="
+                      base_url + occasion_p_top.product_image[0].product_image
+                    "
+                  />
 
                   <div class="collect_sub_data text-center">
                     <p class="p1">{{ occasion_p_top.name }}</p>
-                    <p class="p2">{{ occasion_p_top.price }}&#2547;</p>
-                    <router-link class="btn btn_more" :to="{ name:'single',params:{slug:occasion_p_top.slug} }">
+                    <p class="p2">&#2547; {{ occasion_p_top.price }}</p>
+                    <router-link
+                      class="btn btn_more"
+                      :to="{
+                        name: 'single',
+                        params: { slug: occasion_p_top.slug },
+                      }"
+                    >
                       More
                       <i class="fa fa-xs fa-arrow-right arrow_right_icon"></i>
                     </router-link>
@@ -168,12 +218,24 @@
                 </div>
 
                 <div class="collection_content">
-                  <img v-if="occasion_p_bottom.product_image.length" :src="base_url+occasion_p_bottom.product_image[0].product_image" />
+                  <img
+                    v-if="occasion_p_bottom.product_image.length"
+                    :src="
+                      base_url +
+                      occasion_p_bottom.product_image[0].product_image
+                    "
+                  />
 
                   <div class="collect_sub_data text-center">
                     <p class="p1">{{ occasion_p_bottom.name }}</p>
-                    <p class="p2">{{ occasion_p_bottom.price }}&#2547;</p>
-                    <router-link class="btn btn_more" :to="{ name:'single',params:{slug:occasion_p_bottom.slug} }">
+                    <p class="p2">&#2547; {{ occasion_p_bottom.price }}</p>
+                    <router-link
+                      class="btn btn_more"
+                      :to="{
+                        name: 'single',
+                        params: { slug: occasion_p_bottom.slug },
+                      }"
+                    >
                       More
                       <i class="fa fa-xs fa-arrow-right arrow_right_icon"></i>
                     </router-link>
@@ -183,7 +245,14 @@
             </div>
           </div>
 
-          <div :style="{backgroundImage:`url(${base_url+seasion_campaign.background_image})`}" class="col-lg-6 col-sm-12 col-md-6 collection_right">
+          <div
+            :style="{
+              backgroundImage: `url(${
+                base_url + seasion_campaign.background_image
+              })`,
+            }"
+            class="col-lg-6 col-sm-12 col-md-6 collection_right"
+          >
             <div class="row">
               <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class="container_offer_header text-center">
@@ -192,13 +261,24 @@
                 </div>
               </div>
               <div class="col-md-6 col-xs-12 col-sm-12">
-               <div class="collection_content">
-                  <img v-if="seasion_p_top.product_image.length" :src="base_url+seasion_p_top.product_image[0].product_image" />
+                <div class="collection_content">
+                  <img
+                    v-if="seasion_p_top.product_image.length"
+                    :src="
+                      base_url + seasion_p_top.product_image[0].product_image
+                    "
+                  />
 
                   <div class="collect_sub_data text-center">
                     <p class="p1">{{ seasion_p_top.name }}</p>
-                    <p class="p2">{{ seasion_p_top.price }}&#2547;</p>
-                    <router-link class="btn btn_more" :to="{ name:'single',params:{slug:seasion_p_top.slug} }">
+                    <p class="p2">&#2547; {{ seasion_p_top.price }}</p>
+                    <router-link
+                      class="btn btn_more"
+                      :to="{
+                        name: 'single',
+                        params: { slug: seasion_p_top.slug },
+                      }"
+                    >
                       More
                       <i class="fa fa-xs fa-arrow-right arrow_right_icon"></i>
                     </router-link>
@@ -206,18 +286,28 @@
                 </div>
 
                 <div class="collection_content">
-                  <img v-if="seasion_p_bottom.product_image.length" :src="base_url+seasion_p_bottom.product_image[0].product_image" />
+                  <img
+                    v-if="seasion_p_bottom.product_image.length"
+                    :src="
+                      base_url + seasion_p_bottom.product_image[0].product_image
+                    "
+                  />
 
                   <div class="collect_sub_data text-center">
                     <p class="p1">{{ seasion_p_bottom.name }}</p>
-                    <p class="p2">{{ seasion_p_bottom.price }}&#2547;</p>
-                    <router-link class="btn btn_more" :to="{ name:'single',params:{slug:seasion_p_bottom.slug} }">
+                    <p class="p2">&#2547; {{ seasion_p_bottom.price }}</p>
+                    <router-link
+                      class="btn btn_more"
+                      :to="{
+                        name: 'single',
+                        params: { slug: seasion_p_bottom.slug },
+                      }"
+                    >
                       More
                       <i class="fa fa-xs fa-arrow-right arrow_right_icon"></i>
                     </router-link>
                   </div>
                 </div>
-        
               </div>
             </div>
           </div>
@@ -256,10 +346,22 @@
                         >
                       </p>
                       <p class="price">
-                        <span class="price-new">{{ item.price }}</span>
-                        <span class="price-old" v-if="item.discount">{{
-                          item.sale_price
-                        }}</span>
+                        <span class="price-new"> &#2547; {{ item.price }}</span>
+                        <span class="price-old" v-if="item.discount">
+                          &#2547; {{ item.sale_price }}</span
+                        >
+
+                        <span
+                          v-if="item.discount > 0"
+                          class="new_product_discount" >
+                          <i class="fa fa-star new_p_star"> </i>
+                          {{
+                            (
+                              (item.discount / item.sale_price) *
+                              100
+                            ).toFixed(0)
+                          }}% <span class="d_off">off</span>
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -291,53 +393,52 @@
           </div>
         </div>
 
-        <div v-if="sub_categories.length <= 0">
-          <h1 class="text-center"><i class="fa fa-spin fa-spinner"></i></h1>
-        </div>
-        <div v-else>
+        <div v-if="isScroll > 0">
           <div
             class="c-product"
-            v-for="(sub_category, idx) in sub_categories"
+            v-for="(sub_category, idx) in home_page_products"
             :key="idx"
             v-if="sub_category.products.length"
           >
-
             <div class="c-product-header">
-                <h4 class="category-heading"> {{ sub_category.name }}  </h4>
+              <h4 class="category-heading">{{ sub_category.name }}</h4>
               <div
                 class="s-category"
                 v-if="sub_category.sub_sub_category.length > 0"
               >
-                <div :id="'subCategoryNameView'+sub_category.id"   class="sub_category_view" >
-                    <router-link
-                  :to="{
-                    name: 'PublicSubSUbCategory',
-                    params: { slug: sub_sub_category.slug },
-                  }"
-                  class="sub-category-name"
-                  v-for="(
-                    sub_sub_category, index
-                  ) in sub_category.sub_sub_category"
-                  :key="index"
-                  v-if="index <= 7"
-                  >{{ sub_sub_category.name }}</router-link
+                <div
+                  :id="'subCategoryNameView' + sub_category.id"
+                  class="sub_category_view"
                 >
+                  <router-link
+                    :to="{
+                      name: 'PublicSubSUbCategory',
+                      params: { slug: sub_sub_category.slug },
+                    }"
+                    class="sub-category-name"
+                    v-for="(
+                      sub_sub_category, index
+                    ) in sub_category.sub_sub_category"
+                    :key="index"
+                    v-if="index <= 7"
+                    >{{ sub_sub_category.name }}</router-link
+                  >
 
-                <router-link
-                  :to="{  name: 'PublicSubCategory',
-                    params: { slug: sub_category.slug },
-                  }"
-                  class="c-v-all"
-                  >View All
-                </router-link>
+                  <router-link
+                    :to="{
+                      name: 'PublicSubCategory',
+                      params: { slug: sub_category.slug },
+                    }"
+                    class="c-v-all"
+                    >View All
+                  </router-link>
                 </div>
-              
               </div>
             </div>
 
             <div class="row">
               <div
-                class="col-lg-2 col-sm-4 col-md-2 col-xs-6 width-20"
+                class="col-lg-2 col-sm-4 col-md-2 col-xs-6 width-20 small_width"
                 v-for="(product, index) in sub_category.products"
                 :key="index"
                 v-if="index < 10"
@@ -347,11 +448,11 @@
                     <router-link
                       :to="{ name: 'single', params: { slug: product.slug } }"
                     >
-                    <v-lazy-image
-                      v-if="product.product_image.length"
-                     :src="base_url + product.product_image[0].product_image"
-                     :src-placeholder="base_url+'images/preview.png'"
-                     />
+                      <v-lazy-image
+                        v-if="product.product_image.length"
+                        :src="base_url + product.product_image[0].product_image"
+                        :src-placeholder="base_url + 'images/preview.png'"
+                      />
                     </router-link>
                     <div class="product-detail">
                       <h4>
@@ -365,10 +466,23 @@
                         >
                       </h4>
                       <p class="price">
-                        <span class="price-new">{{ product.price }}</span>
-                        <span class="price-old" v-if="product.discount">{{
-                          product.sale_price
-                        }}</span>
+                        <span class="price-new"
+                          >&#2547; {{ product.price }}</span
+                        >
+                        <span class="price-old" v-if="product.discount">
+                          &#2547;{{ product.sale_price }}</span>
+                        <span
+                          v-if="product.discount > 0"
+                          class="discount"
+                        >
+                          <i class="fa fa-star discount_star"> </i>
+                          {{
+                            (
+                              (product.discount / product.sale_price) *
+                              100
+                            ).toFixed(0)
+                          }}% <span class="d_off">off</span>
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -386,6 +500,9 @@
               </div>
             </div>
           </div>
+          <infinite-loading @distange="0.5" @infinite="home_page_product">
+            <div slot="no-more"></div>
+          </infinite-loading>
         </div>
       </div>
 
@@ -440,7 +557,7 @@
       </div>
     </div>
 
-    <frontend-footer></frontend-footer>
+    <frontend-footer v-if="isScroll > 0"></frontend-footer>
     <quick-view
       v-if="quick_v_product_id"
       v-on:clicked="closedModal($event)"
@@ -460,11 +577,8 @@ import VueHorizontalList from "vue-horizontal-list";
 Vue.use(Loading);
 
 export default {
-  name: "welcome",
-  name: "ServeDev",
 
   created() {
-    this.getNewArrivalProducts();
     this.getOccatoinCampaign();
     this.getSeasionCampaign();
     this.getBuyGetCampaign();
@@ -480,8 +594,7 @@ export default {
       isScroll: 0,
       quick_v_product_id: "",
       o_modal: false,
-      new_arrival_products: [],
-      new_rendom_products: [],
+      home_page_products: [],
       new_arrival_options: {
         responsive: [
           { end: 450, size: 3 },
@@ -520,21 +633,11 @@ export default {
       seasion_campaign: "",
       seasion_p_top: "",
       seasion_p_bottom: "",
-      buy_get:"",
-      buy_get_p:"",
-
+      buy_get: "",
+      buy_get_p: "",
     };
   },
   methods: {
-    getNewArrivalProducts(page = 1) {
-      axios
-        .get("/_public/api/new/arrival/products?page=" + page)
-        .then((resp) => {
-          // console.log(resp);
-          this.new_arrival_products = resp.data.new_arrival_products;
-          this.new_rendom_products = resp.data.new_rendom_products;
-        });
-    },
     getOccatoinCampaign() {
       axios.get("/_public/api/publish/occasional/campaign").then((resp) => {
         this.occasion_campaign = resp.data.occasion;
@@ -551,19 +654,29 @@ export default {
     },
 
     getBuyGetCampaign() {
-          axios.get("/_public/api/publish/buy/one/get/one/campaign")
-          .then((resp) => {
-            this.buy_get = resp.data.buy_get;
-            this.buy_get_p = resp.data.buy_get_p;      
+      axios
+        .get("/_public/api/publish/buy/one/get/one/campaign")
+        .then((resp) => {
+          this.buy_get = resp.data.buy_get;
+          this.buy_get_p = resp.data.buy_get_p;
         });
     },
-    
+    home_page_product($state) {
+      axios
+        .get("/_public/products?page=" + this.page)
+        .then((resp) => {
+          if (resp.data.data.length) {
+            this.page += 1;
+            this.home_page_products.push(...resp.data.data);
+            $state.loaded();
+          } else {
+            $state.complete();
+          }
+        })
+        .catch((e) => {});
+    },
     handleScrol() {
       this.isScroll = 1;
-      if (window.scrollY > 400) {
-        this.$store.dispatch("sub_sub_category_product");
-      }
-      console.log();
     },
 
     productDetals(product_id) {
@@ -600,6 +713,12 @@ export default {
     },
     slider_banner() {
       return this.$store.getters.slider_banner;
+    },
+    best_selling_produtcs() {
+      return this.$store.getters.best_selling_produtcs;
+    },
+    new_rendom_products() {
+      return this.$store.getters.new_rendom_products;
     },
     sliders() {
       return this.$store.getters.sliders;
@@ -648,7 +767,6 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <style scoped>
-
 .v-lazy-image {
   filter: blur(1px);
   transition: filter 0.3s;
@@ -657,6 +775,4 @@ document.addEventListener("DOMContentLoaded", () => {
 .v-lazy-image-loaded {
   filter: blur(0);
 }
-
-
 </style>

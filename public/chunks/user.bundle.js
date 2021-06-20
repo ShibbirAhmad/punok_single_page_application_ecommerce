@@ -159,6 +159,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     var _this = this;
@@ -331,273 +332,283 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "content-wrapper" }, [
-      _c(
-        "section",
-        {
-          staticClass: "content-header",
-          staticStyle: { "margin-bottom": "20px" }
-        },
-        [
-          _c("h1", [
-            _c(
-              "button",
-              {
-                staticClass: "btn  btn-success",
-                on: { click: _vm.exportUsers }
-              },
-              [
-                _c("i", { staticClass: "fa fa-download" }),
-                _vm._v(" Export Users ")
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _vm._m(0)
-        ]
-      ),
+  return _c(
+    "div",
+    [
+      _c("admin-main"),
       _vm._v(" "),
-      _c("section", { staticClass: "content" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row justify-content-center" }, [
-            _c("div", { staticClass: "col-lg-10 col-lg-10 offset-1" }, [
-              _c("div", { staticClass: "box box-primary" }, [
-                _c("div", { staticClass: "box-header with-border" }, [
-                  _c("h3", { staticClass: "box-title" }, [
-                    _vm._v("User table")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "row",
-                      staticStyle: { "margin-top": "5px" }
-                    },
-                    [
-                      _c("div", { staticClass: "col-md-2" }, [
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.item,
-                                expression: "item"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.item = $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              }
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "10" } }, [
-                              _vm._v("10")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "10" } }, [
-                              _vm._v("20")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "30" } }, [
-                              _vm._v("30")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "40" } }, [
-                              _vm._v("40")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "50" } }, [
-                              _vm._v("50")
-                            ])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-5" }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-4" }, [
-                        _c("form", { attrs: { action: "" } }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.search,
-                                expression: "search"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              placeholder: "user name or 01xxxxxxxxx ",
-                              id: ""
-                            },
-                            domProps: { value: _vm.search },
-                            on: {
-                              keyup: _vm.searchUser,
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.search = $event.target.value
-                              }
-                            }
-                          })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(1)
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "box-body" }, [
-                  _c("table", { staticClass: "table" }, [
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c(
-                      "tbody",
-                      [
-                        _vm.loading
-                          ? _c("h1", { staticClass: "text-center" }, [
-                              _c("i", { staticClass: "fa fa-spin fa-spinner" })
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm._l(_vm.users.data, function(user, index) {
-                          return _c("tr", { key: index }, [
-                            _c("td", { attrs: { scope: "row" } }, [
-                              _vm._v(_vm._s(index + 1))
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(user.name))]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(user.mobile_no))]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(user.email))]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _c("img", {
-                                staticClass: "img-circle small-image",
-                                attrs: {
-                                  src: user.image
-                                    ? _vm.basePath + user.image
-                                    : _vm.basePath +
-                                      "images/static/noimage.png",
-                                  alt: "user Image"
-                                }
-                              })
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _vm._v(
-                                _vm._s(
-                                  user.user_city ? user.user_city.name : "null"
-                                )
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(user.address))]),
-                            _vm._v(" "),
-                            _c("td", [
-                              user.status == 1
-                                ? _c("span", { staticClass: "badge" }, [
-                                    _vm._v("Active")
-                                  ])
-                                : _c(
-                                    "span",
-                                    { staticClass: "badge text-bold" },
-                                    [_vm._v("De-Active")]
-                                  )
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [
-                              user.status == 1
-                                ? _c(
-                                    "a",
-                                    {
-                                      staticClass: "btn btn-warning",
-                                      attrs: { title: "De-active" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.deActive(user)
-                                        }
-                                      }
-                                    },
-                                    [_c("i", { staticClass: "fa fa-ban" })]
-                                  )
-                                : _c(
-                                    "a",
-                                    {
-                                      staticClass: "btn btn-primary",
-                                      attrs: { title: "active" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.active(user)
-                                        }
-                                      }
-                                    },
-                                    [_c("i", { staticClass: "fa fa-check" })]
-                                  )
-                            ])
-                          ])
-                        })
-                      ],
-                      2
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "box-footer" }, [
-                  _c("div", { staticClass: "row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-6" },
-                      [
-                        _c("pagination", {
-                          attrs: { data: _vm.users, limit: 3 },
-                          on: { "pagination-change-page": _vm.userList }
-                        })
-                      ],
-                      1
-                    ),
+      _c("div", { staticClass: "content-wrapper" }, [
+        _c(
+          "section",
+          {
+            staticClass: "content-header",
+            staticStyle: { "margin-bottom": "20px" }
+          },
+          [
+            _c("h1", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn  btn-success",
+                  on: { click: _vm.exportUsers }
+                },
+                [
+                  _c("i", { staticClass: "fa fa-download" }),
+                  _vm._v(" Export Users ")
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ]
+        ),
+        _vm._v(" "),
+        _c("section", { staticClass: "content" }, [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row justify-content-center" }, [
+              _c("div", { staticClass: "col-lg-10 col-lg-10 offset-1" }, [
+                _c("div", { staticClass: "box box-primary" }, [
+                  _c("div", { staticClass: "box-header with-border" }, [
+                    _c("h3", { staticClass: "box-title" }, [
+                      _vm._v("User table")
+                    ]),
                     _vm._v(" "),
                     _c(
                       "div",
                       {
-                        staticClass: "col-lg-6 mt-1",
-                        staticStyle: {
-                          "margin-top": "25px",
-                          "text-align": "right"
-                        }
+                        staticClass: "row",
+                        staticStyle: { "margin-top": "5px" }
                       },
                       [
-                        _c("p", [
-                          _vm._v("\n                      Showing "),
-                          _c("strong", [_vm._v(_vm._s(_vm.users.from))]),
-                          _vm._v(" to\n                      "),
-                          _c("strong", [_vm._v(_vm._s(_vm.users.to))]),
-                          _vm._v(" of total\n                      "),
-                          _c("strong", [_vm._v(_vm._s(_vm.users.total))]),
-                          _vm._v(" entries\n                    ")
-                        ])
+                        _c("div", { staticClass: "col-md-2" }, [
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.item,
+                                  expression: "item"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.item = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                }
+                              }
+                            },
+                            [
+                              _c("option", { attrs: { value: "10" } }, [
+                                _vm._v("10")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "10" } }, [
+                                _vm._v("20")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "30" } }, [
+                                _vm._v("30")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "40" } }, [
+                                _vm._v("40")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "50" } }, [
+                                _vm._v("50")
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-5" }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-4" }, [
+                          _c("form", { attrs: { action: "" } }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.search,
+                                  expression: "search"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                placeholder: "user name or 01xxxxxxxxx ",
+                                id: ""
+                              },
+                              domProps: { value: _vm.search },
+                              on: {
+                                keyup: _vm.searchUser,
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.search = $event.target.value
+                                }
+                              }
+                            })
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(1)
                       ]
                     )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "box-body" }, [
+                    _c("table", { staticClass: "table" }, [
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        [
+                          _vm.loading
+                            ? _c("h1", { staticClass: "text-center" }, [
+                                _c("i", {
+                                  staticClass: "fa fa-spin fa-spinner"
+                                })
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm._l(_vm.users.data, function(user, index) {
+                            return _c("tr", { key: index }, [
+                              _c("td", { attrs: { scope: "row" } }, [
+                                _vm._v(_vm._s(index + 1))
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(user.name))]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(user.mobile_no))]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(user.email))]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c("img", {
+                                  staticClass: "img-circle small-image",
+                                  attrs: {
+                                    src: user.image
+                                      ? _vm.basePath + user.image
+                                      : _vm.basePath +
+                                        "images/static/noimage.png",
+                                    alt: "user Image"
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _vm._v(
+                                  _vm._s(
+                                    user.user_city
+                                      ? user.user_city.name
+                                      : "null"
+                                  )
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(user.address))]),
+                              _vm._v(" "),
+                              _c("td", [
+                                user.status == 1
+                                  ? _c("span", { staticClass: "badge" }, [
+                                      _vm._v("Active")
+                                    ])
+                                  : _c(
+                                      "span",
+                                      { staticClass: "badge text-bold" },
+                                      [_vm._v("De-Active")]
+                                    )
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [
+                                user.status == 1
+                                  ? _c(
+                                      "a",
+                                      {
+                                        staticClass: "btn btn-warning",
+                                        attrs: { title: "De-active" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.deActive(user)
+                                          }
+                                        }
+                                      },
+                                      [_c("i", { staticClass: "fa fa-ban" })]
+                                    )
+                                  : _c(
+                                      "a",
+                                      {
+                                        staticClass: "btn btn-primary",
+                                        attrs: { title: "active" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.active(user)
+                                          }
+                                        }
+                                      },
+                                      [_c("i", { staticClass: "fa fa-check" })]
+                                    )
+                              ])
+                            ])
+                          })
+                        ],
+                        2
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "box-footer" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        { staticClass: "col-lg-6" },
+                        [
+                          _c("pagination", {
+                            attrs: { data: _vm.users, limit: 3 },
+                            on: { "pagination-change-page": _vm.userList }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-lg-6 mt-1",
+                          staticStyle: {
+                            "margin-top": "25px",
+                            "text-align": "right"
+                          }
+                        },
+                        [
+                          _c("p", [
+                            _vm._v("\n                      Showing "),
+                            _c("strong", [_vm._v(_vm._s(_vm.users.from))]),
+                            _vm._v(" to\n                      "),
+                            _c("strong", [_vm._v(_vm._s(_vm.users.to))]),
+                            _vm._v(" of total\n                      "),
+                            _c("strong", [_vm._v(_vm._s(_vm.users.total))]),
+                            _vm._v(" entries\n                    ")
+                          ])
+                        ]
+                      )
+                    ])
                   ])
                 ])
               ])
@@ -605,8 +616,9 @@ var render = function() {
           ])
         ])
       ])
-    ])
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {

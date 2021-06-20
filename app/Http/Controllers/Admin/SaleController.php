@@ -396,9 +396,9 @@ class SaleController extends Controller
             return \response()->json('Sale Product Empty');
         }
         
-        if(empty($request->exchnage_products)){
-            return \response()->json('exchnage_products Empty');
-        }
+        // if(empty($request->exchanage_products )){
+        //     return \response()->json('exchanage_products  Empty');
+        // }
         if($request->exchange_total>$request->sale_total){
             return \response()->json('Exchaneg amount can not be bigger then Sale amount');
         }
@@ -436,7 +436,7 @@ class SaleController extends Controller
             $sale_item->save();
 
          }
-         foreach ($request->exchnage_products as $prroduct) {
+         foreach ($request->exchanage_products  as $prroduct) {
 
             //manage product stock
             $pro = Product::where('id', $prroduct['product_id'])->first();

@@ -13,7 +13,17 @@ use App\Models\Team;
 use Maatwebsite\Excel\Facades\Excel ;
 use App\Exports\CreditExport ;
 use App\Exports\DebitExport ;
+use App\Models\Investor;
+use App\Models\InvestorProfitPaid;
+use App\Models\Loaner;
+use App\Models\LoanPaid;
+use App\Models\PrintHouse;
+use App\Models\PrintHousePayment;
+use App\Models\Supplier;
 use Intervention\Image\Facades\Image;
+use App\Models\BillPaidStatement;
+use App\Models\BillStatement ;
+use App\Models\InvestmentReturn;
 
 class AccountController extends Controller
 {
@@ -73,10 +83,12 @@ class AccountController extends Controller
 
       //  return $request->all();
         $validatedData = $request->validate([
+
             'date'=>'required|before:tomorrow',
             'purpose' => 'required',
             'amount' => 'required|numeric',
             'credit_in' => 'required'
+            
         ]);
         
         $credit = new Credit();
@@ -172,6 +184,20 @@ class AccountController extends Controller
     {
         if($request->ajax()){
             $paginate=$request->item??20;
+            
+             if($paginate==80){
+                $paginate=800;
+            }
+            
+             if(!empty($request->accuount_purpose)){
+
+                 $debits=Debit::where('purpose',$request->accuount_purpose)
+                                ->orderBy('id','DESC')->with(['admin','purpose'])
+                                ->paginate($paginate);
+                 return response()->json($debits);
+             }
+            
+            
               if($request->status=='all'){
                     $debits=Debit::orderBy('id','DESC')->with(['purpose','admin'])->paginate($paginate);
                     return response()->json($debits);
@@ -235,27 +261,124 @@ class AccountController extends Controller
 
         if ($debit->save()) {
            if(!empty($request->employee_id)){
+
+             $emplye=Team::where('id',$request->employee_id)->first();
                 $employee_salary=new EmployeeSalary();
                 $employee_salary->employee_id=$request->employee_id;
                 $employee_salary->amount=$request->amount;
                 $employee_salary->date=$request->date;
+                $employee_salary->comment=$debit->comment;
+                $employee_salary->paid_by=$debit->debit_from;
                 $employee_salary->save();
+               Team::sendMessageToEmployeer($emplye,$employee_salary->amount);
+                //update debit comment
+                 $debit->comment = $debit->comment.'('. $emplye->name .')';
+                 $debit->save();
            }
+
+           if(!empty($request->loaner_id)){
+
+              $loaner=Loaner::where('id',$request->loaner_id)->first();
+               $loan_paid=new LoanPaid();
+               $loan_paid->loaner_id=$loaner->id;
+               $loan_paid->amount=  $debit->amount;
+               $loan_paid->date= $debit->date;
+               $loan_paid->comment=$debit->comment;
+               $loan_paid->paid_by=$debit->debit_from;
+                $loan_paid->save();
+                
+                $debit->comment = $debit->comment.'('. $loaner->name .')';
+                $debit->save();
+          }
 
            //save a supplier paid amount
              if(!empty($request->supplier_id)){
+
+                $supplier=Supplier::where('id',$request->supplier_id)->first();
                 $supplier_payment=new SupplierPayment();
                 $supplier_payment->supplier_id=$request->supplier_id;
                 $supplier_payment->amount=$request->amount;
                 $supplier_payment->date=$request->date;
-                $supplier_payment->paid_by=$debit->debit_from;
+                $supplier_payment->paid_by=$debit->debit_from . '('. $debit->comment.')';
                 $supplier_payment->save();
+                
+                //update debit comment
+                $debit->comment = $debit->comment.'('. $supplier->name .')';
+                $debit->save();
+
              }
+             
+             
+           //investor payment inserting      
+           if(!empty($request->investor_id)){
+               
+               $investor=Investor::where('id',$request->investor_id)->first();
+               $investor_profit_paid=new InvestorProfitPaid();
+               $investor_profit_paid->investor_id=$investor->id;
+               $investor_profit_paid->amount=  $debit->amount;
+               $investor_profit_paid->profit_month= $request->profit_month;
+               $investor_profit_paid->date= $debit->date;
+               $investor_profit_paid->comment=$debit->comment;
+               $investor_profit_paid->paid_by=$debit->debit_from;
+               $investor_profit_paid->save();
+               $debit->comment = $debit->comment.'('. $investor->name .')';
+               $debit->save();
+          }
+          
+
+                        
+           //investor payment return      
+           if(!empty($request->investor_return_id)){
+               
+               $investor=Investor::where('id',$request->investor_return_id)->first();
+               $invest_return=new InvestmentReturn();
+               $invest_return->investor_id=$investor->id;
+               $invest_return->amount=  $debit->amount;
+               $invest_return->date= $debit->date;
+               $invest_return->comment=$debit->comment;
+               $invest_return->paid_by=$debit->debit_from;
+               $invest_return->save();
+               $debit->comment = $debit->comment.'('. $investor->name .')';
+               $debit->save();
+          }
+
+            //print house payment inserting
+             if(!empty($request->print_house_id)){
+
+               $print_house=PrintHouse::where('id',$request->print_house_id)->first();
+               $print_house_paid=new PrintHousePayment();
+               $print_house_paid->print_house_id=$print_house->id;
+               $print_house_paid->amount=  $debit->amount;
+               $print_house_paid->date= $debit->date;
+               $print_house_paid->comment=$debit->comment;
+               $print_house_paid->paid_by=$debit->debit_from;
+               $print_house_paid->save();
+                $debit->comment = $debit->comment.'('.$print_house->name.')';
+                $debit->save();
+          }
+
+
+        //storing bill statement payment
+        if(!empty($request->bill_statement_id)){
+
+               $bill=BillStatement::where('id',$request->bill_statement_id)->first();
+               $bill_paid=new BillPaidStatement();
+               $bill_paid->bill_statement_id=$bill->id;
+               $bill_paid->amount=  $debit->amount;
+               $bill_paid->date= $debit->date;
+               $bill_paid->comment=$debit->comment;
+               $bill_paid->paid_by=$debit->debit_from;
+               $bill_paid->save();
+                $debit->comment = $debit->comment.'('.$bill->name.')';
+                $debit->save();
+          }
 
        
           return response()->json([
+                
                 'status' => 'SUCCESS',
-                'message' => "debit was successfully created",
+                'message' => "Debit was successfully created",
+
             ]);
         }
     }

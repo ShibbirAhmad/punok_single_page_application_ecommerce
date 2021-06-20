@@ -28,7 +28,7 @@
                   <has-error :form="form" field="email"></has-error>
                 </div>
                 <br />
-                 
+
                 <button :disabled="form.busy" class="btn btn-block btn-primary" type="submit">
                   <i class="fa fa-spinner fa-spin" v-if="form.busy"></i>Send Code
                 </button>
@@ -70,12 +70,12 @@ export default {
               function(data,headers){
                    return objectToFormData(data);
               }
-           ]   
+           ]
         })
         .then((resp) => {
              console.log(resp)
           if (resp.data.status == "OK") {
-            
+
           } else {
             this.$toasted.show(
               "Your are not existing user",
@@ -118,6 +118,7 @@ export default {
   },
   components: {
     Loading,
+    HasError
   },
 };
 </script>

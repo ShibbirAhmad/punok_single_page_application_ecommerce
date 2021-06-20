@@ -683,6 +683,15 @@ export default {
 
     shipment(order, index) {
       /////index initial for update order from orderLit or order arrow.
+      if(!this.orders.data[index].courier_id){
+      alert('please select a courier')
+      return;
+    }
+    
+    if(!this.orders.data[index].memo_no){
+      alert('Must Be Need Memo Number')
+      return;
+    }
 
       //start progress bar
       this.$Progress.start();
@@ -1176,5 +1185,10 @@ export default {
   text-transform: uppercase;
   border-bottom: 2px solid #000;
   margin-bottom: 10px;
+}
+
+.box{
+  width:100%;
+  overflow-x: scroll;
 }
 </style>

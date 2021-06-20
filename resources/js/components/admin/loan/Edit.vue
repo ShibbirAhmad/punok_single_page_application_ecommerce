@@ -15,8 +15,8 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6 col-lg-offset-2">
                         <div class="box box-primary">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">Edit Admin</h3>
+                            <div class="box-header with-border text-center  ">
+                                <h3 class="box-title">Edit Loan</h3>
                             </div>
                             <div class="box-body">
                                 <h1 v-if="loading"><i class="fa fa-spinner fa-spin"></i></h1>
@@ -48,10 +48,12 @@
                                                type="file" @change="uploadImage" name="image">
                                         <has-error :form="form" field="image"></has-error>
                                     </div>
-                                    <br/>
-                                    <button :disabled="form.busy" type="submit" class="btn btn-primary"><i
+                                   <div class="form-group text-center">
+                                        <button :disabled="form.busy" type="submit" class="btn btn-primary"><i
                                         class="fa fa-spin fa-spinner" v-if="form.busy"></i>Submit
                                     </button>
+                                   </div>
+
                                 </form>
                             </div>
                         </div>

@@ -1,12 +1,12 @@
-<?php 
- // this is for count total quantity 
+<?php
+ // this is for count total quantity
  $total_quantity=0;
     foreach ($orders as  $order) {
        foreach ($order->orderItem as $item) {
             $total_quantity += intval($item->quantity) ;
        }
-    }  
-      
+    }
+
 //     //this orders item counter house
     function productItems($items){
          $s_item=0 ;
@@ -26,7 +26,7 @@
 // this is order status detector man
 function orderStatus($status){
     $order_status="";
-    switch ($status) { 
+    switch ($status) {
         case 1:
             $order_status="New" ;
             break;
@@ -60,9 +60,10 @@ function orderStatus($status){
             break;
     }
 
-    return  $order_status; 
+    return  $order_status;
 }
- 
+
+        $setting = App\Models\GeneralSetting::latest()->first();
 
 ?>
 <!DOCTYPE html>
@@ -74,7 +75,7 @@ function orderStatus($status){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        
+
       * {
             margin: 0;
             padding: 0;
@@ -86,7 +87,7 @@ function orderStatus($status){
             margin-bottom: 20px;
             line-height: 25px;
             text-align: center;
-            
+
         }
 
         .logo {
@@ -95,11 +96,11 @@ function orderStatus($status){
 
         }
 
-        .container{ 
+        .container{
             position:absolute;
             width: 100%;
             height:auto;
-                  
+
                   }
          .table_container{
              text-align: center;
@@ -120,26 +121,23 @@ function orderStatus($status){
              text-align: center;
             }
 
-           
-    </style>    
+
+    </style>
+    <?php
+        $setting = App\Models\GeneralSetting::latest()->first();
+    ?>
 </head>
 <body>
      <div class="container">
 
         <div class="address">
-            <p class="logo">Mohasagor.com</p>
-            <p class="address_line">
-                Office: Houes:02, Lane:11,Block:A, Banarosi Polli, section-10,
-                Mirpur,Dhaka.
-            </p>
-            <p>Email: support@mohasagor.com</p>
-            <p>Hot Line: <strong> 09636 203040</strong></p>
-
+              <p class="logo">sufilifestyle.com</p>
+              <p> {!! $setting->invoice_address_details !!} </p>
         </div>
 
           <div class="table_container">
                   <table class="table table-striped">
-                    
+
                         <tr>
                             <th scope="col">Serial No</th>
                             <th scope="col">Customer_phone</th>
@@ -149,10 +147,10 @@ function orderStatus($status){
                             <th scope="col">Status</th>
                             <th scope="col">Amount</th>
                         </tr>
-                      
+
                         <tbody>
-                       
-                        
+
+
                         <?php $n =1 ?>
                         @foreach ($orders as $key=> $order)
                         <tr>
@@ -164,7 +162,7 @@ function orderStatus($status){
                             <td> {{ orderStatus($order->status) }}  </td>
                             <td> {{ intval($order->total) - intval($order->discount) + intval($order->shipping_cost) }}    </td>
                          </tr>
-                         
+
                           @if($n % 20 == 0)
                            <div  style="page-break-before:always;"></div>
                           @endif
@@ -185,6 +183,6 @@ function orderStatus($status){
                   </table>
          </div>
      </div>
-  
+
    </body>
 </html>

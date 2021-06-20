@@ -13,7 +13,7 @@
       <section class="content">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-lg-11">
+            <div class="col-lg-10">
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <div class="row" style="margin-bottom: 3px">
@@ -156,5 +156,8 @@ export default {
   text-transform: uppercase;
   border-bottom: 2px solid #000;
   margin-bottom: 10px;
+}
+.box-primary{
+  overflow-x: scroll;
 }
 </style>

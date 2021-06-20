@@ -1,5 +1,6 @@
 <template>
   <div>
+    <admin-main></admin-main>
     <div class="content-wrapper">
       <section style="margin-bottom: 20px" class="content-header">
           <h1>
@@ -114,7 +115,7 @@
                         </td>
                       </tr>
                     </tbody>
-   
+
                   </table>
                 </div>
                 <div class="box-footer">
@@ -175,10 +176,10 @@ export default {
         if (resp.data.success == "OK") {
           console.log(resp);
           this.users = resp.data.users;
-        } 
-      });   
+        }
+      });
         } else {
-           this.userList(); 
+           this.userList();
         }
 
     },

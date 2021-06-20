@@ -38,7 +38,7 @@ class OthersController extends Controller
         $variants = Variant::where('status', 1)->get();
         $subcategories=SubCategory::where('status',1)->get();
         $SubSubcategories=SubSubCategory::where('status',1)->get();
-        $cities=City::where('status',1)->get();
+        $cities=City::where('status',1)->orderBy('name')->get();
         $couriers=Courier::where('status',1)->get();
         $comments=Comment::all();
         return response()->json([
@@ -74,12 +74,12 @@ class OthersController extends Controller
             'subscribers' => $subscribers ,
         ]);
       }
-   
+
 
       public function remove_subscriber($id){
 
         $subscriber = Subscriber::findOrFail($id);
-       
+
         if ($subscriber->delete()) {
             return response()->json([
                 'message' => 'this subscriber has deleted' ,
@@ -88,12 +88,12 @@ class OthersController extends Controller
 
       }
 
- 
+
     public  function export_subscriber(){
 
            return Excel::download(new SubscribersExport(),'subscribers.xlsx');
     }
-      
+
     public function contact_message(Request $request){
         $item = $request->item ?? 20 ;
         $contacts= Contact::orderBy('id','desc')->paginate($item);

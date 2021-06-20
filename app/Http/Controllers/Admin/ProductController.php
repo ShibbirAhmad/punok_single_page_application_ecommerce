@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Product;
-use App\Models\ProductAttribute;
-use App\Models\ProductBarcode;
-use App\Models\ProductImage;
-use App\Models\ProductVariant;
-use App\Models\Variant;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Customer;
-use App\Models\Purchaseitem;
-use DB;
-use Illuminate\Validation\Rule;
 use Picqer;
-use Barryvdh\DomPDF\Facade as PDF;
+use Carbon\Carbon;
 use App\Models\Order;
+use App\Models\Product;
+use App\Models\Variant;
+use App\Models\Customer;
+use Illuminate\Support\Str;
+use App\Models\ProductImage;
+use App\Models\Purchaseitem;
+use Illuminate\Http\Request;
+use App\Models\ProductBarcode;
+use App\Models\ProductVariant;
+use Illuminate\Validation\Rule;
+use App\Models\ProductAttribute;
+use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 
 class ProductController extends Controller
@@ -34,7 +35,7 @@ class ProductController extends Controller
 
         }else{
             $products = Product::orderBy('id', 'DESC')->with(['productImage', 'productBarcode'])->where('status',$request->status)->paginate($paginate);
- 
+
         }
         return response()->json([
            // 'status' => 'SUCCESS',
@@ -43,15 +44,8 @@ class ProductController extends Controller
     }
 
 
-    
 
 
-
-
-    public function create()
-    {
-
-    }
 
     public function store(Request $request)
     {
@@ -68,87 +62,76 @@ class ProductController extends Controller
             'price' => 'required',
             'details' => 'required',
             'image' => 'required',
-            
-
         ]);
+        DB::transaction(function() use($request){
+            //get products tables max id
+                $id = Product::max('id') ?? 0;
+                $product_code = 1001 + $id;
+                //save product data
+                $slug=Str::slug($request->name);
+                $product = new Product();
+                $product->name = $request->name;
+                $product->merchant_id=282;
+                $product->category_id = $request->category;
+                $product->sub_category_id = $request->sub_category ?? null;
+                $product->sub_sub_category_id = $request->sub_sub_category ?? null;
+                $product->product_code = $product_code;
+                $product->slug =  $slug. '-' . $product_code;
+                $product->stock = 0;
+                $product->sale_price = $request->sale_price;
+                $product->price = $request->price;
+                $product->discount = $request->discount ?? null;
+                $product->wallet_point = $request->wallet_point ?? 0;
+                $product->status = 1;
+                $product->details = $request->details;
+                $product->product_placement = $request->product_placement ?? 0;
+                $product->product_position = $request->product_position ?? 0;
+                $product->save();
 
-        //get products tables max id
-        $id = Product::max('id') ?? 0;
+                //if product save then generate product barcode
+                $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+                $barcode = $generator->getBarcode($product->product_code, $generator::TYPE_CODE_128);
+                $product_barcode = new ProductBarcode();
+                $product_barcode->product_id = $product->id;
+                $product_barcode->barcode = $barcode;
+                $product_barcode->barcode_number = $product->product_code;
+                $product_barcode->save();
 
-        $product_code = 1001 + $id;
-
-        //save product data
-
-        $slug=\str_slug($request->name);
-        $product = new Product();
-        $product->name = $request->name;
-        $product->merchant_id=282;
-        $product->category_id = $request->category;
-        $product->sub_category_id = $request->sub_category ?? null;
-        $product->sub_sub_category_id = $request->sub_sub_category ?? null;
-        $product->product_code = $product_code;
-        $product->slug =  $slug. '-' . $product_code;
-        $product->stock = 0;
-        $product->sale_price = $request->sale_price;
-        $product->price = $request->price;
-        $product->discount = $request->discount ?? null;
-        $product->status = 1;
-        $product->details = $request->details;
-        $product->product_placement = $request->product_placement ?? 0;
-        $product->product_position = $request->product_position ?? 0;
-      
-        if ($product->save()) {
-
-            //if product save then generate product barcode
-            $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
-            $barcode = $generator->getBarcode($product->product_code, $generator::TYPE_CODE_128);
-            $product_barcode = new ProductBarcode();
-            $product_barcode->product_id = $product->id;
-            $product_barcode->barcode = $barcode;
-            $product_barcode->barcode_number = $product->product_code;
-            $product_barcode->save();
-
-            //save product multiple image in store directory
-            if ($request->hasFile('image')) {
-                $files = $request->file('image');
-                foreach ($files as $file) {
-                    $product_image = new ProductImage();
-                    $product_image->product_id = $product->id;
-                    $path = $file->store('images/products', 'public');
-                    $product_image->product_image = $path;
-                    $product_image->save();
+                //save product multiple image in store directory
+                if ($request->hasFile('image')) {
+                    $files = $request->file('image');
+                    foreach ($files as $file) {
+                        $product_image = new ProductImage();
+                        $product_image->product_id = $product->id;
+                        $path = $file->store('images/products', 'public');
+                        $product_image->product_image = $path;
+                        $product_image->save();
+                    }
                 }
-            }
-            //save the product properties
-            if (isset($request->attribute) && !empty($request->attribute)) {
 
-                   $product_attribute = new ProductAttribute();
-                    $product_attribute->product_id = $product->id;
-                    $product_attribute->attribute_id = $request->attribute;
-                    $product_attribute->save();
-                
-
-            }
-            if (isset($request->variant) && !empty($request->variant)) {
+                //save the product properties
+                if (isset($request->attribute) && !empty($request->attribute)) {
+                        $product_attribute = new ProductAttribute();
+                        $product_attribute->product_id = $product->id;
+                        $product_attribute->attribute_id = $request->attribute;
+                        $product_attribute->save();
+                }
+               //save the product variants
+               if (isset($request->variant) && !empty($request->variant)) {
                 foreach ($request->variant as $item) {
                     $product_variant = new ProductVariant();
                     $product_variant->product_id = $product->id;
                     $product_variant->variant_id = $item;
                     $product_variant->save();
                 }
+              }
+         });
 
-            }
-            //return success message
-            return response()->json([
+           return response()->json([
                 'status' => 'SUCCESS',
                 'message' => 'product add successfully'
             ]);
-        } else {
-            return response()->json([
-                'status' => 'SUCCESS',
-                'message' => 'product add successfully'
-            ]);
-        }
+
 
     }
 
@@ -283,8 +266,11 @@ class ProductController extends Controller
                 'sub_sub_category_id' => $request->sub_sub_category ?? null,
                 'sale_price' => $request->sale_price,
                 'price' => $request->price,
+                'wallet_point' => $request->wallet_point,
                 'discount' => $request->discount ?? null,
                 'details' => $request->details,
+                'campaign_id'=>$request->campaign_id ,
+                'expired_date'=>$request->expired_date ,
                 'product_placement'=>$request->product_placement ?? 0,
                 'product_position'=>$request->product_position ?? 0,
                 'updated_at' => Carbon::now(),
@@ -333,9 +319,9 @@ class ProductController extends Controller
                          $product_attribute->product_id = $id;
                         $product_attribute->save();
                      }
-                   
+
               }
-             
+
               //find product old variant
             $product_old_variants = ProductVariant::whereIn('product_id', [$id])->get();
 
@@ -396,6 +382,7 @@ class ProductController extends Controller
 
     public function searchWithCode($code){
         $product=Product::where('product_code',$code)->where('status',1)->first();
+        $product->{'purchase_price'}= intval(Purchaseitem::where('product_id',$product->id)->avg('price')) ;
         if($product){
             $product_attributes=ProductAttribute::where('product_id',$product->id)->with('attribute')->get();
             $product_variants=ProductVariant::where('product_id',$product->id)->with('variant')->get();
@@ -405,25 +392,26 @@ class ProductController extends Controller
                 'product'=>$data
                ]);
         }
-     
+
 
     }
 
+
     public function productStock(Request $request){
-    
+
           $item=$request->item??20;
           $products=Product::where('status',1)->where('stock','>',0)->with('purchaseItem')->paginate($item);
           return response()->json($products);
 
 
-     
+
 
 
 }
 
     public function printBarcode($id,$howmany){
-        
-    
+
+
         $product_barcode=ProductBarcode::where('product_id',$id)->first();
         $pdf=PDF::loadView('admin.pdf.barcode',compact('product_barcode','howmany'));
   //      return $pdf->stream();
@@ -435,12 +423,12 @@ class ProductController extends Controller
         if(!$request->ajax()){
             return \abort(404);
         }
-           
+
        $customer=Customer::where('phone',$number)->first();
 
       if(!empty($customer)){
         $customer_order=Order::where('customer_id',$customer->id)->orderBy('id','DESC')->first();
-     
+
        return \response()->json([
              'message'=>"customer al ready register.",
             'customer'=>$customer
@@ -449,14 +437,14 @@ class ProductController extends Controller
       }else{
         return \response()->json([
             'message'=>"new customer for us",
-            
+
           ]);
       }
 
     }
     public function get_suggested_product(Request $request){
 
-        $paginate_item= $request->item ?? 10 ; 
+        $paginate_item= $request->item ?? 10 ;
         $products=Product::orderBy('id','DESC')->where('status', 1)->where('stock', '>=', 1 )->with(['productImage'])->paginate($paginate_item);
         return response()->json([
                'status' => "OK",
@@ -476,7 +464,7 @@ class ProductController extends Controller
 
  public function search_suggested_product_code_name($data){
 
-   
+
     $products=Product::where('product_code', 'like', '%'.$data.'%')
                         ->orWhere('name', 'like', '%'.$data.'%')
                         ->with(['productImage','purchaseItem','productBarcode'])
@@ -495,11 +483,11 @@ class ProductController extends Controller
     }
 
 
-     
+
     public function stock_report_pdf(){
-        
+
             $stock_items = Purchaseitem::orderBy('id','DESC')->with('product')->get();
-                   $pdf = PDF::loadView('admin.pdf.product_stock_report',compact('stock_items')); 
+                   $pdf = PDF::loadView('admin.pdf.product_stock_report',compact('stock_items'));
            return  $pdf->stream();
 
     }

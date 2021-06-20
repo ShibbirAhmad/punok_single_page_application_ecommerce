@@ -248,7 +248,7 @@ var render = function() {
         _c("section", { staticClass: "content" }, [
           _c("div", { staticClass: "container" }, [
             _c("div", { staticClass: "row justify-content-center" }, [
-              _c("div", { staticClass: "col-lg-11" }, [
+              _c("div", { staticClass: "col-lg-10" }, [
                 _c("div", { staticClass: "box box-primary" }, [
                   _c("div", { staticClass: "box-header with-border" }, [
                     _c(
@@ -351,7 +351,7 @@ var render = function() {
                           _vm._v(" "),
                           _c("td", [
                             _vm._v(
-                              "\n                   \n                         " +
+                              "\n\n                         " +
                                 _vm._s(
                                   parseInt(_vm.data.total_product_sale_amount) -
                                     parseInt(

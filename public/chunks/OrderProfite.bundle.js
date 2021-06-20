@@ -279,7 +279,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.orders-heading {\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n  border-bottom: 2px solid #000;\r\n  margin-bottom: 10px;\n}\r\n", ""]);
+exports.push([module.i, "\n.orders-heading {\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n  border-bottom: 2px solid #000;\r\n  margin-bottom: 10px;\n}\n.box-primary{\r\n  overflow-x: scroll;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -342,7 +342,7 @@ var render = function() {
         _c("section", { staticClass: "content" }, [
           _c("div", { staticClass: "container" }, [
             _c("div", { staticClass: "row justify-content-center" }, [
-              _c("div", { staticClass: "col-lg-11" }, [
+              _c("div", { staticClass: "col-lg-10" }, [
                 _c("div", { staticClass: "box box-primary" }, [
                   _c("div", { staticClass: "box-header with-border" }, [
                     _c(
@@ -448,7 +448,7 @@ var render = function() {
                                     _vm._v(
                                       "\n                         " +
                                         _vm._s(item.order_invoice) +
-                                        "\n                       \n                      "
+                                        "\n\n                      "
                                     )
                                   ]),
                                   _vm._v(" "),

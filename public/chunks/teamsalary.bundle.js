@@ -170,10 +170,81 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    console.log("mounted member");
     this.getMemberSalary();
+    this.cDate();
   },
   data: function data() {
     return {
@@ -187,8 +258,12 @@ __webpack_require__.r(__webpack_exports__);
       },
       salary_date: "",
       salary_amount: "",
-      salary_comment: "",
-      paid_salaryies: ""
+      salary_comment: "Salary Of Month-",
+      paid_salaryies: "",
+      basic_salary: "",
+      month: "",
+      total_taken_amount: 0,
+      total_paid_amount: 0
     };
   },
   methods: {
@@ -200,6 +275,8 @@ __webpack_require__.r(__webpack_exports__);
         _this.member = resp.data.member;
         _this.salaryList = resp.data.salary;
         _this.paid_salaryies = resp.data.paid_salary;
+        _this.total_taken_amount = resp.data.total_taken_amount;
+        _this.total_paid_amount = resp.data.total_paid_amount;
         _this.loading = false;
       })["catch"](function (e) {
         console.log(e);
@@ -221,11 +298,13 @@ __webpack_require__.r(__webpack_exports__);
       return outpuDate;
     },
     total: function total() {
-      var total = 0;
-      this.salaryList.forEach(function (element) {
-        total += parseInt(element.amount);
-      });
-      return total;
+      if (this.salaryList.length > 0) {
+        var total = 0;
+        this.salaryList.forEach(function (element) {
+          total += parseInt(element.amount);
+        });
+        return total;
+      }
     },
     showModal: function showModal() {
       this.$modal.show("example");
@@ -235,6 +314,11 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.salary_date.length < 1) {
         alert("Please Check Date Filed");
+        return;
+      }
+
+      if (this.month.length < 1) {
+        alert("Please Select A Month");
         return;
       }
 
@@ -253,7 +337,8 @@ __webpack_require__.r(__webpack_exports__);
           date: this.salary_date,
           amount: this.salary_amount,
           employee_id: this.member.id,
-          comment: this.salary_comment
+          comment: this.salary_comment,
+          month: this.month
         }
       }).then(function (resp) {
         if (resp.data) {
@@ -272,11 +357,26 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     totalSalary: function totalSalary() {
-      var total = 0;
-      this.paid_salaryies.forEach(function (element) {
-        total += parseInt(element.amount);
-      });
-      return total;
+      if (this.paid_salaryies.length > 0) {
+        var total = 0;
+        this.paid_salaryies.forEach(function (element) {
+          total += parseInt(element.amount);
+        });
+        return total;
+      }
+    },
+    cDate: function cDate() {
+      //current date
+      var d = new Date();
+      var month = d.getMonth() + 1;
+      var day = d.getDate();
+      var output = d.getFullYear() + "-" + (("" + month).length < 2 ? "0" : "") + month + "-" + (("" + day).length < 2 ? "0" : "") + day;
+      this.salary_date = output;
+    }
+  },
+  watch: {
+    month: function month(value) {
+      this.salary_comment = "Salary Of Month-" + value;
     }
   }
 });
@@ -295,7 +395,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.dropbtn[data-v-55085b3e] {\r\n  width: 100% !important;\r\n  margin-bottom: 5px !important;\n}\n.dropbtn-active[data-v-55085b3e] {\r\n  display: block !important;\n}\n.dropdown-action[data-v-55085b3e] {\r\n  display: none;\r\n  width: 90px;\r\n  position: absolute;\n}\nimg.member-image[data-v-55085b3e] {\r\n  width: 100px;\r\n  height: 100px;\r\n  border-radius: 50%;\r\n  border: 3px solid #222d32;\r\n  padding: 3px;\r\n  line-height: 0;\n}\n.member-info[data-v-55085b3e] {\r\n  text-align: center;\n}\r\n", ""]);
+exports.push([module.i, "\n.dropbtn[data-v-55085b3e] {\r\n  width: 100% !important;\r\n  margin-bottom: 5px !important;\n}\n.dropbtn-active[data-v-55085b3e] {\r\n  display: block !important;\n}\n.dropdown-action[data-v-55085b3e] {\r\n  display: none;\r\n  width: 90px;\r\n  position: absolute;\n}\n.summery_row[data-v-55085b3e]{\r\n  margin-top: -40px;\n}\nimg.member-image[data-v-55085b3e] {\r\n  width: 100px;\r\n  height: 100px;\r\n  border-radius: 50%;\r\n  border: 3px solid #222d32;\r\n  padding: 3px;\r\n  line-height: 0;\n}\n.member-info[data-v-55085b3e] {\r\n  text-align: center;\n}\n.custom-box[data-v-55085b3e] {\r\n    height: 40px;\r\n    background: #fff;\r\n    padding: 10px 20px;\r\n    text-align: center;\r\n    font-size: 14px;\r\n    margin-bottom: 15px;\r\n    box-shadow: 3px 3px 3px #ddd;\n}\r\n", ""]);
 
 // exports
 
@@ -363,7 +463,7 @@ var render = function() {
                   staticClass: "btn btn-primary",
                   attrs: { to: { name: "team_member" } }
                 },
-                [_c("i", { staticClass: "fa fa-arrow-right" })]
+                [_c("i", { staticClass: "fa fa-arrow-left" })]
               )
             ],
             1
@@ -374,30 +474,62 @@ var render = function() {
         _vm._v(" "),
         _c("section", { staticClass: "content" }, [
           _c("div", { staticClass: "container" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "member-info" }, [
-                _c("img", {
-                  staticClass: "member-image",
-                  attrs: {
-                    src: _vm.member.avator
-                      ? _vm.basePath + _vm.member.avator
-                      : _vm.basePath + "images/static/user2-160x160.jpg",
-                    alt: _vm.member.name
-                  }
-                }),
-                _vm._v(" "),
-                _c("h3", { staticStyle: { "line-height": "0" } }, [
-                  _vm._v(_vm._s(_vm.member.name))
+            _c("div", { staticClass: "row summery_row" }, [
+              _c("div", { staticClass: "col-md-4 col-sm-4" }, [
+                _c("div", { staticClass: "member-info" }, [
+                  _c("img", {
+                    staticClass: "member-image",
+                    attrs: {
+                      src: _vm.member.avator
+                        ? _vm.basePath + _vm.member.avator
+                        : _vm.basePath + "images/static/user2-160x160.jpg",
+                      alt: _vm.member.name
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("h4", { staticStyle: { "line-height": "0" } }, [
+                    _vm._v(_vm._s(_vm.member.name))
+                  ]),
+                  _vm._v(" "),
+                  _c("h5", [_vm._v(_vm._s(_vm.member.designation))]),
+                  _vm._v(" "),
+                  _c("h5", [_vm._v("Phone: " + _vm._s(_vm.member.phone))])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3 col-sm-3" }, [
+                _c("div", { staticClass: "custom-box" }, [
+                  _vm._v("\n              Total Taken Amount : "),
+                  _c("strong", [
+                    _vm._v(_vm._s(parseInt(_vm.total_taken_amount)))
+                  ])
                 ]),
                 _vm._v(" "),
-                _c("h6", [_vm._v(_vm._s(_vm.member.designation))]),
+                _c("div", { staticClass: "custom-box" }, [
+                  _vm._v("\n              Total Paid Amount : "),
+                  _c("strong", [
+                    _vm._v(_vm._s(parseInt(_vm.total_paid_amount)))
+                  ])
+                ]),
                 _vm._v(" "),
-                _c("h4", [_vm._v("Phone:" + _vm._s(_vm.member.phone))])
-              ])
+                _c("div", { staticClass: "custom-box" }, [
+                  _vm._v("Due/Advance Amount :\n                          "),
+                  _c("strong", [
+                    _vm._v(
+                      _vm._s(
+                        parseInt(_vm.total_taken_amount) -
+                          parseInt(_vm.total_paid_amount)
+                      ) + " "
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-4 col-sm-4" })
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-5" }, [
+              _c("div", { staticClass: "col-lg-5 col-md-5" }, [
                 _vm.loading
                   ? _c("h1", { staticClass: "text-center" }, [
                       _c("i", { staticClass: "fa fa-spin fa-spinner" })
@@ -407,42 +539,63 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "box-body" }, [
                         Object.keys(_vm.salaryList).length
-                          ? _c("table", { staticClass: "table text-center" }, [
-                              _vm._m(1),
-                              _vm._v(" "),
-                              _c(
-                                "tbody",
-                                [
-                                  _vm._l(_vm.salaryList, function(
-                                    salary,
-                                    index
-                                  ) {
-                                    return _c("tr", { key: index }, [
-                                      _c("td", [
-                                        _vm._v(
-                                          "\n                        " +
-                                            _vm._s(salary.date) +
-                                            "\n                      "
-                                        )
+                          ? _c(
+                              "table",
+                              {
+                                staticClass:
+                                  "table table-striped table-bordered text-center"
+                              },
+                              [
+                                _vm._m(1),
+                                _vm._v(" "),
+                                _c(
+                                  "tbody",
+                                  [
+                                    _vm._l(_vm.salaryList, function(
+                                      salary,
+                                      index
+                                    ) {
+                                      return _c("tr", { key: index }, [
+                                        _c("td", [
+                                          _vm._v(
+                                            " " + _vm._s(salary.date) + " "
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("td", [
+                                          _vm._v(_vm._s(salary.comment))
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("td", [
+                                          _vm._v(_vm._s(salary.paid_by))
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("td", [
+                                          _vm._v(_vm._s(salary.amount))
+                                        ])
+                                      ])
+                                    }),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c("td", { attrs: { colspan: "3" } }, [
+                                        _vm._v(" Total Taken  ")
                                       ]),
                                       _vm._v(" "),
-                                      _c("td", [_vm._v(_vm._s(salary.amount))])
-                                    ])
-                                  }),
-                                  _vm._v(" "),
-                                  _c("tr", [
-                                    _c("td"),
-                                    _vm._v(" "),
-                                    _c("td", [
-                                      _c("b", [
-                                        _vm._v("= " + _vm._s(_vm.total()))
+                                      _c("td", [
+                                        _c("strong", [
+                                          _vm._v(
+                                            _vm._s(
+                                              parseInt(_vm.total_taken_amount)
+                                            )
+                                          )
+                                        ])
                                       ])
                                     ])
-                                  ])
-                                ],
-                                2
-                              )
-                            ])
+                                  ],
+                                  2
+                                )
+                              ]
+                            )
                           : _c(
                               "div",
                               [
@@ -452,7 +605,7 @@ var render = function() {
                                   [
                                     _c("strong", [
                                       _vm._v(
-                                        "\n                      No Slalary preview AGAINST " +
+                                        "\n                      No Salary preview AGAINST " +
                                           _vm._s(_vm.member.name)
                                       )
                                     ])
@@ -478,50 +631,86 @@ var render = function() {
                     ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-lg-6" }, [
+              _c("div", { staticClass: "col-lg-5 col-md-5" }, [
                 _c("div", { staticClass: "box" }, [
                   _c("div", { staticClass: "box-header with-border" }),
                   _vm._v(" "),
                   _c("div", { staticClass: "box-body" }, [
-                    _c("table", { staticClass: "table" }, [
-                      _vm._m(2),
-                      _vm._v(" "),
-                      _c(
-                        "tbody",
-                        [
-                          _vm._l(_vm.paid_salaryies, function(
-                            paid_salary,
-                            index
-                          ) {
-                            return _c("tr", { key: index }, [
-                              _c("td", [_vm._v(_vm._s(index + 1))]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v(_vm._s(paid_salary.date))]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v(_vm._s(paid_salary.amount))]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v(_vm._s(paid_salary.comment))])
-                            ])
-                          }),
-                          _vm._v(" "),
-                          _c("tr", [
-                            _c("td", { attrs: { colspan: "2" } }),
+                    _c(
+                      "table",
+                      { staticClass: "table table-striped table-bordered" },
+                      [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          [
+                            _vm._l(_vm.paid_salaryies, function(
+                              paid_salary,
+                              index
+                            ) {
+                              return _c("tr", { key: index }, [
+                                _c("td", { staticStyle: { width: "100px" } }, [
+                                  _vm._v(_vm._s(index + 1))
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(
+                                    "\n                     " +
+                                      _vm._s(paid_salary.date) +
+                                      "\n                   "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _c("strong", [
+                                    _vm._v(
+                                      "\n                       " +
+                                        _vm._s(paid_salary.month) +
+                                        "\n                    "
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _c("strong", [
+                                    _vm._v(
+                                      "\n                       " +
+                                        _vm._s(paid_salary.amount) +
+                                        "\n                   "
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(
+                                    "\n                     " +
+                                      _vm._s(paid_salary.comment) +
+                                      "\n                   "
+                                  )
+                                ])
+                              ])
+                            }),
                             _vm._v(" "),
-                            _c("td", [
-                              _c("strong", [
-                                _vm._v(" = " + _vm._s(_vm.totalSalary()))
+                            _c("tr", [
+                              _c("td", { attrs: { colspan: "3" } }),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c("strong", [
+                                  _vm._v(" = " + _vm._s(_vm.totalSalary()))
+                                ])
                               ])
                             ])
-                          ])
-                        ],
-                        2
-                      )
-                    ]),
+                          ],
+                          2
+                        )
+                      ]
+                    ),
                     _vm._v(" "),
                     _c(
                       "button",
                       {
-                        staticClass: "btn btn-danger",
+                        staticClass: "btn btn-success",
                         staticStyle: { "margin-top": "10px" },
                         on: { click: _vm.showModal }
                       },
@@ -539,8 +728,8 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("modal", { attrs: { name: "example", width: 400, height: 300 } }, [
-        _c("div", { staticClass: "card" }, [
+      _c("modal", { attrs: { name: "example", width: 400, height: 400 } }, [
+        _c("div", { staticClass: "card", staticStyle: { padding: "20px" } }, [
           _c("div", { staticClass: "card-body" }, [
             _c(
               "div",
@@ -561,6 +750,89 @@ var render = function() {
               ],
               1
             ),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v("Month")]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.month,
+                      expression: "month"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.month = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "", disabled: "" } }, [
+                    _vm._v("Select A Month")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "January-2021" } }, [
+                    _vm._v("January-2021")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "February-2021" } }, [
+                    _vm._v("February-2021")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "March-2021" } }, [
+                    _vm._v("March-2021")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "April-2021" } }, [
+                    _vm._v("April-2021")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "May-2021" } }, [
+                    _vm._v("May-2021")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Jun-2021" } }, [
+                    _vm._v("Jun-2021")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "July-2021" } }, [
+                    _vm._v("July-2021")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Augest-2021" } }, [
+                    _vm._v("Augest-2021")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "September-2021" } }, [
+                    _vm._v("September-2021")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Nomeber-2021" } }, [
+                    _vm._v("Nomeber-2021")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "December-2021" } }, [
+                    _vm._v("December-2021")
+                  ])
+                ]
+              )
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
               _c("label", [_vm._v("Amount")]),
@@ -653,6 +925,10 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Date")]),
         _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Comment")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Paid By")]),
+        _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Amount")])
       ])
     ])
@@ -664,6 +940,8 @@ var staticRenderFns = [
     return _c("thead", [
       _c("tr", [
         _c("th", [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Date")]),
         _vm._v(" "),
         _c("th", [_vm._v("Month")]),
         _vm._v(" "),

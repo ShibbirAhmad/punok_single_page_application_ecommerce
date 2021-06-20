@@ -47,7 +47,7 @@ class OrderController extends Controller
 
            // return "ho";
            return Order::ordersAll($request);
-                    
+
         }
         // when only $request start date
         if(!empty($request->start_date) && empty($request->end_date) && empty($request->courier_id)){
@@ -85,7 +85,7 @@ class OrderController extends Controller
     public function store(Request $request)
     {
 
-    // return $request->all();
+       // return $request->all();
         $validatedData = $request->validate([
             'customer_mobile' => 'required|digits:11 ',
             'customer_name' => 'required ',
@@ -107,7 +107,7 @@ class OrderController extends Controller
                     return \response()->json($product->product_code.'- Stock out');
                 }
                 else if($product->stock < $item['quantity']){
-                    return \response()->json("this product ".$product->product_code.' Stock Available-'.$product->stock.'. But request quantity ' .$item['quantity']);  
+                    return \response()->json("this product ".$product->product_code.' Stock Available-'.$product->stock.'. But request quantity ' .$item['quantity']);
                 }else{
                     $product->stock=$product->stock-$item['quantity'];
                     $product->save();
@@ -167,11 +167,11 @@ class OrderController extends Controller
              $order->pending_admin_id=session()->get('admin')['id'];
             $order->pending_date=Carbon::now();
         }
-        
+
         //if order save then save the order details
         if($order->save()){
 
-          
+
             foreach($request->products as $product){
 
                 //update product stock
@@ -278,7 +278,7 @@ class OrderController extends Controller
         $order=Order::findOrFail($id);
 
         if($order->status!=1 && $order->status!=2){
-            
+
             return \response()->json('Order New Or Pending not now');
         }
         //if not customer then save, as a new customer
@@ -297,7 +297,7 @@ class OrderController extends Controller
             $customer->save();
         }
 
-    
+
       // return $customer->name;
             $paid=$request->paid-$order->paid;
         $order->customer_id=$customer->id;
@@ -309,7 +309,7 @@ class OrderController extends Controller
         $order->paid=$request->paid??0;
         $order->total=$request->total;
         $order->sub_city_id=$request->sub_city;
-        
+
         //if order save then save the order details
         if($order->save()){
 
@@ -317,8 +317,8 @@ class OrderController extends Controller
 
             //update credit
 
-          
-       
+
+
             if( $paid > 0){
 
                 $credit = new Credit();
@@ -345,7 +345,7 @@ class OrderController extends Controller
 
             foreach($request->products as $product){
 
-                
+
                // return $product['product_id'];
                 //update product stock before insert item
             //    $product_item=Product::where('id',$product['product_id'])->first();
@@ -372,10 +372,10 @@ class OrderController extends Controller
 
     }
 
-    
+
     public function destroy($id)
     {
-      
+
     }
 
     public function approved($id){
@@ -391,13 +391,13 @@ class OrderController extends Controller
                     return \response()->json($product->code.'- Stock out');
                 }
                 else if($product->stock < $order_item->quantity){
-                    return \response()->json("this product ".$product->product_code.' Stock Available-'.$product->stock.'. But created quantity ' .$order_item->quantity);  
+                    return \response()->json("this product ".$product->product_code.' Stock Available-'.$product->stock.'. But created quantity ' .$order_item->quantity);
                 }
                 else{
                     $product->stock=$product->stock-$order_item->quantity;
                     $product->save();
                 }
-            
+
             }
             $order->status=3;
             $order->approved_admin_id=session()->get('admin')['id'];
@@ -433,7 +433,7 @@ class OrderController extends Controller
     //  return $request->all();
         $order=Order::find($id);
 
-       
+
         if($order){
 
             if($order->status!=4){
@@ -448,7 +448,7 @@ class OrderController extends Controller
                 //when order delievered,then order amount is created at a new credit.....
                  $total=$order->total-($order->paid+$order->discount)+$order->shipping_cost;
                   if($total > 0){
-                        $comment='Delievred Order. Order Amount BDT '.$total.' Order Invoice number is '.$order->invoice_no; 
+                        $comment='Delievred Order. Order Amount BDT '.$total.' Order Invoice number is '.$order->invoice_no;
                         $credit = new Credit();
                         $credit->purpose = "Delievred Order";
                         $credit->amount =( $order->total+$order->shipping_cost)-($order->paid+$order->discount);
@@ -457,19 +457,19 @@ class OrderController extends Controller
                         $credit->insert_admin_id=session()->get('admin')['id'];
                         $credit->credit_in=$request->credit_in;
                         $credit->save();
-                  }  
-               
+                  }
+
                 return response()->json([
                       'status'=>'SUCCESS',
                      'message'=>'Order was delivered successfully'
-                ]);        
+                ]);
             }
         }
     }
 
     public function shipment($id){
         $order=Order::find($id);
-        
+
         if(!empty($order->courier_id) && !empty($order->memo_no)){
             $order->status=4;
             $order->shipment_admin_id=session()->get('admin')['id'];
@@ -483,7 +483,7 @@ class OrderController extends Controller
             //             'order_invoice_no'=>$order->invoice_no,
             //             'customer_mobile_no'=>$customer->phone,
             //             'customer_name'=>$customer->name,
-            //             'due_type'=>'Order Due', 
+            //             'due_type'=>'Order Due',
             //             'amount'=>( $order->total+$order->shipping_cost)-($order->paid+$order->discount),
             //         ]);
             //    }
@@ -537,7 +537,7 @@ class OrderController extends Controller
                 $product=Product::where('id',$detail->product_id)->first();
                 $product->stock=$product->stock+$detail->quantity;
                 $product->save();
-            } 
+            }
            }
 
             $order->status=6;
@@ -573,19 +573,19 @@ class OrderController extends Controller
 
         }
     }
-   
+
 
     public function OrderFilter(Request $request){
 
       // return $request->all();
-        
+
         $orders='';
         $paginate=$request->item??10;
         if(!empty($request->start_date) && empty($request->end_date)){
-            
+
             if($request->status!='all'){
                 $orders=Order::whereDate('created_at','=',$request->start_date)
-                               ->where('status',$request->status) 
+                               ->where('status',$request->status)
                               ->with(['customer','createAdmin','courier','reseller'])
                               ->paginate($paginate);
             }else{
@@ -593,7 +593,7 @@ class OrderController extends Controller
                               ->with(['customer','createAdmin','courier','reseller'])
                              ->paginate($paginate);
             }
-            
+
         }
         if(!empty($request->end_date) && !empty($request->start_date)){
 
@@ -609,7 +609,7 @@ class OrderController extends Controller
                                 ->with(['customer','createAdmin','courier','reseller'])
                                 ->paginate($paginate);
             }
-            
+
          }
 
         return response()->json([
@@ -625,7 +625,7 @@ class OrderController extends Controller
 
         $paginate=$request->item ?? 20;
         $orders=Order::orderBy('id','DESC')->where('status',$request->status)->with(['customer','createAdmin','courier'])->paginate($paginate);
-        
+
         return \response()->json([
             'status'=>'SUCCESS',
             'orders'=>$orders
@@ -637,7 +637,7 @@ class OrderController extends Controller
     public function orderSearchStatusWise(Request $request,$search){
 
 
-   //  return $request->all();   
+   //  return $request->all();
 
    if(strlen($search)==11){
 
@@ -654,10 +654,10 @@ class OrderController extends Controller
                     ->orderBy('id', 'DESC')
                    ->with(['customer','createAdmin','courier','reseller'])
                     ->paginate(30);
-                
+
    }
-   
-                    
+
+
         return response()->json([
                 'status'=>'SUCCESS',
                 'orders'=>$orders
@@ -670,18 +670,18 @@ class OrderController extends Controller
                             ->orderBy('id', 'DESC')
                          ->with(['customer','createAdmin','courier','reseller'])
                             ->paginate(10);
-                           
+
               return response()->json([
                     'status'=>'SUCCESS',
                     'orders'=>$orders
-                ]);                       
+                ]);
     }
 
     public function OrderFilterStatusWise(Request $request){
 
         $orders='';
         if(!empty($request->start_date) && empty($request->end_date)){
-     
+
         $orders=Order::whereDate('created_at','=',$request->start_date)
                   ->with(['customer','createAdmin','courier','reseller'])
                   ->where('status',$request->status)->paginate(30);
@@ -704,7 +704,7 @@ class OrderController extends Controller
     public function orderView($id){
         $order=Order::where('id',$id)->with(['customer','courier','city','sub_city','approvedBy','orderBarcode','resellerOrderDetails'])->first();
         $order_items=OrderItem::where('order_id',$order->id)->with(['product.productVariant.variant.attribute','attribute','variant','product.productImage'])->get();
-          
+
         return response()->json([
                  'status'=>'SUCCESS',
                  'order'=>$order,
@@ -713,14 +713,14 @@ class OrderController extends Controller
     }
 
 
-    
+
 
     public function labelPrint($id){
 
       $order_id=explode(',',$id);
       $orders=Order::whereIn('id',$order_id)->get();
       return view('admin.pdf.print.labelPrint', \compact('orders'));
-      
+
     }
 
     public function approvedAll($id){
@@ -728,7 +728,7 @@ class OrderController extends Controller
         $orders=Order::whereIn('id',$order_id)->get();
          foreach($orders as $order){
 
-            
+
           $order_items=OrderItem::where('order_id',$order->id)->get();
 
             //check product srock before order approved
@@ -738,14 +738,14 @@ class OrderController extends Controller
                     return \response()->json($product->code.'- Stock out');
                 }
                 else if($product->stock < $order_item->quantity){
-                    return \response()->json("this product ".$product->product_code.' Stock Available-'.$product->stock.'. But created quantity ' .$order_item->quantity);  
+                    return \response()->json("this product ".$product->product_code.' Stock Available-'.$product->stock.'. But created quantity ' .$order_item->quantity);
                 }else{
                     $product->stock=$product->stock-$order_item->quantity;
                     $product->save();
                 }
-            
+
             }
-          
+
 
             $order->status=3;
             $order->approved_admin_id=session()->get('admin')['id'];
@@ -754,7 +754,7 @@ class OrderController extends Controller
 
             return \response()->json([
                 'status'=>"OK",
-                
+
             ]);
         }
 
@@ -792,7 +792,7 @@ class OrderController extends Controller
             //             'order_invoice_no'=>$order->invoice_no,
             //             'customer_mobile_no'=>$customer->phone,
             //             'customer_name'=>$customer->name,
-            //             'due_type'=>'Order Due', 
+            //             'due_type'=>'Order Due',
             //             'amount'=>( $order->total+$order->shipping_cost)-($order->paid+$order->discount),
             //         ]);
             //    }
@@ -822,7 +822,7 @@ class OrderController extends Controller
 
             //when order delievered,then order amount is created at a new credit.....
             $total=$order->total-($order->paid+$order->discount)+$order->shipping_cost;
-            $comment='Delievred Order. Order Amount BDT '.$total.' Order Invoice number is '.$order->invoice_no; 
+            $comment='Delievred Order. Order Amount BDT '.$total.' Order Invoice number is '.$order->invoice_no;
             $credit = new Credit();
             $credit->purpose = "Delivered Order";
             $credit->amount = ($order->total+$order->shipping_cost)-($order->paid+$order->discount);
@@ -831,7 +831,7 @@ class OrderController extends Controller
             $credit->credit_in="Cash";
             $credit->insert_admin_id=session()->get('admin')['id'];
             $credit->save();
-            
+
             //if order has dues....
             //remove dues when order delievred....
             $due=CustomerDue::where('sale_id',$order->invoice_no)->first();
@@ -844,9 +844,9 @@ class OrderController extends Controller
          return \response()->json('Order successfully Delievred');
     }
 
-    
+
      public function returnAll($id){
-       
+
         $order_id=explode(',',$id);
         $orders=Order::whereIn('id',$order_id)->get();
 
@@ -865,7 +865,7 @@ class OrderController extends Controller
                 $product->save();
             }
         }
-        
+
 
         }
 
@@ -892,7 +892,7 @@ class OrderController extends Controller
             $order->cancel_date=Carbon::now();
             $order->save();
 
-         
+
         }
 
         return \response()->json('Order successfully Canceld');
@@ -901,20 +901,19 @@ class OrderController extends Controller
 
       $order_id=explode(',',$id);
       $orders=Order::whereIn('id',$order_id)->get();
-      return view('admin.pdf.print.invoicePrint', \compact('orders'));
+      return view('admin.pdf.print.invoicePrint', compact('orders'));
     }
 
     public function comment(Request $request){
 
-        
-        $order=Order::where('id',$request->order_id)->first(); 
+        $order=Order::where('id',$request->order_id)->first();
         $order->comment=$request->comment;
         $order->save();
         return response()->json([
             "status" => "OK",
             "message" => $order->comment."  is added as comment ",
         ]);
-     
+
     }
 
     public function updateResellerCommison(Request $request,$id){
@@ -938,7 +937,7 @@ class OrderController extends Controller
         if($item->save()){
             //update order
             $order=Order::where('id',$item->order_id)->first();
-            $order->total=$order->total-$item->total;   
+            $order->total=$order->total-$item->total;
             $order->save();
 
             //update product stock

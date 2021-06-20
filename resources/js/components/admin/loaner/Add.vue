@@ -19,7 +19,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-6 col-lg-offset-2">
             <div class="box box-primary">
-              <div class="box-header with-border">
+              <div class="box-header with-border text-center">
                 <h3 class="box-title">Add Loaner</h3>
               </div>
               <div class="box-body">
@@ -128,7 +128,7 @@ export default {
         email: "",
         phone:"",
         address:"",
-      
+
       }),
 
       loading: true,

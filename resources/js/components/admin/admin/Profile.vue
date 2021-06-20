@@ -173,7 +173,7 @@ export default {
             });
             this.editMode = false;
             this.$router.push({ name: "adminLogin" });
-         
+
           }
         })
         .catch((error) => {
@@ -237,5 +237,11 @@ export default {
 <style scoped>
 .mb-2 {
   margin-bottom: 5px !important;
+}
+.profile-user-img{
+  width:100px;
+  height: 100px;
+  border-radius: 50%;
+  border:2px ;
 }
 </style>

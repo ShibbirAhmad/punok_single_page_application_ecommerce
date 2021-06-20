@@ -341,7 +341,7 @@ var render = function() {
         _c("section", { staticClass: "content" }, [
           _c("div", { staticClass: "container" }, [
             _c("div", { staticClass: "row justify-content-center" }, [
-              _c("div", { staticClass: "col-lg-11" }, [
+              _c("div", { staticClass: "col-lg-10" }, [
                 _c("div", { staticClass: "box box-primary" }, [
                   _c("div", { staticClass: "box-header with-border" }, [
                     _c(

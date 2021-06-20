@@ -5,7 +5,7 @@
             <section class="content-header">
                 <h1>
                     <router-link :to="{ name: 'categoryAdd'}" class="btn btn-primary"><i class="fa fa-plus"></i></router-link>
-                    <router-link :to="{ name: 'SubCategory'}" class="btn btn-success">sub category</router-link>
+                    <router-link :to="{ name: 'subCategory'}" class="btn btn-success">sub category</router-link>
                     <router-link :to="{ name: 'subSubCategory'}" class="btn btn-primary">sub sub category</router-link>
                 </h1>
                 <ol class="breadcrumb">

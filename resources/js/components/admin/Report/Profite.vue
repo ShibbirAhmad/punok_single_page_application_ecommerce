@@ -13,7 +13,7 @@
       <section class="content">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-lg-11">
+            <div class="col-lg-10">
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <div class="row" style="margin-bottom: 3px">
@@ -68,7 +68,7 @@
 
                         </td>
                         <td>
-                     
+
                            {{parseInt(data.total_product_sale_amount)-parseInt(data.total_product_purchase_amount)  }}
                         </td>
                       </tr>

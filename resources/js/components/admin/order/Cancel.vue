@@ -1095,4 +1095,10 @@ export default {
   border-bottom: 2px solid #000;
   margin-bottom: 10px;
 }
+
+.box{
+  width:100%;
+  overflow-x: scroll;
+}
+
 </style>

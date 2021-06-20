@@ -155,7 +155,9 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MODULE_1__["HasError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["HasError"]);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {},
+  created: function created() {
+    this.$store.dispatch('general_setting');
+  },
   data: function data() {
     return {
       form: new vform__WEBPACK_IMPORTED_MODULE_1__["Form"]({
@@ -194,6 +196,11 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
         }
       })["catch"]();
     }
+  },
+  computed: {
+    general_setting: function general_setting() {
+      return this.$store.getters.general_setting;
+    }
   }
 });
 document.addEventListener("DOMContentLoaded", function () {
@@ -220,7 +227,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.none {\r\n  display: none !important;\n}\n.form-wrapper {\r\n   \r\n    margin: 0px 10px;\n}\n.form_column{\r\n     margin-bottom: 20px;\n}\n.logo_mohasagor{\r\n  margin-top: 30px;\r\n  margin-bottom: 5px !important;\n}\n.btn_register{\r\n  background:#00acd6;\r\n  color:#fff;\n}\r\n", ""]);
+exports.push([module.i, "\n.none {\r\n  display: none !important;\n}\n.form-wrapper {\r\n\r\n    margin: 0px 10px;\n}\n.form_column{\r\n     margin-bottom: 20px;\n}\n.logo_mohasagor{\r\n  margin-top: 30px;\r\n  margin-bottom: 5px !important;\n}\n.btn_register{\r\n  background:#00acd6;\r\n  color:#fff;\n}\r\n", ""]);
 
 // exports
 
@@ -274,7 +281,15 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "container" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "text-center" }, [
+        _c("h2", { staticClass: "logo_mohasagor" }, [
+          _c("a", [
+            _c("b", { staticStyle: { color: "#000" } }, [
+              _vm._v(_vm._s(_vm.general_setting.title))
+            ])
+          ])
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-4 col-sm-12" }),
@@ -618,23 +633,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center" }, [
-      _c("h2", { staticClass: "logo_mohasagor" }, [
-        _c("a", [
-          _c("b", { staticStyle: { color: "#000" } }, [
-            _vm._v("sufilifestyle")
-          ]),
-          _vm._v(".com\n       ")
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

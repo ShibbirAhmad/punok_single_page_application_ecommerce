@@ -21,7 +21,7 @@
       <section class="content">
         <div class="container">
           <div class="row">
-            <div class="col-lg-11">
+            <div class="col-lg-10">
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <div class="row">
@@ -146,7 +146,7 @@
                                 params: { id: product.id },
                               }"
                               class="btn btn-success "
-                              > <i class="fa fa-edit"> </i> Edit</router-link>  
+                              > <i class="fa fa-edit"> </i> Edit</router-link>
                         </td>
                       </tr>
                     </tbody>
@@ -255,12 +255,12 @@ export default {
     //      axios.get('/api/merchant/delete/product/'+product_id)
     //      .then(resp =>{
     //        if (resp.data.success == "OK") {
-             
+
     //        }
     //      })
     // },
 
-    
+
   },
   components: {
     navbar,

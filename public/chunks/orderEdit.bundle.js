@@ -632,7 +632,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
     cityWiseSubCity: function cityWiseSubCity() {
       var _this6 = this;
 
-      axios.get('/city/wise/sub/city/' + this.form.city).then(function (resp) {
+      axios.get('/api/city/wise/sub/city/' + this.form.city).then(function (resp) {
         _this6.form.sub_city = "";
 
         if (resp.data.length) {

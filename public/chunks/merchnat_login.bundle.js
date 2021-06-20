@@ -80,6 +80,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
     var _this = this;
 
     this.removeClass();
+    this.$store.dispatch('general_setting');
     setTimeout(function () {
       _this.isLoading = false;
     }, 1000);
@@ -153,6 +154,11 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
       myBody.classList.add("skin-blue");
       sidebar.classList.remove("none");
       footer.classList.remove("none");
+    }
+  },
+  computed: {
+    general_setting: function general_setting() {
+      return this.$store.getters.general_setting;
     }
   }
 });
@@ -234,7 +240,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return !_vm.isLoading
     ? _c("div", { staticClass: "login-box" }, [
-        _vm._m(0),
+        _c("div", { staticClass: "login-logo" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("b", [_vm._v(" " + _vm._s(_vm.general_setting.title) + "  ")])
+          ])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "login-box-body" }, [
           _c("p", { staticClass: "login-box-msg" }, [
@@ -378,19 +388,7 @@ var render = function() {
         _c("h2", [_vm._v("Loading............")])
       ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "login-logo" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("b", [_vm._v("sufilifestyle")]),
-        _vm._v(".com ")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

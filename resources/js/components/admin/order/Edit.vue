@@ -123,7 +123,7 @@
                       <option disabled value="">select sub city</option>
                       <option v-if="sub_cities.length > 0 " v-for="sub_city in sub_cities" :key="sub_city.id" :value="sub_city.id">{{sub_city.name}}</option>
                     </select>
-                                        <has-error :form="form" field="sub_city"></has-error>
+                      <has-error :form="form" field="sub_city"></has-error>
 
                   </div>
 
@@ -626,7 +626,7 @@ export default {
 
       cityWiseSubCity(){
 
-        axios.get('/city/wise/sub/city/'+this.form.city)
+        axios.get('/api/city/wise/sub/city/'+this.form.city)
         .then(resp=>{
               this.form.sub_city="";
               if(resp.data.length){

@@ -19,7 +19,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-6 col-lg-offset-2">
             <div class="box box-primary">
-              <div class="box-header with-border">
+              <div class="box-header with-border text-center">
                 <h3 class="box-title">Edit member Information</h3>
               </div>
               <div class="box-body">
@@ -135,7 +135,7 @@
                     ></textarea>
                      <has-error :form="form" field="designation"> </has-error>
                   </div>
-                 
+
 
                   <div class="form-group text-center">
                     <img
@@ -172,7 +172,7 @@
                     <has-error :form="form" field="resume"></has-error>
                   </div>
                    <div class="form-group text-center">
-                     
+
                   <button :disabled="form.busy" type="submit" class="btn btn-primary">
                     <i class="fa fa-spin fa-spinner" v-if="form.busy"></i>Update
                   </button>
@@ -256,7 +256,7 @@ export default {
     getmember() {
       axios.get("/team/members/edit/" + this.$route.params.id).then((resp) => {
         if (resp.data.success == "OK") {
-          
+
           console.log(resp);
           this.form.name = resp.data.member.name;
           this.form.email = resp.data.member.email;
@@ -267,7 +267,7 @@ export default {
           this.form.designation = resp.data.member.designation;
           this.form.image = resp.data.member.avator;
           console.log(resp.data.member.basic_salary)
-      
+
         }
       });
     },

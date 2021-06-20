@@ -18,7 +18,7 @@
       </section>
       <section class="content">
          <form @submit.prevent="searchProduct" id="searchProductform">
-                     
+
          </form>
         <form @submit.prevent="add" @keydown="form.onKeydown($event)">
           <div class="row justify-content-center">
@@ -46,7 +46,7 @@
                       type="text"
                       name="customer_mobile"
                       class="form-control"
-                      
+
                       autocomplete="off"
                       placeholder="Enter customer 11 digit mobile number"
                       v-model="form.customer_mobile"
@@ -64,7 +64,7 @@
                       type="text"
                       name="name"
                       class="form-control"
-                      
+
                       autocomplete="off"
                       placeholder="Name"
                       v-model="form.customer_name"
@@ -205,8 +205,8 @@
                           </tr>
                         </thead>
                         <tbody v-if="products.length > 0">
-                          <tr v-for="(product, index) in products.slice().reverse()" :key="index">
-                            <td>{{ index + 1 }}</td>
+                          <tr v-for="(product, index) in products" :key="index">
+                            <td>{{ index  }}</td>
                             <td>
                               {{ product.name + "-" + product.product_code }}
                               <input type="hidden" :value="product.id" />
@@ -332,7 +332,7 @@
                             <td>Amoutn due</td>
                             <td>{{ form.due }}</td>
                           </tr>
-                         
+
                           <button
                             class="btn btn-success"
                             style="margin-top: 12px"
@@ -367,9 +367,9 @@
                       placeholder="enter product code"
                       class="form-control"
                     />
-                   
+
                   </div>
-                   <div class="col-md-6"> 
+                   <div class="col-md-6">
                    </div>
                   <div class="col-md-2">
                     <select
@@ -410,9 +410,9 @@
                           ADD
                     </div>
                     </div>
-                   
+
                   </div>
-                 
+
                 </div>
               </div>
             </div>
@@ -438,7 +438,7 @@ export default {
   created() {
     this.others();
     this.getSuggestingProducts();
-  
+
   },
   data() {
     return {
@@ -484,7 +484,7 @@ export default {
 
   //method initial for submit data
   methods: {
-   
+
 
     add() {
       //start progress bar when submit fomr
@@ -539,14 +539,14 @@ export default {
       let length = this.product_code.length;
       console.log(length)
       //  alert(length)
-   
+
 
       if (length==4) {
         this.$Progress.start();
         axios.get("/search/product/with/code/" + this.product_code)
 
           .then((resp) => {
-           
+
             if (resp.data.status == "SUCCESS") {
                 this.product_code="";
               let product = {
@@ -579,8 +579,8 @@ export default {
               }
               this.form.products.push(product);
               this.totalCalculation();
-            
-               
+
+
             }
             //when not resp success
             else {
@@ -658,7 +658,7 @@ export default {
       for (let i = 0; i < products.length; i++) {
         total +=parseInt(products[i].price)  * parseInt(products[i].quantity);
       }
-     
+
       if(parseInt(this.form.paid)>parseInt(total)+parseInt(this.form.shipping_cost)){
         Swal.fire({
           type:'warning',
@@ -677,7 +677,7 @@ export default {
       }
        this.form.total = parseInt(total);
 
-     
+
       this.form.due = this.form.total - parseInt(this.form.discount) -parseInt(this.form.paid) +parseInt(this.form.shipping_cost);
 
         total += parseInt(products[i].price) * parseInt(products[i].quantity);
@@ -713,9 +713,9 @@ export default {
       });
       console.log(city_id)
 
-        axios.get('/city/wise/sub/city/'+city_id)
+        axios.get('/api/city/wise/sub/city/'+city_id)
         .then(resp=>{
-         
+
 
               if(resp.data.length){
                 this.sub_cities=resp.data;
@@ -726,14 +726,14 @@ export default {
                 alert('No sub city under selected city')
               }
             loader.hide();
-         
+
           console.log(resp)
         })
         .catch(e=>{
           console.log(e);
           loader.hide();
         })
-       
+
      },
 
     remove(index) {
@@ -773,10 +773,10 @@ export default {
           }
         });
     },
-    
+
     },
 
-  
+
   computed: {},
   components: {
     datePicker,
@@ -799,7 +799,7 @@ export default {
 }
 
 .fa-search{
-  height: 33px; 
+  height: 33px;
   width: 60px;
   margin-left: -25px;
 }

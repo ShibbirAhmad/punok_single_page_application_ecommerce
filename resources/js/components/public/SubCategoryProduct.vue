@@ -4,7 +4,7 @@
     <div id="container">
       <div class="container">
 
-         
+
         <div class="slider slider-animation bv  xz  ">
         <div class="row">
           <div class="col-lg-12">
@@ -64,8 +64,8 @@
              </div>
               <br/>
                <button type="submit" class="btn btn-block btn_search" > Filter    <i class="fa fa-lg fa-filter"></i></button>
-             </form> 
-            
+             </form>
+
                <div style="margin-top: 20px" class="sort-box">
                 <select
                   v-model="sort_by_price"
@@ -79,13 +79,13 @@
               </div>
 
            </div>
-            
+
           </aside>
-         
+
           <div id="content" class="col-sm-9">
-         
+
             <div class="row">
-            <div class="col-lg-3 col-sm-6 col-md-3 col-xs-6 " v-for="product in products" :key="product.id">
+            <div class="col-lg-3 col-sm-6 col-md-3 col-xs-6 small_width " v-for="product in products" :key="product.id">
             <div class="product-card ">
               <div class="product-card-body">
                 <router-link :to="{name: 'single', params: { slug: product.slug } }">
@@ -94,16 +94,17 @@
                 <div class="product-detail  ">
                   <h4>   <router-link class="product-link" :to="{name: 'single', params: { slug: product.slug } }">{{ product.name }}</router-link ></h4>
                   <p class="price">
-                    <span class="price-new">{{
+                    <span class="price-new"> &#2547; {{
                       product.price
                     }}</span>
                     <span
                       class="price-old"
                       v-if="product.discount"
-                      >{{ product.sale_price }}</span
+                      > &#2547; {{ product.sale_price }}</span
                     >
-                    <!-- <span class="saving">-26%</span> -->
-                  </p>
+
+                    <span v-if="product.discount > 0" class="discount"> <i class="fa fa-star discount_star"> </i> {{ ((product.discount/product.sale_price)*100).toFixed(0) }}%  <span class="d_off">off</span> </span>
+                   </p>
                 </div>
               </div>
               <div class="product-card-footer">
@@ -131,7 +132,7 @@ export default {
   created() {
     window.scrollTo(0, 0);
   //  this.getSubCatgory();
-   
+
     this.$Progress.start();
 
     setTimeout(() => {
@@ -143,7 +144,7 @@ export default {
       products: [],
       page: 1,
       price_page: 1,
-     
+
       price_filter: {
         min_price: "",
         max_price: "",
@@ -163,7 +164,7 @@ export default {
           },
         })
         .then((resp) => {
-         // console.log(resp);
+         console.log(resp);
           if (resp.data.data.length) {
             this.page += 1;
             this.products.push(...resp.data.data);
@@ -176,7 +177,7 @@ export default {
          // console.log(error);
         });
     },
-  
+
       priceFilter($state) {
       this.$Progress.start();
       let max_price=this.price_filter.max_price;
@@ -188,7 +189,7 @@ export default {
         if(product.price >= min_price && product.price <= max_price){
              products.push(product);
         }
-        
+
       });
         if(products.length>0){
           this.products=products;
@@ -201,10 +202,10 @@ export default {
         }
           this.$Progress.finish();
       },
-     
-        
+
+
     price_sorting_asec_desc() {
-      
+
        axios.get('/_public/api/sort/product/sub/category/according/to/asc/desc',{
            params:{
                sort_value : this.sort_by_price ,
@@ -212,7 +213,7 @@ export default {
            }
        })
        .then(resp => {
-        this.products=[]; 
+        this.products=[];
        this.products.push(...resp.data.products);
 
        })
@@ -277,9 +278,9 @@ export default {
 }
 .btnQuick:hover{
 
-   background: #ff4d03; 
+   background: #ff4d03;
 
 }
- 
+
 
 </style>

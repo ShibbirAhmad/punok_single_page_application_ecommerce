@@ -193,7 +193,7 @@
                      <h4>Total: <strong>{{parseInt(balance.total_credit)}}</strong></h4>
 
               </div>
-             
+
               <div class="custom-box-footer">
                 <h3 class="text-center text-uppercase">total credit</h3>
               </div>
@@ -209,7 +209,7 @@
                   <h4>Total: <strong>{{parseInt(balance.total_debit)}}</strong></h4>
 
               </div>
-             
+
               <div class="custom-box-footer">
                 <h3 class="text-center text-uppercase">total debit</h3>
               </div>
@@ -226,7 +226,7 @@
                    <h4>Total: <strong>{{parseInt(balance.today_credit)-parseInt(balance.today_debit)}}</strong></h4>
 
               </div>
-             
+
               <div class="custom-box-footer">
                 <h3 class="text-center text-uppercase">today balance</h3>
               </div>
@@ -362,6 +362,12 @@
                       >
                         Today
                       </li>
+                       <li
+                        :class="{ active: analysisshow == 4 }"
+                        @click="analysisshow = 4"
+                      >
+                        yesterday
+                      </li>
                       <li
                         :class="{ active: analysisshow == 2 }"
                         @click="analysisshow = 2"
@@ -388,22 +394,30 @@
                         <tr v-for="(item,index) in analysis" :key="index">
                           <td>{{index}}</td>
                           <td>
-                            
+
                                 <span v-if="analysisshow == 1">
                                   {{item.today.order_quantity}}
                                 </span>
+
+                                <span v-if="analysisshow == 4">
+                                  {{item.yesterday.order_quantity}}
+                                </span>
+
                                  <span v-if="analysisshow == 2">
                                   {{item.this_week.order_quantity}}
                                 </span>
                                  <span v-if="analysisshow == 3">
                                   {{item.this_month.order_quantity}}
                                 </span>
-                            
+
                             </td>
                              <td>
-                            
+
                                 <span v-if="analysisshow == 1">
                                   {{item.today.product_quanity}}
+                                </span>
+                                 <span v-if="analysisshow == 4">
+                                  {{item.yesterday.product_quanity}}
                                 </span>
                                  <span v-if="analysisshow == 2">
                                   {{item.this_week.product_quanity}}
@@ -411,12 +425,15 @@
                                  <span v-if="analysisshow == 3">
                                   {{item.this_month.product_quanity}}
                                 </span>
-                            
+
                             </td>
                              <td>
-                            
+
                                 <span v-if="analysisshow == 1">
                                   {{item.today.amount}}
+                                </span>
+                                 <span v-if="analysisshow == 4">
+                                  {{item.yesterday.amount}}
                                 </span>
                                  <span v-if="analysisshow == 2">
                                   {{item.this_week.amount}}
@@ -424,9 +441,9 @@
                                  <span v-if="analysisshow == 3">
                                   {{item.this_month.amount}}
                                 </span>
-                            
+
                             </td>
-                          
+
                         </tr>
                          <tr>
 
@@ -440,6 +457,16 @@
                                   ? analysis.wholesale.today.order_quantity
                                   : 0)+ parseInt( analysis.order.today.order_quantity
                                   ? analysis.order.today.order_quantity
+                                  : 0)}}
+                                  </b>
+
+                                   <b v-if="analysisshow == 4">
+                                {{ parseInt( analysis.sale.yesterday.order_quantity
+                                  ? analysis.sale.yesterday.order_quantity
+                                  : 0)+  parseInt( analysis.wholesale.yesterday.order_quantity
+                                  ? analysis.wholesale.yesterday.order_quantity
+                                  : 0)+ parseInt( analysis.order.yesterday.order_quantity
+                                  ? analysis.order.yesterday.order_quantity
                                   : 0)}}
                                   </b>
 
@@ -463,7 +490,7 @@
                                   : 0)}}
 
                                     </b>
-                              
+
                               </span>
                           </td>
                              <td>
@@ -474,6 +501,16 @@
                                   ? analysis.wholesale.today.product_quanity
                                   : 0)+ parseInt( analysis.order.today.product_quanity
                                   ? analysis.order.today.product_quanity
+                                  : 0)}}
+                                  </b>
+
+                                  <b v-if="analysisshow == 4">
+                                {{ parseInt( analysis.sale.yesterday.product_quanity
+                                  ? analysis.sale.yesterday.product_quanity
+                                  : 0)+  parseInt( analysis.wholesale.yesterday.product_quanity
+                                  ? analysis.wholesale.yesterday.product_quanity
+                                  : 0)+ parseInt( analysis.order.yesterday.product_quanity
+                                  ? analysis.order.yesterday.product_quanity
                                   : 0)}}
                                   </b>
 
@@ -497,7 +534,7 @@
                                   : 0)}}
 
                                     </b>
-                              
+
                               </span>
                           </td>
                               <td>
@@ -508,6 +545,16 @@
                                   ? analysis.wholesale.today.amount
                                   : 0)+ parseInt( analysis.order.today.amount
                                   ? analysis.order.today.amount
+                                  : 0)}}
+                                  </b>
+
+                                  <b v-if="analysisshow == 4">
+                                 {{ parseInt( analysis.sale.yesterday.amount
+                                  ? analysis.sale.yesterday.amount
+                                  : 0)+  parseInt( analysis.wholesale.yesterday.amount
+                                  ? analysis.wholesale.yesterday.amount
+                                  : 0)+ parseInt( analysis.order.yesterday.amount
+                                  ? analysis.order.yesterday.amount
                                   : 0)}}
                                   </b>
 
@@ -531,13 +578,13 @@
                                   : 0)}}
 
                                     </b>
-                              
+
                               </span>
                           </td>
-                         
+
                         </tr>
 
-                      
+
                         <!-- <tr>
                           <td>OfficeSale</td>
 
@@ -801,7 +848,7 @@
                                   : 0)}}
 
                                     </b>
-                              
+
                               </span>
                           </td>
                              <td>
@@ -835,7 +882,7 @@
                                   : 0)}}
 
                                     </b>
-                              
+
                               </span>
                           </td>
                               <td>
@@ -869,10 +916,10 @@
                                   : 0)}}
 
                                     </b>
-                              
+
                               </span>
                           </td>
-                         
+
                         </tr> -->
                       </tbody>
                     </table>
@@ -1074,7 +1121,6 @@ export default {
           this.analysis = resp.data.analysis;
           this.due = resp.data.due;
           this.loading = false;
-
           //  console.log(resp.data.stock)
         })
         .catch((error) => {
@@ -1117,7 +1163,7 @@ export default {
   box-shadow: 3px 3px 3px #ddd;
   border-radius: 6px;
   margin-bottom: 10px;
- 
+
 }
 .custom-box-body strong {
   position: absolute;

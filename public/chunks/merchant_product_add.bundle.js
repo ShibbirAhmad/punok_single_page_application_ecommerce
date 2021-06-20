@@ -94,6 +94,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.$store.dispatch("merchant");
+    this.$store.dispatch("general_setting");
   },
   data: function data() {
     return {
@@ -129,6 +130,9 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     getMerchant: function getMerchant() {
       return this.$store.getters.merchant;
+    },
+    general_setting: function general_setting() {
+      return this.$store.getters.general_setting;
     }
   }
 });
@@ -728,6 +732,14 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
         return;
       }
 
+      if (file.size / 1024 > 300) {
+        Swal.fire({
+          type: 'warning',
+          text: 'File size can not be bigger then 300kb.Reference file size is' + file.size / 1024 + 'KB'
+        });
+        return;
+      }
+
       var reader = new FileReader();
       reader.readAsDataURL(file);
 
@@ -735,7 +747,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
         var img = new Image();
 
         img.onload = function () {
-          if (img.width <= 350 && img.height <= 350) {
+          if (img.width <= 1200 && img.height <= 1200) {
             _this9.form.image.push(file);
 
             _this9.form.files.push(evt.target.result);
@@ -743,7 +755,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
             return;
           } else {
             _this9.disabled = true;
-            alert("Image maximu size 350*350px.But Upload image size" + img.width + "*" + img.height + "px");
+            alert("Image maximu size 1200*1200px.But Upload image size" + img.width + "*" + img.height + "px");
             return;
           }
         };
@@ -829,14 +841,16 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("header", { staticClass: "main-header" }, [
-      _c("a", { staticClass: "logo", attrs: { href: "http://punok.com.bd" } }, [
+      _c("a", { staticClass: "logo", attrs: { href: "" } }, [
         _vm._m(0),
         _vm._v(" "),
-        _vm._m(1)
+        _c("span", { staticClass: "logo-lg" }, [
+          _c("b", [_vm._v(_vm._s(_vm.general_setting.title))])
+        ])
       ]),
       _vm._v(" "),
       _c("nav", { staticClass: "navbar navbar-static-top" }, [
-        _vm._m(2),
+        _vm._m(1),
         _vm._v(" "),
         _c("div", { staticClass: "navbar-custom-menu" }, [
           _c("ul", { staticClass: "nav navbar-nav" }, [
@@ -945,15 +959,6 @@ var staticRenderFns = [
     return _c("span", { staticClass: "logo-mini" }, [
       _c("b", [_vm._v("A")]),
       _vm._v("LT")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "logo-lg" }, [
-      _c("b", [_vm._v("punok")]),
-      _vm._v(".com.bd")
     ])
   },
   function() {
@@ -2020,7 +2025,9 @@ var staticRenderFns = [
         _vm._v("\n                  Image Gallery\n                  "),
         _c("small", [
           _c("b", [
-            _c("i", [_vm._v("(Every image can not be bigger than 350*350 px)")])
+            _c("i", [
+              _vm._v("(Every image can not be bigger than 1200*1200 px)")
+            ])
           ])
         ])
       ])

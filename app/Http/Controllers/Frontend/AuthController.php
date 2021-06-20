@@ -2,21 +2,26 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\City;
-use App\Models\Customer;
+use Cart;
 use App\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
+use App\Models\City;
+use App\Models\Order;
+use App\Models\Product;
+use App\Models\Customer;
+use Illuminate\Http\Request;
+use App\Models\CustomerWallet;
+use App\Models\DiscountMembership;
 use Illuminate\Support\Facades\DB;
-use phpDocumentor\Reflection\Types\Self_;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use phpDocumentor\Reflection\Types\Self_;
 
 class AuthController extends Controller
 {
-   
-   
+
+
     public function register(Request $request){
 
         $validatedData = $request->validate([
@@ -29,6 +34,7 @@ class AuthController extends Controller
         $user->name=$request->name;
         $user->mobile_no=$request->mobile_no;
         $user->password=Hash::make($request->password);
+        $user->status=1;
         if($user->save()){
 
             //make login user
@@ -41,11 +47,11 @@ class AuthController extends Controller
             ]);
 
         }
-        
+
 
     }
 
-     //function for password reset 
+     //function for password reset
      public function send_password_reset_code(Request $request){
 
             $request->validate(['email' => 'required|email']);
@@ -69,17 +75,62 @@ class AuthController extends Controller
               'user'=>Auth::user(),
           ]);
         }
-        
+
     }
 
 
     public function chekAuthUser(){
         if(Auth::user()){
+
+            $user_id=Auth::user()->id;
+            $customer_wallet=CustomerWallet::where('user_id',$user_id)->first();
+
+            //colleting customer type and his purchase history
+            $custom_member=DiscountMembership::where('customer_id',$user_id)->first();
+            $member_type=$custom_member ? $custom_member->type : "" ;
+            if (empty($member_type)) {
+              $total_purchase=Order::where('customer_id',$user_id)->where('order_type',1)->sum('total');
+                $total=intval($total_purchase) ;
+                if ( $total > 4999 && $total < 9999 ) {
+                    $member_type="silver";
+                }elseif ( $total > 9999 && $total < 15999) {
+                    $member_type="golden";
+                }elseif ( $total > 15999 ) {
+                    $member_type="platinum";
+                }
+            }
+
+            //set member_discount of member
+            $member_discount=0 ;
+            if ($member_type == "silver") {
+               $member_discount=5 ;
+            }elseif ($member_type == "golden") {
+               $member_discount=10 ;
+            }elseif ($member_type == "platinum") {
+               $member_discount=15 ;
+            }else {
+                $member_discount=0 ;
+             }
+
+            //get cart product item and checking if already have discount in this products
+            $product_discount=0;
+            foreach (Cart::content() as $cart_p) {
+                    $product=Product::where('id',$cart_p->id)->first();
+                    if ($product->discount > 0) {
+                        $product_discount += $product->discount ;
+                    }
+            }
+
+
+
             return response()->json([
                 'status'=>'AUTHORIZED',
                 'message'=>'you are login now',
                 'user'=>Auth::user(),
-            
+                'customer_wallet'=> $customer_wallet,
+                'member_type'=> $member_type,
+                'member_discount'=> $member_discount,
+                'product_discount'=> $product_discount,
             ]);
         }else{
             return response()->json([
@@ -94,7 +145,7 @@ class AuthController extends Controller
 
 
         if(Auth::logout()){
-            
+
             return response()->json([
                 'status'=>'SUCCESS',
                 'message'=>'Log out was successfully'
@@ -103,7 +154,7 @@ class AuthController extends Controller
         }
     }
 
-  
+
     public function userProfileUpdate(Request $request){
 
      //  return $request->all() ;
@@ -113,7 +164,7 @@ class AuthController extends Controller
             'mobile_no' => 'required|unique:users,mobile_no,'.Auth::user()->id,
             'address' => 'required',
             'city'=>'required',
-           
+
         ]);
 
         $user=Auth::user();
@@ -164,21 +215,21 @@ class AuthController extends Controller
                     "message" => "current password and new password can't be same ",
                 ]);
             }else{
-                $user->password=Hash::make($request->new_password);  
+                $user->password=Hash::make($request->new_password);
                     if ($user->save()) {
-                        
+
                         return response()->json([ "success" => "OK", "message" => "password changed successfully" ]);
-                    }  
+                    }
             }
          }else{
              return response()->json([
                 "message" => "current password is incorrect! ",
               ]);
-         } 
+         }
     }
 
     public function resetCode(Request $request){
-       
+
 
         $validatedData = $request->validate([
             'mobile_no' => 'required|digits:11',
@@ -206,7 +257,7 @@ class AuthController extends Controller
 }
 
 public function codeVerify(Request $request, $mobile_no){
-    
+
      $validatedData = $request->validate([
      ]);
 
@@ -271,14 +322,14 @@ public function user_set_new_password(Request $request){
    return  $user=User::where('id',Auth::user()->id)->first();
 
         if($request->new_password==$request->retype_password){
-            $user->password=Hash::make($request->new_password);  
-            if ($user->save()) { 
+            $user->password=Hash::make($request->new_password);
+            if ($user->save()) {
                 return response()->json([ "success" => "OK", "message" => "password setup successfully" ]);
-            }  
+            }
             }else{
                 return response()->json([ "success" => "FAIL", "message" => "password not matched" ]);
             }
-    
+
     }
 
 }

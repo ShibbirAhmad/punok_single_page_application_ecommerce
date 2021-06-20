@@ -29,7 +29,7 @@
                   <has-error :form="form" field="mobile_no"></has-error>
                 </div>
                 <br />
-                
+
                 <button :disabled="form.busy || form.mobile_no.length !=11" class="btn btn-block btn-primary" type="submit">
                   <i class="fa fa-spinner fa-spin" v-if="form.busy"></i>Get Code
                 </button>
@@ -58,7 +58,7 @@ export default {
       form: new Form({
         mobile_no: "",
       }),
-    
+
     };
   },
   methods: {
@@ -93,11 +93,12 @@ export default {
         });
     },
   },
- 
 
-  
+
+
   components: {
     Loading,
+    HasError
   },
 };
 </script>

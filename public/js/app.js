@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "chunks/" + ({"SupplierAmount":"SupplierAmount","about_seller":"about_seller","about_us":"about_us","account_purpose":"account_purpose","admin":"admin","admin_dashboard":"admin_dashboard","attribute":"attribute","category":"category","category_slider":"category_slider","companysale":"companysale","managefabricsPurchase":"managefabricsPurchase","officesale":"officesale","purchase":"purchase","slider":"slider","sub_category":"sub_category","sub_sub_category":"sub_sub_category","variant":"variant","applied_user":"applied_user","blog":"blog","city":"city","comment":"comment","company":"company","contact_messgae":"contact_messgae","contact_us":"contact_us","courier":"courier","credit":"credit","creditDue":"creditDue","customer":"customer","debit":"debit","fabricsSupplier":"fabricsSupplier","factory_list":"factory_list","fondtransfer":"fondtransfer","home_carrier":"home_carrier","how_to_buy":"how_to_buy","merchant":"merchant","merchant_dashboard":"merchant_dashboard","offer":"offer","order_details":"order_details","order_history":"order_history","paidPayment":"paidPayment","paymentInvoice":"paymentInvoice","paymnetDetails":"paymnetDetails","publicCarreir":"publicCarreir","public_category":"public_category","public_product_search":"public_product_search","public_sub_category":"public_sub_category","public_sub_sub_category":"public_sub_sub_category","public_team":"public_team","resellerHome":"resellerHome","return_policy":"return_policy","role":"role","salaryDetails":"salaryDetails","selling_offer":"selling_offer","shipment":"shipment","single_product":"single_product","sub_city":"sub_city","subscriber_list":"subscriber_list","supplier":"supplier","team_member":"team_member","teamsalary":"teamsalary","unpaidPayment":"unpaidPayment","user":"user","user_dashboard":"user_dashboard","vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34":"vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34","AddSaleExchange":"AddSaleExchange","accoun_purpose_edit":"accoun_purpose_edit","account_purpose_add":"account_purpose_add","addCompany":"addCompany","addCompanySale":"addCompanySale","addFabricsSupplier":"addFabricsSupplier","addOrder":"addOrder","addPurchase":"addPurchase","addPurchasefabrics":"addPurchasefabrics","addSale":"addSale","add_factory":"add_factory","add_merchant":"add_merchant","add_sale_campaign":"add_sale_campaign","add_selling_offer":"add_selling_offer","add_team_member":"add_team_member","addwholesale":"addwholesale","adminAdd":"adminAdd","AccountReport":"AccountReport","DeliveredOrder":"DeliveredOrder","OrderProfite":"OrderProfite","ReturnOrder":"ReturnOrder","SaleProfite":"SaleProfite","approvedOrder":"approvedOrder","cancelOrder":"cancelOrder","newOrder":"newOrder","officesaleReport":"officesaleReport","order":"order","orderReport":"orderReport","pendingOrder":"pendingOrder","profiteReport":"profiteReport","purchaseReport":"purchaseReport","shipmentOrder":"shipmentOrder","supplier_Report":"supplier_Report","wholesaleOrder":"wholesaleOrder","assign_admin_permission":"assign_admin_permission","assingRoleAdmin":"assingRoleAdmin","attributeAdd":"attributeAdd","buy_one_get_one":"buy_one_get_one","carier_detail":"carier_detail","categoryAdd":"categoryAdd","category_slider_add":"category_slider_add","category_slider_edit":"category_slider_edit","categoryedit":"categoryedit","checkout":"checkout","cityAdd":"cityAdd","cityEdit":"cityEdit","code_verified":"code_verified","commentAdd":"commentAdd","contact_messgae_reply":"contact_messgae_reply","courierAdd":"courierAdd","creditAdd":"creditAdd","creditEdit":"creditEdit","debitEdit":"debitEdit","editAdmin":"editAdmin","editComment":"editComment","editCompany":"editCompany","editCourier":"editCourier","editPermission":"editPermission","edit_factory":"edit_factory","edit_merchant":"edit_merchant","edit_offer":"edit_offer","edit_sale_campaign":"edit_sale_campaign","edit_selling_offer":"edit_selling_offer","edit_sub_city":"edit_sub_city","edit_team_member":"edit_team_member","fondtransferAdd":"fondtransferAdd","merchant_order_view":"merchant_order_view","merchant_password_edit":"merchant_password_edit","merchant_profile":"merchant_profile","merchant_profile_edit":"merchant_profile_edit","new_password_user":"new_password_user","occasional_campaign":"occasional_campaign","offerAdd":"offerAdd","orderEdit":"orderEdit","otp_login":"otp_login","passwordChange":"passwordChange","password_reset":"password_reset","productStock":"productStock","purchaseEdit":"purchaseEdit","purchaseView":"purchaseView","resellerAdd":"resellerAdd","resellerEdit":"resellerEdit","roleAdd":"roleAdd","sale_campaign":"sale_campaign","seasonal campaign":"seasonal campaign","slider_add":"slider_add","slider_edit":"slider_edit","sms_campaign":"sms_campaign","sub_category_add":"sub_category_add","sub_category_edit":"sub_category_edit","sub_city_add":"sub_city_add","sub_sub_category_add":"sub_sub_category_add","sub_sub_category_edit":"sub_sub_category_edit","supplierAdd":"supplierAdd","supplierEdit":"supplierEdit","userLogin":"userLogin","admin_login":"admin_login","merchant_password_reset":"merchant_password_reset","merchant_register":"merchant_register","merchnat_code_verified":"merchnat_code_verified","merchnat_login":"merchnat_login","new_password_merchant":"new_password_merchant","user_password":"user_password","user_password_reset":"user_password_reset","user_profile":"user_profile","user_profile_edit":"user_profile_edit","user_register":"user_register","variaantAdd":"variaantAdd","vendors~about_and_contact~add_carrier~edit_carrier~footer_setting~generl_setting~merchant_product_ad~976ffb9e":"vendors~about_and_contact~add_carrier~edit_carrier~footer_setting~generl_setting~merchant_product_ad~976ffb9e","about_and_contact":"about_and_contact","add_carrier":"add_carrier","edit_carrier":"edit_carrier","footer_setting":"footer_setting","generl_setting":"generl_setting","merchant_product_add":"merchant_product_add","merchant_product_edit":"merchant_product_edit","order_shipment_return":"order_shipment_return","productAdd":"productAdd","productEdit":"productEdit","show_carrier":"show_carrier","theme_setting":"theme_setting","vendors~debitAdd":"vendors~debitAdd","debitAdd":"debitAdd","vendors~merchant_order~merchnat_product_manage~product":"vendors~merchant_order~merchnat_product_manage~product","merchant_order":"merchant_order","merchnat_product_manage":"merchnat_product_manage","product":"product","viewOrder":"viewOrder","viewSale":"viewSale"}[chunkId]||chunkId) + ".bundle.js"
+/******/ 		return __webpack_require__.p + "chunks/" + ({"Loan":"Loan","LoanDetails":"LoanDetails","SupplierAmount":"SupplierAmount","about_seller":"about_seller","about_us":"about_us","account_purpose":"account_purpose","admin":"admin","admin_dashboard":"admin_dashboard","attribute":"attribute","category":"category","category_slider":"category_slider","companysale":"companysale","managefabricsPurchase":"managefabricsPurchase","officesale":"officesale","purchase":"purchase","slider":"slider","variant":"variant","applied_user":"applied_user","bill_statement":"bill_statement","bill_statement_details":"bill_statement_details","blog":"blog","city":"city","comment":"comment","company":"company","company_assets":"company_assets","contact_messgae":"contact_messgae","contact_us":"contact_us","coupon":"coupon","courier":"courier","credit":"credit","creditDue":"creditDue","customer":"customer","debit":"debit","fabricsSupplier":"fabricsSupplier","factory_list":"factory_list","fondtransfer":"fondtransfer","home_carrier":"home_carrier","how_to_buy":"how_to_buy","investment":"investment","investor_details":"investor_details","merchant":"merchant","merchant_dashboard":"merchant_dashboard","offer":"offer","order_details":"order_details","order_history":"order_history","paidPayment":"paidPayment","paymentInvoice":"paymentInvoice","paymnetDetails":"paymnetDetails","print_details":"print_details","print_house":"print_house","print_house_details":"print_house_details","product_transfer":"product_transfer","product_transfer_details":"product_transfer_details","publicCarreir":"publicCarreir","public_category":"public_category","public_product_search":"public_product_search","public_sub_category":"public_sub_category","public_sub_sub_category":"public_sub_sub_category","public_team":"public_team","receive_print_details":"receive_print_details","resellerHome":"resellerHome","return_policy":"return_policy","role":"role","salaryDetails":"salaryDetails","selling_offer":"selling_offer","shipment":"shipment","showroom":"showroom","showroom_manager":"showroom_manager","sub_city":"sub_city","subscriber_list":"subscriber_list","supplier":"supplier","team_member":"team_member","teamsalary":"teamsalary","unpaidPayment":"unpaidPayment","user":"user","user_dashboard":"user_dashboard","user_profile":"user_profile","vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937":"vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937","AddSaleExchange":"AddSaleExchange","accoun_purpose_edit":"accoun_purpose_edit","account_purpose_add":"account_purpose_add","addCompany":"addCompany","addCompanySale":"addCompanySale","addFabricsSupplier":"addFabricsSupplier","addLoan":"addLoan","addOrder":"addOrder","addPurchase":"addPurchase","addPurchasefabrics":"addPurchasefabrics","addSale":"addSale","add_factory":"add_factory","add_merchant":"add_merchant","add_sale_campaign":"add_sale_campaign","add_selling_offer":"add_selling_offer","add_team_member":"add_team_member","addwholesale":"addwholesale","adminAdd":"adminAdd","adminProfile":"adminProfile","AccountReport":"AccountReport","DeliveredOrder":"DeliveredOrder","OrderProfite":"OrderProfite","ReturnOrder":"ReturnOrder","SaleProfite":"SaleProfite","approvedOrder":"approvedOrder","cancelOrder":"cancelOrder","newOrder":"newOrder","officesaleReport":"officesaleReport","order":"order","orderReport":"orderReport","pendingOrder":"pendingOrder","profiteReport":"profiteReport","purchaseReport":"purchaseReport","shipmentOrder":"shipmentOrder","sub_category":"sub_category","sub_sub_category":"sub_sub_category","supplier_Report":"supplier_Report","wholesaleOrder":"wholesaleOrder","assign_admin_permission":"assign_admin_permission","assingRoleAdmin":"assingRoleAdmin","attributeAdd":"attributeAdd","bill_statement_add":"bill_statement_add","buy_one_get_one":"buy_one_get_one","carier_detail":"carier_detail","categoryAdd":"categoryAdd","category_slider_add":"category_slider_add","category_slider_edit":"category_slider_edit","categoryedit":"categoryedit","checkout":"checkout","cityAdd":"cityAdd","cityEdit":"cityEdit","code_verified":"code_verified","commentAdd":"commentAdd","contact_messgae_reply":"contact_messgae_reply","coupon_add":"coupon_add","coupon_edit":"coupon_edit","courierAdd":"courierAdd","creditAdd":"creditAdd","creditEdit":"creditEdit","debitEdit":"debitEdit","editAdmin":"editAdmin","editComment":"editComment","editCompany":"editCompany","editCourier":"editCourier","editPermission":"editPermission","edit_factory":"edit_factory","edit_merchant":"edit_merchant","edit_offer":"edit_offer","edit_sale_campaign":"edit_sale_campaign","edit_selling_offer":"edit_selling_offer","edit_sub_city":"edit_sub_city","edit_team_member":"edit_team_member","fondtransferAdd":"fondtransferAdd","investment_add":"investment_add","investment_edit":"investment_edit","merchant_order_view":"merchant_order_view","merchant_password_edit":"merchant_password_edit","merchant_profile":"merchant_profile","merchant_profile_edit":"merchant_profile_edit","new_password_user":"new_password_user","occasional_campaign":"occasional_campaign","offerAdd":"offerAdd","orderEdit":"orderEdit","otp_login":"otp_login","passwordChange":"passwordChange","password_reset":"password_reset","print_house_add":"print_house_add","print_product_add":"print_product_add","productStock":"productStock","product_transfer_add":"product_transfer_add","purchaseEdit":"purchaseEdit","purchaseView":"purchaseView","receieve_printed_product":"receieve_printed_product","resellerAdd":"resellerAdd","resellerEdit":"resellerEdit","roleAdd":"roleAdd","sale_campaign":"sale_campaign","seasonal campaign":"seasonal campaign","showroom_add":"showroom_add","showroom_edit":"showroom_edit","showroom_manager_add":"showroom_manager_add","showroom_manager_edit":"showroom_manager_edit","slider_add":"slider_add","slider_edit":"slider_edit","sms_campaign":"sms_campaign","sub_category_add":"sub_category_add","sub_category_edit":"sub_category_edit","sub_city_add":"sub_city_add","sub_sub_category_add":"sub_sub_category_add","sub_sub_category_edit":"sub_sub_category_edit","supplierAdd":"supplierAdd","supplierEdit":"supplierEdit","userLogin":"userLogin","admin_login":"admin_login","merchant_password_reset":"merchant_password_reset","merchant_register":"merchant_register","merchnat_code_verified":"merchnat_code_verified","merchnat_login":"merchnat_login","new_password_merchant":"new_password_merchant","user_password":"user_password","user_password_reset":"user_password_reset","user_profile_edit":"user_profile_edit","user_register":"user_register","variaantAdd":"variaantAdd","vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4":"vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4","about_and_contact":"about_and_contact","add_carrier":"add_carrier","company_assets_add":"company_assets_add","company_assets_edit":"company_assets_edit","edit_carrier":"edit_carrier","footer_setting":"footer_setting","generl_setting":"generl_setting","merchant_product_add":"merchant_product_add","merchant_product_edit":"merchant_product_edit","order_shipment_return":"order_shipment_return","productAdd":"productAdd","productEdit":"productEdit","show_carrier":"show_carrier","theme_setting":"theme_setting","vendors~debitAdd":"vendors~debitAdd","debitAdd":"debitAdd","vendors~merchant_order~merchnat_product_manage~product":"vendors~merchant_order~merchnat_product_manage~product","merchant_order":"merchant_order","merchnat_product_manage":"merchnat_product_manage","product":"product","viewOrder":"viewOrder","viewSale":"viewSale","vendors~single_product":"vendors~single_product","single_product":"single_product"}[chunkId]||chunkId) + ".bundle.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -2188,6 +2188,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.$store.dispatch("admin");
+    this.$store.dispatch('general_setting');
   },
   data: function data() {
     return {
@@ -2230,6 +2231,9 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     getAdmin: function getAdmin() {
       return this.$store.getters.admin;
+    },
+    general_setting: function general_setting() {
+      return this.$store.getters.general_setting;
     }
   }
 });
@@ -2367,6 +2371,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -2821,6 +2826,26 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "main-header",
   //props: ["categories"],
@@ -2836,6 +2861,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     };
   },
   methods: {
+    searchToggle: function searchToggle() {
+      document.getElementById("search_form").classList.toggle("search_toggle");
+    },
     category: function category() {
       var _this = this;
 
@@ -2926,9 +2954,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     autocomplteSearch: function autocomplteSearch() {
       var _this6 = this;
 
-      if (this.search.length > 1) {
+      if (this.search.length > 2) {
         axios.get("/_public/search/products/" + this.search).then(function (resp) {
-          if (resp.data.length) {
+          if (resp.data.length > 1) {
             var _this6$search_product;
 
             _this6.search_products = [];
@@ -2954,50 +2982,31 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     },
     menuShow: function menuShow() {
       var clickMenu = document.getElementById("toggle-menu");
-      var main_menu = document.getElementById("menu-list");
-      main_menu.classList.toggle("collapse-manu");
-      var menu_icon = document.getElementById("__icon_fa_menu");
-
-      if (menu_icon.classList.contains("fa-bars")) {
-        menu_icon.classList.remove("fa-bars");
-        menu_icon.classList.add("fa-close");
-      } else {
-        menu_icon.classList.add("fa-bars");
-        menu_icon.classList.remove("fa-close");
-      }
+      var main_menu = document.getElementById("menu_list");
+      main_menu.classList.toggle("collapse-manu"); //let menu_icon = document.getElementById("__icon_fa_menu");
+      // if (menu_icon.classList.contains("fa-bars")) {
+      //   menu_icon.classList.remove("fa-bars");
+      //   menu_icon.classList.add("fa-close");
+      // } else {
+      //   menu_icon.classList.add("fa-bars");
+      //   menu_icon.classList.remove("fa-close");
+      // }
     },
     cartOpen: function cartOpen() {
-      document.getElementById("s-cart").classList.add("colapse-cart");
+      document.getElementById("s-cart").classList.toggle("colapse-cart");
     },
     cartClosed: function cartClosed() {
       document.getElementById("s-cart").classList.remove("colapse-cart");
     },
-    goToCheckOut: function goToCheckOut() {
-      var user = this.user;
-
-      if (user.mobile_no) {
-        this.$router.push({
-          name: "Chekout"
-        });
-      } else {
-        this.$router.push({
-          name: "otpLogin"
-        });
-      }
-    },
     shownextElement: function shownextElement(e) {
-      var target_element = e.target;
-      var sub_menu_ul = target_element.nextSibling.nextElementSibling;
-      sub_menu_ul.classList.toggle("show");
-      target_element.classList.toggle("rotate");
-      console.log(target_element);
+      e.target.nextSibling.nextElementSibling.classList.toggle("show");
     },
     handleScrol: function handleScrol() {
       var header = document.getElementById('__header_main'); // if (window.pageYOffset > 1500 ) {
       //   header.classList.add("__sticky");
       // } else {
       //   header.classList.remove("__sticky");
-      // } 
+      // }
     }
   },
   mounted: function mounted() {
@@ -3045,10 +3054,135 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_owl_carousel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-owl-carousel */ "./node_modules/vue-owl-carousel/dist/vue-owl-carousel.js");
 /* harmony import */ var vue_owl_carousel__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_owl_carousel__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var vue_horizontal_list__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-horizontal-list */ "./node_modules/vue-horizontal-list/dist/vue-horizontal-list.esm.js");
-var _name$name$created$da;
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3508,182 +3642,193 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2___default.a);
-/* harmony default export */ __webpack_exports__["default"] = (_name$name$created$da = {
-  name: "welcome"
-}, _defineProperty(_name$name$created$da, "name", "ServeDev"), _defineProperty(_name$name$created$da, "created", function created() {
-  this.getNewArrivalProducts();
-  this.getOccatoinCampaign();
-  this.getSeasionCampaign();
-  this.getBuyGetCampaign();
-}), _defineProperty(_name$name$created$da, "data", function data() {
-  return {
-    loading: true,
-    // sub_categories: [],
-    page: 1,
-    offers: [],
-    product_id: null,
-    base_url: this.$store.state.image_base_link,
-    isScroll: 0,
-    quick_v_product_id: "",
-    o_modal: false,
-    new_arrival_products: [],
-    new_rendom_products: [],
-    new_arrival_options: {
-      responsive: [{
-        end: 450,
-        size: 3
-      }, {
-        start: 450,
-        end: 768,
-        size: 4
-      }, {
-        start: 768,
-        end: 992,
-        size: 4
-      }, {
-        size: 6
-      }],
-      list: {
-        windowed: 600,
-        padding: 24
+/* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.getOccatoinCampaign();
+    this.getSeasionCampaign();
+    this.getBuyGetCampaign();
+  },
+  data: function data() {
+    return {
+      loading: true,
+      // sub_categories: [],
+      page: 1,
+      offers: [],
+      product_id: null,
+      base_url: this.$store.state.image_base_link,
+      isScroll: 0,
+      quick_v_product_id: "",
+      o_modal: false,
+      home_page_products: [],
+      new_arrival_options: {
+        responsive: [{
+          end: 450,
+          size: 3
+        }, {
+          start: 450,
+          end: 768,
+          size: 4
+        }, {
+          start: 768,
+          end: 992,
+          size: 4
+        }, {
+          size: 6
+        }],
+        list: {
+          windowed: 600,
+          padding: 24
+        },
+        position: {
+          start: 0
+        }
       },
-      position: {
-        start: 0
-      }
+      new_random_options: {
+        responsive: [{
+          end: 576,
+          size: 3
+        }, {
+          start: 576,
+          end: 768,
+          size: 3
+        }, {
+          start: 768,
+          end: 992,
+          size: 3
+        }, {
+          size: 3
+        }],
+        list: {
+          windowed: 600,
+          padding: 10
+        },
+        position: {
+          start: 2
+        },
+        autoplay: {
+          play: true,
+          repeat: true,
+          speed: 3000
+        }
+      },
+      occasion_campaign: "",
+      occasion_p_top: "",
+      occasion_p_bottom: "",
+      seasion_campaign: "",
+      seasion_p_top: "",
+      seasion_p_bottom: "",
+      buy_get: "",
+      buy_get_p: ""
+    };
+  },
+  methods: {
+    getOccatoinCampaign: function getOccatoinCampaign() {
+      var _this = this;
+
+      axios.get("/_public/api/publish/occasional/campaign").then(function (resp) {
+        _this.occasion_campaign = resp.data.occasion;
+        _this.occasion_p_top = resp.data.occasion_p_top;
+        _this.occasion_p_bottom = resp.data.occasion_p_bottom;
+      });
     },
-    new_random_options: {
-      responsive: [{
-        end: 576,
-        size: 3
-      }, {
-        start: 576,
-        end: 768,
-        size: 3
-      }, {
-        start: 768,
-        end: 992,
-        size: 3
-      }, {
-        size: 3
-      }],
-      list: {
-        windowed: 600,
-        padding: 10
-      },
-      position: {
-        start: 2
-      },
-      autoplay: {
-        play: true,
-        repeat: true,
-        speed: 3000
-      }
+    getSeasionCampaign: function getSeasionCampaign() {
+      var _this2 = this;
+
+      axios.get("/_public/api/publish/seasional/campaign").then(function (resp) {
+        _this2.seasion_campaign = resp.data.seasion;
+        _this2.seasion_p_top = resp.data.seasion_p_top;
+        _this2.seasion_p_bottom = resp.data.seasion_p_bottom;
+      });
     },
-    occasion_campaign: "",
-    occasion_p_top: "",
-    occasion_p_bottom: "",
-    seasion_campaign: "",
-    seasion_p_top: "",
-    seasion_p_bottom: "",
-    buy_get: "",
-    buy_get_p: ""
-  };
-}), _defineProperty(_name$name$created$da, "methods", {
-  getNewArrivalProducts: function getNewArrivalProducts() {
-    var _this = this;
+    getBuyGetCampaign: function getBuyGetCampaign() {
+      var _this3 = this;
 
-    var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-    axios.get("/_public/api/new/arrival/products?page=" + page).then(function (resp) {
-      // console.log(resp);
-      _this.new_arrival_products = resp.data.new_arrival_products;
-      _this.new_rendom_products = resp.data.new_rendom_products;
-    });
-  },
-  getOccatoinCampaign: function getOccatoinCampaign() {
-    var _this2 = this;
+      axios.get("/_public/api/publish/buy/one/get/one/campaign").then(function (resp) {
+        _this3.buy_get = resp.data.buy_get;
+        _this3.buy_get_p = resp.data.buy_get_p;
+      });
+    },
+    home_page_product: function home_page_product($state) {
+      var _this4 = this;
 
-    axios.get("/_public/api/publish/occasional/campaign").then(function (resp) {
-      _this2.occasion_campaign = resp.data.occasion;
-      _this2.occasion_p_top = resp.data.occasion_p_top;
-      _this2.occasion_p_bottom = resp.data.occasion_p_bottom;
-    });
-  },
-  getSeasionCampaign: function getSeasionCampaign() {
-    var _this3 = this;
+      axios.get("/_public/products?page=" + this.page).then(function (resp) {
+        if (resp.data.data.length) {
+          var _this4$home_page_prod;
 
-    axios.get("/_public/api/publish/seasional/campaign").then(function (resp) {
-      _this3.seasion_campaign = resp.data.seasion;
-      _this3.seasion_p_top = resp.data.seasion_p_top;
-      _this3.seasion_p_bottom = resp.data.seasion_p_bottom;
-    });
-  },
-  getBuyGetCampaign: function getBuyGetCampaign() {
-    var _this4 = this;
+          _this4.page += 1;
 
-    axios.get("/_public/api/publish/buy/one/get/one/campaign").then(function (resp) {
-      _this4.buy_get = resp.data.buy_get;
-      _this4.buy_get_p = resp.data.buy_get_p;
-    });
-  },
-  handleScrol: function handleScrol() {
-    this.isScroll = 1;
+          (_this4$home_page_prod = _this4.home_page_products).push.apply(_this4$home_page_prod, _toConsumableArray(resp.data.data));
 
-    if (window.scrollY > 400) {
-      this.$store.dispatch("sub_sub_category_product");
+          $state.loaded();
+        } else {
+          $state.complete();
+        }
+      })["catch"](function (e) {});
+    },
+    handleScrol: function handleScrol() {
+      this.isScroll = 1;
+    },
+    productDetals: function productDetals(product_id) {
+      this.prdoct_modal = true;
+      this.product_id = product_id;
+    },
+    closedModal: function closedModal(close) {
+      this.quick_v_product_id = "";
+    },
+    showCategoryName: function showCategoryName(id) {
+      var x = document.getElementById("subCategoryNameView" + id);
+      console.log(x);
+      console.log(id);
+      x.classList.toggle("displayeBlok");
     }
-
-    console.log();
   },
-  productDetals: function productDetals(product_id) {
-    this.prdoct_modal = true;
-    this.product_id = product_id;
+  components: {
+    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2___default.a,
+    carousel: vue_owl_carousel__WEBPACK_IMPORTED_MODULE_4___default.a,
+    FlipCountdown: vue2_flip_countdown__WEBPACK_IMPORTED_MODULE_1___default.a,
+    VueHorizontalList: vue_horizontal_list__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
-  closedModal: function closedModal(close) {
-    this.quick_v_product_id = "";
+  mounted: function mounted() {
+    window.addEventListener("scroll", this.handleScrol);
+    this.$store.dispatch("category");
+    this.$store.dispatch("sliders");
+    this.$store.dispatch("offer_banner");
+    this.$store.dispatch("sale_campaign");
   },
-  showCategoryName: function showCategoryName(id) {
-    var x = document.getElementById("subCategoryNameView" + id);
-    console.log(x);
-    console.log(id);
-    x.classList.toggle("displayeBlok");
-  }
-}), _defineProperty(_name$name$created$da, "components", {
-  Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2___default.a,
-  carousel: vue_owl_carousel__WEBPACK_IMPORTED_MODULE_4___default.a,
-  FlipCountdown: vue2_flip_countdown__WEBPACK_IMPORTED_MODULE_1___default.a,
-  VueHorizontalList: vue_horizontal_list__WEBPACK_IMPORTED_MODULE_5__["default"]
-}), _defineProperty(_name$name$created$da, "mounted", function mounted() {
-  window.addEventListener("scroll", this.handleScrol);
-  this.$store.dispatch("category");
-  this.$store.dispatch("sliders");
-  this.$store.dispatch("offer_banner");
-  this.$store.dispatch("sale_campaign");
-}), _defineProperty(_name$name$created$da, "computed", {
-  category: function category() {
-    return this.$store.getters.categories;
+  computed: {
+    category: function category() {
+      return this.$store.getters.categories;
+    },
+    slider_banner: function slider_banner() {
+      return this.$store.getters.slider_banner;
+    },
+    best_selling_produtcs: function best_selling_produtcs() {
+      return this.$store.getters.best_selling_produtcs;
+    },
+    new_rendom_products: function new_rendom_products() {
+      return this.$store.getters.new_rendom_products;
+    },
+    sliders: function sliders() {
+      return this.$store.getters.sliders;
+    },
+    getOffers: function getOffers() {
+      return this.$store.getters.offer_banner;
+    },
+    sale_campaign: function sale_campaign() {
+      return this.$store.getters.sale_campaign;
+    },
+    sub_categories: function sub_categories() {
+      return this.$store.getters.home_page_products;
+    }
   },
-  slider_banner: function slider_banner() {
-    return this.$store.getters.slider_banner;
-  },
-  sliders: function sliders() {
-    return this.$store.getters.sliders;
-  },
-  getOffers: function getOffers() {
-    return this.$store.getters.offer_banner;
-  },
-  sale_campaign: function sale_campaign() {
-    return this.$store.getters.sale_campaign;
-  },
-  sub_categories: function sub_categories() {
-    return this.$store.getters.home_page_products;
-  }
-}), _defineProperty(_name$name$created$da, "watch", {
-  isScroll: function isScroll(value) {
-    if (value == 1) {
-      this.$store.dispatch("home_page_products");
+  watch: {
+    isScroll: function isScroll(value) {
+      if (value == 1) {
+        this.$store.dispatch("home_page_products");
+      }
     }
   }
-}), _name$name$created$da); //show sub  menu in mobile menu
+}); //show sub  menu in mobile menu
 
 document.addEventListener("DOMContentLoaded", function () {
   //set a time our function. this function call after 2 sec on domloaded
@@ -3724,6 +3869,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_1__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
 //
 //
 //
@@ -8450,7 +8597,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.nav-active {\r\n  display: block !important;\n}\n.sticky {\r\n  position: fixed;\r\n  top: 0;\r\n  width: 100%;\r\n  z-index: 9999999999999;\n}\n.q-i-d {\r\n  cursor: pointer;\n}\nul.p-image-name li {\r\n  padding: 0px 2px;\r\n  font-size: 12px;\n}\r\n", ""]);
+exports.push([module.i, "\n.nav-active {\r\n  display: block !important;\n}\n.sticky {\r\n  position: fixed;\r\n  top: 0;\r\n  width: 100%;\r\n  z-index: 9999999999999;\n}\n.q-i-d {\r\n  cursor: pointer;\n}\nul.p-image-name li {\r\n  padding: 0px 2px;\r\n  font-size: 12px;\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -8469,7 +8616,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.v-lazy-image[data-v-51680757] {\r\n  filter: blur(1px);\r\n  transition: filter 0.3s;\n}\n.v-lazy-image-loaded[data-v-51680757] {\r\n  filter: blur(0);\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\n.v-lazy-image[data-v-51680757] {\r\n  filter: blur(1px);\r\n  transition: filter 0.3s;\n}\n.v-lazy-image-loaded[data-v-51680757] {\r\n  filter: blur(0);\n}\r\n", ""]);
 
 // exports
 
@@ -66472,7 +66619,13 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("header", { staticClass: "main-header" }, [
-    _vm._m(0),
+    _c("a", { staticClass: "logo", attrs: { href: "" } }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("span", { staticClass: "logo-lg" }, [
+        _c("b", [_vm._v(_vm._s(_vm.general_setting.title) + " ")])
+      ])
+    ]),
     _vm._v(" "),
     _c("nav", { staticClass: "navbar navbar-static-top" }, [
       _vm._m(1),
@@ -66533,7 +66686,9 @@ var render = function() {
                       _vm._s(_vm.getAdmin.name) +
                       " - admin\n                "
                   ),
-                  _c("small", [_vm._v("Member since Nov. 2012")])
+                  _c("small", [
+                    _vm._v(" since " + _vm._s(_vm.getAdmin.created_at) + " ")
+                  ])
                 ])
               ]),
               _vm._v(" "),
@@ -66611,21 +66766,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      { staticClass: "logo", attrs: { href: "https://sufilifestyle.com" } },
-      [
-        _c("span", { staticClass: "logo-mini" }, [
-          _c("b", [_vm._v("A")]),
-          _vm._v("LT")
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "logo-lg" }, [
-          _c("b", [_vm._v("sufilifestyle")]),
-          _vm._v(".com")
-        ])
-      ]
-    )
+    return _c("span", { staticClass: "logo-mini" }, [
+      _c("b", [_vm._v("A")]),
+      _vm._v("LT")
+    ])
   },
   function() {
     var _vm = this
@@ -67213,17 +67357,6 @@ var render = function() {
           _c("div", { staticClass: "main-header-left" }, [
             _c(
               "li",
-              { attrs: { id: "toggle-menu" }, on: { click: _vm.menuShow } },
-              [
-                _c("i", {
-                  staticClass: "fa fa-bars",
-                  attrs: { id: "__icon_fa_menu" }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
               [
                 _c("router-link", { attrs: { to: "/" } }, [
                   _c("img", {
@@ -67239,6 +67372,8 @@ var render = function() {
               _c(
                 "form",
                 {
+                  staticClass: "header_search_form",
+                  attrs: { id: "search_form" },
                   on: {
                     submit: function($event) {
                       $event.preventDefault()
@@ -67430,7 +67565,7 @@ var render = function() {
       _c("div", { staticClass: "menu", attrs: { id: "navbar" } }, [
         _c(
           "ul",
-          { staticClass: "menu-list", attrs: { id: "menu-list" } },
+          { staticClass: "menu-list", attrs: { id: "menu_list" } },
           _vm._l(_vm.categories, function(category) {
             return _c(
               "li",
@@ -67693,25 +67828,36 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
-      _c("div", { staticClass: "cart-footer" }, [
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-block placebtn",
-            attrs: { href: "#" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.goToCheckOut($event)
-              }
-            }
-          },
-          [
-            _vm._v("Place Order | "),
-            _c("span", [_vm._v(" " + _vm._s(_vm.cart.total))])
-          ]
-        )
-      ])
+      _c(
+        "div",
+        { staticClass: "cart-footer" },
+        [
+          Object.keys(_vm.user).length
+            ? _c(
+                "router-link",
+                {
+                  staticClass: "btn btn-block placebtn",
+                  attrs: { to: { name: "Chekout" } }
+                },
+                [
+                  _vm._v("Place Order | "),
+                  _c("span", [_vm._v(" " + _vm._s(_vm.cart.total))])
+                ]
+              )
+            : _c(
+                "router-link",
+                {
+                  staticClass: "btn btn-block placebtn",
+                  attrs: { to: { name: "otpLogin" } }
+                },
+                [
+                  _vm._v("Place Order | "),
+                  _c("span", [_vm._v(" " + _vm._s(_vm.cart.total))])
+                ]
+              )
+        ],
+        1
+      )
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "cart-open", on: { click: _vm.cartOpen } }, [
@@ -67724,6 +67870,75 @@ var render = function() {
       _c("div", { staticClass: "cart-item-total" }, [
         _vm._v(_vm._s(_vm.cart.itemCount) + " items")
       ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "__footer_nav" }, [
+      _c("ul", [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: { href: "/" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.menuShow($event)
+                }
+              }
+            },
+            [_c("i", { staticClass: "fa fa-th-large footer_icon" })]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { on: { click: _vm.cartOpen } }, [
+            _c("sup", { staticClass: "customize_c_item" }, [
+              _vm._v(_vm._s(_vm.cart.itemCount))
+            ]),
+            _vm._v(" "),
+            _c("i", { staticClass: "fa fa-shopping-cart footer_icon" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "li",
+          [
+            Object.keys(_vm.user).length
+              ? _c(
+                  "router-link",
+                  { attrs: { to: { name: "UserDashboard" } } },
+                  [_c("i", { staticClass: "fa fa-user footer_icon" })]
+                )
+              : _c("router-link", { attrs: { to: { name: "otpLogin" } } }, [
+                  _c("i", { staticClass: "fa fa-user footer_icon" })
+                ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", [
+            _c("i", {
+              staticClass: "fa fa-search footer_icon",
+              on: { click: _vm.searchToggle }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href: "tel:" + _vm.general_setting.header_contact_number
+              }
+            },
+            [_c("i", { staticClass: "fa fa-phone footer_icon" })]
+          )
+        ])
+      ])
     ])
   ])
 }
@@ -67734,6 +67949,16 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("button", { staticClass: "search-btn" }, [
       _c("i", { staticClass: "fa fa-search" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "/" } }, [
+        _c("i", { staticClass: "fa fa-home footer_icon" })
+      ])
     ])
   }
 ]
@@ -67802,7 +68027,7 @@ var render = function() {
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "new_arrival_section" }, [
           _c("h4", { staticClass: "arrival_heading" }, [
-            _vm._v("TOP SELLING Products")
+            _vm._v("Top Selling Products")
           ]),
           _vm._v(" "),
           _c(
@@ -67811,7 +68036,7 @@ var render = function() {
             [
               _c("vue-horizontal-list", {
                 attrs: {
-                  items: _vm.new_arrival_products,
+                  items: _vm.best_selling_produtcs,
                   options: _vm.new_arrival_options
                 },
                 scopedSlots: _vm._u([
@@ -67876,14 +68101,50 @@ var render = function() {
                                   _vm._v(" "),
                                   _c("p", { staticClass: "price" }, [
                                     _c("span", { staticClass: "price-new" }, [
-                                      _vm._v(_vm._s(item.price))
+                                      _vm._v(" ৳ " + _vm._s(item.price))
                                     ]),
                                     _vm._v(" "),
                                     item.discount
                                       ? _c(
                                           "span",
                                           { staticClass: "price-old" },
-                                          [_vm._v(_vm._s(item.sale_price))]
+                                          [
+                                            _vm._v(
+                                              "\n                        ৳ " +
+                                                _vm._s(item.sale_price)
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    item.discount > 0
+                                      ? _c(
+                                          "span",
+                                          {
+                                            staticClass: "best_selling_discount"
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass:
+                                                "fa fa-star best_s_star"
+                                            }),
+                                            _vm._v(
+                                              "\n                        " +
+                                                _vm._s(
+                                                  (
+                                                    (item.discount /
+                                                      item.sale_price) *
+                                                    100
+                                                  ).toFixed(0)
+                                                ) +
+                                                "% "
+                                            ),
+                                            _c(
+                                              "span",
+                                              { staticClass: "d_off" },
+                                              [_vm._v("off")]
+                                            )
+                                          ]
                                         )
                                       : _vm._e()
                                   ])
@@ -67903,71 +68164,560 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm.isScroll > 0
-          ? _c(
+        _c(
+          "div",
+          [
+            _vm._l(_vm.sale_campaign, function(campaign, index) {
+              return campaign.campaign_products.length > 0
+                ? _c(
+                    "div",
+                    {
+                      key: index,
+                      staticClass: "product_carousel sale_campaign",
+                      style: {
+                        backgroundColor: campaign.background_color,
+                        border:
+                          campaign.border_width +
+                          "px solid " +
+                          campaign.border_color
+                      }
+                    },
+                    [
+                      _c("div", [
+                        _c("h3", [_vm._v(_vm._s(campaign.name))]),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "campaign_clock" },
+                          [
+                            _c("flip-countdown", {
+                              attrs: {
+                                deadline: campaign.expired_date + " 00:00:00"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      Object.keys(campaign.campaign_products).length
+                        ? _c(
+                            "carousel",
+                            {
+                              attrs: {
+                                nav: false,
+                                autoplay: true,
+                                autoplayTimeout: 4000,
+                                responsive: {
+                                  0: { items: 2 },
+                                  600: { items: 5 }
+                                }
+                              }
+                            },
+                            _vm._l(campaign.campaign_products, function(
+                              campaign_product
+                            ) {
+                              return _c(
+                                "div",
+                                {
+                                  key: campaign_product.id,
+                                  staticClass: "product-thumb clearfix"
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "image" },
+                                    [
+                                      _c(
+                                        "router-link",
+                                        {
+                                          attrs: {
+                                            to: {
+                                              name: "single",
+                                              params: {
+                                                slug: campaign_product.slug
+                                              }
+                                            }
+                                          }
+                                        },
+                                        [
+                                          campaign_product.product_image
+                                            ? _c("img", {
+                                                staticClass: "img-responsive",
+                                                attrs: {
+                                                  src:
+                                                    _vm.base_url +
+                                                    campaign_product
+                                                      .product_image[0]
+                                                      .product_image,
+                                                  alt: campaign_product.name,
+                                                  title: campaign_product.name
+                                                }
+                                              })
+                                            : _vm._e()
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "caption" }, [
+                                    _c(
+                                      "h4",
+                                      [
+                                        _c(
+                                          "router-link",
+                                          {
+                                            attrs: {
+                                              to: {
+                                                name: "single",
+                                                params: {
+                                                  slug: campaign_product.slug
+                                                }
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(campaign_product.name)
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "price" }, [
+                                      _c("span", { staticClass: "price-new" }, [
+                                        _vm._v(
+                                          "\n                  ৳ " +
+                                            _vm._s(campaign_product.price)
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      campaign_product.discount
+                                        ? _c(
+                                            "span",
+                                            { staticClass: "price-old" },
+                                            [
+                                              _vm._v(
+                                                "\n                  ৳ " +
+                                                  _vm._s(
+                                                    campaign_product.sale_price
+                                                  )
+                                              )
+                                            ]
+                                          )
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      campaign_product.discount > 0
+                                        ? _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "flas_selling_discount"
+                                            },
+                                            [
+                                              _c("i", {
+                                                staticClass:
+                                                  "fa fa-star flash_s_star"
+                                              }),
+                                              _vm._v(
+                                                "\n                        " +
+                                                  _vm._s(
+                                                    (
+                                                      (campaign_product.discount /
+                                                        campaign_product.sale_price) *
+                                                      100
+                                                    ).toFixed(0)
+                                                  ) +
+                                                  "% "
+                                              ),
+                                              _c(
+                                                "span",
+                                                { staticClass: "d_off" },
+                                                [_vm._v("off")]
+                                              )
+                                            ]
+                                          )
+                                        : _vm._e()
+                                    ])
+                                  ])
+                                ]
+                              )
+                            }),
+                            0
+                          )
+                        : _vm._e()
+                    ],
+                    1
+                  )
+                : _vm._e()
+            }),
+            _vm._v(" "),
+            _c(
               "div",
+              {
+                staticClass: "parallax_background text-center",
+                style: {
+                  backgroundImage:
+                    "url(" + (_vm.base_url + _vm.buy_get.banner) + ")"
+                }
+              },
               [
-                _vm._l(_vm.sale_campaign, function(campaign, index) {
-                  return campaign.campaign_products.length > 0
-                    ? _c(
-                        "div",
-                        {
-                          key: index,
-                          staticClass: "product_carousel sale_campaign",
-                          style: {
-                            backgroundColor: campaign.background_color,
-                            border:
-                              campaign.border_width +
-                              "px solid " +
-                              campaign.border_color
+                _c(
+                  "h2",
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn_shop_now",
+                        attrs: {
+                          to: {
+                            name: "single",
+                            params: { slug: _vm.buy_get_p.slug }
                           }
-                        },
+                        }
+                      },
+                      [_vm._v("SHOP NOW >")]
+                    )
+                  ],
+                  1
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "row offer_collection" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "col-lg-6 col-sm-12 col-md-6 collection_left",
+                  style: {
+                    backgroundImage:
+                      "url(" +
+                      (_vm.base_url + _vm.occasion_campaign.background_image) +
+                      ")"
+                  }
+                },
+                [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-6 col-sm-12 col-xs-12" }, [
+                      _c(
+                        "div",
+                        { staticClass: "container_offer_header text-center" },
                         [
-                          _c("div", [
-                            _c("h3", [_vm._v(_vm._s(campaign.name))]),
-                            _vm._v(" "),
-                            _c(
-                              "span",
-                              { staticClass: "campaign_clock" },
-                              [
-                                _c("flip-countdown", {
-                                  attrs: {
-                                    deadline:
-                                      campaign.expired_date + " 00:00:00"
-                                  }
-                                })
-                              ],
-                              1
-                            )
+                          _c("p", [
+                            _vm._v(_vm._s(_vm.occasion_campaign.quote))
                           ]),
                           _vm._v(" "),
-                          Object.keys(campaign.campaign_products).length
-                            ? _c(
-                                "carousel",
-                                {
-                                  attrs: {
-                                    nav: false,
-                                    autoplay: true,
-                                    autoplayTimeout: 4000,
-                                    responsive: {
-                                      0: { items: 3 },
-                                      600: { items: 5 }
-                                    }
+                          _c("h4", [
+                            _vm._v(_vm._s(_vm.occasion_campaign.heading))
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6 col-sm-12 col-xs-12" }, [
+                      _c("div", { staticClass: "collection_content" }, [
+                        _vm.occasion_p_top.product_image.length
+                          ? _c("img", {
+                              attrs: {
+                                src:
+                                  _vm.base_url +
+                                  _vm.occasion_p_top.product_image[0]
+                                    .product_image
+                              }
+                            })
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "collect_sub_data text-center" },
+                          [
+                            _c("p", { staticClass: "p1" }, [
+                              _vm._v(_vm._s(_vm.occasion_p_top.name))
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "p2" }, [
+                              _vm._v("৳ " + _vm._s(_vm.occasion_p_top.price))
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn_more",
+                                attrs: {
+                                  to: {
+                                    name: "single",
+                                    params: { slug: _vm.occasion_p_top.slug }
                                   }
-                                },
-                                _vm._l(campaign.campaign_products, function(
-                                  campaign_product
-                                ) {
-                                  return _c(
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                    More\n                    "
+                                ),
+                                _c("i", {
+                                  staticClass:
+                                    "fa fa-xs fa-arrow-right arrow_right_icon"
+                                })
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "collection_content" }, [
+                        _vm.occasion_p_bottom.product_image.length
+                          ? _c("img", {
+                              attrs: {
+                                src:
+                                  _vm.base_url +
+                                  _vm.occasion_p_bottom.product_image[0]
+                                    .product_image
+                              }
+                            })
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "collect_sub_data text-center" },
+                          [
+                            _c("p", { staticClass: "p1" }, [
+                              _vm._v(_vm._s(_vm.occasion_p_bottom.name))
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "p2" }, [
+                              _vm._v("৳ " + _vm._s(_vm.occasion_p_bottom.price))
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn_more",
+                                attrs: {
+                                  to: {
+                                    name: "single",
+                                    params: { slug: _vm.occasion_p_bottom.slug }
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                    More\n                    "
+                                ),
+                                _c("i", {
+                                  staticClass:
+                                    "fa fa-xs fa-arrow-right arrow_right_icon"
+                                })
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      ])
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "col-lg-6 col-sm-12 col-md-6 collection_right",
+                  style: {
+                    backgroundImage:
+                      "url(" +
+                      (_vm.base_url + _vm.seasion_campaign.background_image) +
+                      ")"
+                  }
+                },
+                [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-6 col-sm-12 col-xs-12" }, [
+                      _c(
+                        "div",
+                        { staticClass: "container_offer_header text-center" },
+                        [
+                          _c("p", [_vm._v(_vm._s(_vm.seasion_campaign.quote))]),
+                          _vm._v(" "),
+                          _c("h4", [
+                            _vm._v(_vm._s(_vm.seasion_campaign.heading))
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6 col-xs-12 col-sm-12" }, [
+                      _c("div", { staticClass: "collection_content" }, [
+                        _vm.seasion_p_top.product_image.length
+                          ? _c("img", {
+                              attrs: {
+                                src:
+                                  _vm.base_url +
+                                  _vm.seasion_p_top.product_image[0]
+                                    .product_image
+                              }
+                            })
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "collect_sub_data text-center" },
+                          [
+                            _c("p", { staticClass: "p1" }, [
+                              _vm._v(_vm._s(_vm.seasion_p_top.name))
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "p2" }, [
+                              _vm._v("৳ " + _vm._s(_vm.seasion_p_top.price))
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn_more",
+                                attrs: {
+                                  to: {
+                                    name: "single",
+                                    params: { slug: _vm.seasion_p_top.slug }
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                    More\n                    "
+                                ),
+                                _c("i", {
+                                  staticClass:
+                                    "fa fa-xs fa-arrow-right arrow_right_icon"
+                                })
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "collection_content" }, [
+                        _vm.seasion_p_bottom.product_image.length
+                          ? _c("img", {
+                              attrs: {
+                                src:
+                                  _vm.base_url +
+                                  _vm.seasion_p_bottom.product_image[0]
+                                    .product_image
+                              }
+                            })
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "collect_sub_data text-center" },
+                          [
+                            _c("p", { staticClass: "p1" }, [
+                              _vm._v(_vm._s(_vm.seasion_p_bottom.name))
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "p2" }, [
+                              _vm._v("৳ " + _vm._s(_vm.seasion_p_bottom.price))
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn_more",
+                                attrs: {
+                                  to: {
+                                    name: "single",
+                                    params: { slug: _vm.seasion_p_bottom.slug }
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                    More\n                    "
+                                ),
+                                _c("i", {
+                                  staticClass:
+                                    "fa fa-xs fa-arrow-right arrow_right_icon"
+                                })
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row caegories_and_new_product_row" }, [
+              _c("h4", { staticClass: "random_heading" }, [
+                _vm._v("What's Hot")
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-lg-6 col-md-6 col-sm-12" },
+                [
+                  _c("h4", { staticClass: "new_random_heading" }, [
+                    _vm._v("New Products")
+                  ]),
+                  _vm._v(" "),
+                  _c("vue-horizontal-list", {
+                    attrs: {
+                      items: _vm.new_rendom_products,
+                      options: _vm.new_random_options
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(ref) {
+                          var item = ref.item
+                          return [
+                            _c(
+                              "div",
+                              { staticClass: "col-lg-2 col-md-6 item" },
+                              [
+                                _c("div", { staticClass: "new_random_card" }, [
+                                  _c(
                                     "div",
                                     {
-                                      key: campaign_product.id,
-                                      staticClass: "product-thumb clearfix"
+                                      staticClass:
+                                        "new_random_card_body text-center"
                                     },
                                     [
                                       _c(
-                                        "div",
-                                        { staticClass: "image" },
+                                        "router-link",
+                                        {
+                                          attrs: {
+                                            to: {
+                                              name: "single",
+                                              params: { slug: item.slug }
+                                            }
+                                          }
+                                        },
+                                        [
+                                          item.product_image.length
+                                            ? _c("img", {
+                                                attrs: {
+                                                  src:
+                                                    _vm.base_url +
+                                                    item.product_image[0]
+                                                      .product_image
+                                                }
+                                              })
+                                            : _vm._e()
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "p",
+                                        { staticClass: "new_random_link" },
                                         [
                                           _c(
                                             "router-link",
@@ -67975,486 +68725,231 @@ var render = function() {
                                               attrs: {
                                                 to: {
                                                   name: "single",
-                                                  params: {
-                                                    slug: campaign_product.slug
-                                                  }
+                                                  params: { slug: item.slug }
                                                 }
                                               }
                                             },
-                                            [
-                                              campaign_product.product_image
-                                                ? _c("img", {
-                                                    staticClass:
-                                                      "img-responsive",
-                                                    attrs: {
-                                                      src:
-                                                        _vm.base_url +
-                                                        campaign_product
-                                                          .product_image[0]
-                                                          .product_image,
-                                                      alt:
-                                                        campaign_product.name,
-                                                      title:
-                                                        campaign_product.name
-                                                    }
-                                                  })
-                                                : _vm._e()
-                                            ]
+                                            [_vm._v(_vm._s(item.name))]
                                           )
                                         ],
                                         1
                                       ),
                                       _vm._v(" "),
-                                      _c("div", { staticClass: "caption" }, [
+                                      _c("p", { staticClass: "price" }, [
                                         _c(
-                                          "h4",
-                                          [
-                                            _c(
-                                              "router-link",
-                                              {
-                                                attrs: {
-                                                  to: {
-                                                    name: "single",
-                                                    params: {
-                                                      slug:
-                                                        campaign_product.slug
-                                                    }
-                                                  }
-                                                }
-                                              },
+                                          "span",
+                                          { staticClass: "price-new" },
+                                          [_vm._v(" ৳ " + _vm._s(item.price))]
+                                        ),
+                                        _vm._v(" "),
+                                        item.discount
+                                          ? _c(
+                                              "span",
+                                              { staticClass: "price-old" },
                                               [
                                                 _vm._v(
-                                                  _vm._s(campaign_product.name)
+                                                  "\n                        ৳ " +
+                                                    _vm._s(item.sale_price)
                                                 )
                                               ]
                                             )
-                                          ],
-                                          1
-                                        ),
+                                          : _vm._e(),
                                         _vm._v(" "),
-                                        _c("p", { staticClass: "price" }, [
-                                          _c(
-                                            "span",
-                                            { staticClass: "price-new" },
-                                            [
-                                              _vm._v(
-                                                _vm._s(campaign_product.price)
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          campaign_product.discount
-                                            ? _c(
-                                                "span",
-                                                { staticClass: "price-old" },
-                                                [
-                                                  _vm._v(
+                                        item.discount > 0
+                                          ? _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "new_product_discount"
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass:
+                                                    "fa fa-star new_p_star"
+                                                }),
+                                                _vm._v(
+                                                  "\n                        " +
                                                     _vm._s(
-                                                      campaign_product.sale_price
-                                                    )
-                                                  )
-                                                ]
-                                              )
-                                            : _vm._e()
-                                        ])
+                                                      (
+                                                        (item.discount /
+                                                          item.sale_price) *
+                                                        100
+                                                      ).toFixed(0)
+                                                    ) +
+                                                    "% "
+                                                ),
+                                                _c(
+                                                  "span",
+                                                  { staticClass: "d_off" },
+                                                  [_vm._v("off")]
+                                                )
+                                              ]
+                                            )
+                                          : _vm._e()
                                       ])
-                                    ]
+                                    ],
+                                    1
                                   )
-                                }),
-                                0
-                              )
-                            : _vm._e()
-                        ],
-                        1
-                      )
-                    : _vm._e()
-                }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "parallax_background text-center",
-                    style: {
-                      backgroundImage:
-                        "url(" + (_vm.base_url + _vm.buy_get.banner) + ")"
-                    }
-                  },
-                  [
-                    _c(
-                      "h2",
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "btn btn_shop_now",
-                            attrs: {
-                              to: {
-                                name: "single",
-                                params: { slug: _vm.buy_get_p.slug }
-                              }
-                            }
-                          },
-                          [_vm._v("SHOP NOW >")]
-                        )
-                      ],
-                      1
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "row offer_collection" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "col-lg-6 col-sm-12 col-md-6  collection_left",
-                      style: {
-                        backgroundImage:
-                          "url(" +
-                          (_vm.base_url +
-                            _vm.occasion_campaign.background_image) +
-                          ")"
-                      }
-                    },
-                    [
-                      _c("div", { staticClass: "row" }, [
-                        _c(
-                          "div",
-                          { staticClass: "col-md-6 col-sm-12 col-xs-12" },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "container_offer_header text-center"
-                              },
-                              [
-                                _c("p", [
-                                  _vm._v(_vm._s(_vm.occasion_campaign.quote))
-                                ]),
-                                _vm._v(" "),
-                                _c("h4", [
-                                  _vm._v(_vm._s(_vm.occasion_campaign.heading))
                                 ])
                               ]
                             )
                           ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "col-md-6 col-sm-12 col-xs-12" },
-                          [
-                            _c("div", { staticClass: "collection_content" }, [
-                              _vm.occasion_p_top.product_image.length
-                                ? _c("img", {
-                                    attrs: {
-                                      src:
-                                        _vm.base_url +
-                                        _vm.occasion_p_top.product_image[0]
-                                          .product_image
-                                    }
-                                  })
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "collect_sub_data text-center" },
-                                [
-                                  _c("p", { staticClass: "p1" }, [
-                                    _vm._v(_vm._s(_vm.occasion_p_top.name))
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "p2" }, [
-                                    _vm._v(
-                                      _vm._s(_vm.occasion_p_top.price) + "৳"
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "router-link",
-                                    {
-                                      staticClass: "btn btn_more",
-                                      attrs: {
-                                        to: {
-                                          name: "single",
-                                          params: {
-                                            slug: _vm.occasion_p_top.slug
-                                          }
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                    More\n                    "
-                                      ),
-                                      _c("i", {
-                                        staticClass:
-                                          "fa fa-xs fa-arrow-right arrow_right_icon"
-                                      })
-                                    ]
-                                  )
-                                ],
-                                1
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "collection_content" }, [
-                              _vm.occasion_p_bottom.product_image.length
-                                ? _c("img", {
-                                    attrs: {
-                                      src:
-                                        _vm.base_url +
-                                        _vm.occasion_p_bottom.product_image[0]
-                                          .product_image
-                                    }
-                                  })
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "collect_sub_data text-center" },
-                                [
-                                  _c("p", { staticClass: "p1" }, [
-                                    _vm._v(_vm._s(_vm.occasion_p_bottom.name))
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "p2" }, [
-                                    _vm._v(
-                                      _vm._s(_vm.occasion_p_bottom.price) + "৳"
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "router-link",
-                                    {
-                                      staticClass: "btn btn_more",
-                                      attrs: {
-                                        to: {
-                                          name: "single",
-                                          params: {
-                                            slug: _vm.occasion_p_bottom.slug
-                                          }
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                    More\n                    "
-                                      ),
-                                      _c("i", {
-                                        staticClass:
-                                          "fa fa-xs fa-arrow-right arrow_right_icon"
-                                      })
-                                    ]
-                                  )
-                                ],
-                                1
-                              )
-                            ])
-                          ]
-                        )
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "col-lg-6 col-sm-12 col-md-6 collection_right",
-                      style: {
-                        backgroundImage:
-                          "url(" +
-                          (_vm.base_url +
-                            _vm.seasion_campaign.background_image) +
-                          ")"
+                        }
                       }
-                    },
-                    [
-                      _c("div", { staticClass: "row" }, [
-                        _c(
-                          "div",
-                          { staticClass: "col-md-6 col-sm-12 col-xs-12" },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "container_offer_header text-center"
-                              },
-                              [
-                                _c("p", [
-                                  _vm._v(_vm._s(_vm.seasion_campaign.quote))
-                                ]),
-                                _vm._v(" "),
-                                _c("h4", [
-                                  _vm._v(_vm._s(_vm.seasion_campaign.heading))
-                                ])
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "col-md-6 col-xs-12 col-sm-12" },
-                          [
-                            _c("div", { staticClass: "collection_content" }, [
-                              _vm.seasion_p_top.product_image.length
-                                ? _c("img", {
-                                    attrs: {
-                                      src:
-                                        _vm.base_url +
-                                        _vm.seasion_p_top.product_image[0]
-                                          .product_image
-                                    }
-                                  })
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "collect_sub_data text-center" },
-                                [
-                                  _c("p", { staticClass: "p1" }, [
-                                    _vm._v(_vm._s(_vm.seasion_p_top.name))
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "p2" }, [
-                                    _vm._v(
-                                      _vm._s(_vm.seasion_p_top.price) + "৳"
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "router-link",
-                                    {
-                                      staticClass: "btn btn_more",
-                                      attrs: {
-                                        to: {
-                                          name: "single",
-                                          params: {
-                                            slug: _vm.seasion_p_top.slug
-                                          }
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                    More\n                    "
-                                      ),
-                                      _c("i", {
-                                        staticClass:
-                                          "fa fa-xs fa-arrow-right arrow_right_icon"
-                                      })
-                                    ]
-                                  )
-                                ],
-                                1
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "collection_content" }, [
-                              _vm.seasion_p_bottom.product_image.length
-                                ? _c("img", {
-                                    attrs: {
-                                      src:
-                                        _vm.base_url +
-                                        _vm.seasion_p_bottom.product_image[0]
-                                          .product_image
-                                    }
-                                  })
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "collect_sub_data text-center" },
-                                [
-                                  _c("p", { staticClass: "p1" }, [
-                                    _vm._v(_vm._s(_vm.seasion_p_bottom.name))
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "p2" }, [
-                                    _vm._v(
-                                      _vm._s(_vm.seasion_p_bottom.price) + "৳"
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "router-link",
-                                    {
-                                      staticClass: "btn btn_more",
-                                      attrs: {
-                                        to: {
-                                          name: "single",
-                                          params: {
-                                            slug: _vm.seasion_p_bottom.slug
-                                          }
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                    More\n                    "
-                                      ),
-                                      _c("i", {
-                                        staticClass:
-                                          "fa fa-xs fa-arrow-right arrow_right_icon"
-                                      })
-                                    ]
-                                  )
-                                ],
-                                1
-                              )
-                            ])
-                          ]
-                        )
-                      ])
-                    ]
-                  )
+                    ])
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-12" }, [
+                _c("h4", { staticClass: "banner_title" }, [
+                  _vm._v("Categories")
                 ]),
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "row caegories_and_new_product_row" },
-                  [
-                    _c("h4", { staticClass: "random_heading" }, [
-                      _vm._v("What's Hot")
-                    ]),
-                    _vm._v(" "),
-                    _c(
+                  { staticClass: "banner_container" },
+                  _vm._l(_vm.getOffers, function(offer) {
+                    return _c(
                       "div",
-                      { staticClass: "col-lg-6 col-md-6 col-sm-12" },
+                      {
+                        key: offer.id,
+                        staticClass: "col-lg-2 col-md-2 col-sm-6 col-xs-4"
+                      },
                       [
-                        _c("h4", { staticClass: "new_random_heading" }, [
-                          _vm._v("New Products")
-                        ]),
-                        _vm._v(" "),
-                        _c("vue-horizontal-list", {
-                          attrs: {
-                            items: _vm.new_rendom_products,
-                            options: _vm.new_random_options
-                          },
-                          scopedSlots: _vm._u(
-                            [
-                              {
-                                key: "default",
-                                fn: function(ref) {
-                                  var item = ref.item
-                                  return [
+                        _c(
+                          "a",
+                          { attrs: { href: offer.url, target: "_blank" } },
+                          [
+                            _c("img", {
+                              staticClass: "banner_image",
+                              attrs: {
+                                title: "offer",
+                                src: _vm.base_url + offer.image
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("div", {
+                              staticClass: "overlaw-offer",
+                              class: {
+                                "overlaw-offer-height": offer.id % 2 == 0
+                              }
+                            })
+                          ]
+                        )
+                      ]
+                    )
+                  }),
+                  0
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _vm.isScroll > 0
+              ? _c(
+                  "div",
+                  [
+                    _vm._l(_vm.home_page_products, function(sub_category, idx) {
+                      return sub_category.products.length
+                        ? _c("div", { key: idx, staticClass: "c-product" }, [
+                            _c("div", { staticClass: "c-product-header" }, [
+                              _c("h4", { staticClass: "category-heading" }, [
+                                _vm._v(_vm._s(sub_category.name))
+                              ]),
+                              _vm._v(" "),
+                              sub_category.sub_sub_category.length > 0
+                                ? _c("div", { staticClass: "s-category" }, [
                                     _c(
                                       "div",
-                                      { staticClass: "col-lg-2 col-md-6 item" },
+                                      {
+                                        staticClass: "sub_category_view",
+                                        attrs: {
+                                          id:
+                                            "subCategoryNameView" +
+                                            sub_category.id
+                                        }
+                                      },
+                                      [
+                                        _vm._l(
+                                          sub_category.sub_sub_category,
+                                          function(sub_sub_category, index) {
+                                            return index <= 7
+                                              ? _c(
+                                                  "router-link",
+                                                  {
+                                                    key: index,
+                                                    staticClass:
+                                                      "sub-category-name",
+                                                    attrs: {
+                                                      to: {
+                                                        name:
+                                                          "PublicSubSUbCategory",
+                                                        params: {
+                                                          slug:
+                                                            sub_sub_category.slug
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(
+                                                        sub_sub_category.name
+                                                      )
+                                                    )
+                                                  ]
+                                                )
+                                              : _vm._e()
+                                          }
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "router-link",
+                                          {
+                                            staticClass: "c-v-all",
+                                            attrs: {
+                                              to: {
+                                                name: "PublicSubCategory",
+                                                params: {
+                                                  slug: sub_category.slug
+                                                }
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("View All\n                ")]
+                                        )
+                                      ],
+                                      2
+                                    )
+                                  ])
+                                : _vm._e()
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "row" },
+                              _vm._l(sub_category.products, function(
+                                product,
+                                index
+                              ) {
+                                return index < 10
+                                  ? _c(
+                                      "div",
+                                      {
+                                        key: index,
+                                        staticClass:
+                                          "col-lg-2 col-sm-4 col-md-2 col-xs-6 width-20 small_width"
+                                      },
                                       [
                                         _c(
                                           "div",
-                                          { staticClass: "new_random_card" },
+                                          { staticClass: "product-card" },
                                           [
                                             _c(
                                               "div",
                                               {
-                                                staticClass:
-                                                  "new_random_card_body text-center"
+                                                staticClass: "product-card-body"
                                               },
                                               [
                                                 _c(
@@ -68464,432 +68959,224 @@ var render = function() {
                                                       to: {
                                                         name: "single",
                                                         params: {
-                                                          slug: item.slug
+                                                          slug: product.slug
                                                         }
                                                       }
                                                     }
                                                   },
                                                   [
-                                                    item.product_image.length
-                                                      ? _c("img", {
+                                                    product.product_image.length
+                                                      ? _c("v-lazy-image", {
                                                           attrs: {
                                                             src:
                                                               _vm.base_url +
-                                                              item
+                                                              product
                                                                 .product_image[0]
-                                                                .product_image
+                                                                .product_image,
+                                                            "src-placeholder":
+                                                              _vm.base_url +
+                                                              "images/preview.png"
                                                           }
                                                         })
                                                       : _vm._e()
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "p",
-                                                  {
-                                                    staticClass:
-                                                      "new_random_link"
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "router-link",
-                                                      {
-                                                        attrs: {
-                                                          to: {
-                                                            name: "single",
-                                                            params: {
-                                                              slug: item.slug
-                                                            }
-                                                          }
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          _vm._s(item.name)
-                                                        )
-                                                      ]
-                                                    )
                                                   ],
                                                   1
                                                 ),
                                                 _vm._v(" "),
                                                 _c(
-                                                  "p",
-                                                  { staticClass: "price" },
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "product-detail"
+                                                  },
                                                   [
                                                     _c(
-                                                      "span",
-                                                      {
-                                                        staticClass: "price-new"
-                                                      },
+                                                      "h4",
                                                       [
-                                                        _vm._v(
-                                                          _vm._s(item.price)
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    item.discount
-                                                      ? _c(
-                                                          "span",
+                                                        _c(
+                                                          "router-link",
                                                           {
                                                             staticClass:
-                                                              "price-old"
+                                                              "product-link",
+                                                            attrs: {
+                                                              to: {
+                                                                name: "single",
+                                                                params: {
+                                                                  slug:
+                                                                    product.slug
+                                                                }
+                                                              }
+                                                            }
                                                           },
                                                           [
                                                             _vm._v(
                                                               _vm._s(
-                                                                item.sale_price
+                                                                product.name
                                                               )
                                                             )
                                                           ]
                                                         )
-                                                      : _vm._e()
+                                                      ],
+                                                      1
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "p",
+                                                      { staticClass: "price" },
+                                                      [
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "price-new"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "৳ " +
+                                                                _vm._s(
+                                                                  product.price
+                                                                )
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        product.discount
+                                                          ? _c(
+                                                              "span",
+                                                              {
+                                                                staticClass:
+                                                                  "price-old"
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\n                        ৳" +
+                                                                    _vm._s(
+                                                                      product.sale_price
+                                                                    )
+                                                                )
+                                                              ]
+                                                            )
+                                                          : _vm._e(),
+                                                        _vm._v(" "),
+                                                        product.discount > 0
+                                                          ? _c(
+                                                              "span",
+                                                              {
+                                                                staticClass:
+                                                                  "discount"
+                                                              },
+                                                              [
+                                                                _c("i", {
+                                                                  staticClass:
+                                                                    "fa fa-star discount_star"
+                                                                }),
+                                                                _vm._v(
+                                                                  "\n                        " +
+                                                                    _vm._s(
+                                                                      (
+                                                                        (product.discount /
+                                                                          product.sale_price) *
+                                                                        100
+                                                                      ).toFixed(
+                                                                        0
+                                                                      )
+                                                                    ) +
+                                                                    "% "
+                                                                ),
+                                                                _c(
+                                                                  "span",
+                                                                  {
+                                                                    staticClass:
+                                                                      "d_off"
+                                                                  },
+                                                                  [
+                                                                    _vm._v(
+                                                                      "off"
+                                                                    )
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            )
+                                                          : _vm._e()
+                                                      ]
+                                                    )
                                                   ]
                                                 )
                                               ],
                                               1
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "product-card-footer"
+                                              },
+                                              [
+                                                _c(
+                                                  "button",
+                                                  {
+                                                    staticClass:
+                                                      "btn btn-primary btnQuick",
+                                                    staticStyle: {
+                                                      cursor: "pointer"
+                                                    },
+                                                    on: {
+                                                      click: function($event) {
+                                                        _vm.quick_v_product_id =
+                                                          product.id
+                                                      }
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                    view\n                  "
+                                                    )
+                                                  ]
+                                                )
+                                              ]
                                             )
                                           ]
                                         )
                                       ]
                                     )
-                                  ]
-                                }
-                              }
-                            ],
-                            null,
-                            false,
-                            3812339021
-                          )
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-12" }, [
-                      _c("h4", { staticClass: "banner_title" }, [
-                        _vm._v("Categories")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "banner_container" },
-                        _vm._l(_vm.getOffers, function(offer) {
-                          return _c(
-                            "div",
-                            {
-                              key: offer.id,
-                              staticClass: "col-lg-2 col-md-2 col-sm-6 col-xs-4"
-                            },
-                            [
-                              _c(
-                                "a",
-                                {
-                                  attrs: { href: offer.url, target: "_blank" }
-                                },
-                                [
-                                  _c("img", {
-                                    staticClass: "banner_image",
-                                    attrs: {
-                                      title: "offer",
-                                      src: _vm.base_url + offer.image
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("div", {
-                                    staticClass: "overlaw-offer",
-                                    class: {
-                                      "overlaw-offer-height": offer.id % 2 == 0
-                                    }
-                                  })
-                                ]
-                              )
-                            ]
-                          )
-                        }),
-                        0
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _vm.sub_categories.length <= 0
-                  ? _c("div", [_vm._m(0)])
-                  : _c(
-                      "div",
-                      _vm._l(_vm.sub_categories, function(sub_category, idx) {
-                        return sub_category.products.length
-                          ? _c("div", { key: idx, staticClass: "c-product" }, [
-                              _c("div", { staticClass: "c-product-header" }, [
-                                _c("h4", { staticClass: "category-heading" }, [
-                                  _vm._v(" " + _vm._s(sub_category.name) + "  ")
-                                ]),
-                                _vm._v(" "),
-                                sub_category.sub_sub_category.length > 0
-                                  ? _c("div", { staticClass: "s-category" }, [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass: "sub_category_view",
-                                          attrs: {
-                                            id:
-                                              "subCategoryNameView" +
-                                              sub_category.id
-                                          }
-                                        },
-                                        [
-                                          _vm._l(
-                                            sub_category.sub_sub_category,
-                                            function(sub_sub_category, index) {
-                                              return index <= 7
-                                                ? _c(
-                                                    "router-link",
-                                                    {
-                                                      key: index,
-                                                      staticClass:
-                                                        "sub-category-name",
-                                                      attrs: {
-                                                        to: {
-                                                          name:
-                                                            "PublicSubSUbCategory",
-                                                          params: {
-                                                            slug:
-                                                              sub_sub_category.slug
-                                                          }
-                                                        }
-                                                      }
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        _vm._s(
-                                                          sub_sub_category.name
-                                                        )
-                                                      )
-                                                    ]
-                                                  )
-                                                : _vm._e()
-                                            }
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "router-link",
-                                            {
-                                              staticClass: "c-v-all",
-                                              attrs: {
-                                                to: {
-                                                  name: "PublicSubCategory",
-                                                  params: {
-                                                    slug: sub_category.slug
-                                                  }
-                                                }
-                                              }
-                                            },
-                                            [_vm._v("View All\n              ")]
-                                          )
-                                        ],
-                                        2
-                                      )
-                                    ])
                                   : _vm._e()
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "row" },
-                                _vm._l(sub_category.products, function(
-                                  product,
-                                  index
-                                ) {
-                                  return index < 10
-                                    ? _c(
-                                        "div",
-                                        {
-                                          key: index,
-                                          staticClass:
-                                            "col-lg-2 col-sm-4 col-md-2 col-xs-6 width-20"
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            { staticClass: "product-card" },
-                                            [
-                                              _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "product-card-body"
-                                                },
-                                                [
-                                                  _c(
-                                                    "router-link",
-                                                    {
-                                                      attrs: {
-                                                        to: {
-                                                          name: "single",
-                                                          params: {
-                                                            slug: product.slug
-                                                          }
-                                                        }
-                                                      }
-                                                    },
-                                                    [
-                                                      product.product_image
-                                                        .length
-                                                        ? _c("v-lazy-image", {
-                                                            attrs: {
-                                                              src:
-                                                                _vm.base_url +
-                                                                product
-                                                                  .product_image[0]
-                                                                  .product_image,
-                                                              "src-placeholder":
-                                                                _vm.base_url +
-                                                                "images/preview.png"
-                                                            }
-                                                          })
-                                                        : _vm._e()
-                                                    ],
-                                                    1
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "product-detail"
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "h4",
-                                                        [
-                                                          _c(
-                                                            "router-link",
-                                                            {
-                                                              staticClass:
-                                                                "product-link",
-                                                              attrs: {
-                                                                to: {
-                                                                  name:
-                                                                    "single",
-                                                                  params: {
-                                                                    slug:
-                                                                      product.slug
-                                                                  }
-                                                                }
-                                                              }
-                                                            },
-                                                            [
-                                                              _vm._v(
-                                                                _vm._s(
-                                                                  product.name
-                                                                )
-                                                              )
-                                                            ]
-                                                          )
-                                                        ],
-                                                        1
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "p",
-                                                        {
-                                                          staticClass: "price"
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "span",
-                                                            {
-                                                              staticClass:
-                                                                "price-new"
-                                                            },
-                                                            [
-                                                              _vm._v(
-                                                                _vm._s(
-                                                                  product.price
-                                                                )
-                                                              )
-                                                            ]
-                                                          ),
-                                                          _vm._v(" "),
-                                                          product.discount
-                                                            ? _c(
-                                                                "span",
-                                                                {
-                                                                  staticClass:
-                                                                    "price-old"
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      product.sale_price
-                                                                    )
-                                                                  )
-                                                                ]
-                                                              )
-                                                            : _vm._e()
-                                                        ]
-                                                      )
-                                                    ]
-                                                  )
-                                                ],
-                                                1
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "product-card-footer"
-                                                },
-                                                [
-                                                  _c(
-                                                    "button",
-                                                    {
-                                                      staticClass:
-                                                        "btn btn-primary btnQuick",
-                                                      staticStyle: {
-                                                        cursor: "pointer"
-                                                      },
-                                                      on: {
-                                                        click: function(
-                                                          $event
-                                                        ) {
-                                                          _vm.quick_v_product_id =
-                                                            product.id
-                                                        }
-                                                      }
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        "\n                    view\n                  "
-                                                      )
-                                                    ]
-                                                  )
-                                                ]
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    : _vm._e()
-                                }),
-                                0
-                              )
-                            ])
-                          : _vm._e()
-                      }),
-                      0
+                              }),
+                              0
+                            )
+                          ])
+                        : _vm._e()
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "infinite-loading",
+                      {
+                        on: {
+                          distange: function($event) {
+                            0.5
+                          },
+                          infinite: _vm.home_page_product
+                        }
+                      },
+                      [
+                        _c("div", {
+                          attrs: { slot: "no-more" },
+                          slot: "no-more"
+                        })
+                      ]
                     )
-              ],
-              2
-            )
-          : _vm._e(),
+                  ],
+                  2
+                )
+              : _vm._e()
+          ],
+          2
+        ),
         _vm._v(" "),
-        _vm._m(1)
+        _vm._m(0)
       ]),
       _vm._v(" "),
-      _c("frontend-footer"),
+      _vm.isScroll > 0 ? _c("frontend-footer") : _vm._e(),
       _vm._v(" "),
       _vm.quick_v_product_id
         ? _c("quick-view", {
@@ -68906,14 +69193,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h1", { staticClass: "text-center" }, [
-      _c("i", { staticClass: "fa fa-spin fa-spinner" })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -69187,7 +69466,40 @@ var render = function() {
                                                   )
                                               )
                                             ]
-                                          )
+                                          ),
+                                          _vm._v(" "),
+                                          _vm.quick_view_product.discount > 0
+                                            ? _c(
+                                                "span",
+                                                { staticClass: "discount" },
+                                                [
+                                                  _c("i", {
+                                                    staticClass:
+                                                      "fa fa-star discount_star"
+                                                  }),
+                                                  _vm._v(
+                                                    " " +
+                                                      _vm._s(
+                                                        (
+                                                          (_vm
+                                                            .quick_view_product
+                                                            .discount /
+                                                            _vm
+                                                              .quick_view_product
+                                                              .sale_price) *
+                                                          100
+                                                        ).toFixed(0)
+                                                      ) +
+                                                      "%  "
+                                                  ),
+                                                  _c(
+                                                    "span",
+                                                    { staticClass: "d_off" },
+                                                    [_vm._v("off")]
+                                                  )
+                                                ]
+                                              )
+                                            : _vm._e()
                                         ])
                                       ]),
                                       _vm._v(" "),
@@ -69393,7 +69705,7 @@ var render = function() {
                                                   }
                                                 }
                                               },
-                                              [_vm._v("Add to Cart")]
+                                              [_vm._v("Add to Bag ")]
                                             )
                                           ]
                                         )
@@ -86297,7 +86609,7 @@ var objectToFormData = window.objectToFormData;
 
 
 vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_bootstrap_datetimepicker__WEBPACK_IMPORTED_MODULE_6___default.a);
-vue__WEBPACK_IMPORTED_MODULE_11___default.a.mixin(_components_admin_Permissions_Permissions_vue__WEBPACK_IMPORTED_MODULE_7__["default"]); //this is vue lazyloading image plaugin code 
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.mixin(_components_admin_Permissions_Permissions_vue__WEBPACK_IMPORTED_MODULE_7__["default"]); //this is vue lazyloading image plaugin code
 
 
 vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(v_lazy_image__WEBPACK_IMPORTED_MODULE_8__["VLazyImagePlugin"]);
@@ -87107,7 +87419,7 @@ var routes = [{
   name: 'welcome',
   props: true,
   meta: {
-    title: "Online Shopping Fashion,Electronics-punok.com.bd"
+    title: "Online Shopping "
   }
 }, {
   path: '/public/carrier',
@@ -87121,7 +87433,7 @@ var routes = [{
 }, {
   path: '/public/carrier/details/:id',
   component: function component() {
-    return Promise.all(/*! import() | carier_detail */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("carier_detail")]).then(__webpack_require__.bind(null, /*! ./components/public/carrier/CarrierDetails */ "./resources/js/components/public/carrier/CarrierDetails.vue"));
+    return Promise.all(/*! import() | carier_detail */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("carier_detail")]).then(__webpack_require__.bind(null, /*! ./components/public/carrier/CarrierDetails */ "./resources/js/components/public/carrier/CarrierDetails.vue"));
   },
   name: 'carrier_details',
   meta: {
@@ -87130,7 +87442,7 @@ var routes = [{
 }, {
   path: '/public/product/view/:slug',
   component: function component() {
-    return __webpack_require__.e(/*! import() | single_product */ "single_product").then(__webpack_require__.bind(null, /*! ./components/public/SingleProduct */ "./resources/js/components/public/SingleProduct.vue"));
+    return Promise.all(/*! import() | single_product */[__webpack_require__.e("vendors~single_product"), __webpack_require__.e("single_product")]).then(__webpack_require__.bind(null, /*! ./components/public/SingleProduct */ "./resources/js/components/public/SingleProduct.vue"));
   },
   name: 'single',
   props: true,
@@ -87258,7 +87570,7 @@ var routes = [{
 }, {
   path: '/public/user/login',
   component: function component() {
-    return Promise.all(/*! import() | userLogin */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("userLogin")]).then(__webpack_require__.bind(null, /*! ./components/public/Login */ "./resources/js/components/public/Login.vue"));
+    return Promise.all(/*! import() | userLogin */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("userLogin")]).then(__webpack_require__.bind(null, /*! ./components/public/Login */ "./resources/js/components/public/Login.vue"));
   },
   name: 'UserLogin',
   meta: {
@@ -87267,7 +87579,7 @@ var routes = [{
 }, {
   path: '/public/user/reset/password',
   component: function component() {
-    return Promise.all(/*! import() | password_reset */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("password_reset")]).then(__webpack_require__.bind(null, /*! ./components/public/PasswordReset */ "./resources/js/components/public/PasswordReset.vue"));
+    return Promise.all(/*! import() | password_reset */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("password_reset")]).then(__webpack_require__.bind(null, /*! ./components/public/PasswordReset */ "./resources/js/components/public/PasswordReset.vue"));
   },
   name: 'user_password_reset',
   meta: {
@@ -87276,7 +87588,7 @@ var routes = [{
 }, {
   path: '/public/user/code/verify/:mobile_no',
   component: function component() {
-    return Promise.all(/*! import() | code_verified */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("code_verified")]).then(__webpack_require__.bind(null, /*! ./components/public/CodeVerified */ "./resources/js/components/public/CodeVerified.vue"));
+    return Promise.all(/*! import() | code_verified */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("code_verified")]).then(__webpack_require__.bind(null, /*! ./components/public/CodeVerified */ "./resources/js/components/public/CodeVerified.vue"));
   },
   name: 'CodeVerified',
   meta: {
@@ -87285,7 +87597,7 @@ var routes = [{
 }, {
   path: '/public/user/reset/password/:mobile_no',
   component: function component() {
-    return Promise.all(/*! import() | new_password_user */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("new_password_user")]).then(__webpack_require__.bind(null, /*! ./components/public/NewPassword */ "./resources/js/components/public/NewPassword.vue"));
+    return Promise.all(/*! import() | new_password_user */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("new_password_user")]).then(__webpack_require__.bind(null, /*! ./components/public/NewPassword */ "./resources/js/components/public/NewPassword.vue"));
   },
   name: 'NewPasswordUser',
   meta: {
@@ -87295,7 +87607,7 @@ var routes = [{
 }, {
   path: '/public/user/register',
   component: function component() {
-    return Promise.all(/*! import() | user_register */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("user_register")]).then(__webpack_require__.bind(null, /*! ./components/public/user/Register */ "./resources/js/components/public/user/Register.vue"));
+    return Promise.all(/*! import() | user_register */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("user_register")]).then(__webpack_require__.bind(null, /*! ./components/public/user/Register */ "./resources/js/components/public/user/Register.vue"));
   },
   name: 'UserRegister',
   meta: {
@@ -87304,7 +87616,7 @@ var routes = [{
 }, {
   path: '/public/user/Checkout',
   component: function component() {
-    return Promise.all(/*! import() | checkout */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("checkout")]).then(__webpack_require__.bind(null, /*! ./components/public/Checkout */ "./resources/js/components/public/Checkout.vue"));
+    return Promise.all(/*! import() | checkout */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("checkout")]).then(__webpack_require__.bind(null, /*! ./components/public/Checkout */ "./resources/js/components/public/Checkout.vue"));
   },
   name: 'Chekout',
   meta: {
@@ -87334,7 +87646,7 @@ var routes = [{
 }, {
   path: '/public/user/password',
   component: function component() {
-    return Promise.all(/*! import() | user_password */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("user_password")]).then(__webpack_require__.bind(null, /*! ./components/public/user/Password */ "./resources/js/components/public/user/Password.vue"));
+    return Promise.all(/*! import() | user_password */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("user_password")]).then(__webpack_require__.bind(null, /*! ./components/public/user/Password */ "./resources/js/components/public/user/Password.vue"));
   },
   name: 'PasswordEdit',
   meta: {
@@ -87344,7 +87656,7 @@ var routes = [{
 }, {
   path: '/public/user/profile',
   component: function component() {
-    return Promise.all(/*! import() | user_profile */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("user_profile")]).then(__webpack_require__.bind(null, /*! ./components/public/user/Profile */ "./resources/js/components/public/user/Profile.vue"));
+    return __webpack_require__.e(/*! import() | user_profile */ "user_profile").then(__webpack_require__.bind(null, /*! ./components/public/user/Profile */ "./resources/js/components/public/user/Profile.vue"));
   },
   name: 'UserProfile',
   meta: {
@@ -87354,7 +87666,7 @@ var routes = [{
 }, {
   path: '/public/user/profile/edit',
   component: function component() {
-    return Promise.all(/*! import() | user_profile_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("user_profile_edit")]).then(__webpack_require__.bind(null, /*! ./components/public/user/Edit */ "./resources/js/components/public/user/Edit.vue"));
+    return Promise.all(/*! import() | user_profile_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("user_profile_edit")]).then(__webpack_require__.bind(null, /*! ./components/public/user/Edit */ "./resources/js/components/public/user/Edit.vue"));
   },
   name: 'UserProfileEdit',
   meta: {
@@ -87364,7 +87676,7 @@ var routes = [{
 }, {
   path: '/merchant/backend/login',
   component: function component() {
-    return Promise.all(/*! import() | merchnat_login */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("userLogin"), __webpack_require__.e("merchnat_login")]).then(__webpack_require__.bind(null, /*! ./components/merchant/Login */ "./resources/js/components/merchant/Login.vue"));
+    return Promise.all(/*! import() | merchnat_login */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("userLogin"), __webpack_require__.e("merchnat_login")]).then(__webpack_require__.bind(null, /*! ./components/merchant/Login */ "./resources/js/components/merchant/Login.vue"));
   },
   name: 'merchant_login',
   meta: {
@@ -87373,7 +87685,7 @@ var routes = [{
 }, {
   path: '/public/merchant/password/reset',
   component: function component() {
-    return Promise.all(/*! import() | merchant_password_reset */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("userLogin"), __webpack_require__.e("merchant_password_reset")]).then(__webpack_require__.bind(null, /*! ./components/merchant/PasswordReset */ "./resources/js/components/merchant/PasswordReset.vue"));
+    return Promise.all(/*! import() | merchant_password_reset */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("userLogin"), __webpack_require__.e("merchant_password_reset")]).then(__webpack_require__.bind(null, /*! ./components/merchant/PasswordReset */ "./resources/js/components/merchant/PasswordReset.vue"));
   },
   name: 'merchant_password_reset',
   meta: {
@@ -87382,7 +87694,7 @@ var routes = [{
 }, {
   path: '/public/merchant/code/verify/:phone',
   component: function component() {
-    return Promise.all(/*! import() | merchnat_code_verified */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("userLogin"), __webpack_require__.e("merchnat_code_verified")]).then(__webpack_require__.bind(null, /*! ./components/merchant/CodeVerified */ "./resources/js/components/merchant/CodeVerified.vue"));
+    return Promise.all(/*! import() | merchnat_code_verified */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("userLogin"), __webpack_require__.e("merchnat_code_verified")]).then(__webpack_require__.bind(null, /*! ./components/merchant/CodeVerified */ "./resources/js/components/merchant/CodeVerified.vue"));
   },
   name: 'merchant_code_verified',
   meta: {
@@ -87391,7 +87703,7 @@ var routes = [{
 }, {
   path: '/public/merchant/reset/new/password/:phone',
   component: function component() {
-    return Promise.all(/*! import() | new_password_merchant */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("userLogin"), __webpack_require__.e("new_password_merchant")]).then(__webpack_require__.bind(null, /*! ./components/merchant/NewPassword */ "./resources/js/components/merchant/NewPassword.vue"));
+    return Promise.all(/*! import() | new_password_merchant */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("userLogin"), __webpack_require__.e("new_password_merchant")]).then(__webpack_require__.bind(null, /*! ./components/merchant/NewPassword */ "./resources/js/components/merchant/NewPassword.vue"));
   },
   name: 'new_password_merchant',
   meta: {
@@ -87400,7 +87712,7 @@ var routes = [{
 }, {
   path: '/public/merchant/register',
   component: function component() {
-    return Promise.all(/*! import() | merchant_register */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("userLogin"), __webpack_require__.e("merchant_register")]).then(__webpack_require__.bind(null, /*! ./components/merchant/Register */ "./resources/js/components/merchant/Register.vue"));
+    return Promise.all(/*! import() | merchant_register */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("userLogin"), __webpack_require__.e("merchant_register")]).then(__webpack_require__.bind(null, /*! ./components/merchant/Register */ "./resources/js/components/merchant/Register.vue"));
   },
   name: 'merchant_register',
   meta: {
@@ -87418,7 +87730,7 @@ var routes = [{
 }, {
   path: '/merchant/backend/product/menage',
   component: function component() {
-    return Promise.all(/*! import() | merchnat_product_manage */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("vendors~merchant_order~merchnat_product_manage~product"), __webpack_require__.e("merchnat_product_manage")]).then(__webpack_require__.bind(null, /*! ./components/merchant/product/Menage */ "./resources/js/components/merchant/product/Menage.vue"));
+    return Promise.all(/*! import() | merchnat_product_manage */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("vendors~merchant_order~merchnat_product_manage~product"), __webpack_require__.e("merchnat_product_manage")]).then(__webpack_require__.bind(null, /*! ./components/merchant/product/Menage */ "./resources/js/components/merchant/product/Menage.vue"));
   },
   name: 'merchant_product_menage',
   meta: {
@@ -87427,7 +87739,7 @@ var routes = [{
 }, {
   path: '/merchant/backend/product/add',
   component: function component() {
-    return Promise.all(/*! import() | merchant_product_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("vendors~about_and_contact~add_carrier~edit_carrier~footer_setting~generl_setting~merchant_product_ad~976ffb9e"), __webpack_require__.e("merchant_product_add")]).then(__webpack_require__.bind(null, /*! ./components/merchant/product/Add */ "./resources/js/components/merchant/product/Add.vue"));
+    return Promise.all(/*! import() | merchant_product_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4"), __webpack_require__.e("merchant_product_add")]).then(__webpack_require__.bind(null, /*! ./components/merchant/product/Add */ "./resources/js/components/merchant/product/Add.vue"));
   },
   name: 'merchant_product_add',
   meta: {
@@ -87436,7 +87748,7 @@ var routes = [{
 }, {
   path: '/merchant/backend/product/edit/:id',
   component: function component() {
-    return Promise.all(/*! import() | merchant_product_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("vendors~about_and_contact~add_carrier~edit_carrier~footer_setting~generl_setting~merchant_product_ad~976ffb9e"), __webpack_require__.e("merchant_product_edit")]).then(__webpack_require__.bind(null, /*! ./components/merchant/product/Edit */ "./resources/js/components/merchant/product/Edit.vue"));
+    return Promise.all(/*! import() | merchant_product_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4"), __webpack_require__.e("merchant_product_edit")]).then(__webpack_require__.bind(null, /*! ./components/merchant/product/Edit */ "./resources/js/components/merchant/product/Edit.vue"));
   },
   name: 'merchant_product_edit',
   meta: {
@@ -87445,7 +87757,7 @@ var routes = [{
 }, {
   path: '/merchant/backend/order',
   component: function component() {
-    return Promise.all(/*! import() | merchant_order */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("vendors~merchant_order~merchnat_product_manage~product"), __webpack_require__.e("merchant_order")]).then(__webpack_require__.bind(null, /*! ./components/merchant/order/Index */ "./resources/js/components/merchant/order/Index.vue"));
+    return Promise.all(/*! import() | merchant_order */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("vendors~merchant_order~merchnat_product_manage~product"), __webpack_require__.e("merchant_order")]).then(__webpack_require__.bind(null, /*! ./components/merchant/order/Index */ "./resources/js/components/merchant/order/Index.vue"));
   },
   name: 'merchant_order',
   meta: {
@@ -87454,7 +87766,7 @@ var routes = [{
 }, {
   path: '/merchant/backend/order/view/:id',
   component: function component() {
-    return Promise.all(/*! import() | merchant_order_view */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("merchant_order_view")]).then(__webpack_require__.bind(null, /*! ./components/merchant/order/View */ "./resources/js/components/merchant/order/View.vue"));
+    return Promise.all(/*! import() | merchant_order_view */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("merchant_order_view")]).then(__webpack_require__.bind(null, /*! ./components/merchant/order/View */ "./resources/js/components/merchant/order/View.vue"));
   },
   name: 'merchant_order_view',
   meta: {
@@ -87463,7 +87775,7 @@ var routes = [{
 }, {
   path: '/merchant/backend/profile',
   component: function component() {
-    return Promise.all(/*! import() | merchant_profile */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("merchant_profile")]).then(__webpack_require__.bind(null, /*! ./components/merchant/profile/Profile */ "./resources/js/components/merchant/profile/Profile.vue"));
+    return Promise.all(/*! import() | merchant_profile */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("merchant_profile")]).then(__webpack_require__.bind(null, /*! ./components/merchant/profile/Profile */ "./resources/js/components/merchant/profile/Profile.vue"));
   },
   name: 'merchant_profile',
   meta: {
@@ -87472,7 +87784,7 @@ var routes = [{
 }, {
   path: '/merchant/backend/profile/edit',
   component: function component() {
-    return Promise.all(/*! import() | merchant_profile_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("merchant_profile_edit")]).then(__webpack_require__.bind(null, /*! ./components/merchant/profile/Change_password */ "./resources/js/components/merchant/profile/Change_password.vue"));
+    return Promise.all(/*! import() | merchant_profile_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("merchant_profile_edit")]).then(__webpack_require__.bind(null, /*! ./components/merchant/profile/Change_profile.vue */ "./resources/js/components/merchant/profile/Change_profile.vue"));
   },
   name: 'merchant_profile_edit',
   meta: {
@@ -87481,7 +87793,7 @@ var routes = [{
 }, {
   path: '/merchant/backend/security/edit',
   component: function component() {
-    return Promise.all(/*! import() | merchant_password_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("merchant_password_edit")]).then(__webpack_require__.bind(null, /*! ./components/merchant/profile/Change_profile */ "./resources/js/components/merchant/profile/Change_profile.vue"));
+    return Promise.all(/*! import() | merchant_password_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("merchant_password_edit")]).then(__webpack_require__.bind(null, /*! ./components/merchant/profile/Change_password.vue */ "./resources/js/components/merchant/profile/Change_password.vue"));
   },
   name: 'merchant_password_edit',
   meta: {
@@ -87510,7 +87822,7 @@ var routes = [{
 }, {
   path: '/backend/categoryEdit/:categoryId',
   component: function component() {
-    return Promise.all(/*! import() | categoryedit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("categoryedit")]).then(__webpack_require__.bind(null, /*! ./components/admin/category/Edit */ "./resources/js/components/admin/category/Edit.vue"));
+    return Promise.all(/*! import() | categoryedit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("categoryedit")]).then(__webpack_require__.bind(null, /*! ./components/admin/category/Edit */ "./resources/js/components/admin/category/Edit.vue"));
   },
   name: "CategoryEdit",
   meta: {
@@ -87520,7 +87832,7 @@ var routes = [{
 }, {
   path: '/backend/categoryAdd',
   component: function component() {
-    return Promise.all(/*! import() | categoryAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("categoryAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/category/Add */ "./resources/js/components/admin/category/Add.vue"));
+    return Promise.all(/*! import() | categoryAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("categoryAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/category/Add */ "./resources/js/components/admin/category/Add.vue"));
   },
   name: "categoryAdd",
   meta: {
@@ -87530,7 +87842,7 @@ var routes = [{
 }, {
   path: '/backend/subcategory',
   component: function component() {
-    return Promise.all(/*! import() | sub_category */[__webpack_require__.e("admin_dashboard"), __webpack_require__.e("sub_category")]).then(__webpack_require__.bind(null, /*! ./components/admin/subCategory/SubCategory */ "./resources/js/components/admin/subCategory/SubCategory.vue"));
+    return Promise.all(/*! import() | sub_category */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("sub_category")]).then(__webpack_require__.bind(null, /*! ./components/admin/subCategory/SubCategory */ "./resources/js/components/admin/subCategory/SubCategory.vue"));
   },
   name: 'SubCategory',
   meta: {
@@ -87540,7 +87852,7 @@ var routes = [{
 }, {
   path: '/backend/subcategoryAdd',
   component: function component() {
-    return Promise.all(/*! import() | sub_category_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("sub_category_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/subCategory/Add */ "./resources/js/components/admin/subCategory/Add.vue"));
+    return Promise.all(/*! import() | sub_category_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("sub_category_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/subCategory/Add */ "./resources/js/components/admin/subCategory/Add.vue"));
   },
   name: "subcategoryAdd",
   meta: {
@@ -87550,7 +87862,7 @@ var routes = [{
 }, {
   path: '/backend/subcategoryEdit/:id',
   component: function component() {
-    return Promise.all(/*! import() | sub_category_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("sub_category_edit")]).then(__webpack_require__.bind(null, /*! ./components/admin/subCategory/Edit */ "./resources/js/components/admin/subCategory/Edit.vue"));
+    return Promise.all(/*! import() | sub_category_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("sub_category_edit")]).then(__webpack_require__.bind(null, /*! ./components/admin/subCategory/Edit */ "./resources/js/components/admin/subCategory/Edit.vue"));
   },
   name: "subcategoryEdit",
   meta: {
@@ -87560,7 +87872,7 @@ var routes = [{
 }, {
   path: '/backend/subSubCategory',
   component: function component() {
-    return Promise.all(/*! import() | sub_sub_category */[__webpack_require__.e("admin_dashboard"), __webpack_require__.e("sub_sub_category")]).then(__webpack_require__.bind(null, /*! ./components/admin/subSubCategory/SubSubCategory */ "./resources/js/components/admin/subSubCategory/SubSubCategory.vue"));
+    return Promise.all(/*! import() | sub_sub_category */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("sub_sub_category")]).then(__webpack_require__.bind(null, /*! ./components/admin/subSubCategory/SubSubCategory */ "./resources/js/components/admin/subSubCategory/SubSubCategory.vue"));
   },
   name: 'subSubCategory',
   meta: {
@@ -87570,7 +87882,7 @@ var routes = [{
 }, {
   path: '/backend/subSubCategoryAdd',
   component: function component() {
-    return Promise.all(/*! import() | sub_sub_category_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("sub_sub_category_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/subSubCategory/Add */ "./resources/js/components/admin/subSubCategory/Add.vue"));
+    return Promise.all(/*! import() | sub_sub_category_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("sub_sub_category_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/subSubCategory/Add */ "./resources/js/components/admin/subSubCategory/Add.vue"));
   },
   name: "subSubCategoryAdd",
   meta: {
@@ -87580,7 +87892,7 @@ var routes = [{
 }, {
   path: '/backend/subSubCategoryEdit/:id',
   component: function component() {
-    return Promise.all(/*! import() | sub_sub_category_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("sub_sub_category_edit")]).then(__webpack_require__.bind(null, /*! ./components/admin/subSubCategory/Edit */ "./resources/js/components/admin/subSubCategory/Edit.vue"));
+    return Promise.all(/*! import() | sub_sub_category_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("sub_sub_category_edit")]).then(__webpack_require__.bind(null, /*! ./components/admin/subSubCategory/Edit */ "./resources/js/components/admin/subSubCategory/Edit.vue"));
   },
   name: "subSubCategoryEdit",
   meta: {
@@ -87600,7 +87912,7 @@ var routes = [{
 }, {
   path: '/backend/sliderAdd',
   component: function component() {
-    return Promise.all(/*! import() | slider_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("slider_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/slider/Add */ "./resources/js/components/admin/slider/Add.vue"));
+    return Promise.all(/*! import() | slider_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("slider_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/slider/Add */ "./resources/js/components/admin/slider/Add.vue"));
   },
   name: "sliderAdd",
   meta: {
@@ -87610,7 +87922,7 @@ var routes = [{
 }, {
   path: '/backend/sliderEdit/:id',
   component: function component() {
-    return Promise.all(/*! import() | slider_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("slider_edit")]).then(__webpack_require__.bind(null, /*! ./components/admin/slider/Edit */ "./resources/js/components/admin/slider/Edit.vue"));
+    return Promise.all(/*! import() | slider_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("slider_edit")]).then(__webpack_require__.bind(null, /*! ./components/admin/slider/Edit */ "./resources/js/components/admin/slider/Edit.vue"));
   },
   name: 'sliderEdit',
   meta: {
@@ -87630,7 +87942,7 @@ var routes = [{
 }, {
   path: '/backend/category/slider/add',
   component: function component() {
-    return Promise.all(/*! import() | category_slider_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("category_slider_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/Category_slider/Add */ "./resources/js/components/admin/Category_slider/Add.vue"));
+    return Promise.all(/*! import() | category_slider_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("category_slider_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/Category_slider/Add */ "./resources/js/components/admin/Category_slider/Add.vue"));
   },
   name: "category_slider_add",
   meta: {
@@ -87640,7 +87952,7 @@ var routes = [{
 }, {
   path: '/backend/category/slider/edit/:id',
   component: function component() {
-    return Promise.all(/*! import() | category_slider_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("category_slider_edit")]).then(__webpack_require__.bind(null, /*! ./components/admin/Category_slider/Edit */ "./resources/js/components/admin/Category_slider/Edit.vue"));
+    return Promise.all(/*! import() | category_slider_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("category_slider_edit")]).then(__webpack_require__.bind(null, /*! ./components/admin/Category_slider/Edit */ "./resources/js/components/admin/Category_slider/Edit.vue"));
   },
   name: 'category_slider_edit',
   meta: {
@@ -87660,7 +87972,7 @@ var routes = [{
 }, {
   path: '/backend/attributeAdd',
   component: function component() {
-    return Promise.all(/*! import() | attributeAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("attributeAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/attribute/Add */ "./resources/js/components/admin/attribute/Add.vue"));
+    return Promise.all(/*! import() | attributeAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("attributeAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/attribute/Add */ "./resources/js/components/admin/attribute/Add.vue"));
   },
   name: "attributeAdd",
   meta: {
@@ -87681,7 +87993,7 @@ var routes = [{
 }, {
   path: '/backend/reseller/add',
   component: function component() {
-    return Promise.all(/*! import() | resellerAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("resellerAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/reseller/Add */ "./resources/js/components/admin/reseller/Add.vue"));
+    return Promise.all(/*! import() | resellerAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("resellerAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/reseller/Add */ "./resources/js/components/admin/reseller/Add.vue"));
   },
   name: 'resellerAdd',
   props: true,
@@ -87692,7 +88004,7 @@ var routes = [{
 }, {
   path: '/backend/reseller/edit/:id',
   component: function component() {
-    return Promise.all(/*! import() | resellerEdit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("resellerEdit")]).then(__webpack_require__.bind(null, /*! ./components/admin/reseller/Edit */ "./resources/js/components/admin/reseller/Edit.vue"));
+    return Promise.all(/*! import() | resellerEdit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("resellerEdit")]).then(__webpack_require__.bind(null, /*! ./components/admin/reseller/Edit */ "./resources/js/components/admin/reseller/Edit.vue"));
   },
   name: 'resellerEdit',
   meta: {
@@ -87776,7 +88088,7 @@ var routes = [{
 }, {
   path: '/backend/variantAdd',
   component: function component() {
-    return Promise.all(/*! import() | variaantAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("variaantAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/variant/Add */ "./resources/js/components/admin/variant/Add.vue"));
+    return Promise.all(/*! import() | variaantAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("variaantAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/variant/Add */ "./resources/js/components/admin/variant/Add.vue"));
   },
   name: "variantAdd",
   meta: {
@@ -87786,7 +88098,7 @@ var routes = [{
 }, {
   path: '/backend/adminLogin',
   component: function component() {
-    return Promise.all(/*! import() | admin_login */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("userLogin"), __webpack_require__.e("admin_login")]).then(__webpack_require__.bind(null, /*! ./components/admin/Login.vue */ "./resources/js/components/admin/Login.vue"));
+    return Promise.all(/*! import() | admin_login */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("userLogin"), __webpack_require__.e("admin_login")]).then(__webpack_require__.bind(null, /*! ./components/admin/Login.vue */ "./resources/js/components/admin/Login.vue"));
   },
   name: 'adminLogin',
   meta: {
@@ -87805,7 +88117,7 @@ var routes = [{
 }, {
   path: '/backend/merchant/add',
   component: function component() {
-    return Promise.all(/*! import() | add_merchant */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("add_merchant")]).then(__webpack_require__.bind(null, /*! ./components/admin/merchant/Add */ "./resources/js/components/admin/merchant/Add.vue"));
+    return Promise.all(/*! import() | add_merchant */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("add_merchant")]).then(__webpack_require__.bind(null, /*! ./components/admin/merchant/Add */ "./resources/js/components/admin/merchant/Add.vue"));
   },
   name: 'add_merchant',
   meta: {
@@ -87815,7 +88127,7 @@ var routes = [{
 }, {
   path: '/backend/merchant/edit/:id',
   component: function component() {
-    return Promise.all(/*! import() | edit_merchant */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("edit_merchant")]).then(__webpack_require__.bind(null, /*! ./components/admin/merchant/Edit */ "./resources/js/components/admin/merchant/Edit.vue"));
+    return Promise.all(/*! import() | edit_merchant */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("edit_merchant")]).then(__webpack_require__.bind(null, /*! ./components/admin/merchant/Edit */ "./resources/js/components/admin/merchant/Edit.vue"));
   },
   name: 'edit_merchant',
   meta: {
@@ -87835,7 +88147,7 @@ var routes = [{
 }, {
   path: '/backend/fabrics/add/supplier/',
   component: function component() {
-    return Promise.all(/*! import() | addFabricsSupplier */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("addFabricsSupplier")]).then(__webpack_require__.bind(null, /*! ./components/admin/supplier/AddFabricsSupplier */ "./resources/js/components/admin/supplier/AddFabricsSupplier.vue"));
+    return Promise.all(/*! import() | addFabricsSupplier */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("addFabricsSupplier")]).then(__webpack_require__.bind(null, /*! ./components/admin/supplier/AddFabricsSupplier */ "./resources/js/components/admin/supplier/AddFabricsSupplier.vue"));
   },
   name: 'AddFabricsSupplier',
   meta: {
@@ -87865,7 +88177,7 @@ var routes = [{
 }, {
   path: '/backend/Supplier/Add',
   component: function component() {
-    return Promise.all(/*! import() | supplierAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("supplierAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/supplier/Add */ "./resources/js/components/admin/supplier/Add.vue"));
+    return Promise.all(/*! import() | supplierAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("supplierAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/supplier/Add */ "./resources/js/components/admin/supplier/Add.vue"));
   },
   name: 'supllierAdd',
   meta: {
@@ -87875,7 +88187,7 @@ var routes = [{
 }, {
   path: '/backend/edit/supplier/:id',
   component: function component() {
-    return Promise.all(/*! import() | supplierEdit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("supplierEdit")]).then(__webpack_require__.bind(null, /*! ./components/admin/supplier/Edit */ "./resources/js/components/admin/supplier/Edit.vue"));
+    return Promise.all(/*! import() | supplierEdit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("supplierEdit")]).then(__webpack_require__.bind(null, /*! ./components/admin/supplier/Edit */ "./resources/js/components/admin/supplier/Edit.vue"));
   },
   name: 'supplierEdit',
   meta: {
@@ -87905,7 +88217,7 @@ var routes = [{
 }, {
   path: '/backend/credit/add',
   component: function component() {
-    return Promise.all(/*! import() | creditAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("creditAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/credit/Add */ "./resources/js/components/admin/credit/Add.vue"));
+    return Promise.all(/*! import() | creditAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("creditAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/credit/Add */ "./resources/js/components/admin/credit/Add.vue"));
   },
   name: 'creditAdd',
   meta: {
@@ -87915,7 +88227,7 @@ var routes = [{
 }, {
   path: '/backend/credit/edit/:id',
   component: function component() {
-    return Promise.all(/*! import() | creditEdit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("creditEdit")]).then(__webpack_require__.bind(null, /*! ./components/admin/credit/Edit */ "./resources/js/components/admin/credit/Edit.vue"));
+    return Promise.all(/*! import() | creditEdit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("creditEdit")]).then(__webpack_require__.bind(null, /*! ./components/admin/credit/Edit */ "./resources/js/components/admin/credit/Edit.vue"));
   },
   name: 'creditEdit',
   meta: {
@@ -87935,7 +88247,7 @@ var routes = [{
 }, {
   path: '/backend/debit/add',
   component: function component() {
-    return Promise.all(/*! import() | debitAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("vendors~debitAdd"), __webpack_require__.e("debitAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/debit/Add */ "./resources/js/components/admin/debit/Add.vue"));
+    return Promise.all(/*! import() | debitAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("vendors~debitAdd"), __webpack_require__.e("debitAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/debit/Add */ "./resources/js/components/admin/debit/Add.vue"));
   },
   name: 'debitAdd',
   meta: {
@@ -87945,7 +88257,7 @@ var routes = [{
 }, {
   path: '/backend/debit/edit/:id',
   component: function component() {
-    return Promise.all(/*! import() | debitEdit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("debitEdit")]).then(__webpack_require__.bind(null, /*! ./components/admin/debit/Edit */ "./resources/js/components/admin/debit/Edit.vue"));
+    return Promise.all(/*! import() | debitEdit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("debitEdit")]).then(__webpack_require__.bind(null, /*! ./components/admin/debit/Edit */ "./resources/js/components/admin/debit/Edit.vue"));
   },
   name: 'debitEdit',
   meta: {
@@ -87975,7 +88287,7 @@ var routes = [{
 }, {
   path: '/backend/add/sub/city',
   component: function component() {
-    return Promise.all(/*! import() | sub_city_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("sub_city_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/sub_city/Add.vue */ "./resources/js/components/admin/sub_city/Add.vue"));
+    return Promise.all(/*! import() | sub_city_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("sub_city_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/sub_city/Add.vue */ "./resources/js/components/admin/sub_city/Add.vue"));
   },
   name: 'add_sub_city',
   meta: {
@@ -87985,7 +88297,7 @@ var routes = [{
 }, {
   path: '/backend/edit/sub/city/:id',
   component: function component() {
-    return Promise.all(/*! import() | edit_sub_city */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("edit_sub_city")]).then(__webpack_require__.bind(null, /*! ./components/admin/sub_city/Edit.vue */ "./resources/js/components/admin/sub_city/Edit.vue"));
+    return Promise.all(/*! import() | edit_sub_city */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("edit_sub_city")]).then(__webpack_require__.bind(null, /*! ./components/admin/sub_city/Edit.vue */ "./resources/js/components/admin/sub_city/Edit.vue"));
   },
   name: 'edit_sub_city',
   meta: {
@@ -88005,7 +88317,7 @@ var routes = [{
 }, {
   path: '/backend/role/add',
   component: function component() {
-    return Promise.all(/*! import() | roleAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("roleAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/role/Add */ "./resources/js/components/admin/role/Add.vue"));
+    return Promise.all(/*! import() | roleAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("roleAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/role/Add */ "./resources/js/components/admin/role/Add.vue"));
   },
   name: 'roleAdd',
   meta: {
@@ -88015,7 +88327,7 @@ var routes = [{
 }, {
   path: '/backend/permissions/edit/role/:id',
   component: function component() {
-    return Promise.all(/*! import() | editPermission */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("editPermission")]).then(__webpack_require__.bind(null, /*! ./components/admin/role/Permissions */ "./resources/js/components/admin/role/Permissions.vue"));
+    return Promise.all(/*! import() | editPermission */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("editPermission")]).then(__webpack_require__.bind(null, /*! ./components/admin/role/Permissions */ "./resources/js/components/admin/role/Permissions.vue"));
   },
   name: 'EditPermissions',
   meta: {
@@ -88025,7 +88337,7 @@ var routes = [{
 }, {
   path: '/backend/addCity',
   component: function component() {
-    return Promise.all(/*! import() | cityAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("cityAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/city/Add */ "./resources/js/components/admin/city/Add.vue"));
+    return Promise.all(/*! import() | cityAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("cityAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/city/Add */ "./resources/js/components/admin/city/Add.vue"));
   },
   name: 'cityAdd',
   meta: {
@@ -88035,7 +88347,7 @@ var routes = [{
 }, {
   path: '/backend/editCity/:id',
   component: function component() {
-    return Promise.all(/*! import() | cityEdit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("cityEdit")]).then(__webpack_require__.bind(null, /*! ./components/admin/city/Edit */ "./resources/js/components/admin/city/Edit.vue"));
+    return Promise.all(/*! import() | cityEdit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("cityEdit")]).then(__webpack_require__.bind(null, /*! ./components/admin/city/Edit */ "./resources/js/components/admin/city/Edit.vue"));
   },
   name: 'editCity',
   meta: {
@@ -88055,7 +88367,7 @@ var routes = [{
 }, {
   path: '/backend/add/company',
   component: function component() {
-    return Promise.all(/*! import() | addCompany */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("addCompany")]).then(__webpack_require__.bind(null, /*! ./components/admin/company/Add */ "./resources/js/components/admin/company/Add.vue"));
+    return Promise.all(/*! import() | addCompany */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("addCompany")]).then(__webpack_require__.bind(null, /*! ./components/admin/company/Add */ "./resources/js/components/admin/company/Add.vue"));
   },
   name: 'addCompany',
   meta: {
@@ -88065,7 +88377,7 @@ var routes = [{
 }, {
   path: '/backend/edit/company/:id',
   component: function component() {
-    return Promise.all(/*! import() | editCompany */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("editCompany")]).then(__webpack_require__.bind(null, /*! ./components/admin/company/Edit */ "./resources/js/components/admin/company/Edit.vue"));
+    return Promise.all(/*! import() | editCompany */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("editCompany")]).then(__webpack_require__.bind(null, /*! ./components/admin/company/Edit */ "./resources/js/components/admin/company/Edit.vue"));
   },
   name: 'editCompany',
   meta: {
@@ -88085,7 +88397,7 @@ var routes = [{
 }, {
   path: '/backend/found/transfer/add',
   component: function component() {
-    return Promise.all(/*! import() | fondtransferAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("fondtransferAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/fondtransfer/Add */ "./resources/js/components/admin/fondtransfer/Add.vue"));
+    return Promise.all(/*! import() | fondtransferAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("fondtransferAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/fondtransfer/Add */ "./resources/js/components/admin/fondtransfer/Add.vue"));
   },
   name: 'fondtransferAdd',
   meta: {
@@ -88105,7 +88417,7 @@ var routes = [{
 }, {
   path: '/backend/add',
   component: function component() {
-    return Promise.all(/*! import() | offerAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("offerAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/offer/Add */ "./resources/js/components/admin/offer/Add.vue"));
+    return Promise.all(/*! import() | offerAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("offerAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/offer/Add */ "./resources/js/components/admin/offer/Add.vue"));
   },
   name: 'offerAdd',
   meta: {
@@ -88115,7 +88427,7 @@ var routes = [{
 }, {
   path: '/backend/edit/Offer/:id',
   component: function component() {
-    return Promise.all(/*! import() | edit_offer */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("edit_offer")]).then(__webpack_require__.bind(null, /*! ./components/admin/offer/Edit */ "./resources/js/components/admin/offer/Edit.vue"));
+    return Promise.all(/*! import() | edit_offer */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("edit_offer")]).then(__webpack_require__.bind(null, /*! ./components/admin/offer/Edit */ "./resources/js/components/admin/offer/Edit.vue"));
   },
   name: 'edit_offer',
   meta: {
@@ -88135,7 +88447,7 @@ var routes = [{
 }, {
   path: '/backend/addCourier',
   component: function component() {
-    return Promise.all(/*! import() | courierAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("courierAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/courier/Add */ "./resources/js/components/admin/courier/Add.vue"));
+    return Promise.all(/*! import() | courierAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("courierAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/courier/Add */ "./resources/js/components/admin/courier/Add.vue"));
   },
   name: 'courierAdd',
   meta: {
@@ -88145,7 +88457,7 @@ var routes = [{
 }, {
   path: '/backend/editCourier/:id',
   component: function component() {
-    return Promise.all(/*! import() | editCourier */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("editCourier")]).then(__webpack_require__.bind(null, /*! ./components/admin/courier/Edit */ "./resources/js/components/admin/courier/Edit.vue"));
+    return Promise.all(/*! import() | editCourier */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("editCourier")]).then(__webpack_require__.bind(null, /*! ./components/admin/courier/Edit */ "./resources/js/components/admin/courier/Edit.vue"));
   },
   name: 'editCourier',
   meta: {
@@ -88165,7 +88477,7 @@ var routes = [{
 }, {
   path: '/backend/addComment',
   component: function component() {
-    return Promise.all(/*! import() | commentAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("commentAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/comment/Add */ "./resources/js/components/admin/comment/Add.vue"));
+    return Promise.all(/*! import() | commentAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("commentAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/comment/Add */ "./resources/js/components/admin/comment/Add.vue"));
   },
   name: 'commentAdd',
   meta: {
@@ -88175,7 +88487,7 @@ var routes = [{
 }, {
   path: '/backend/editComment/:id',
   component: function component() {
-    return Promise.all(/*! import() | editComment */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("editComment")]).then(__webpack_require__.bind(null, /*! ./components/admin/comment/Edit */ "./resources/js/components/admin/comment/Edit.vue"));
+    return Promise.all(/*! import() | editComment */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("editComment")]).then(__webpack_require__.bind(null, /*! ./components/admin/comment/Edit */ "./resources/js/components/admin/comment/Edit.vue"));
   },
   name: 'editComment',
   meta: {
@@ -88195,7 +88507,7 @@ var routes = [{
 }, {
   path: '/backend/factory/add',
   component: function component() {
-    return Promise.all(/*! import() | add_factory */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("add_factory")]).then(__webpack_require__.bind(null, /*! ./components/admin/factory/Add */ "./resources/js/components/admin/factory/Add.vue"));
+    return Promise.all(/*! import() | add_factory */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("add_factory")]).then(__webpack_require__.bind(null, /*! ./components/admin/factory/Add */ "./resources/js/components/admin/factory/Add.vue"));
   },
   name: 'add_factory',
   meta: {
@@ -88205,7 +88517,7 @@ var routes = [{
 }, {
   path: '/backend/edit/factory/:id',
   component: function component() {
-    return Promise.all(/*! import() | edit_factory */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("edit_factory")]).then(__webpack_require__.bind(null, /*! ./components/admin/factory/Edit */ "./resources/js/components/admin/factory/Edit.vue"));
+    return Promise.all(/*! import() | edit_factory */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("edit_factory")]).then(__webpack_require__.bind(null, /*! ./components/admin/factory/Edit */ "./resources/js/components/admin/factory/Edit.vue"));
   },
   name: 'edit_factory',
   meta: {
@@ -88215,7 +88527,7 @@ var routes = [{
 }, {
   path: '/backend/product',
   component: function component() {
-    return Promise.all(/*! import() | product */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("vendors~merchant_order~merchnat_product_manage~product"), __webpack_require__.e("product")]).then(__webpack_require__.bind(null, /*! ./components/admin/product/product */ "./resources/js/components/admin/product/product.vue"));
+    return Promise.all(/*! import() | product */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("vendors~merchant_order~merchnat_product_manage~product"), __webpack_require__.e("product")]).then(__webpack_require__.bind(null, /*! ./components/admin/product/product */ "./resources/js/components/admin/product/product.vue"));
   },
   name: 'product',
   meta: {
@@ -88225,7 +88537,7 @@ var routes = [{
 }, {
   path: '/backend/report/product/stock',
   component: function component() {
-    return Promise.all(/*! import() | productStock */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("productStock")]).then(__webpack_require__.bind(null, /*! ./components/admin/Report/ProductStock */ "./resources/js/components/admin/Report/ProductStock.vue"));
+    return Promise.all(/*! import() | productStock */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("productStock")]).then(__webpack_require__.bind(null, /*! ./components/admin/Report/ProductStock */ "./resources/js/components/admin/Report/ProductStock.vue"));
   },
   name: 'productStcok',
   meta: {
@@ -88235,7 +88547,7 @@ var routes = [{
 }, {
   path: '/backend/addProduct',
   component: function component() {
-    return Promise.all(/*! import() | productAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("vendors~about_and_contact~add_carrier~edit_carrier~footer_setting~generl_setting~merchant_product_ad~976ffb9e"), __webpack_require__.e("productAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/product/Add */ "./resources/js/components/admin/product/Add.vue"));
+    return Promise.all(/*! import() | productAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4"), __webpack_require__.e("productAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/product/Add */ "./resources/js/components/admin/product/Add.vue"));
   },
   name: 'productAdd',
   meta: {
@@ -88245,7 +88557,7 @@ var routes = [{
 }, {
   path: '/backend/product/edit/:id',
   component: function component() {
-    return Promise.all(/*! import() | productEdit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("vendors~about_and_contact~add_carrier~edit_carrier~footer_setting~generl_setting~merchant_product_ad~976ffb9e"), __webpack_require__.e("productEdit")]).then(__webpack_require__.bind(null, /*! ./components/admin/product/Edit */ "./resources/js/components/admin/product/Edit.vue"));
+    return Promise.all(/*! import() | productEdit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4"), __webpack_require__.e("productEdit")]).then(__webpack_require__.bind(null, /*! ./components/admin/product/Edit */ "./resources/js/components/admin/product/Edit.vue"));
   },
   name: 'productEdit',
   meta: {
@@ -88265,7 +88577,7 @@ var routes = [{
 }, {
   path: '/backend/addPurchase',
   component: function component() {
-    return Promise.all(/*! import() | addPurchase */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("addPurchase")]).then(__webpack_require__.bind(null, /*! ./components/admin/purchase/Add */ "./resources/js/components/admin/purchase/Add.vue"));
+    return Promise.all(/*! import() | addPurchase */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("addPurchase")]).then(__webpack_require__.bind(null, /*! ./components/admin/purchase/Add */ "./resources/js/components/admin/purchase/Add.vue"));
   },
   name: 'addPurchase',
   meta: {
@@ -88275,7 +88587,7 @@ var routes = [{
 }, {
   path: '/backend/addPurchase/fabrics',
   component: function component() {
-    return Promise.all(/*! import() | addPurchasefabrics */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("addPurchasefabrics")]).then(__webpack_require__.bind(null, /*! ./components/admin/purchase/AddFabricsPurchase */ "./resources/js/components/admin/purchase/AddFabricsPurchase.vue"));
+    return Promise.all(/*! import() | addPurchasefabrics */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("addPurchasefabrics")]).then(__webpack_require__.bind(null, /*! ./components/admin/purchase/AddFabricsPurchase */ "./resources/js/components/admin/purchase/AddFabricsPurchase.vue"));
   },
   name: 'AddPurchaseFabrics',
   meta: {
@@ -88295,7 +88607,7 @@ var routes = [{
 }, {
   path: '/backend/purchaseEdit/:id',
   component: function component() {
-    return Promise.all(/*! import() | purchaseEdit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("purchaseEdit")]).then(__webpack_require__.bind(null, /*! ./components/admin/purchase/Edit */ "./resources/js/components/admin/purchase/Edit.vue"));
+    return Promise.all(/*! import() | purchaseEdit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("purchaseEdit")]).then(__webpack_require__.bind(null, /*! ./components/admin/purchase/Edit */ "./resources/js/components/admin/purchase/Edit.vue"));
   },
   name: 'purchaseEdit',
   meta: {
@@ -88305,7 +88617,7 @@ var routes = [{
 }, {
   path: '/backend/order',
   component: function component() {
-    return Promise.all(/*! import() | order */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("order")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Order */ "./resources/js/components/admin/order/Order.vue"));
+    return Promise.all(/*! import() | order */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("order")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Order */ "./resources/js/components/admin/order/Order.vue"));
   },
   name: 'order',
   meta: {
@@ -88315,7 +88627,7 @@ var routes = [{
 }, {
   path: '/backend/new/order',
   component: function component() {
-    return Promise.all(/*! import() | newOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("newOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/New */ "./resources/js/components/admin/order/New.vue"));
+    return Promise.all(/*! import() | newOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("newOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/New */ "./resources/js/components/admin/order/New.vue"));
   },
   name: 'NewOrder',
   meta: {
@@ -88325,7 +88637,7 @@ var routes = [{
 }, {
   path: '/backend/order/pending',
   component: function component() {
-    return Promise.all(/*! import() | pendingOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("pendingOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Pending */ "./resources/js/components/admin/order/Pending.vue"));
+    return Promise.all(/*! import() | pendingOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("pendingOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Pending */ "./resources/js/components/admin/order/Pending.vue"));
   },
   name: 'PendingOrder',
   meta: {
@@ -88335,7 +88647,7 @@ var routes = [{
 }, {
   path: '/backend/order/approved',
   component: function component() {
-    return Promise.all(/*! import() | approvedOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("approvedOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Approved */ "./resources/js/components/admin/order/Approved.vue"));
+    return Promise.all(/*! import() | approvedOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("approvedOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Approved */ "./resources/js/components/admin/order/Approved.vue"));
   },
   name: 'ApprovedOrder',
   meta: {
@@ -88345,7 +88657,7 @@ var routes = [{
 }, {
   path: '/backend/order/shipment',
   component: function component() {
-    return Promise.all(/*! import() | shipmentOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("shipmentOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Shipment */ "./resources/js/components/admin/order/Shipment.vue"));
+    return Promise.all(/*! import() | shipmentOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("shipmentOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Shipment */ "./resources/js/components/admin/order/Shipment.vue"));
   },
   name: 'ShipmentOrder',
   meta: {
@@ -88355,7 +88667,7 @@ var routes = [{
 }, {
   path: '/backend/order/delivered',
   component: function component() {
-    return Promise.all(/*! import() | DeliveredOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("DeliveredOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Delivered */ "./resources/js/components/admin/order/Delivered.vue"));
+    return Promise.all(/*! import() | DeliveredOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("DeliveredOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Delivered */ "./resources/js/components/admin/order/Delivered.vue"));
   },
   name: 'DeliveredOrder',
   meta: {
@@ -88365,7 +88677,7 @@ var routes = [{
 }, {
   path: '/backend/order/return',
   component: function component() {
-    return Promise.all(/*! import() | ReturnOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("ReturnOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Return */ "./resources/js/components/admin/order/Return.vue"));
+    return Promise.all(/*! import() | ReturnOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("ReturnOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Return */ "./resources/js/components/admin/order/Return.vue"));
   },
   name: 'ReturnOrder',
   meta: {
@@ -88375,7 +88687,7 @@ var routes = [{
 }, {
   path: '/backend/order/cancel',
   component: function component() {
-    return Promise.all(/*! import() | cancelOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("cancelOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Cancel */ "./resources/js/components/admin/order/Cancel.vue"));
+    return Promise.all(/*! import() | cancelOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("cancelOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Cancel */ "./resources/js/components/admin/order/Cancel.vue"));
   },
   name: 'CancelOrder',
   meta: {
@@ -88385,7 +88697,7 @@ var routes = [{
 }, {
   path: '/backend/order/wholesale',
   component: function component() {
-    return Promise.all(/*! import() | wholesaleOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("wholesaleOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Wholesale */ "./resources/js/components/admin/order/Wholesale.vue"));
+    return Promise.all(/*! import() | wholesaleOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("wholesaleOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Wholesale */ "./resources/js/components/admin/order/Wholesale.vue"));
   },
   name: 'WholeSaleOrder',
   meta: {
@@ -88395,7 +88707,7 @@ var routes = [{
 }, {
   path: '/backend/addOrder',
   component: function component() {
-    return Promise.all(/*! import() | addOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("addOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Add */ "./resources/js/components/admin/order/Add.vue"));
+    return Promise.all(/*! import() | addOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("addOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Add */ "./resources/js/components/admin/order/Add.vue"));
   },
   name: 'addOrder',
   meta: {
@@ -88405,7 +88717,7 @@ var routes = [{
 }, {
   path: '/backend/add/wholesale',
   component: function component() {
-    return Promise.all(/*! import() | addwholesale */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("addwholesale")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/AddWholeSale */ "./resources/js/components/admin/order/AddWholeSale.vue"));
+    return Promise.all(/*! import() | addwholesale */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("addwholesale")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/AddWholeSale */ "./resources/js/components/admin/order/AddWholeSale.vue"));
   },
   name: 'addWholeSale',
   meta: {
@@ -88415,7 +88727,7 @@ var routes = [{
 }, {
   path: '/backend/view/order/:id',
   component: function component() {
-    return Promise.all(/*! import() | viewOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("viewOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/View */ "./resources/js/components/admin/order/View.vue"));
+    return Promise.all(/*! import() | viewOrder */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("viewOrder")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/View */ "./resources/js/components/admin/order/View.vue"));
   },
   name: 'viewOrder',
   meta: {
@@ -88425,7 +88737,7 @@ var routes = [{
 }, {
   path: '/backend/orderEdit/:id',
   component: function component() {
-    return Promise.all(/*! import() | orderEdit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("orderEdit")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Edit */ "./resources/js/components/admin/order/Edit.vue"));
+    return Promise.all(/*! import() | orderEdit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("orderEdit")]).then(__webpack_require__.bind(null, /*! ./components/admin/order/Edit */ "./resources/js/components/admin/order/Edit.vue"));
   },
   name: 'orderEdit',
   meta: {
@@ -88435,7 +88747,7 @@ var routes = [{
 }, {
   path: '/backend/purchaseView/:id',
   component: function component() {
-    return Promise.all(/*! import() | purchaseView */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("purchaseView")]).then(__webpack_require__.bind(null, /*! ./components/admin/purchase/View */ "./resources/js/components/admin/purchase/View.vue"));
+    return Promise.all(/*! import() | purchaseView */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("purchaseView")]).then(__webpack_require__.bind(null, /*! ./components/admin/purchase/View */ "./resources/js/components/admin/purchase/View.vue"));
   },
   name: 'purchaseView',
   meta: {
@@ -88475,7 +88787,7 @@ var routes = [{
 }, {
   path: '/backend/selling/offer/add',
   component: function component() {
-    return Promise.all(/*! import() | add_selling_offer */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("add_selling_offer")]).then(__webpack_require__.bind(null, /*! ./components/admin/selling_offer/Add */ "./resources/js/components/admin/selling_offer/Add.vue"));
+    return Promise.all(/*! import() | add_selling_offer */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("add_selling_offer")]).then(__webpack_require__.bind(null, /*! ./components/admin/selling_offer/Add */ "./resources/js/components/admin/selling_offer/Add.vue"));
   },
   name: 'add_selling_offer',
   meta: {
@@ -88495,7 +88807,7 @@ var routes = [{
 }, {
   path: '/backend/carrier/add',
   component: function component() {
-    return Promise.all(/*! import() | add_carrier */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("vendors~about_and_contact~add_carrier~edit_carrier~footer_setting~generl_setting~merchant_product_ad~976ffb9e"), __webpack_require__.e("add_carrier")]).then(__webpack_require__.bind(null, /*! ./components/admin/carrier/Add */ "./resources/js/components/admin/carrier/Add.vue"));
+    return Promise.all(/*! import() | add_carrier */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4"), __webpack_require__.e("add_carrier")]).then(__webpack_require__.bind(null, /*! ./components/admin/carrier/Add */ "./resources/js/components/admin/carrier/Add.vue"));
   },
   name: 'add_carrier',
   meta: {
@@ -88505,7 +88817,7 @@ var routes = [{
 }, {
   path: '/backend/carrier/show/:id',
   component: function component() {
-    return Promise.all(/*! import() | show_carrier */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("vendors~about_and_contact~add_carrier~edit_carrier~footer_setting~generl_setting~merchant_product_ad~976ffb9e"), __webpack_require__.e("show_carrier")]).then(__webpack_require__.bind(null, /*! ./components/admin/carrier/Show */ "./resources/js/components/admin/carrier/Show.vue"));
+    return Promise.all(/*! import() | show_carrier */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4"), __webpack_require__.e("show_carrier")]).then(__webpack_require__.bind(null, /*! ./components/admin/carrier/Show */ "./resources/js/components/admin/carrier/Show.vue"));
   },
   name: 'show_carrier',
   meta: {
@@ -88515,7 +88827,7 @@ var routes = [{
 }, {
   path: '/backend/carrier/edit/:id',
   component: function component() {
-    return Promise.all(/*! import() | edit_carrier */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("vendors~about_and_contact~add_carrier~edit_carrier~footer_setting~generl_setting~merchant_product_ad~976ffb9e"), __webpack_require__.e("edit_carrier")]).then(__webpack_require__.bind(null, /*! ./components/admin/carrier/Edit */ "./resources/js/components/admin/carrier/Edit.vue"));
+    return Promise.all(/*! import() | edit_carrier */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4"), __webpack_require__.e("edit_carrier")]).then(__webpack_require__.bind(null, /*! ./components/admin/carrier/Edit */ "./resources/js/components/admin/carrier/Edit.vue"));
   },
   name: 'edit_carrier',
   meta: {
@@ -88535,7 +88847,7 @@ var routes = [{
 }, {
   path: '/backend/selling/offer/edit/:id',
   component: function component() {
-    return Promise.all(/*! import() | edit_selling_offer */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("edit_selling_offer")]).then(__webpack_require__.bind(null, /*! ./components/admin/selling_offer/Edit */ "./resources/js/components/admin/selling_offer/Edit.vue"));
+    return Promise.all(/*! import() | edit_selling_offer */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("edit_selling_offer")]).then(__webpack_require__.bind(null, /*! ./components/admin/selling_offer/Edit */ "./resources/js/components/admin/selling_offer/Edit.vue"));
   },
   name: 'edit_selling_offer',
   meta: {
@@ -88555,7 +88867,7 @@ var routes = [{
 }, {
   path: '/backend/account/purpose/add',
   component: function component() {
-    return Promise.all(/*! import() | account_purpose_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("account_purpose_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/account/Add */ "./resources/js/components/admin/account/Add.vue"));
+    return Promise.all(/*! import() | account_purpose_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("account_purpose_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/account/Add */ "./resources/js/components/admin/account/Add.vue"));
   },
   name: 'account_purpose_add',
   meta: {
@@ -88565,7 +88877,7 @@ var routes = [{
 }, {
   path: '/backend/account/purpose/edit/:id',
   component: function component() {
-    return Promise.all(/*! import() | accoun_purpose_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("accoun_purpose_edit")]).then(__webpack_require__.bind(null, /*! ./components/admin/account/Edit */ "./resources/js/components/admin/account/Edit.vue"));
+    return Promise.all(/*! import() | accoun_purpose_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("accoun_purpose_edit")]).then(__webpack_require__.bind(null, /*! ./components/admin/account/Edit */ "./resources/js/components/admin/account/Edit.vue"));
   },
   name: 'account_purpose_edit',
   meta: {
@@ -88585,7 +88897,7 @@ var routes = [{
 }, {
   path: '/backend/team/member/add',
   component: function component() {
-    return Promise.all(/*! import() | add_team_member */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("add_team_member")]).then(__webpack_require__.bind(null, /*! ./components/admin/team/Add */ "./resources/js/components/admin/team/Add.vue"));
+    return Promise.all(/*! import() | add_team_member */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("add_team_member")]).then(__webpack_require__.bind(null, /*! ./components/admin/team/Add */ "./resources/js/components/admin/team/Add.vue"));
   },
   name: 'add_team_member',
   meta: {
@@ -88595,7 +88907,7 @@ var routes = [{
 }, {
   path: '/backend/team/member/edit/:id',
   component: function component() {
-    return Promise.all(/*! import() | edit_team_member */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("edit_team_member")]).then(__webpack_require__.bind(null, /*! ./components/admin/team/Edit */ "./resources/js/components/admin/team/Edit.vue"));
+    return Promise.all(/*! import() | edit_team_member */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("edit_team_member")]).then(__webpack_require__.bind(null, /*! ./components/admin/team/Edit */ "./resources/js/components/admin/team/Edit.vue"));
   },
   name: 'edit_team_member',
   meta: {
@@ -88625,7 +88937,7 @@ var routes = [{
 }, {
   path: '/backend/sale/add',
   component: function component() {
-    return Promise.all(/*! import() | addSale */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("addSale")]).then(__webpack_require__.bind(null, /*! ./components/admin/sale/Add */ "./resources/js/components/admin/sale/Add.vue"));
+    return Promise.all(/*! import() | addSale */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("addSale")]).then(__webpack_require__.bind(null, /*! ./components/admin/sale/Add */ "./resources/js/components/admin/sale/Add.vue"));
   },
   name: 'AddSale',
   meta: {
@@ -88635,7 +88947,7 @@ var routes = [{
 }, {
   path: '/backend/sale/exchnage/add',
   component: function component() {
-    return Promise.all(/*! import() | AddSaleExchange */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("AddSaleExchange")]).then(__webpack_require__.bind(null, /*! ./components/admin/sale/Exchange */ "./resources/js/components/admin/sale/Exchange.vue"));
+    return Promise.all(/*! import() | AddSaleExchange */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("AddSaleExchange")]).then(__webpack_require__.bind(null, /*! ./components/admin/sale/Exchange */ "./resources/js/components/admin/sale/Exchange.vue"));
   },
   name: 'AddSaleExchange',
   meta: {
@@ -88645,7 +88957,7 @@ var routes = [{
 }, {
   path: '/backend/sale/add/company',
   component: function component() {
-    return Promise.all(/*! import() | addCompanySale */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("addCompanySale")]).then(__webpack_require__.bind(null, /*! ./components/admin/sale/AddCompanySale */ "./resources/js/components/admin/sale/AddCompanySale.vue"));
+    return Promise.all(/*! import() | addCompanySale */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("addCompanySale")]).then(__webpack_require__.bind(null, /*! ./components/admin/sale/AddCompanySale */ "./resources/js/components/admin/sale/AddCompanySale.vue"));
   },
   name: 'AddCompanySale',
   meta: {
@@ -88655,7 +88967,7 @@ var routes = [{
 }, {
   path: '/backend/sale/view/:id',
   component: function component() {
-    return Promise.all(/*! import() | viewSale */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("viewSale")]).then(__webpack_require__.bind(null, /*! ./components/admin/sale/View */ "./resources/js/components/admin/sale/View.vue"));
+    return Promise.all(/*! import() | viewSale */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("viewSale")]).then(__webpack_require__.bind(null, /*! ./components/admin/sale/View */ "./resources/js/components/admin/sale/View.vue"));
   },
   name: 'ViewSale',
   meta: {
@@ -88665,7 +88977,7 @@ var routes = [{
 }, {
   path: '/backend/order/report',
   component: function component() {
-    return Promise.all(/*! import() | orderReport */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("orderReport")]).then(__webpack_require__.bind(null, /*! ./components/admin/Report/OrderReport */ "./resources/js/components/admin/Report/OrderReport.vue"));
+    return Promise.all(/*! import() | orderReport */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("orderReport")]).then(__webpack_require__.bind(null, /*! ./components/admin/Report/OrderReport */ "./resources/js/components/admin/Report/OrderReport.vue"));
   },
   name: 'OrderReport',
   meta: {
@@ -88675,7 +88987,7 @@ var routes = [{
 }, {
   path: '/backend/office/sale/report',
   component: function component() {
-    return Promise.all(/*! import() | officesaleReport */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("officesaleReport")]).then(__webpack_require__.bind(null, /*! ./components/admin/Report/OfficeSale */ "./resources/js/components/admin/Report/OfficeSale.vue"));
+    return Promise.all(/*! import() | officesaleReport */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("officesaleReport")]).then(__webpack_require__.bind(null, /*! ./components/admin/Report/OfficeSale */ "./resources/js/components/admin/Report/OfficeSale.vue"));
   },
   name: 'OfficeSaleReport',
   meta: {
@@ -88685,7 +88997,7 @@ var routes = [{
 }, {
   path: '/backend/purchase/report',
   component: function component() {
-    return Promise.all(/*! import() | purchaseReport */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("purchaseReport")]).then(__webpack_require__.bind(null, /*! ./components/admin/Report/Purchase */ "./resources/js/components/admin/Report/Purchase.vue"));
+    return Promise.all(/*! import() | purchaseReport */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("purchaseReport")]).then(__webpack_require__.bind(null, /*! ./components/admin/Report/Purchase */ "./resources/js/components/admin/Report/Purchase.vue"));
   },
   name: 'PurchaseReport',
   meta: {
@@ -88695,7 +89007,7 @@ var routes = [{
 }, {
   path: '/backend/supplier/report',
   component: function component() {
-    return Promise.all(/*! import() | supplier_Report */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("supplier_Report")]).then(__webpack_require__.bind(null, /*! ./components/admin/Report/SupplierReport */ "./resources/js/components/admin/Report/SupplierReport.vue"));
+    return Promise.all(/*! import() | supplier_Report */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("supplier_Report")]).then(__webpack_require__.bind(null, /*! ./components/admin/Report/SupplierReport */ "./resources/js/components/admin/Report/SupplierReport.vue"));
   },
   name: 'SupplierReport',
   meta: {
@@ -88705,7 +89017,7 @@ var routes = [{
 }, {
   path: '/backend/profite/report',
   component: function component() {
-    return Promise.all(/*! import() | profiteReport */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("profiteReport")]).then(__webpack_require__.bind(null, /*! ./components/admin/Report/Profite */ "./resources/js/components/admin/Report/Profite.vue"));
+    return Promise.all(/*! import() | profiteReport */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("profiteReport")]).then(__webpack_require__.bind(null, /*! ./components/admin/Report/Profite */ "./resources/js/components/admin/Report/Profite.vue"));
   },
   name: 'ProfiteReport',
   meta: {
@@ -88715,7 +89027,7 @@ var routes = [{
 }, {
   path: '/backend/sale/profite/report',
   component: function component() {
-    return Promise.all(/*! import() | SaleProfite */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("SaleProfite")]).then(__webpack_require__.bind(null, /*! ./components/admin/Report/SaleProfite */ "./resources/js/components/admin/Report/SaleProfite.vue"));
+    return Promise.all(/*! import() | SaleProfite */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("SaleProfite")]).then(__webpack_require__.bind(null, /*! ./components/admin/Report/SaleProfite */ "./resources/js/components/admin/Report/SaleProfite.vue"));
   },
   name: 'SaleProfite',
   meta: {
@@ -88725,7 +89037,7 @@ var routes = [{
 }, {
   path: '/backend/order/profite/report',
   component: function component() {
-    return Promise.all(/*! import() | OrderProfite */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("OrderProfite")]).then(__webpack_require__.bind(null, /*! ./components/admin/Report/OrderProfite */ "./resources/js/components/admin/Report/OrderProfite.vue"));
+    return Promise.all(/*! import() | OrderProfite */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("OrderProfite")]).then(__webpack_require__.bind(null, /*! ./components/admin/Report/OrderProfite */ "./resources/js/components/admin/Report/OrderProfite.vue"));
   },
   name: 'OrderProfite',
   meta: {
@@ -88735,7 +89047,7 @@ var routes = [{
 }, {
   path: '/backend/account/report',
   component: function component() {
-    return Promise.all(/*! import() | AccountReport */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("AccountReport")]).then(__webpack_require__.bind(null, /*! ./components/admin/Report/Account */ "./resources/js/components/admin/Report/Account.vue"));
+    return Promise.all(/*! import() | AccountReport */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("admin_dashboard"), __webpack_require__.e("AccountReport")]).then(__webpack_require__.bind(null, /*! ./components/admin/Report/Account */ "./resources/js/components/admin/Report/Account.vue"));
   },
   name: 'AccountReport',
   meta: {
@@ -88754,7 +89066,7 @@ var routes = [{
 }, {
   path: '/backend/admin/profile',
   component: function component() {
-    return Promise.all(/*! import() | adminProfile */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("adminAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/admin/Add */ "./resources/js/components/admin/admin/Add.vue"));
+    return Promise.all(/*! import() | adminProfile */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("adminProfile")]).then(__webpack_require__.bind(null, /*! ./components/admin/admin/Profile.vue */ "./resources/js/components/admin/admin/Profile.vue"));
   },
   name: 'adminProfile',
   meta: {
@@ -88764,7 +89076,7 @@ var routes = [{
 }, {
   path: '/backend/addAdmin',
   component: function component() {
-    return Promise.all(/*! import() | adminAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("adminAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/admin/Add */ "./resources/js/components/admin/admin/Add.vue"));
+    return Promise.all(/*! import() | adminAdd */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("adminAdd")]).then(__webpack_require__.bind(null, /*! ./components/admin/admin/Add */ "./resources/js/components/admin/admin/Add.vue"));
   },
   name: 'adminAdd',
   meta: {
@@ -88773,7 +89085,7 @@ var routes = [{
 }, {
   path: '/backend/editAdmin/:adminId',
   component: function component() {
-    return Promise.all(/*! import() | editAdmin */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("editAdmin")]).then(__webpack_require__.bind(null, /*! ./components/admin/admin/Edit */ "./resources/js/components/admin/admin/Edit.vue"));
+    return Promise.all(/*! import() | editAdmin */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("editAdmin")]).then(__webpack_require__.bind(null, /*! ./components/admin/admin/Edit */ "./resources/js/components/admin/admin/Edit.vue"));
   },
   name: 'editAdmin',
   meta: {
@@ -88782,7 +89094,7 @@ var routes = [{
 }, {
   path: '/backend/assign/role/admin/:id',
   component: function component() {
-    return Promise.all(/*! import() | assingRoleAdmin */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("assingRoleAdmin")]).then(__webpack_require__.bind(null, /*! ./components/admin/admin/Role */ "./resources/js/components/admin/admin/Role.vue"));
+    return Promise.all(/*! import() | assingRoleAdmin */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("assingRoleAdmin")]).then(__webpack_require__.bind(null, /*! ./components/admin/admin/Role */ "./resources/js/components/admin/admin/Role.vue"));
   },
   name: 'AssignRoleAdmin',
   meta: {
@@ -88791,7 +89103,7 @@ var routes = [{
 }, {
   path: '/backend/assign/admin/permission/:id',
   component: function component() {
-    return Promise.all(/*! import() | assign_admin_permission */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("assign_admin_permission")]).then(__webpack_require__.bind(null, /*! ./components/admin/admin/AdminPermission */ "./resources/js/components/admin/admin/AdminPermission.vue"));
+    return Promise.all(/*! import() | assign_admin_permission */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("assign_admin_permission")]).then(__webpack_require__.bind(null, /*! ./components/admin/admin/AdminPermission */ "./resources/js/components/admin/admin/AdminPermission.vue"));
   },
   name: 'assign_admin_permission',
   meta: {
@@ -88800,7 +89112,7 @@ var routes = [{
 }, {
   path: '/backend/admin/password/:id',
   component: function component() {
-    return Promise.all(/*! import() | passwordChange */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("passwordChange")]).then(__webpack_require__.bind(null, /*! ./components/admin/admin/Password.vue */ "./resources/js/components/admin/admin/Password.vue"));
+    return Promise.all(/*! import() | passwordChange */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("passwordChange")]).then(__webpack_require__.bind(null, /*! ./components/admin/admin/Password.vue */ "./resources/js/components/admin/admin/Password.vue"));
   },
   name: 'passwordChange',
   meta: {
@@ -88809,7 +89121,7 @@ var routes = [{
 }, {
   path: '/backend/sms/campaign',
   component: function component() {
-    return Promise.all(/*! import() | sms_campaign */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("sms_campaign")]).then(__webpack_require__.bind(null, /*! ./components/admin/sms/Send */ "./resources/js/components/admin/sms/Send.vue"));
+    return Promise.all(/*! import() | sms_campaign */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("sms_campaign")]).then(__webpack_require__.bind(null, /*! ./components/admin/sms/Send */ "./resources/js/components/admin/sms/Send.vue"));
   },
   name: 'sms_campaign',
   meta: {
@@ -88836,7 +89148,7 @@ var routes = [{
 }, {
   path: '/backend/contact/message/reply/:id',
   component: function component() {
-    return Promise.all(/*! import() | contact_messgae_reply */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("contact_messgae_reply")]).then(__webpack_require__.bind(null, /*! ./components/admin/contact/Reply */ "./resources/js/components/admin/contact/Reply.vue"));
+    return Promise.all(/*! import() | contact_messgae_reply */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("contact_messgae_reply")]).then(__webpack_require__.bind(null, /*! ./components/admin/contact/Reply */ "./resources/js/components/admin/contact/Reply.vue"));
   },
   name: 'contact_message_reply',
   meta: {
@@ -88845,7 +89157,7 @@ var routes = [{
 }, {
   path: '/public/otp/login',
   component: function component() {
-    return Promise.all(/*! import() | otp_login */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("otp_login")]).then(__webpack_require__.bind(null, /*! ./components/public/otp */ "./resources/js/components/public/otp.vue"));
+    return Promise.all(/*! import() | otp_login */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("otp_login")]).then(__webpack_require__.bind(null, /*! ./components/public/otp */ "./resources/js/components/public/otp.vue"));
   },
   name: 'otpLogin',
   meta: {
@@ -88854,7 +89166,7 @@ var routes = [{
 }, {
   path: '/public/user/new/set/password',
   component: function component() {
-    return Promise.all(/*! import() | user_password_reset */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("user_password_reset")]).then(__webpack_require__.bind(null, /*! ./components/public/user/SetNewPassword */ "./resources/js/components/public/user/SetNewPassword.vue"));
+    return Promise.all(/*! import() | user_password_reset */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("user_password_reset")]).then(__webpack_require__.bind(null, /*! ./components/public/user/SetNewPassword */ "./resources/js/components/public/user/SetNewPassword.vue"));
   },
   name: 'user_new_password_set',
   meta: {
@@ -88864,7 +89176,7 @@ var routes = [{
 }, {
   path: '/backend/general/setting',
   component: function component() {
-    return Promise.all(/*! import() | generl_setting */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("vendors~about_and_contact~add_carrier~edit_carrier~footer_setting~generl_setting~merchant_product_ad~976ffb9e"), __webpack_require__.e("generl_setting")]).then(__webpack_require__.bind(null, /*! ./components/admin/general_setting/General.vue */ "./resources/js/components/admin/general_setting/General.vue"));
+    return Promise.all(/*! import() | generl_setting */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4"), __webpack_require__.e("generl_setting")]).then(__webpack_require__.bind(null, /*! ./components/admin/general_setting/General.vue */ "./resources/js/components/admin/general_setting/General.vue"));
   },
   name: 'general_setting',
   meta: {
@@ -88874,7 +89186,7 @@ var routes = [{
   path: '/backend/seasional/campaign/menage',
   name: 'seasonal_campaign',
   component: function component() {
-    return Promise.all(/*! import() | seasonal campaign */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("seasonal campaign")]).then(__webpack_require__.bind(null, /*! ./components/admin/seasonal/Index.vue */ "./resources/js/components/admin/seasonal/Index.vue"));
+    return Promise.all(/*! import() | seasonal campaign */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("seasonal campaign")]).then(__webpack_require__.bind(null, /*! ./components/admin/seasonal/Index.vue */ "./resources/js/components/admin/seasonal/Index.vue"));
   },
   meta: {
     requiresAuthAdmin: true
@@ -88883,7 +89195,7 @@ var routes = [{
   path: '/backend/sale/campaigns',
   name: 'sale_campaign',
   component: function component() {
-    return Promise.all(/*! import() | sale_campaign */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("sale_campaign")]).then(__webpack_require__.bind(null, /*! ./components/admin/sale_campaign/Index.vue */ "./resources/js/components/admin/sale_campaign/Index.vue"));
+    return Promise.all(/*! import() | sale_campaign */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("sale_campaign")]).then(__webpack_require__.bind(null, /*! ./components/admin/sale_campaign/Index.vue */ "./resources/js/components/admin/sale_campaign/Index.vue"));
   },
   meta: {
     requiresAuthAdmin: true
@@ -88892,7 +89204,7 @@ var routes = [{
   path: '/backend/sale/campaign/add',
   name: 'add_sale_campaign',
   component: function component() {
-    return Promise.all(/*! import() | add_sale_campaign */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("add_sale_campaign")]).then(__webpack_require__.bind(null, /*! ./components/admin/sale_campaign/Add.vue */ "./resources/js/components/admin/sale_campaign/Add.vue"));
+    return Promise.all(/*! import() | add_sale_campaign */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("add_sale_campaign")]).then(__webpack_require__.bind(null, /*! ./components/admin/sale_campaign/Add.vue */ "./resources/js/components/admin/sale_campaign/Add.vue"));
   },
   meta: {
     requiresAuthAdmin: true
@@ -88901,7 +89213,7 @@ var routes = [{
   path: '/backend/sale/campaign/item/:id',
   name: 'edit_sale_campaign',
   component: function component() {
-    return Promise.all(/*! import() | edit_sale_campaign */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("edit_sale_campaign")]).then(__webpack_require__.bind(null, /*! ./components/admin/sale_campaign/Edit.vue */ "./resources/js/components/admin/sale_campaign/Edit.vue"));
+    return Promise.all(/*! import() | edit_sale_campaign */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("edit_sale_campaign")]).then(__webpack_require__.bind(null, /*! ./components/admin/sale_campaign/Edit.vue */ "./resources/js/components/admin/sale_campaign/Edit.vue"));
   },
   meta: {
     requiresAuthAdmin: true
@@ -88910,7 +89222,7 @@ var routes = [{
   path: '/backend/occasional/campaign/menage',
   name: 'occasional_campaign',
   component: function component() {
-    return Promise.all(/*! import() | occasional_campaign */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("occasional_campaign")]).then(__webpack_require__.bind(null, /*! ./components/admin/occasional/Index.vue */ "./resources/js/components/admin/occasional/Index.vue"));
+    return Promise.all(/*! import() | occasional_campaign */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("occasional_campaign")]).then(__webpack_require__.bind(null, /*! ./components/admin/occasional/Index.vue */ "./resources/js/components/admin/occasional/Index.vue"));
   },
   meta: {
     requiresAuthAdmin: true
@@ -88919,7 +89231,7 @@ var routes = [{
   path: '/backend/buy/one/get/one/campaign',
   name: 'buy_one_get_one',
   component: function component() {
-    return Promise.all(/*! import() | buy_one_get_one */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("buy_one_get_one")]).then(__webpack_require__.bind(null, /*! ./components/admin/buy_one_get_one/Index.vue */ "./resources/js/components/admin/buy_one_get_one/Index.vue"));
+    return Promise.all(/*! import() | buy_one_get_one */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("buy_one_get_one")]).then(__webpack_require__.bind(null, /*! ./components/admin/buy_one_get_one/Index.vue */ "./resources/js/components/admin/buy_one_get_one/Index.vue"));
   },
   meta: {
     requiresAuthAdmin: true
@@ -88928,7 +89240,7 @@ var routes = [{
   path: '/backend/footer/info',
   name: 'footer_setting',
   component: function component() {
-    return Promise.all(/*! import() | footer_setting */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("vendors~about_and_contact~add_carrier~edit_carrier~footer_setting~generl_setting~merchant_product_ad~976ffb9e"), __webpack_require__.e("footer_setting")]).then(__webpack_require__.bind(null, /*! ./components/admin/footer_setting/Index.vue */ "./resources/js/components/admin/footer_setting/Index.vue"));
+    return Promise.all(/*! import() | footer_setting */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4"), __webpack_require__.e("footer_setting")]).then(__webpack_require__.bind(null, /*! ./components/admin/footer_setting/Index.vue */ "./resources/js/components/admin/footer_setting/Index.vue"));
   },
   meta: {
     requiresAuthAdmin: true
@@ -88937,7 +89249,7 @@ var routes = [{
   path: '/backend/theme/setting',
   name: 'theme_setting',
   component: function component() {
-    return Promise.all(/*! import() | theme_setting */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("vendors~about_and_contact~add_carrier~edit_carrier~footer_setting~generl_setting~merchant_product_ad~976ffb9e"), __webpack_require__.e("theme_setting")]).then(__webpack_require__.bind(null, /*! ./components/admin/background_and_color/Index.vue */ "./resources/js/components/admin/background_and_color/Index.vue"));
+    return Promise.all(/*! import() | theme_setting */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4"), __webpack_require__.e("theme_setting")]).then(__webpack_require__.bind(null, /*! ./components/admin/background_and_color/Index.vue */ "./resources/js/components/admin/background_and_color/Index.vue"));
   },
   meta: {
     requiresAuthAdmin: true
@@ -88946,7 +89258,7 @@ var routes = [{
   path: '/backend/about/contact/info',
   name: 'about_and_contact',
   component: function component() {
-    return Promise.all(/*! import() | about_and_contact */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("vendors~about_and_contact~add_carrier~edit_carrier~footer_setting~generl_setting~merchant_product_ad~976ffb9e"), __webpack_require__.e("about_and_contact")]).then(__webpack_require__.bind(null, /*! ./components/admin/page_info/AboutContact.vue */ "./resources/js/components/admin/page_info/AboutContact.vue"));
+    return Promise.all(/*! import() | about_and_contact */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4"), __webpack_require__.e("about_and_contact")]).then(__webpack_require__.bind(null, /*! ./components/admin/page_info/AboutContact.vue */ "./resources/js/components/admin/page_info/AboutContact.vue"));
   },
   meta: {
     requiresAuthAdmin: true
@@ -88955,10 +89267,307 @@ var routes = [{
   path: '/backend/order/return/shipment/info',
   name: 'order_shipment_return',
   component: function component() {
-    return Promise.all(/*! import() | order_shipment_return */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~87f37f34"), __webpack_require__.e("vendors~about_and_contact~add_carrier~edit_carrier~footer_setting~generl_setting~merchant_product_ad~976ffb9e"), __webpack_require__.e("order_shipment_return")]).then(__webpack_require__.bind(null, /*! ./components/admin/page_info/OrderShipmentReturn.vue */ "./resources/js/components/admin/page_info/OrderShipmentReturn.vue"));
+    return Promise.all(/*! import() | order_shipment_return */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4"), __webpack_require__.e("order_shipment_return")]).then(__webpack_require__.bind(null, /*! ./components/admin/page_info/OrderShipmentReturn.vue */ "./resources/js/components/admin/page_info/OrderShipmentReturn.vue"));
   },
   meta: {
     requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/company/assets',
+  name: 'company_assets',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | company_assets */ "company_assets").then(__webpack_require__.bind(null, /*! ./components/admin/company_assets/Index.vue */ "./resources/js/components/admin/company_assets/Index.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/company/assets/add',
+  name: 'company_assets_add',
+  component: function component() {
+    return Promise.all(/*! import() | company_assets_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4"), __webpack_require__.e("company_assets_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/company_assets/Add.vue */ "./resources/js/components/admin/company_assets/Add.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/company/assets/edit/:id',
+  name: 'company_assets_edit',
+  component: function component() {
+    return Promise.all(/*! import() | company_assets_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4"), __webpack_require__.e("company_assets_edit")]).then(__webpack_require__.bind(null, /*! ./components/admin/company_assets/Edit.vue */ "./resources/js/components/admin/company_assets/Edit.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/company/investment',
+  name: 'investment',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | investment */ "investment").then(__webpack_require__.bind(null, /*! ./components/admin/Investment/Index.vue */ "./resources/js/components/admin/Investment/Index.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/company/investment/add',
+  name: 'investment_add',
+  component: function component() {
+    return Promise.all(/*! import() | investment_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("investment_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/Investment/Add.vue */ "./resources/js/components/admin/Investment/Add.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/company/investment/edit/:id',
+  name: 'investment_edit',
+  component: function component() {
+    return Promise.all(/*! import() | investment_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("investment_edit")]).then(__webpack_require__.bind(null, /*! ./components/admin/Investment/Edit.vue */ "./resources/js/components/admin/Investment/Edit.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/company/investor/details/:id',
+  name: 'investor_details',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | investor_details */ "investor_details").then(__webpack_require__.bind(null, /*! ./components/admin/Investment/InvestorDetails.vue */ "./resources/js/components/admin/Investment/InvestorDetails.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/print/house',
+  name: 'print_house',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | print_house */ "print_house").then(__webpack_require__.bind(null, /*! ./components/admin/print_house/Index.vue */ "./resources/js/components/admin/print_house/Index.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/print/house/add',
+  name: 'print_house_add',
+  component: function component() {
+    return Promise.all(/*! import() | print_house_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("print_house_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/print_house/Add.vue */ "./resources/js/components/admin/print_house/Add.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/print/house/details/:id',
+  name: 'print_house_details',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | print_house_details */ "print_house_details").then(__webpack_require__.bind(null, /*! ./components/admin/print_house/PrintHouseDetails.vue */ "./resources/js/components/admin/print_house/PrintHouseDetails.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/add/product/for/print/:id',
+  name: 'print_product_add',
+  component: function component() {
+    return Promise.all(/*! import() | print_product_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("print_product_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/print_house/AddPrintProduct.vue */ "./resources/js/components/admin/print_house/AddPrintProduct.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/receieve/printed/product/:id',
+  name: 'receieve_printed_product',
+  component: function component() {
+    return Promise.all(/*! import() | receieve_printed_product */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("receieve_printed_product")]).then(__webpack_require__.bind(null, /*! ./components/admin/print_house/ReceievePrinted.vue */ "./resources/js/components/admin/print_house/ReceievePrinted.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/details/print/product/:name',
+  name: 'print_details',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | print_details */ "print_details").then(__webpack_require__.bind(null, /*! ./components/admin/print_house/PrintDetails.vue */ "./resources/js/components/admin/print_house/PrintDetails.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/details/receive/print/product/:name',
+  name: 'receive_print_details',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | receive_print_details */ "receive_print_details").then(__webpack_require__.bind(null, /*! ./components/admin/print_house/ReceivePrintDetails.vue */ "./resources/js/components/admin/print_house/ReceivePrintDetails.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/bill/statement',
+  name: 'bill_statement',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | bill_statement */ "bill_statement").then(__webpack_require__.bind(null, /*! ./components/admin/bill_statement/Index.vue */ "./resources/js/components/admin/bill_statement/Index.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/bill/statement/add',
+  name: 'bill_statement_add',
+  component: function component() {
+    return Promise.all(/*! import() | bill_statement_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("bill_statement_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/bill_statement/Add.vue */ "./resources/js/components/admin/bill_statement/Add.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/bill/statement/details/:id',
+  name: 'bill_statement_details',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | bill_statement_details */ "bill_statement_details").then(__webpack_require__.bind(null, /*! ./components/admin/bill_statement/BillDetails.vue */ "./resources/js/components/admin/bill_statement/BillDetails.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/loan/add',
+  component: function component() {
+    return Promise.all(/*! import() | addLoan */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("addLoan")]).then(__webpack_require__.bind(null, /*! ./components/admin/loan/Add */ "./resources/js/components/admin/loan/Add.vue"));
+  },
+  name: 'loanAdd',
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/loan/manage',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | Loan */ "Loan").then(__webpack_require__.bind(null, /*! ./components/admin/loan/Loan */ "./resources/js/components/admin/loan/Loan.vue"));
+  },
+  name: 'loan',
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/loaner/detaials/:id',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | LoanDetails */ "LoanDetails").then(__webpack_require__.bind(null, /*! ./components/admin/loan/LoanerDetails */ "./resources/js/components/admin/loan/LoanerDetails.vue"));
+  },
+  name: 'LoanerDetails',
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/coupon/code',
+  name: 'coupon',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | coupon */ "coupon").then(__webpack_require__.bind(null, /*! ./components/admin/coupon/Index.vue */ "./resources/js/components/admin/coupon/Index.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/coupon/code/add',
+  name: 'coupon_add',
+  component: function component() {
+    return Promise.all(/*! import() | coupon_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("coupon_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/coupon/Add.vue */ "./resources/js/components/admin/coupon/Add.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/coupon/code/edit/:id',
+  name: 'coupon_edit',
+  component: function component() {
+    return Promise.all(/*! import() | coupon_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("coupon_edit")]).then(__webpack_require__.bind(null, /*! ./components/admin/coupon/Edit.vue */ "./resources/js/components/admin/coupon/Edit.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true
+  }
+}, {
+  path: '/backend/showroom',
+  name: 'showroom',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | showroom */ "showroom").then(__webpack_require__.bind(null, /*! ./components/admin/showroom/Index.vue */ "./resources/js/components/admin/showroom/Index.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true,
+    title: 'showroom'
+  }
+}, {
+  path: '/backend/showroom/add',
+  name: 'showroom_add',
+  component: function component() {
+    return Promise.all(/*! import() | showroom_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("showroom_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/showroom/Add.vue */ "./resources/js/components/admin/showroom/Add.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true,
+    title: 'showroom add'
+  }
+}, {
+  path: '/backend/showroom/edit/:id',
+  name: 'showroom_edit',
+  component: function component() {
+    return Promise.all(/*! import() | showroom_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("showroom_edit")]).then(__webpack_require__.bind(null, /*! ./components/admin/showroom/Edit.vue */ "./resources/js/components/admin/showroom/Edit.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true,
+    title: 'showroom edit'
+  }
+}, {
+  path: '/backend/showroom_manager',
+  name: 'showroom_manager',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | showroom_manager */ "showroom_manager").then(__webpack_require__.bind(null, /*! ./components/admin/showroom_manager/Index.vue */ "./resources/js/components/admin/showroom_manager/Index.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true,
+    title: 'showroom manager'
+  }
+}, {
+  path: '/backend/showroom_manager/add',
+  name: 'showroom_manager_add',
+  component: function component() {
+    return Promise.all(/*! import() | showroom_manager_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("showroom_manager_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/showroom_manager/Add.vue */ "./resources/js/components/admin/showroom_manager/Add.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true,
+    title: 'showroom manager add'
+  }
+}, {
+  path: '/backend/showroom_manager/edit/:id',
+  name: 'showroom_manager_edit',
+  component: function component() {
+    return Promise.all(/*! import() | showroom_manager_edit */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("showroom_manager_edit")]).then(__webpack_require__.bind(null, /*! ./components/admin/showroom_manager/Edit.vue */ "./resources/js/components/admin/showroom_manager/Edit.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true,
+    title: 'showroom manager edit'
+  }
+}, {
+  path: '/backend/product/transfer',
+  name: 'product_transfer',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | product_transfer */ "product_transfer").then(__webpack_require__.bind(null, /*! ./components/admin/product_transfer/Index.vue */ "./resources/js/components/admin/product_transfer/Index.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true,
+    title: 'showroom product transfer'
+  }
+}, {
+  path: '/backend/product/transfer/add',
+  name: 'product_transfer_add',
+  component: function component() {
+    return Promise.all(/*! import() | product_transfer_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~e422c937"), __webpack_require__.e("product_transfer_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/product_transfer/Add.vue */ "./resources/js/components/admin/product_transfer/Add.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true,
+    title: 'showroom product transfer'
+  }
+}, {
+  path: '/backend/product/transfer/details/:id',
+  name: 'product_transfer_details',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | product_transfer_details */ "product_transfer_details").then(__webpack_require__.bind(null, /*! ./components/admin/product_transfer/Details.vue */ "./resources/js/components/admin/product_transfer/Details.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true,
+    title: 'showroom product transfer details'
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -89031,7 +89640,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 var state = {
   //store admin
   admin: {},
-  //initialize merchant 
+  //initialize merchant
   merchant: {},
   //store cart
   cartContent: {
@@ -89046,13 +89655,17 @@ var state = {
   sub_categories: '',
   //store sliders
   sliders: '',
+  //store best selling products
+  best_selling_produtcs: [],
+  //store best selling products
+  new_rendom_products: [],
   //slider banner
   slider_banner: '',
-  //category slider 
+  //category slider
   category_sliders: '',
-  //sub category slider 
+  //sub category slider
   sub_category_sliders: '',
-  //sub sub category slider 
+  //sub sub category slider
   sub_sub_category_sliders: '',
   //store offer banner
   offer_banner: {},
@@ -89064,11 +89677,9 @@ var state = {
   product_images: {},
   //for check admin page view permisson
   view_permission: false,
-  image_base_link: '/../storage/',
+  image_base_link: '/../public/storage/',
   //for home page products
   home_page_products: "",
-  //for show sub sub category product on home page
-  sub_sub_category_product: "",
   //general setting
   general_setting: "",
   //footer setting
@@ -89095,6 +89706,10 @@ var getters = (_getters = {
   return state.categories;
 }), _defineProperty(_getters, "sliders", function sliders(state) {
   return state.sliders;
+}), _defineProperty(_getters, "new_rendom_products", function new_rendom_products(state) {
+  return state.new_rendom_products;
+}), _defineProperty(_getters, "best_selling_produtcs", function best_selling_produtcs(state) {
+  return state.best_selling_produtcs;
 }), _defineProperty(_getters, "slider_banner", function slider_banner(state) {
   return state.slider_banner;
 }), _defineProperty(_getters, "category_sliders", function category_sliders(state) {
@@ -89119,8 +89734,6 @@ var getters = (_getters = {
   return state.image_base_link;
 }), _defineProperty(_getters, "home_page_products", function home_page_products(state) {
   return state.home_page_products;
-}), _defineProperty(_getters, "sub_sub_category_product", function sub_sub_category_product(state) {
-  return state.sub_sub_category_product;
 }), _defineProperty(_getters, "sale_campaign", function sale_campaign(state) {
   return state.sale_campaign;
 }), _defineProperty(_getters, "general_setting", function general_setting(state) {
@@ -89204,12 +89817,14 @@ var actions = {
     })["catch"](function (error) {//   console.log('error');
     });
   },
-  //get sliders 
+  //get sliders
   sliders: function sliders(context) {
     axios.get("/_public/slider").then(function (resp) {
       // console.log(resp)
       context.commit('sliders', resp.data.sliders);
       context.commit('slider_banner', resp.data.slider_banner);
+      context.commit('best_selling_produtcs', resp.data.best_selling_produtcs);
+      context.commit('new_rendom_products', resp.data.new_rendom_products);
     });
   },
   //get category sliders
@@ -89233,23 +89848,23 @@ var actions = {
       context.commit('sub_sub_category_sliders', resp.data.sub_sub_category_sliders);
     });
   },
-  //get offer_banner 
+  //get offer_banner
   offer_banner: function offer_banner(context) {
     axios.get("/_public/offers").then(function (resp) {
       context.commit('offer_banner', resp.data.offers);
     })["catch"](function (error) {});
   },
-  //method initial for get campaign sale 
+  //method initial for get campaign sale
   sale_campaign: function sale_campaign(context) {
     axios.get("/_public/api/display/sale/campaign").then(function (resp) {
-      // console.log(resp)
+      console.log(resp);
       context.commit('sale_campaign', resp.data.sale_campaign);
     });
   },
   //method initial for get single product from db
   single_product: function single_product(context, payload) {
     axios.get("/_public/product/" + payload).then(function (resp) {
-      document.title = resp.data.product.name + "- Mohasagor";
+      document.title = resp.data.product.name;
       context.commit('single_product', resp.data.product);
     });
   },
@@ -89257,21 +89872,14 @@ var actions = {
   product_images: function product_images(context, payload) {
     axios.get('/_public/product/images/' + payload).then(function (resp) {
       console.log(resp.data);
-      context.commit('product_images', resp.data);
+      context.commit('product_images', resp.data.product_images);
     });
   },
   home_page_products: function home_page_products(context) {
-    axios.get('/_public/products/').then(function (resp) {
+    axios.get('/_public/products').then(function (resp) {
       //  console.log(resp)
       context.commit('home_page_products', resp.data);
     })["catch"](function (e) {// console.log(e);
-    });
-  },
-  sub_sub_category_product: function sub_sub_category_product(context) {
-    axios.get("/_public/sub/sub/category/product").then(function (resp) {
-      // console.log(resp);
-      context.commit('sub_sub_category_product', resp.data);
-    })["catch"](function (e) {// console.log(e)
     });
   },
   general_setting: function general_setting(context) {
@@ -89317,6 +89925,12 @@ var mutations = {
   sliders: function sliders(state, payload) {
     return state.sliders = payload;
   },
+  new_rendom_products: function new_rendom_products(state, payload) {
+    return state.new_rendom_products = payload;
+  },
+  best_selling_produtcs: function best_selling_produtcs(state, payload) {
+    return state.best_selling_produtcs = payload;
+  },
   slider_banner: function slider_banner(state, payload) {
     return state.slider_banner = payload;
   },
@@ -89343,9 +89957,6 @@ var mutations = {
   },
   home_page_products: function home_page_products(state, payload) {
     return state.home_page_products = payload;
-  },
-  sub_sub_category_product: function sub_sub_category_product(state, payload) {
-    return state.sub_sub_category_product = payload;
   },
   general_setting: function general_setting(state, payload) {
     return state.general_setting = payload;

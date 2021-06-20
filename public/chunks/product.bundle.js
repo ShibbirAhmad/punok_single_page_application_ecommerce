@@ -227,6 +227,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -519,7 +522,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.dropbtn[data-v-ef6e0f58] {\r\n  width: 100% !important;\r\n  margin-bottom: 5px !important;\n}\n.dropbtn-active[data-v-ef6e0f58] {\r\n  display: block !important;\n}\n.dropdown-action[data-v-ef6e0f58] {\r\n  display: none;\r\n  width: 90px;\r\n  position: absolute;\n}\r\n", ""]);
+exports.push([module.i, "\n.box[data-v-ef6e0f58]{\r\n  overflow-x:scroll;\n}\n.dropbtn[data-v-ef6e0f58] {\r\n  width: 100% !important;\r\n  margin-bottom: 5px !important;\n}\n.dropbtn-active[data-v-ef6e0f58] {\r\n  display: block !important;\n}\n.dropdown-action[data-v-ef6e0f58] {\r\n  display: none;\r\n  width: 90px;\r\n  position: absolute;\n}\r\n", ""]);
 
 // exports
 
@@ -601,11 +604,11 @@ var render = function() {
         _c("section", { staticClass: "content" }, [
           _c("div", { staticClass: "container" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-11" }, [
+              _c("div", { staticClass: "col-lg-11 col-md-11" }, [
                 _c("div", { staticClass: "box box-primary" }, [
                   _c("div", { staticClass: "box-header with-border" }, [
                     _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-lg-1" }, [
+                      _c("div", { staticClass: "col-lg-2" }, [
                         _c(
                           "select",
                           {
@@ -664,7 +667,7 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-lg-5" }),
+                      _c("div", { staticClass: "col-lg-4" }),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-lg-4" }, [
                         _c("input", {
@@ -754,7 +757,11 @@ var render = function() {
                   _c("div", { staticClass: "box-body" }, [
                     _c(
                       "table",
-                      { staticClass: "table", attrs: { id: "table" } },
+                      {
+                        staticClass:
+                          "table text-center table-striped table-hover table-bordered ",
+                        attrs: { id: "table" }
+                      },
                       [
                         _vm._m(1),
                         _vm._v(" "),
@@ -805,10 +812,6 @@ var render = function() {
                                         )
                                       ]
                                     ),
-                                    _vm._v(" "),
-                                    _c("td", [
-                                      _vm._v(_vm._s(product.product_code))
-                                    ]),
                                     _vm._v(" "),
                                     _c("td", [
                                       product.product_image.length
@@ -889,6 +892,20 @@ var render = function() {
                                             },
                                             [_vm._v("Deny")]
                                           )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      _c(
+                                        "span",
+                                        { staticClass: "badge badge-info" },
+                                        [
+                                          _vm._v(
+                                            " " +
+                                              _vm._s(product.wallet_point) +
+                                              " "
+                                          )
+                                        ]
+                                      )
                                     ]),
                                     _vm._v(" "),
                                     _c("td", [
@@ -1086,27 +1103,27 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _c("th", { attrs: { width: "5%" } }, [_vm._v("#")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
+        _c("th", { attrs: { width: "10%" } }, [_vm._v("name")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Barcode")]),
+        _c("th", { attrs: { width: "10%" } }, [_vm._v("barcode")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("P_code")]),
+        _c("th", { attrs: { width: "5%" } }, [_vm._v("image")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Image")]),
+        _c("th", { attrs: { width: "5%" } }, [_vm._v("sale price")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Sale_price")]),
+        _c("th", { attrs: { width: "5%" } }, [_vm._v("discount")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Discount")]),
+        _c("th", { attrs: { width: "5%" } }, [_vm._v("price")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("price")]),
+        _c("th", { attrs: { width: "5%" } }, [_vm._v("stock")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("stock")]),
+        _c("th", { attrs: { width: "5%" } }, [_vm._v("status")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("status")]),
+        _c("th", { attrs: { width: "5%" } }, [_vm._v("wallet point")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Action")])
+        _c("th", { attrs: { width: "10%" } }, [_vm._v("action")])
       ])
     ])
   }

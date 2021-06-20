@@ -55,6 +55,8 @@ class LoanerController extends Controller
           $loaner->address=$request->address;
           $loaner->email=$request->email??null;
           if($loaner->save()){
+
+            
               return \response()->json([
                   'success'=>"OK",
                   'message'=>"Loaner Was Add"

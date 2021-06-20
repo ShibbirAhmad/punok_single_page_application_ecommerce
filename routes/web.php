@@ -15,7 +15,7 @@ Route::group([
     'namespace' => 'Frontend',
     'prefix' => '_public/'
 ], function () {
-    //occasion buy one get one and seasoanl campaign 
+    //occasion buy one get one and seasoanl campaign
     Route::get('api/publish/seasional/campaign','HomeController@publish_seasional_campaign');
     Route::get('api/publish/occasional/campaign','HomeController@publish_occation_campaign');
     Route::get('api/publish/buy/one/get/one/campaign','HomeController@publish_buy_one_get_one_campaign');
@@ -28,15 +28,12 @@ Route::group([
     Route::get('api/get/general/setting','HomeController@get_general_setting');
     Route::get('api/get/theme/setting','HomeController@get_theme_setting');
 
-    //new arrival products
-    Route::get('api/new/arrival/products','HomeController@get_new_arrival_products');
-
 
     // public carrier route
     Route::get('carrier/list','CarrierController@index');
     Route::get('carrier/details/{id}','CarrierController@carrier_details');
     Route::post('api/carrier/apply/by/job/{id}','CarrierController@job_apply');
-    
+
     //route for get team
     Route::get('team/members','HomeController@get_team_members');
 
@@ -44,16 +41,12 @@ Route::group([
     Route::get('products', 'HomeController@products');
     Route::get('product/{slug}', 'HomeController@product');
     Route::get('product/id/wise/{id}', 'HomeController@productIdWise');
-
     Route::get('related/products', 'HomeController@relatedProduct');
 
 
-    
-    //route for subscirber and contact 
+    //route for subscirber and contact
     Route::post('add/subscriber','SubscriberController@addSubscriber');
-
     Route::post('customer/contact','ContactController@contactCustomer');
-
 
     //publc category route
     Route::get('category', 'HomeController@category');
@@ -65,20 +58,17 @@ Route::group([
     Route::get('api/get/single/prodocut/for/quick/view/{id}','HomeController@get_quick_view_product');
 
 
-    //public sub category route 
+    //public sub category route
     Route::get('sub/category/{slug}', 'HomeController@subCategory');
     Route::get('sub/category/wise/product', 'HomeController@subCategoryWiseProduct');
     Route::get('sub/sub/category/product', 'HomeController@subSubSubCategoryProduct');
 
 
-
-    //public sub-sub category route 
+    //public sub-sub category route
     Route::get('sub/sub/category/{slug}', 'HomeController@subSubCategory');
     Route::get('sub/sub/category/wise/product', 'HomeController@subSubCategoryWiseProduct');
-    
 
-
-   // slider display route started here 
+   // slider display route started here
     Route::get('slider', 'HomeController@slider');
     Route::get('api/display/category/slider', 'HomeController@display_category_slider');
     Route::get('api/display/sub/category/slider', 'HomeController@display_sub_category_slider');
@@ -86,16 +76,12 @@ Route::group([
    // slider route end
 
     Route::get('offers', 'HomeController@offers');
-    
     Route::get('product', 'HomeController@product');
-    Route::get('search/products/{search}', 'HomeController@SearchProduct');
     Route::get('search/products/{search}', 'HomeController@SearchProduct');
     Route::get('product/images/{slug}', 'HomeController@productImage');
 
     //sale campaign
     Route::get('api/display/sale/campaign', 'HomeController@saleCampaignProducts');
-
-
 
     //cart route..........
     Route::get('addToCart', 'CartController@addCart');
@@ -107,20 +93,21 @@ Route::group([
 
     //user authentication route
     Route::post('userToRegister','AuthController@register');
-    
+
     Route::post('userToLogin','AuthController@login');
     Route::get('userToCheck','AuthController@chekAuthUser');
     Route::post('api/user/password/reset/send/code','AuthController@resetCode');
     Route::post('api/user/password/verify/code/{mobile_no}','AuthController@codeVerify');
     Route::post('api/user/password/reset/{mobile_no}','AuthController@ResetPassword');
-
-
     Route::post('send/code/forgotten/user','AuthController@send_password_reset_code')->middleware(['guest']);
 
-    //chekout route 
+    //chekout route
+     Route::get('apply/coupon/code', 'HomeController@ApplyCoupon');
 
 
-});
+
+
+ });
 
 
 
@@ -147,7 +134,7 @@ Route::group([
 
 });
 
-//others route 
+//others route
 Route::get('_public/others', 'Admin\OthersController@others')->middleware('auth');
 
 
@@ -158,33 +145,33 @@ Route::group([
     //'prefix' => 'backend/'
 ], function () {
 
-     //start dashboard route 
+     //start dashboard route
 
     Route::get('dashboard', 'DashboardController@index');
 
     //started user
-    Route::get('list/user/all','UserController@getUser'); 
-    Route::get('user/search/{data}','UserController@search_user'); 
-    Route::get('api/export/users','UserController@export_users'); 
-    Route::get('deactive/user/{id}','UserController@deActiveUser'); 
-    Route::get('active/user/{id}','UserController@activeUser'); 
-    //end user 
-    
-   //send message url is here 
-   Route::post('api/send/message/to/customer','MessageController@send_message'); 
+    Route::get('list/user/all','UserController@getUser');
+    Route::get('user/search/{data}','UserController@search_user');
+    Route::get('api/export/users','UserController@export_users');
+    Route::get('deactive/user/{id}','UserController@deActiveUser');
+    Route::get('active/user/{id}','UserController@activeUser');
+    //end user
 
-   //route for display subscriber 
+   //send message url is here
+   Route::post('api/send/message/to/customer','MessageController@send_message');
+
+   //route for display subscriber
    Route::get('api/display/subscribers','OthersController@subscribers');
    Route::get('api/subscriber/search/{data}','OthersController@search_subscribers');
    Route::get('api/subscriber/remove/{id}','OthersController@remove_subscriber');
    Route::get('api/subscriber/exports','OthersController@export_subscriber');
 
-   //route for contact user message dispaly 
+   //route for contact user message dispaly
    Route::get('api/display/contacts','OthersController@contact_message');
    Route::get('api/get/contacted/customer/{id}','OthersController@get_contacted_customer');
    Route::get('api/contacted/customer/search/{data}','OthersController@search_contacted_customer');
    Route::get('api/reply/message/to/contacted/customer/{to}/{subject}/{message}','Contact_replyController@reply_contacted_customer');
-  
+
 
   // start team route here
    Route::get('team/members/list','TeamController@index');
@@ -198,9 +185,9 @@ Route::group([
 
    Route::get('api/member/salary/list/{id}','TeamController@salary');
    Route::get('api/member/salary/list/{id}/{month}','TeamController@salaryDetails');
-      Route::get('/api/employee/salary/paid','TeamController@paidSalary');
+   Route::get('/api/employee/salary/paid','TeamController@paidSalary');
 
-  
+
    // end team route here
 
 
@@ -224,7 +211,7 @@ Route::group([
     Route::get('api/admin/to/merchant/{id}','MerchantController@adminAccessMerchant');
     Route::get('api/export/merchants','MerchantController@exportMerchant');
     // end merchant route here
-   
+
   //start carrier controller here
 
   Route::get('carrier/list','CarrierController@index');
@@ -244,13 +231,13 @@ Route::group([
 
 
     //started customer
-    Route::get('/list/customer','CustomerController@getCustomer'); 
-    Route::get('/search/customer/{data}','CustomerController@searchCustomer'); 
-    Route::get('api/export/customers','CustomerController@export_customers'); 
-    Route::get('api/export/retail/customers','CustomerController@export_retail_customers'); 
-    Route::get('api/customers/export/wholesale','CustomerController@export_wholesale_customers'); 
-    Route::get('api/export//customers/officesale','CustomerController@export_officesale_customers'); 
-    //end customer 
+    Route::get('/list/customer','CustomerController@getCustomer');
+    Route::get('/search/customer/{data}','CustomerController@searchCustomer');
+    Route::get('api/export/customers','CustomerController@export_customers');
+    Route::get('api/export/retail/customers','CustomerController@export_retail_customers');
+    Route::get('api/customers/export/wholesale','CustomerController@export_wholesale_customers');
+    Route::get('api/export//customers/officesale','CustomerController@export_officesale_customers');
+    //end customer
 
 
     //start the category route
@@ -279,6 +266,9 @@ Route::group([
     Route::get('search/subCategory/{search}', 'SubCategoryController@search');
     Route::get('edit/subCategory/{id}', 'SubCategoryController@edit');
     Route::post('update/subCategory/{id}', 'SubCategoryController@update');
+     //apply discount
+    Route::post('api/sub-category/discount/add/{id}', 'SubCategoryController@addDiscount');
+
 
 
     //start the sub-sub category route
@@ -289,6 +279,8 @@ Route::group([
     Route::get('search/subSubCategory/{search}', 'SubSubCategoryController@search');
     Route::get('edit/subSubCategory/{id}', 'SubSubCategoryController@edit');
     Route::post('update/subSubCategory/{id}', 'SubSubCategoryController@update');
+    //apply discount
+    Route::post('api/sub-sub-category/discount/add/{id}', 'SubSubCategoryController@addDiscount');
 
 
      //start the slider route
@@ -339,10 +331,10 @@ Route::group([
 
 
     Route::get('api/supplier/list', 'SupplierController@supplierList');
-    
-    
+
+
     Route::get('api/export/supplier', 'SupplierController@export_supplier');
-   
+
 
 
     //start the city route
@@ -404,8 +396,8 @@ Route::group([
      Route::get('api/deActive/factory/{id}', 'FactoryController@deActive');
      Route::get('api/edit/factory/{id}', 'FactoryController@edit');
      Route::post('api/update/factory/{id}', 'FactoryController@update');
-     
-     
+
+
     //start the product route
     Route::get('/list/product', 'ProductController@index');
     Route::post('product/add', 'ProductController@store');
@@ -433,14 +425,17 @@ Route::group([
 
 
 
+
     //start the coupon route
-    Route::get('/list/coupon', 'CouponController@index');
-    Route::post('coupon/add', 'CouponController@store');
-    Route::get('/active/coupon/{id}', 'CouponController@active');
-    Route::get('/deActive/coupon/{id}', 'CouponController@deActive');
-    Route::get('/edit/coupon/{id}', 'CouponController@edit');
-    Route::post('/update/coupon/{id}', 'CouponController@update');
-    Route::get('/destroy/product/{id}', 'CouponController@destroy');
+    Route::get('api/get/coupon/list', 'CouponController@index');
+    Route::post('api/coupon/code/add', 'CouponController@store');
+    Route::get('api/coupon/active/{id}', 'CouponController@active');
+    Route::get('api/coupon/de-active/{id}', 'CouponController@deActive');
+    Route::get('api/get/edit/coupon/{id}', 'CouponController@get_edit_item');
+    Route::post('api/coupon/code/update/{id}', 'CouponController@update');
+    Route::get('api/coupon/delete/{id}', 'CouponController@destroy');
+
+
 
 
      //start the purchase route
@@ -469,7 +464,7 @@ Route::group([
     // this route for office sale
     Route::get('api/office/sale/search/data/{data}', 'SaleController@office_sale_search_according_data');
     Route::get('api/officeSale/date/wise/filter', 'SaleController@office_sale_search_according_date_wise');
-    //this route for company sale 
+    //this route for company sale
     Route::get('api/company/sale/search/data/{data}', 'SaleController@company_sale_search_according_data');
     Route::get('api/company/sale/date/wise/filter', 'SaleController@company_sale_search_according_date_wise');
 
@@ -487,7 +482,7 @@ Route::group([
     Route::get('approved/order/{id}', 'OrderController@approved');
     Route::get('pending/order/{id}', 'OrderController@pending');
     Route::get('delivered/order/{id}', 'OrderController@delivered');
-    Route::get('api/shipment/order/{id}', 'OrderController@shipment');
+    Route::get('shipment/order/{id}', 'OrderController@shipment');
     Route::get('return/order/{id}', 'OrderController@return');
     Route::get('cancel/order/{id}', 'OrderController@cancel');
 
@@ -512,14 +507,14 @@ Route::group([
     Route::get('delivered/all/order/{id}', 'OrderController@deliveredAll');
     Route::get('cancel/all/order/{id}', 'OrderController@cancellAll');
     Route::get('return/all/order/{id}', 'OrderController@returnAll');
-  
+
     Route::get('update/commision/reseller/order/{id}', 'OrderController@updateResellerCommison');
     Route::get('order/return/item/{id}', 'OrderController@returnItem');
 
 
 
-   
-   //selling offer has start 
+
+   //selling offer has start
    Route::get('selling/offer/list','Selling_offerController@getSellingOffer');
    Route::post('selling/offer/add','Selling_offerController@addSellingOffer');
    Route::get('selling/offer/get/{id}','Selling_offerController@findEditSellingOffer');
@@ -527,7 +522,7 @@ Route::group([
    Route::get('selling/offer/active/{id}','Selling_offerController@activeSellingOffer');
    Route::get('selling/offer/deactive/{id}','Selling_offerController@deactiveSellingOffer');
 
-    
+
 
 
 
@@ -555,8 +550,8 @@ Route::group([
     Route::post('/update/admin/password/{id}', 'AdminController@updatePassword');
 
 
-    //start the accounts route 
-    //start credit route 
+    //start the accounts route
+    //start credit route
     Route::get('credits', 'AccountController@get_credit');
     Route::post('credit/store', 'AccountController@store_credit');
     Route::get('credit/edit/{id}', 'AccountController@edit_credit');
@@ -570,7 +565,7 @@ Route::group([
 
 
 
-    //start debit route 
+    //start debit route
     Route::get('debits', 'AccountController@get_debit');
     Route::post('debit/store', 'AccountController@store_debit');
     Route::get('debit/edit/{id}', 'AccountController@edit_debit');
@@ -582,14 +577,14 @@ Route::group([
 
 
 
-    //start company route 
+    //start company route
     Route::get('company', 'CompanyController@index');
     Route::post('company/store', 'CompanyController@store');
     Route::get('company/edit/{id}', 'CompanyController@edit');
     Route::post('company/update/{id}', 'CompanyController@update');
 
 
-   //start the report route 
+   //start the report route
    Route::get('api/order/report', 'ReportController@orderReport');
    Route::get('api/sale/report/office', 'ReportController@officeSaleReport');
    Route::get('api/get/office/sale/pdf/{start_date}/{end_date}', 'ReportController@office_sale_report_pdf');
@@ -605,7 +600,7 @@ Route::group([
 
 
 
-  //start the admin reseller route 
+  //start the admin reseller route
   Route::resource('admin/reseller','ResellerController');
   Route::post('/reseller/update/{id}','ResellerController@updateRseller');
   Route::get('/admin/to/reseller/{id}','ResellerController@accountAccess');
@@ -615,7 +610,7 @@ Route::group([
   Route::get('api/paid/payment/','ResellerController@paidPayment');
 
   Route::get('/api/reseller/to/paid','ResellerController@toPaid');
-  
+
   Route::get('api/payment/invoice','ResellerController@paymentInvoice');
  Route::get('api/details/payment/invoice/{id}','ResellerController@paymentInvoiceDetails');
 
@@ -644,28 +639,69 @@ Route::group([
  Route::post('api/fond/transfer','FondTransferController@store');
  Route::get('api/fond/transfer','FondTransferController@index');
 
-//loaner
- Route::post('api/loaner/store','LoanerController@store');
- Route::get('api/loaner','LoanerController@index');
- Route::post('api/loan/store','LoanerController@storeLoan');
- Route::get('api/loaner','LoanerController@index');
- Route::post('api/loaner/store','LoanerController@store');
- Route::get('api/loaner','LoanerController@index');
 
 
- 
- 
-    
-// sale campaign route is start from here
-Route::get('api/sale/campaign/list','SaleCampaignController@get_sale_campaign_list');
-Route::post('api/sale/campaign/add','SaleCampaignController@store_sale_campaign');
-Route::get('api/campaign/sale/edit/item/{id}','SaleCampaignController@get_edit_campaign');
-Route::post('api/sale/campaign/edit/{id}','SaleCampaignController@update_sale_campaign');
-Route::get('api/sale/campaign/active/{id}','SaleCampaignController@active_sale_campaign');
-Route::get('api/sale/campaign/deActive/{id}','SaleCampaignController@de_active_sale_campaign');
-Route::get('api/sale/campaign/remove/{id}','SaleCampaignController@destroy_sale_campaign');
+   //start the loan route
+    Route::get('api/loan','LoanController@index');
+    Route::post('api/loand/store','LoanController@store');
+    Route::get('api/loaners','LoanController@loaners');
+    Route::get('api/loaners/details/{id}','LoanController@loanersdetails');
+    Route::get('api/loan/store/{id}','LoanController@storeloan');
+    Route::get('api/download/all/loan/pdf','LoanController@download_all_record');
+    Route::get('api/loan/history/download/pdf/{id}','LoanController@download_loan_history');
+    Route::get('api/loand/paid/history/download/pdf/{id}','LoanController@download_loan_paid_history');
 
-   
+
+    //company assets route is here
+    Route::get('api/company/assets','AssetsController@get_assets');
+    Route::post('api/company/assets/add','AssetsController@store_assets');
+    Route::get('api/company/assets/edit/{id}','AssetsController@get_asset_item');
+    Route::post('api/company/assets/update/{id}','AssetsController@update_asset_item');
+    Route::get('api/company/assets/delete/{id}','AssetsController@delete_asset_item');
+    Route::get('api/download/assets/pdf','AssetsController@download_assets');
+
+
+     //company ivestment route is here
+    Route::get('api/company/investor','InvestmentController@get_ivestors');
+    Route::post('api/company/investor/add','InvestmentController@store');
+    Route::get('api/company/investor/details/{id}','InvestmentController@get_ivestor_details');
+    Route::get('api/add/more/invest/{id}','InvestmentController@add_more_invest');
+    Route::get('api/company/investor/list','InvestmentController@investor_list');
+    Route::get('api/download/all/investment/pdf','InvestmentController@download_investors');
+    Route::get('api/investor/paid/history/download/pdf/{id}','InvestmentController@download_profit_paid');
+    Route::get('api/invest/history/download/pdf/{id}','InvestmentController@download_investor_record');
+
+
+   //print house route is here
+    Route::get('api/print/houses','PrintHouseController@index');
+    Route::post('api/print/house/add','PrintHouseController@store');
+    Route::get('api/print/house/details/{id}','PrintHouseController@get_print_house_details');
+    Route::post('api/add/product/for/print','PrintHouseController@add_product_for_print');
+    Route::get('api/print/house/list','PrintHouseController@print_house_list');
+    Route::get('api/get/print/details','PrintHouseController@print_details');
+    Route::get('api/get/receive/product/details','PrintHouseController@recieve_print_details');
+    Route::get('api/get/printed/products/{id}','PrintHouseController@printed_product_list');
+    Route::post('api/receive/printed/product/{id}','PrintHouseController@receive_printed_products');
+
+
+    //company bill statements route is here
+    Route::get('api/bill/statement/list','BillStatementController@bill_list');
+    Route::post('api/bll/statement/add','BillStatementController@store');
+    Route::get('api/bll/per/month/add','BillStatementController@store_bill_per_month');
+    Route::get('api/bll/statement/details/{id}','BillStatementController@bill_statement_details');
+
+
+
+    // sale campaign route is start from here
+    Route::get('api/sale/campaign/list','SaleCampaignController@get_sale_campaign_list');
+    Route::post('api/sale/campaign/add','SaleCampaignController@store_sale_campaign');
+    Route::get('api/campaign/sale/edit/item/{id}','SaleCampaignController@get_edit_campaign');
+    Route::post('api/sale/campaign/edit/{id}','SaleCampaignController@update_sale_campaign');
+    Route::get('api/sale/campaign/active/{id}','SaleCampaignController@active_sale_campaign');
+    Route::get('api/sale/campaign/deActive/{id}','SaleCampaignController@de_active_sale_campaign');
+    Route::get('api/sale/campaign/remove/{id}','SaleCampaignController@destroy_sale_campaign');
+
+
 
 // general setting route is start from here
 Route::get('api/get/site/info','GeneralSettingController@get_site_info');
@@ -698,6 +734,25 @@ Route::post('api/edit/site/footer/info/{id}','FooterSettingController@edit_foote
  Route::get('api/get/buy/one/get/one/offer','SaleCampaignController@get_buy_one_get_one_campaign');
  Route::post('api/edit/buy/one/get/one/offer/{id}','SaleCampaignController@edit_buy_one_get_one_campaign');
 
+
+
+    //showroom routes
+    Route::get('api/showroom/list','ShowroomController@index');
+    Route::post('api/showroom/add','ShowroomController@addShowroom');
+    Route::get('api/showroom/edit/item/{id}','ShowroomController@showroomItem');
+    Route::post('api/showroom/update/{id}','ShowroomController@updateShowroom');
+    //showroom manager routes
+    Route::get('api/showroom/manager/list','ShowroomController@managers');
+    Route::post('api/showroom/manager/add','ShowroomController@addManager');
+    Route::get('api/showroom/manager/edit/item/{id}','ShowroomController@getManager');
+    Route::get('api/showroom/manager/delete/{id}','ShowroomController@removeManager');
+    Route::post('api/showroom/manager/update/{id}','ShowroomController@updateManager');
+    Route::get('api/showroom/transaction/list','ShowroomController@showroomTransactions');
+    Route::get('api/get/product/transfer/details/{id}','ShowroomController@transactionDetails');
+    Route::post('api/transfer/product/into/showroom','ShowroomController@transferProducts');
+
+
+
 });
 
 Route::post('/admin/login', 'Admin\LoginController@login');
@@ -708,7 +763,7 @@ Route::get('check/session/admin', 'Admin\LoginController@sessionCheck');
 Route::get('/resller', 'Reseller\HomeController@home');
 
 
-//social login 
+//social login
 Route::get('auth/redirect/{provider}', 'Admin\SocialAuthController@redirect');
 Route::get('{provider}/callback', 'Admin\SocialAuthController@callback');
 

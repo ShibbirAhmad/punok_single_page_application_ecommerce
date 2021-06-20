@@ -12,7 +12,7 @@ const routes = [
         name: 'welcome',
         props: true,
         meta: {
-            title: "Online Shopping Fashion,Electronics-punok.com.bd"
+            title: "Online Shopping "
         }
 
     },
@@ -418,7 +418,7 @@ const routes = [
 
     {
         path: '/merchant/backend/profile/edit',
-        component: () => import(/* webpackChunkName: "merchant_profile_edit" */'./components/merchant/profile/Change_password'),
+        component: () => import(/* webpackChunkName: "merchant_profile_edit" */'./components/merchant/profile/Change_profile.vue'),
         name: 'merchant_profile_edit',
         meta: {
             title: ' Profile info | Edit '
@@ -428,7 +428,7 @@ const routes = [
 
     {
         path: '/merchant/backend/security/edit',
-        component: () => import(/* webpackChunkName: "merchant_password_edit" */'./components/merchant/profile/Change_profile'),
+        component: () => import(/* webpackChunkName: "merchant_password_edit" */'./components/merchant/profile/Change_password.vue'),
         name: 'merchant_password_edit',
         meta: {
             title: ' Password | Edit '
@@ -1706,7 +1706,7 @@ const routes = [
 
     {
         path: '/backend/admin/profile',
-        component: () => import(/* webpackChunkName: "adminProfile" */'./components/admin/admin/Add'),
+        component: () => import(/* webpackChunkName: "adminProfile" */'./components/admin/admin/Profile.vue'),
         name: 'adminProfile',
         meta: {
             requiresAuthAdmin: true,
@@ -1789,7 +1789,7 @@ const routes = [
         meta: {
             requiresAuthAdmin: true
         }
-    },  
+    },
 
     {
         path: '/public/otp/login',
@@ -1830,7 +1830,7 @@ const routes = [
         }
     },
 
-    
+
     {
         path: '/backend/sale/campaigns',
         name: 'sale_campaign',
@@ -1885,7 +1885,7 @@ const routes = [
             requiresAuthAdmin: true
         }
     },
-    
+
     {
         path: '/backend/theme/setting',
         name: 'theme_setting',
@@ -1912,6 +1912,312 @@ const routes = [
             requiresAuthAdmin: true
         }
       },
+
+
+
+     {
+        path: '/backend/company/assets',
+        name: 'company_assets',
+        component: () => import(/* webpackChunkName: "company_assets" */'./components/admin/company_assets/Index.vue'),
+        meta: {
+            requiresAuthAdmin: true
+        }
+     },
+
+    {
+        path: '/backend/company/assets/add',
+        name: 'company_assets_add',
+        component: () => import(/* webpackChunkName: "company_assets_add" */'./components/admin/company_assets/Add.vue'),
+        meta: {
+            requiresAuthAdmin: true
+        }
+    },
+    {
+        path: '/backend/company/assets/edit/:id',
+        name: 'company_assets_edit',
+        component: () => import(/* webpackChunkName: "company_assets_edit" */'./components/admin/company_assets/Edit.vue'),
+        meta: {
+            requiresAuthAdmin: true ,
+        }
+    },
+
+    {
+        path: '/backend/company/investment',
+        name: 'investment',
+        component: () => import(/* webpackChunkName: "investment" */'./components/admin/Investment/Index.vue'),
+        meta: {
+            requiresAuthAdmin: true ,
+        }
+     },
+
+    {
+        path: '/backend/company/investment/add',
+        name: 'investment_add',
+        component: () => import(/* webpackChunkName: "investment_add" */'./components/admin/Investment/Add.vue'),
+        meta: {
+            requiresAuthAdmin: true ,
+        }
+    },
+    {
+        path: '/backend/company/investment/edit/:id',
+        name: 'investment_edit',
+        component: () => import(/* webpackChunkName: "investment_edit" */'./components/admin/Investment/Edit.vue'),
+        meta: {
+            requiresAuthAdmin: true ,
+        }
+    },
+
+    {
+        path: '/backend/company/investor/details/:id',
+        name: 'investor_details',
+        component: () => import(/*webpackChunkName: "investor_details" */'./components/admin/Investment/InvestorDetails.vue'),
+        meta: {
+            requiresAuthAdmin: true ,
+        }
+    },
+
+    {
+        path: '/backend/print/house',
+        name: 'print_house',
+        component: () => import(/*webpackChunkName: "print_house" */'./components/admin/print_house/Index.vue'),
+        meta: {
+            requiresAuthAdmin: true ,
+        }
+     },
+
+    {
+        path: '/backend/print/house/add',
+        name: 'print_house_add',
+        component: () => import(/*webpackChunkName: "print_house_add" */'./components/admin/print_house/Add.vue'),
+        meta: {
+            requiresAuthAdmin: true ,
+        }
+    },
+
+    {
+        path: '/backend/print/house/details/:id',
+        name: 'print_house_details',
+        component: () => import(/*webpackChunkName:"print_house_details"*/'./components/admin/print_house/PrintHouseDetails.vue'),
+        meta: {
+            requiresAuthAdmin: true ,
+        }
+    },
+
+    {
+        path: '/backend/add/product/for/print/:id',
+        name: 'print_product_add',
+        component: () => import(/*webpackChunkName: "print_product_add" */'./components/admin/print_house/AddPrintProduct.vue'),
+        meta: {
+            requiresAuthAdmin: true ,
+        }
+    },
+
+    {
+        path: '/backend/receieve/printed/product/:id',
+        name: 'receieve_printed_product',
+        component: () => import(/*webpackChunkName: "receieve_printed_product" */'./components/admin/print_house/ReceievePrinted.vue'),
+        meta: {
+            requiresAuthAdmin: true ,
+        }
+    },
+
+     {
+        path: '/backend/details/print/product/:name',
+        name: 'print_details',
+        component: () => import(/*webpackChunkName: "print_details" */'./components/admin/print_house/PrintDetails.vue'),
+        meta: {
+            requiresAuthAdmin: true ,
+        }
+      },
+
+      {
+        path: '/backend/details/receive/print/product/:name',
+        name: 'receive_print_details',
+        component: () => import(/*webpackChunkName: "receive_print_details" */'./components/admin/print_house/ReceivePrintDetails.vue'),
+        meta: {
+            requiresAuthAdmin: true ,
+        }
+      },
+
+
+
+       {
+        path: '/backend/bill/statement',
+        name: 'bill_statement',
+        component: () => import(/*webpackChunkName: "bill_statement" */'./components/admin/bill_statement/Index.vue'),
+        meta: {
+            requiresAuthAdmin: true ,
+        }
+     },
+
+    {
+        path: '/backend/bill/statement/add',
+        name: 'bill_statement_add',
+        component: () => import(/*webpackChunkName: "bill_statement_add" */'./components/admin/bill_statement/Add.vue'),
+        meta: {
+            requiresAuthAdmin: true ,
+        }
+    },
+
+    {
+        path: '/backend/bill/statement/details/:id',
+        name: 'bill_statement_details',
+        component: () => import(/*webpackChunkName:"bill_statement_details"*/'./components/admin/bill_statement/BillDetails.vue'),
+        meta: {
+            requiresAuthAdmin: true ,
+        }
+    },
+
+
+    {
+        path: '/backend/loan/add',
+        component: () => import(/* webpackChunkName: "addLoan" */'./components/admin/loan/Add'),
+        name: 'loanAdd',
+        meta: {
+            requiresAuthAdmin: true
+        }
+    },
+    {
+        path: '/backend/loan/manage',
+        component: () => import(/* webpackChunkName: "Loan" */'./components/admin/loan/Loan'),
+        name: 'loan',
+        meta: {
+
+            requiresAuthAdmin: true
+        }
+    },
+    {
+        path: '/backend/loaner/detaials/:id',
+        component: () => import(/* webpackChunkName: "LoanDetails" */'./components/admin/loan/LoanerDetails'),
+        name: 'LoanerDetails',
+        meta: {
+            requiresAuthAdmin: true
+        }
+    },
+
+
+
+    {
+        path: '/backend/coupon/code',
+        name: 'coupon',
+        component: () => import(/* webpackChunkName: "coupon" */'./components/admin/coupon/Index.vue'),
+        meta: {
+            requiresAuthAdmin: true
+        }
+     },
+
+    {
+        path: '/backend/coupon/code/add',
+        name: 'coupon_add',
+        component: () => import(/* webpackChunkName: "coupon_add" */'./components/admin/coupon/Add.vue'),
+        meta: {
+            requiresAuthAdmin: true
+        }
+    },
+    {
+        path: '/backend/coupon/code/edit/:id',
+        name: 'coupon_edit',
+        component: () => import(/* webpackChunkName: "coupon_edit" */'./components/admin/coupon/Edit.vue'),
+        meta: { requiresAuthAdmin: true,  }
+    },
+
+
+
+     {
+        path: '/backend/showroom',
+        name: 'showroom',
+        component: () => import(/* webpackChunkName: "showroom" */'./components/admin/showroom/Index.vue'),
+        meta: {
+            requiresAuthAdmin: true,
+            title : 'showroom'
+        }
+    },
+
+
+     {
+        path: '/backend/showroom/add',
+        name: 'showroom_add',
+        component: () => import(/* webpackChunkName: "showroom_add" */'./components/admin/showroom/Add.vue'),
+        meta: {
+            requiresAuthAdmin: true,
+            title : 'showroom add'
+        }
+    },
+
+    {
+        path: '/backend/showroom/edit/:id',
+        name: 'showroom_edit',
+        component: () => import(/* webpackChunkName: "showroom_edit" */'./components/admin/showroom/Edit.vue'),
+        meta: {
+            requiresAuthAdmin: true,
+            title : 'showroom edit'
+        }
+    },
+
+    {
+        path: '/backend/showroom_manager',
+        name: 'showroom_manager',
+        component: () => import(/* webpackChunkName: "showroom_manager" */'./components/admin/showroom_manager/Index.vue'),
+        meta: {
+            requiresAuthAdmin: true,
+            title : 'showroom manager'
+        }
+    },
+
+
+     {
+        path: '/backend/showroom_manager/add',
+        name: 'showroom_manager_add',
+        component: () => import(/* webpackChunkName: "showroom_manager_add" */'./components/admin/showroom_manager/Add.vue'),
+        meta: {
+            requiresAuthAdmin: true,
+            title : 'showroom manager add'
+        }
+    },
+
+    {
+        path: '/backend/showroom_manager/edit/:id',
+        name: 'showroom_manager_edit',
+        component: () => import(/* webpackChunkName: "showroom_manager_edit" */'./components/admin/showroom_manager/Edit.vue'),
+        meta: {
+            requiresAuthAdmin: true,
+            title : 'showroom manager edit'
+        }
+    },
+
+
+
+   {
+        path: '/backend/product/transfer',
+        name: 'product_transfer',
+        component: () => import(/* webpackChunkName: "product_transfer" */'./components/admin/product_transfer/Index.vue'),
+        meta: {
+            requiresAuthAdmin: true,
+            title : 'showroom product transfer'
+        }
+    },
+
+
+     {
+        path: '/backend/product/transfer/add',
+        name: 'product_transfer_add',
+        component: () => import(/* webpackChunkName: "product_transfer_add" */'./components/admin/product_transfer/Add.vue'),
+        meta: {
+            requiresAuthAdmin: true,
+            title : 'showroom product transfer'
+        }
+    },
+
+     {
+        path: '/backend/product/transfer/details/:id',
+        name: 'product_transfer_details',
+        component: () => import(/* webpackChunkName: "product_transfer_details" */'./components/admin/product_transfer/Details.vue'),
+        meta: {
+            requiresAuthAdmin: true,
+            title : 'showroom product transfer details'
+        }
+    },
+
 
 
 ]

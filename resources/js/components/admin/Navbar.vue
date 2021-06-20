@@ -1,8 +1,8 @@
 <template>
   <header class="main-header">
-    <a href="https://sufilifestyle.com" class="logo">
+    <a href="" class="logo">
       <span class="logo-mini"><b>A</b>LT</span>
-      <span class="logo-lg"><b>sufilifestyle</b>.com</span>
+      <span class="logo-lg"><b>{{ general_setting.title }} </b></span>
     </a>
     <nav class="navbar navbar-static-top">
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -45,7 +45,7 @@
 
                 <p>
                   {{ getAdmin.name }} - admin
-                  <small>Member since Nov. 2012</small>
+                  <small> since {{ getAdmin.created_at }} </small>
                 </p>
               </li>
               <li class="user-body"></li>
@@ -101,6 +101,7 @@
 export default {
   created() {
     this.$store.dispatch("admin");
+    this.$store.dispatch('general_setting');
   },
   data() {
     return {
@@ -140,6 +141,10 @@ export default {
     getAdmin() {
       return this.$store.getters.admin;
     },
+    general_setting() {
+      return this.$store.getters.general_setting;
+    },
+
   },
 };
 </script>

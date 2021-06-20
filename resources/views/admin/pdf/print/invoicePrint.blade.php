@@ -22,7 +22,7 @@
             margin-right: 120px !important;
             margin-top: 20px;
         }
-        
+
         body {
             background: #ddd;
         }
@@ -77,17 +77,18 @@
     width: 502px;
     font-size: 24px;
     opacity: 0.2;
-    
+
 }
 
 .rotate-logo img{
 width: 350px;
 }
 
+</style>
 
-
-
-    </style>
+        <?php
+          $setting = App\Models\GeneralSetting::latest()->first();
+        ?>
 
 </head>
 <body>
@@ -100,19 +101,16 @@ width: 350px;
         <div class="row justify-content-center break">
             <div class="col-lg-4  ml-5">
                 <div class="header-left ml-4 text-left">
-                    <img class="inv_logo" src="{{ asset('frontend/image/logo.png') }}" alt="logo" width="200">
-                    <p class="moha_title_inv" >Trusted Online Shopping In Bangladesh</p>
+                    <img class="inv_logo" src="{{ asset('storage/'.$setting->logo) }}" alt="logo" width="200">
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="pull-right moha_add_inv" >
-                    <p>Office: House: 02, Lane: 11, Block: A,</p>
-                    <p>Benarashi Polly, Section-10, Mirpur, Dhaka.</p>
-                    <p>E-mail: support@mohasagor.com</p>
-                    <p>Hot Line: 09636-203040</p>
+                    <p> {!! $setting->invoice_address_details !!} </p>
+
                     <p class="pull-right current_date" style="margin-top: 5px;" ><span style="border: 1px solid #000;padding:2px 4px 2px 4px; border-right: none;">Date: </span><span style="border: 1px solid #000;padding:2px 4px 2px 4px;"><?php echo date("d/m/Y"); ?></span></p>
-                    
-                 
+
+
                 </div>
             </div>
         </div>
@@ -135,29 +133,29 @@ width: 350px;
                             </span>
 
                         </th>
-                      
-                        
+
+
                         <th  colspan="2" class="text-left">Invoice No : {{$order->invoice_no}}</th>
                     </tr>
-                    
+
                     <tr>
                         <td colspan="4" class="text-left" style="text-transform: capitalize;"><b>Address  : </b><b>
 
                                 @if(!empty($order->customer->address))
                                     {{ $order->customer->address. ',' }}
                                 @endif
-                               
+
                                     @if(!empty($order->sub_city->name))
                                     {{','.$order->sub_city->name.','}}
                                 @endif
-                               
+
                                     {{ $order->city->name ?? ''}}
-                               
+
                             </b>
                         </td>
                         <td colspan="3">
-                           <b> Courier : 
-                              
+                           <b> Courier :
+
                                 {{ $order->courier->name ?? "" }}
                 </b>
                         </td>
@@ -168,7 +166,7 @@ width: 350px;
                           {{ $order->cutomer_phone }}
                             </b></th>
                         <th class="text-left" colspan="2">Courier : <b>
-                              
+
                                 {{ $order->courier->name ?? "" }}
                 </b></th>
                     </tr> --}}
@@ -235,7 +233,7 @@ width: 350px;
                             <td colspan="6" class="text-right">Amount Due:</td>
                             <td class="text-right">{{ ($order->total)-($order->paid+$order->discount)+$order->shipping_cost}} Tk</td>
                         </tr>
-                  
+
                     </tbody>
                 </table>
                      <p style="margin-top:-8px;"> <b><i> **No replace will be accepted after 7 days</i></b></p>
@@ -244,9 +242,9 @@ width: 350px;
                     <tr>
                         <td style="margin-left: 115px;display: block;"><p>
                                 Approved by<br>
-                           
+
                                     {{$order->approvedBy->name ?? ""}}
-                              
+
                                 </p></td>
 
                                   @if(!empty($order->orderBarcode))
@@ -257,7 +255,7 @@ width: 350px;
                                   </p>
                                 </td>
                                 @endif
-                               
+
                         <td>Accounts</td>
                     </tr>
                 </table>
@@ -265,19 +263,19 @@ width: 350px;
             </div>
         </div>
 
-       
+
 
     </div>
 @endforeach
  <div class="rotate-logo">
-            <img src="{{ asset('rotatelogo.png') }}" alt="">
+            <img src="{{ asset('storage/'.$setting->logo) }}" alt="">
         </div>
 
 <script>
     function allPrint() {
         window.print();
     };
-    
+
     window.addEventListener('DOMContentLoaded', (event) => {
       window.print();
     });
@@ -288,7 +286,7 @@ width: 350px;
          console.log(a);
 
     });
-    
+
 </script>
 
 </body>

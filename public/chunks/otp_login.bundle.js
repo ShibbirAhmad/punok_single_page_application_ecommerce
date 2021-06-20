@@ -113,6 +113,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -211,7 +213,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   components: {
-    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_0___default.a
+    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_0___default.a,
+    HasError: vform__WEBPACK_IMPORTED_MODULE_2__["HasError"]
   }
 });
 
@@ -377,8 +380,17 @@ var render = function() {
                                     : _vm._e(),
                                   _vm._v("SEND CODE\n                  ")
                                 ]
+                              ),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c(
+                                "router-link",
+                                { attrs: { to: { name: "UserLogin" } } },
+                                [_vm._v("Login with password")]
                               )
-                            ]
+                            ],
+                            1
                           )
                         : _c(
                             "form",
@@ -445,7 +457,7 @@ var render = function() {
                                   staticClass: "btn btn-block btn-primary",
                                   attrs: {
                                     type: "submit",
-                                    disabled: _vm.verify_code.length < 5
+                                    disabled: _vm.verify_code.length < 4
                                   }
                                 },
                                 [

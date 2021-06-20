@@ -2,11 +2,11 @@
  <div>
 
     <div  class="container">
- 
+
     <div  class="text-center">
       <h2 class="logo_mohasagor">
         <a>
-          <b style="color: #000">sufilifestyle</b>.com
+          <b style="color: #000">{{ general_setting.title  }}</b>
         </a>
       </h2>
     </div>
@@ -62,7 +62,7 @@
                 />
                 <has-error :form="form" field="phone"></has-error>
               </div>
-       
+
               <div class="form-group">
                 <label for="company_name">Company Name</label>
                 <input
@@ -129,7 +129,7 @@
       <div class="col-md-4 col-sm-12"> </div>
     </div>
 
-  
+
  </div>
  </div>
 </template>
@@ -142,7 +142,9 @@ import LoginVue from "../public/Login.vue";
 Vue.component(HasError.name, HasError);
 
 export default {
-  created() {},
+  created() {
+    this.$store.dispatch('general_setting');
+  },
   data() {
     return {
       form: new Form({
@@ -180,6 +182,11 @@ export default {
         .catch();
     },
   },
+   computed:{
+       general_setting() {
+           return this.$store.getters.general_setting;
+       },
+    }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -200,9 +207,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 .form-wrapper {
-   
+
     margin: 0px 10px;
- 
+
 }
 
 .form_column{

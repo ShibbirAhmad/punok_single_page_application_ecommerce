@@ -4,12 +4,10 @@
     <frontend-header></frontend-header>
 
     <div id="container">
+    <div class="container">
        <div style="min-height: 400px" class="row">
-         
-         <div class="s_bar">
-           <sidebar> </sidebar>
-         </div>
-           
+         <sidebar> </sidebar>
+               
          <div class="col-md-2 col-sm-0">  </div>
 
           <div class="col-md-4 col-sm-10 form-container">
@@ -23,17 +21,18 @@
 
                           <div  class="form-group ">
                                 <label for="new_password">password</label>
-                                <input type="password" v-model="form.new_password" :class="{'is-invalid' : form.errors.has('new_password') }" name="old_paasword" autofocus autocomplete="off" placeholder="your current password" class="form-control" id="">
+                                <input type="password" v-model="form.new_password" :class="{'is-invalid' : form.errors.has('new_password') }" name="old_paasword" autofocus autocomplete="off" placeholder="Your New Password" class="form-control" >
                                 <has-error :form="form" field="new_password "> </has-error>
                           </div>
 
                           <div class="form-group">
                                 <label for="retype_password">Retype password</label>
-                                <input type="password" v-model="form.retype_password" :class="{'is-invalid' : form.errors.has('retype_password') }" name="new_paasword" autofocus autocomplete="off" placeholder=" new password" class="form-control" id="">
+                                <input type="password" v-model="form.retype_password" :class="{'is-invalid' : form.errors.has('retype_password') }" name="new_paasword" autofocus autocomplete="off" placeholder="Retype Your New Password" class="form-control" >
                                 <has-error :form="form" field="retype_password "> </has-error>
                           </div>
+                          <br/>
                          <div class="form-group text-center ">
-                              <button style="margin-bottom:10px;" :disabled="form.busy" class="btn btn-primary " type="submit"> <i class="fa fa-spiner" v-if="form.busy"></i> Change</button> 
+                              <button  :disabled="form.busy" class="btn btn-primary " type="submit"> <i class="fa fa-spiner" v-if="form.busy"></i>Save</button> 
                          </div>
                       </form>
                       
@@ -42,9 +41,9 @@
          </div>    
        </div>
  
-     
+    </div>
     <frontend-footer></frontend-footer>
-  </div>
+    </div>
   </div>
   
 </template>
@@ -95,43 +94,25 @@ export default {
   },
 
   components:{
-
-      sidebar
+      sidebar,
+      HasError
   }
 };
 </script>
 
-<style >
 
+<style scoped>
 
-.s_bar {
-    position: absolute;
-    margin-left: 100px;
-}
-
- @media screen and (max-width:400px) {
-
-   
-.s_bar {
-    position: absolute;
-    margin-left: 10px;
-    margin-top: -15px;
-}
-
-    .card{
-   margin-left:20px;
-   margin-right:20px;
-   }
-
-   .extra{
-     display: none ;
-   }
-
+ 
+.form-container{
+   height: 280px;
+   margin-bottom: 50px;
+   margin-top: 26px;
+   box-shadow:1px 1px 5px 3px #ddd;
  }
- .form-container {
-    background: #fff;
-    padding: 20px 22px;
-}
 
+.card{
+  padding-top: 20px;
+}
 </style>
 

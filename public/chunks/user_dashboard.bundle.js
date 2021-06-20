@@ -97,6 +97,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["categories"],
@@ -116,16 +138,16 @@ __webpack_require__.r(__webpack_exports__);
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       axios.get("/_public/customer/order/list?page=" + page).then(function (resp) {
-        console.log(resp);
-
+        // console.log(resp);
         if (resp.data.status == "SUCCESS") {
           _this.order_lists = resp.data.orders;
           _this.loading = false;
         }
       });
     },
-    orderFormater: function orderFormater(created_at) {
+    orderDate: function orderDate(created_at) {
       var d = new Date(created_at);
+      console.log(d);
       var month = d.getMonth();
       var day = d.getDate();
       var year = d.getFullYear();
@@ -195,20 +217,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   crated: function crated() {
     this.$store.dispatch("user");
@@ -217,6 +225,15 @@ __webpack_require__.r(__webpack_exports__);
     return {
       base_url: this.$store.state.image_base_link
     };
+  },
+  methods: {
+    colorChange: function colorChange() {//  let list_i = document.getElementsByClassName("router-link-active");
+      //      if(list_i.parentElement.classList.contains('active')){
+      //         list_i.parentElement.classList.remove("active");
+      //       } else {
+      //         list_i.parentElement.classList.add("active");
+      //     }
+    }
   },
   computed: {
     user: function user() {
@@ -239,7 +256,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.user_profile_icon{\n\n    width: 80px; height: 80px\n}\n@media screen  and ( max-width:650) {\n.user_profile_icon {\n\n        width: 50px; height: 50px;\n}\n.tbody {\n\n       overflow:auto;\n}\n}\n   \n\n", ""]);
+exports.push([module.i, "\n.user_profile_icon{\n\n    width: 80px; height: 80px\n}\n@media screen  and ( max-width:650) {\n.user_profile_icon {\n\n        width: 50px; height: 50px;\n}\n}\n\n\n", ""]);
 
 // exports
 
@@ -258,7 +275,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.user_profile_icon[data-v-7943ac3a]{\r\n\r\n       width:150px;height:150px;\n}\n@media screen and (max-width: 650px) {\n.user_profile_icon[data-v-7943ac3a]{\r\n\r\n       width:50px;height:50px;\n}\n}\r\n\r\n \r\n", ""]);
+exports.push([module.i, "\n.user_sidebar[data-v-7943ac3a]{\r\n\r\n    margin-top:25px;\r\n    height: 350px;\r\n    background: #F9DFC0;\n}\n.list-group[data-v-7943ac3a]{\r\n    padding-top:25px;\n}\nul li a[data-v-7943ac3a]{\r\n     color: #fff;\r\n    background-color: #dd8a24;\r\n    padding: 10px;\r\n    float: left;\r\n    display: block;\r\n    width: 100%;\r\n    margin-top:5px;\n}\n.router-link-exact-active[data-v-7943ac3a] {\r\n   background-color: #ff4d0c !important;\n}\ni[data-v-7943ac3a] {\r\n   font-size:14px;\n}\n.customer_icon[data-v-7943ac3a]{\r\n   font-size:80px;\n}\n.customer_name[data-v-7943ac3a]{\r\n   font-size:18px;\r\n   color:#000;\r\n   text-transform: uppercase;\n}\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -358,19 +375,16 @@ var render = function() {
                 _c("sidebar"),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-10 col-sm-10" }, [
-                  _c("h4", { staticClass: "heading" }, [
-                    _vm._v(
-                      "\n              Welcome " +
-                        _vm._s(
-                          _vm.user.name ? _vm.user.name : "Dear Customer"
-                        ) +
-                        "\n            "
-                    )
-                  ]),
+                  _c("h4", { staticClass: "heading" }),
+                  _vm._v(" "),
+                  _c("br"),
                   _vm._v(" "),
                   _c(
                     "table",
-                    { staticClass: "table table-bordered table-striped" },
+                    {
+                      staticClass:
+                        "table table-hover table-bordered table-striped"
+                    },
                     [
                       _vm._m(0),
                       _vm._v(" "),
@@ -399,25 +413,44 @@ var render = function() {
                                     _vm._v(
                                       "\n                    " +
                                         _vm._s(
-                                          order.total -
-                                            (order.discount + order.paid) +
-                                            order.shipping_cost
+                                          parseInt(order.total) -
+                                            (parseInt(order.discount) +
+                                              parseInt(order.paid)) +
+                                            parseInt(order.shipping_cost)
                                         ) +
                                         "\n                  "
                                     )
                                   ]),
                                   _vm._v(" "),
                                   _c("td", [
+                                    _c(
+                                      "span",
+                                      { staticClass: "badge badge-success " },
+                                      [
+                                        _vm._v(
+                                          " " + _vm._s(order.discount) + " "
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("td", [
                                     order.status == 1
-                                      ? _c("span", { staticClass: "badge" }, [
-                                          _vm._v("New")
-                                        ])
+                                      ? _c(
+                                          "span",
+                                          { staticClass: "badge badge-info " },
+                                          [_vm._v("New")]
+                                        )
                                       : _vm._e(),
                                     _vm._v(" "),
                                     order.status == 2
-                                      ? _c("span", { staticClass: "badge" }, [
-                                          _vm._v("Pending")
-                                        ])
+                                      ? _c(
+                                          "span",
+                                          {
+                                            staticClass: "badge badge-warning"
+                                          },
+                                          [_vm._v("Pending")]
+                                        )
                                       : _vm._e(),
                                     _vm._v(" "),
                                     order.status == 3
@@ -444,7 +477,7 @@ var render = function() {
                                       ? _c(
                                           "span",
                                           {
-                                            staticClass: "badge badge-warning"
+                                            staticClass: "badge badge-success"
                                           },
                                           [_vm._v("Delivered")]
                                         )
@@ -467,13 +500,7 @@ var render = function() {
                                       : _vm._e()
                                   ]),
                                   _vm._v(" "),
-                                  _c("td", [
-                                    _vm._v(
-                                      _vm._s(
-                                        _vm.orderFormater(order.created_at)
-                                      )
-                                    )
-                                  ]),
+                                  _c("td", [_vm._v(_vm._s(order.created_at))]),
                                   _vm._v(" "),
                                   _c(
                                     "td",
@@ -481,7 +508,7 @@ var render = function() {
                                       _c(
                                         "router-link",
                                         {
-                                          staticClass: "btn btn-info",
+                                          staticClass: "btn btn-info btn-sm",
                                           attrs: {
                                             to: {
                                               name: "order_details",
@@ -500,7 +527,45 @@ var render = function() {
                         2
                       )
                     ]
-                  )
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-6" },
+                      [
+                        _c("pagination", {
+                          attrs: { data: _vm.order_lists },
+                          on: { "pagination-change-page": _vm.getOrderList }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col-lg-6 mt-1",
+                        staticStyle: {
+                          "margin-top": "25px",
+                          "text-align": "right"
+                        }
+                      },
+                      [
+                        _c("p", [
+                          _vm._v(
+                            "\n                  Showing\n                  "
+                          ),
+                          _c("strong", [_vm._v(_vm._s(_vm.order_lists.from))]),
+                          _vm._v(" to\n                  "),
+                          _c("strong", [_vm._v(_vm._s(_vm.order_lists.to))]),
+                          _vm._v(" of total\n                  "),
+                          _c("strong", [_vm._v(_vm._s(_vm.order_lists.total))]),
+                          _vm._v(" entries\n                ")
+                        ])
+                      ]
+                    )
+                  ])
                 ])
               ],
               1
@@ -527,6 +592,8 @@ var staticRenderFns = [
         _c("td", [_vm._v("Invoice_no")]),
         _vm._v(" "),
         _c("td", [_vm._v("Amount")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("Discount")]),
         _vm._v(" "),
         _c("td", [_vm._v("Status")]),
         _vm._v(" "),
@@ -559,126 +626,85 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "col-md-2 col-sm-2" }, [
-      _c("div", { staticClass: "dropdown user_dropdown " }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "dropdown-menu",
-            attrs: { "aria-labelledby": "dropdownMenuButton" }
-          },
-          [
-            _c("ul", { staticClass: "list-group" }, [
-              _c(
-                "li",
-                { staticClass: "list-group-item" },
-                [
-                  _c(
-                    "router-link",
-                    { attrs: { to: { name: "UserDashboard" } } },
-                    [
-                      _c("i", { staticClass: "fa fa-dashboard" }),
-                      _vm._v(" Dashboard\n                ")
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "list-group-item" },
-                [
-                  _c(
-                    "router-link",
-                    { attrs: { to: { name: "UserProfile" } } },
-                    [
-                      _c("i", { staticClass: "fa fa-user" }),
-                      _vm._v(" profile\n                ")
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "list-group-item" },
-                [
-                  _c(
-                    "router-link",
-                    { attrs: { to: { name: "UserProfileEdit" } } },
-                    [
-                      _c("i", { staticClass: "fa fa-edit" }),
-                      _vm._v(" Edit Profile")
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "list-group-item" },
-                [
-                  _c(
-                    "router-link",
-                    { attrs: { to: { name: "PasswordEdit" } } },
-                    [
-                      _c("i", { staticClass: "fa fa-key" }),
-                      _vm._v(" change password")
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "list-group-item" },
-                [
-                  _c(
-                    "router-link",
-                    { attrs: { to: { name: "user_new_password_set" } } },
-                    [
-                      _c("i", { staticClass: "fa fa-key" }),
-                      _vm._v(" set new password")
-                    ]
-                  )
-                ],
-                1
-              )
+    _c("div", { staticClass: "col-md-2 " }, [
+      _c("div", { staticClass: "user_sidebar" }, [
+        _c("ul", { staticClass: "list-group", attrs: { id: "list_group" } }, [
+          _c("li", { staticClass: "text-center" }, [
+            _c("i", { staticClass: "fa fa-user customer_icon" }),
+            _vm._v(" "),
+            _c("p", { staticClass: "customer_name" }, [
+              _vm._v(" " + _vm._s(_vm.user.name) + " ")
             ])
-          ]
-        )
+          ]),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c("router-link", { attrs: { to: { name: "UserDashboard" } } }, [
+                _c("i", { staticClass: "fa fa-dashboard " }),
+                _vm._v(" Dashboard\n                ")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c("router-link", { attrs: { to: { name: "UserProfile" } } }, [
+                _c("i", { staticClass: "fa fa-user " }),
+                _vm._v(" Profile\n                ")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c(
+                "router-link",
+                { attrs: { to: { name: "UserProfileEdit" } } },
+                [
+                  _c("i", { staticClass: "fa fa-edit " }),
+                  _vm._v(" Edit Profile")
+                ]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c("router-link", { attrs: { to: { name: "PasswordEdit" } } }, [
+                _c("i", { staticClass: "fa fa-key " }),
+                _vm._v(" Change Password")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c(
+                "router-link",
+                { attrs: { to: { name: "user_new_password_set" } } },
+                [
+                  _c("i", { staticClass: "fa fa-key " }),
+                  _vm._v(" Set New Password")
+                ]
+              )
+            ],
+            1
+          )
+        ])
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn dropdown-toggle",
-        staticStyle: { background: "#fff" },
-        attrs: {
-          type: "button",
-          id: "dropdownMenuButton",
-          "data-toggle": "dropdown",
-          "aria-haspopup": "true",
-          "aria-expanded": "false"
-        }
-      },
-      [_c("i", { staticClass: "fa fa-bars" })]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

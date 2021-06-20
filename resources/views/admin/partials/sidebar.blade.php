@@ -30,11 +30,11 @@ $admin = session()->get('admin');
 
         <ul class="sidebar-menu" data-widget="tree">
 
-          
+
             <li class="treeview">
                 <a to="/"><i class="fa fa-dashboard"></i> <span><router-link :to="{name:'dashboard'}">Dashboard</router-link></span> </a>
              </li>
-           
+
             @if($admin->can('manage Order'))
             <li class="treeview">
                 <a href="#">
@@ -51,7 +51,7 @@ $admin = session()->get('admin');
                         <router-link :to="{ name: 'order'}"><i class="fa fa-eye"></i>Manage</router-link>
 
                     </li>
-                   
+
 
                 </ul>
             </li>
@@ -73,7 +73,7 @@ $admin = session()->get('admin');
                         <router-link :to="{ name: 'WholeSaleOrder'}"><i class="fa fa-eye"></i>Manage</router-link>
 
                     </li>
-                   
+
 
                 </ul>
             </li>
@@ -97,14 +97,14 @@ $admin = session()->get('admin');
                     <li>
                         <router-link :to="{ name: 'officeSale'}"><i class="fa fa-eye"></i>Manage</router-link>
                          </li>
-                         
+
                    </ul>
             </li>
             @endif
 
 
 
-            
+
             @if($admin->can('manage Sale'))
              <li class="treeview">
                 <a href="#">
@@ -193,7 +193,7 @@ $admin = session()->get('admin');
                      <li>
                         <router-link :to="{ name: 'CreditDue'}"><i class="fa fa-eye"></i>Due</router-link>
                     </li>
-                    
+
                 </ul>
             </li>
             @endif
@@ -213,11 +213,11 @@ $admin = session()->get('admin');
                      <li>
                         <router-link :to="{ name: 'fondtransfer'}"><i class="fa fa-eye"></i>Manage</router-link>
                     </li>
-                    
+
                 </ul>
             </li>
             @endif
-            
+
             @if($admin->can('manage product'))
             <li class="treeview">
                 <a href="#">
@@ -259,7 +259,7 @@ $admin = session()->get('admin');
                 </ul>
             </li>
             @endif
-            
+
 
              @if($admin->can('manage attribute'))
          <li class="treeview">
@@ -313,7 +313,7 @@ $admin = session()->get('admin');
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                   
+
                     <li>
                         <router-link :to="{ name: 'supllierAdd'}"><i class="fa fa-plus"></i> Add</router-link>
                     </li>
@@ -323,8 +323,8 @@ $admin = session()->get('admin');
                       {{-- <li>
                         <router-link :to="{ name: 'SupplierAmount'}"><i class="fa fa-eye"></i>Amount</router-link>
                     </li> --}}
-                    
-                   
+
+
                 </ul>
             </li>
             @endif
@@ -337,7 +337,7 @@ $admin = session()->get('admin');
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                   
+
                     <li>
                         <router-link :to="{ name: 'AddFabricsSupplier'}"><i class="fa fa-plus"></i> Add</router-link>
                     </li>
@@ -347,12 +347,12 @@ $admin = session()->get('admin');
                       {{-- <li>
                         <router-link :to="{ name: 'SupplierAmount'}"><i class="fa fa-eye"></i>Amount</router-link>
                     </li> --}}
-                    
-                   
+
+
                 </ul>
             </li>
             @endif
-           
+
 
              @if($admin->can('manage admin'))
             <li class="treeview">
@@ -372,7 +372,7 @@ $admin = session()->get('admin');
                 </ul>
             </li>
         @endif
-           
+
 
             @if($admin->can('create and manage merchant'))
             <li class="treeview">
@@ -393,30 +393,29 @@ $admin = session()->get('admin');
             </li>
             @endif
 
-            
-
-              @if($admin->can('manage team'))
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-user-circle "></i> <span>Team</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                     <li>
-                        <router-link :to="{ name: 'add_team_member'}"><i class="fa fa-plus"></i> Add</router-link>
-                    </li>
-                    <li>
-                        <router-link :to="{ name: 'team_member'}"><i class="fa fa-eye"></i> Manage</router-link>
-                    </li>
-                 
-                </ul>
-            </li>
-            @endif
-
-
             @if($admin->can('manage reseller'))
+
+              <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-hand-o-right"></i> <span>Showroom Management</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                         <li>
+                            <router-link :to="{ name: 'showroom'}"><i class="fa fa-list-alt"></i>Showroom List</router-link>
+                        </li>
+                           <li>
+                            <router-link :to="{ name: 'showroom_manager'}"><i class="fa fa-user-secret"></i>Showroom Managers</router-link>
+                        </li>
+                         <li>
+                            <router-link :to="{ name: 'product_transfer'}"><i class="fa fa-exchange"></i>Transfer Product</router-link>
+                        </li>
+                    </ul>
+                </li>
+
+
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-user"></i> <span>Reseller</span>
@@ -431,7 +430,7 @@ $admin = session()->get('admin');
                     <li>
                         <router-link :to="{ name: 'resellerHome'}"><i class="fa fa-eye"></i>Manage</router-link>
                     </li>
-                 
+
                 </ul>
             </li>
             @endif
@@ -453,8 +452,8 @@ $admin = session()->get('admin');
                     <li>
                         <router-link :to="{ name: 'PaymentInvoice'}"><i class="fa fa-eye"></i>Invoice</router-link>
                     </li>
-                    
-                 
+
+
                 </ul>
             </li>
             @endif
@@ -495,12 +494,12 @@ $admin = session()->get('admin');
                         <router-link :to="{ name: 'SaleProfite'}"><i class="fa fa-eye"></i>Sale Profit
                         </router-link>
                     </li>
-                    
+
                       <li>
                         <router-link :to="{ name: 'PurchaseReport'}"><i class="fa fa-eye"></i>Purchase Report
                         </router-link>
                     </li>
-                    
+
                     <li>
                         <router-link :to="{ name: 'SupplierReport'}"><i class="fa fa-eye"></i>Supplier Report</router-link>
                     </li>
@@ -516,14 +515,14 @@ $admin = session()->get('admin');
                         <router-link :to="{ name: 'ProfiteReport'}"><i class="fa fa-eye"></i>Profite Report</router-link>
 
                     <li>
-                   
-                        
+
+
 
                 </ul>
             </li>
             @endif
             @if($admin->can('manage basic set up'))
-           
+
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-bullhorn"></i> <span>Sale Campaign </span>
@@ -539,7 +538,7 @@ $admin = session()->get('admin');
                     <li>
                         <router-link :to="{ name: 'occasional_campaign'}"><i class="fa fa-eye"></i> Occation Campaign </router-link>
                     </li>
-                    
+
                     <li>
                         <router-link :to="{ name: 'seasonal_campaign'}"><i class="fa fa-eye"></i> Seasonal Campaign </router-link>
                     </li>
@@ -548,7 +547,12 @@ $admin = session()->get('admin');
                         <router-link :to="{ name: 'buy_one_get_one'}"><i class="fa fa-fire"></i>buy-one get-one offer </router-link>
                     </li>
 
-                </ul> 
+
+                     <li>
+                        <router-link :to="{ name: 'coupon'}"><i class="fa fa-gift"></i> Cupon Code </router-link>
+                    </li>
+
+                </ul>
             </li>
 
                 <li class="treeview">
@@ -566,11 +570,11 @@ $admin = session()->get('admin');
                          <li>
                             <router-link :to="{ name: 'sub_city'}"><i class="fa fa-plus"></i>Sub City</router-link>
                         </li>
-                        
+
                         <li>
                             <router-link :to="{ name: 'courier'}"><i class="fa fa-eye"></i>Courier</router-link>
                             <router-link :to="{ name: 'company'}"><i class="fa fa-eye"></i>Company</router-link>
-                         
+
                             <router-link :to="{ name: 'comment'}"><i class="fa fa-eye"></i>Comment</router-link>
                             <router-link :to="{ name: 'offer'}"><i class="fa fa-eye"></i>Category/Offer</router-link>
                         @if($admin->can('View Role'))
@@ -580,19 +584,10 @@ $admin = session()->get('admin');
 
                         </li>
 
-                        <li>
-                             <router-link :to="{ name: 'loaner'}"><i class="fa fa-eye"></i>Loaner</router-link>
-
-                        </li>
-                          <li>
-                             <router-link :to="{ name: 'loan'}"><i class="fa fa-eye"></i>loan</router-link>
-
-                        </li>
-                        
                     </ul>
                 </li>
 
-                
+
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-cog"></i> <span>Setting</span>
@@ -609,11 +604,11 @@ $admin = session()->get('admin');
                             <router-link :to="{ name: 'footer_setting'}"><i class="fa fa-eye"></i>Footer Setting</router-link>
                         </li>
 
-                        
+
                         <li>
                             <router-link :to="{ name: 'theme_setting'}"><i class="fa fa-tint "></i> Color Setting</router-link>
                         </li>
-                     
+
                         <li>
                             <router-link :to="{ name: 'about_and_contact'}"><i class="fa fa-eye "></i> About And Contact Info. </router-link>
                         </li>
@@ -623,7 +618,7 @@ $admin = session()->get('admin');
                         </li>
 
                     </ul>
-                </li> 
+                </li>
             @endif
             @if ($admin->can('manage carieer'))
                 <li class="treeview">
@@ -640,7 +635,7 @@ $admin = session()->get('admin');
                     <li>
                         <router-link :to="{ name: 'home_carrier'}"><i class="fa fa-eye"></i> Manage</router-link>
                     </li>
-                 
+
                 </ul>
             </li>
             @endif
@@ -648,7 +643,47 @@ $admin = session()->get('admin');
             <li class="treeview">
                 <router-link  :to="{ name: 'sms_campaign'}"  > <i class="fa fa-inbox"></i>SMS Capaign</router-link>
             </li>
+           @endif
+
+
+           @if ($admin->can('manage team'))
+
+           <li class="treeview">
+                <a href="#">
+                   <i class="fa fa-home"></i> <span> Company </span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                   <ul class="treeview-menu">
+
+                        <li>
+                        <router-link :to="{ name: 'loan'}"><i class="fa fa-money"></i>Manage Loan</router-link>
+                        </li>
+
+                        <li>
+                        <router-link :to="{ name: 'investment'}"><i class="fa fa-dollar"></i>Manage Investment</router-link>
+                        </li>
+                        <li>
+                          <router-link :to="{ name: 'company_assets'}"><i class="fa fa-eye"></i>Manage Assets</router-link>
+                        </li>
+                        <li>
+                        <router-link :to="{ name: 'print_house'}"><i class="fa fa-print"></i>Manage Print House</router-link>
+                        </li>
+                         <li>
+                        <router-link :to="{ name: 'team_member'}"><i class="fa fa-users"></i> Manage Team</router-link>
+                         </li>
+
+                         <li>
+                         <router-link :to="{ name: 'bill_statement'}"><i class="fa fa-money"></i>Bill Statements </router-link>
+                         </li>
+
+                   </ul>
+             </li>
+
+
             @endif
+
         </ul>
     </section>
 </aside>

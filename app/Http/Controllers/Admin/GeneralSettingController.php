@@ -10,9 +10,9 @@ use App\Models\GeneralSetting;
 class GeneralSettingController extends Controller
 {
 
-      
-        
-      
+
+
+
     public function get_site_info() {
 
             $setting = GeneralSetting::latest()->take(1)->first();
@@ -25,7 +25,7 @@ class GeneralSettingController extends Controller
 
       }
 
-     
+
     public function edit_site_info(Request $request,$id)
       {
 
@@ -36,19 +36,20 @@ class GeneralSettingController extends Controller
 
             $setting = GeneralSetting::findOrFail($id);
             $setting->title=$request->title;
+            $setting->wallet_point_value=$request->wallet_point_value;
             $setting->header_contact_number=$request->header_contact_number;
             $setting->invoice_address_details=$request->invoice_address_details;
-       
+
             if ($request->hasFile('logo') ) {
                 $logo_path = $request->file('logo')->store('images/general_setting', 'public');
                 $setting->logo = $logo_path;
             }
-            
+
             if ($request->hasFile('icon') ) {
                 $icon_path = $request->file('icon')->store('images/general_setting', 'public');
                 $setting->icon = $icon_path;
             }
-        
+
             if ($setting->save()) {
                 return response()->json([
                     'status' => 'SUCCESS',
@@ -59,12 +60,12 @@ class GeneralSettingController extends Controller
       }
 
 
-  
 
 
 
 
 
 
-      
+
+
 }

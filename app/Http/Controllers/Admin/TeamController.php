@@ -25,9 +25,13 @@ class TeamController extends Controller
     public  function index(Request $request){
         $item = $request->item ?? 10 ;
         $members= Team::orderBy('id','DESC')->paginate($item);
+        $total_taken_salary=EmployeeSalary::sum('amount');
+        $total_paid_salary=SalaryPerMonth::sum('amount');
+        $total_due_salary= intval($total_taken_salary)-intval($total_paid_salary) ;
         return response()->json([
             "success" => "OK",
             "members" => $members ,
+            "total_due_salary" => number_format($total_due_salary) ,
         ]);
     }
 
@@ -120,6 +124,7 @@ class TeamController extends Controller
          $team->position=$request->position ;
          $team->phone_office=$request->phone_office ;
          $team->status=1;
+         $team->basic_salary=$request->basic_salary;
          if ($request->hasFile('image')) {
             
             if (file_exists($team->avator)) {
@@ -217,8 +222,24 @@ class TeamController extends Controller
       $member_salaries=EmployeeSalary::orderBy('date','DESC')->where('employee_id',$id)
                               ->get();
 
-       $paid_salary=SalaryPerMonth::orderBy('date','DESC')->where('employee_id',$id)
-                              ->get();                       
+     $total_taken_amount=EmployeeSalary::where('employee_id',$id)
+                              ->sum('amount');
+                              
+      $total_paid_amount=SalaryPerMonth::where('employee_id',$id)
+                              ->sum('amount');   
+
+        // $paid_salary=[];
+
+        $paid_salary=SalaryPerMonth::orderBy('date','DESC')->where('employee_id',$id)
+                              ->get();
+                              
+    //     foreach($paid_salaries as $k=> $item){
+    //         $paid_salary[$k]=[
+    //              'total_paid' =>$item->sum('amount'),
+    //              'due'=>$item[0]->basic_salary-$item->sum('amount')
+    //         ];
+    //    }                   
+
                            
 
    //return $member_salaries;                       
@@ -226,7 +247,9 @@ class TeamController extends Controller
         return response()->json([
             'member'=>$teamMember,
             'salary'=>$member_salaries,
-            'paid_salary'=>$paid_salary
+            'paid_salary'=>$paid_salary,
+            'total_taken_amount'=> $total_taken_amount,
+            'total_paid_amount' =>$total_paid_amount
         ]);
     }
 
@@ -259,15 +282,15 @@ class TeamController extends Controller
 
      public function paidSalary(Request $request){
 
-        return $request->all();
+       // return $request->all();
         $salary=new SalaryPerMonth();
         $salary->date=$request->date;
+        $salary->month=$request->month;
         $salary->amount=$request->amount;
         $salary->employee_id=$request->employee_id;
         $salary->comment=$request->comment?? null;
         $salary->save();
-
-       return \response()->json('Salary was update');
+        return response()->json('Salary was updated');
         
      }
 

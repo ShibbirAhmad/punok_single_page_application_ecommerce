@@ -1048,6 +1048,53 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Index",
@@ -1839,6 +1886,23 @@ var render = function() {
                                 _c(
                                   "li",
                                   {
+                                    class: { active: _vm.analysisshow == 4 },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.analysisshow = 4
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                      yesterday\n                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "li",
+                                  {
                                     class: { active: _vm.analysisshow == 2 },
                                     on: {
                                       click: function($event) {
@@ -1894,6 +1958,19 @@ var render = function() {
                                               ])
                                             : _vm._e(),
                                           _vm._v(" "),
+                                          _vm.analysisshow == 4
+                                            ? _c("span", [
+                                                _vm._v(
+                                                  "\n                                " +
+                                                    _vm._s(
+                                                      item.yesterday
+                                                        .order_quantity
+                                                    ) +
+                                                    "\n                              "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
                                           _vm.analysisshow == 2
                                             ? _c("span", [
                                                 _vm._v(
@@ -1934,6 +2011,19 @@ var render = function() {
                                               ])
                                             : _vm._e(),
                                           _vm._v(" "),
+                                          _vm.analysisshow == 4
+                                            ? _c("span", [
+                                                _vm._v(
+                                                  "\n                                " +
+                                                    _vm._s(
+                                                      item.yesterday
+                                                        .product_quanity
+                                                    ) +
+                                                    "\n                              "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
                                           _vm.analysisshow == 2
                                             ? _c("span", [
                                                 _vm._v(
@@ -1967,6 +2057,18 @@ var render = function() {
                                                 _vm._v(
                                                   "\n                                " +
                                                     _vm._s(item.today.amount) +
+                                                    "\n                              "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 4
+                                            ? _c("span", [
+                                                _vm._v(
+                                                  "\n                                " +
+                                                    _vm._s(
+                                                      item.yesterday.amount
+                                                    ) +
                                                     "\n                              "
                                                 )
                                               ])
@@ -2033,6 +2135,45 @@ var render = function() {
                                                             .order_quantity
                                                             ? _vm.analysis.order
                                                                 .today
+                                                                .order_quantity
+                                                            : 0
+                                                        )
+                                                    ) +
+                                                    "\n                                "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 4
+                                            ? _c("b", [
+                                                _vm._v(
+                                                  "\n                              " +
+                                                    _vm._s(
+                                                      parseInt(
+                                                        _vm.analysis.sale
+                                                          .yesterday
+                                                          .order_quantity
+                                                          ? _vm.analysis.sale
+                                                              .yesterday
+                                                              .order_quantity
+                                                          : 0
+                                                      ) +
+                                                        parseInt(
+                                                          _vm.analysis.wholesale
+                                                            .yesterday
+                                                            .order_quantity
+                                                            ? _vm.analysis
+                                                                .wholesale
+                                                                .yesterday
+                                                                .order_quantity
+                                                            : 0
+                                                        ) +
+                                                        parseInt(
+                                                          _vm.analysis.order
+                                                            .yesterday
+                                                            .order_quantity
+                                                            ? _vm.analysis.order
+                                                                .yesterday
                                                                 .order_quantity
                                                             : 0
                                                         )
@@ -2153,6 +2294,45 @@ var render = function() {
                                                             .product_quanity
                                                             ? _vm.analysis.order
                                                                 .today
+                                                                .product_quanity
+                                                            : 0
+                                                        )
+                                                    ) +
+                                                    "\n                                "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 4
+                                            ? _c("b", [
+                                                _vm._v(
+                                                  "\n                              " +
+                                                    _vm._s(
+                                                      parseInt(
+                                                        _vm.analysis.sale
+                                                          .yesterday
+                                                          .product_quanity
+                                                          ? _vm.analysis.sale
+                                                              .yesterday
+                                                              .product_quanity
+                                                          : 0
+                                                      ) +
+                                                        parseInt(
+                                                          _vm.analysis.wholesale
+                                                            .yesterday
+                                                            .product_quanity
+                                                            ? _vm.analysis
+                                                                .wholesale
+                                                                .yesterday
+                                                                .product_quanity
+                                                            : 0
+                                                        ) +
+                                                        parseInt(
+                                                          _vm.analysis.order
+                                                            .yesterday
+                                                            .product_quanity
+                                                            ? _vm.analysis.order
+                                                                .yesterday
                                                                 .product_quanity
                                                             : 0
                                                         )
@@ -2270,6 +2450,41 @@ var render = function() {
                                                             .today.amount
                                                             ? _vm.analysis.order
                                                                 .today.amount
+                                                            : 0
+                                                        )
+                                                    ) +
+                                                    "\n                                "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 4
+                                            ? _c("b", [
+                                                _vm._v(
+                                                  "\n                               " +
+                                                    _vm._s(
+                                                      parseInt(
+                                                        _vm.analysis.sale
+                                                          .yesterday.amount
+                                                          ? _vm.analysis.sale
+                                                              .yesterday.amount
+                                                          : 0
+                                                      ) +
+                                                        parseInt(
+                                                          _vm.analysis.wholesale
+                                                            .yesterday.amount
+                                                            ? _vm.analysis
+                                                                .wholesale
+                                                                .yesterday
+                                                                .amount
+                                                            : 0
+                                                        ) +
+                                                        parseInt(
+                                                          _vm.analysis.order
+                                                            .yesterday.amount
+                                                            ? _vm.analysis.order
+                                                                .yesterday
+                                                                .amount
                                                             : 0
                                                         )
                                                     ) +

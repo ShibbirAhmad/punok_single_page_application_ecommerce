@@ -428,6 +428,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -706,8 +708,18 @@ __webpack_require__.r(__webpack_exports__);
     shipment: function shipment(order_id, index) {
       var _this7 = this;
 
+      if (!this.orders.data[index].courier_id) {
+        alert('please select a courier');
+        return;
+      }
+
+      if (!this.orders.data[index].memo_no) {
+        alert('Must Be Need Memo Number');
+        return;
+      }
+
       this.$Progress.start();
-      axios.get("/api/shipment/order/" + order_id).then(function (resp) {
+      axios.get("/shipment/order/" + order_id).then(function (resp) {
         console.log(resp);
 
         if (resp.data.status == "SUCCESS") {
@@ -1058,7 +1070,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.orders-heading {\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n  border-bottom: 2px solid #000;\r\n  margin-bottom: 10px;\n}\r\n", ""]);
+exports.push([module.i, "\n.orders-heading {\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n  border-bottom: 2px solid #000;\r\n  margin-bottom: 10px;\n}\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -1288,18 +1300,11 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "col-lg-4 col-lg-offset-1 orders-heading"
-                          },
-                          [
-                            _c("h3", { staticClass: "box-title" }, [
-                              _vm._v(_vm._s(_vm.heading))
-                            ])
-                          ]
-                        )
+                        _c("div", { staticClass: "col-lg-4  orders-heading" }, [
+                          _c("h3", { staticClass: "box-title" }, [
+                            _vm._v(_vm._s(_vm.heading))
+                          ])
+                        ])
                       ]
                     ),
                     _vm._v(" "),
@@ -2292,8 +2297,8 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("modal", { attrs: { name: "example", width: 400, height: 300 } }, [
-        _c("div", { staticClass: "card" }, [
+      _c("modal", { attrs: { name: "example", width: 300, height: 200 } }, [
+        _c("div", { staticClass: "card", staticStyle: { padding: "10px" } }, [
           _c("div", { staticClass: "card-body" }, [
             _c(
               "form",
@@ -2391,14 +2396,16 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-success btn-block",
-                    attrs: { type: "submit" }
-                  },
-                  [_vm._v("submit")]
-                )
+                _c("div", { staticClass: "form-group text-center" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success ",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("submit")]
+                  )
+                ])
               ]
             )
           ])

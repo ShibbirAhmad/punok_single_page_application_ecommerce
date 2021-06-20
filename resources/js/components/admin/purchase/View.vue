@@ -6,28 +6,22 @@
       <section class="content">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-lg-11">
+            <div class="col-lg-10">
               <div class="box box-primary">
                 <div class="box-header"></div>
                 <div class="box-body">
                   <div class="row">
                     <div class="invoice-header">
-                      <img
-                        class="invoice-logo"
-                        :src="'/./frontend/image/logo.png'"
-                        title="MarketShop"
-                        alt="MarketShop"
-                      />
+
                       <div class="address">
-                        <p>Office: House:36,Road:06,Banaroshi Polli,Mirpur-10,Dhaka-1216.</p>
-                        <p>EmaiL:support@madinafashionbd.com</p>
-                        <p>Mobile:+88 01715-900066</p>
+
                         <h3><strong>Purchase Invoice</strong></h3>
                       </div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-lg-4 invoice-body" style="margin-left:27px;">
+                     <div class="col-md-1"></div>
+                    <div class="col-lg-4 col-md-4 invoice-body" style="margin-left:27px;">
                       <p class="text-bold">Suplier_name: {{merchant.name}}</p>
                        <p class="text-bold">Suplier_company: {{merchant.company_name}}</p>
                       <p class="text-bold">Suplier_phone: {{merchant.phone}}</p>
@@ -63,7 +57,7 @@
                             <td>{{index+1}}</td>
                             <td>
                               {{ item.product.name}}
-                           
+
                             </td>
                             <td>{{ item.product.product_code }}</td>
                             <td>{{item.insert_quantity}}</td>
@@ -81,7 +75,7 @@
                               <b>{{purchase.total}}</b>
                             </td>
                           </tr>
-                        
+
                           <tr>
                             <td colspan="4"></td>
                             <td>
@@ -91,7 +85,7 @@
                               <b>{{purchase.paid}}</b>
                             </td>
                           </tr>
-                        
+
 
                           <tr>
                             <td colspan="4"></td>
@@ -109,7 +103,7 @@
 
                  <div class="row">
                     <div class="col-lg-2" style="margin-left:27px;text-align:center;">
-                     
+
                       <h5 style="border-top:2px dotted #000;margin-top:30px;">
                         <strong>Accounts</strong>
                       </h5>
@@ -117,20 +111,20 @@
                   </div>
 
                 <div class="bottomBtn">
-                    <button class="btn btn-success print"  @click="print">
+                    <!-- <button class="btn btn-success print"  @click="print">
                       <i class="fa fa-print"></i>
-                    </button>
+                    </button> -->
                     <button class="btn btn-warning back" @click="back">
                       <i class="fa fa-arrow-circle-right" ></i>
                     </button>
-                  </div> 
+                  </div>
                 </div>
               </div>
             </div>
           </div>
            <div class="row" v-if="purchase.file">
               <div class="col-lg-8">
-                <img :src="base_url+purchase.file" alt="">
+                <img :src="base_url+purchase.file" class="file_memo" alt="">
                  <a :href="base_url+purchase.file" download class="btn btn-success">Download</a>
               </div>
           </div>
@@ -209,7 +203,7 @@ export default {
       });
       return total;
     }
-    
+
   },
   computed: {},
 };
@@ -243,5 +237,10 @@ export default {
   .bottomBtn {
     display: none;
   }
+}
+
+.file_memo{
+  max-width:400px;
+  max-height: 400px;
 }
 </style>

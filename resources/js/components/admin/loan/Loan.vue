@@ -17,38 +17,66 @@
       </section>
       <section class="content">
         <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-8 col-lg-offset-1">
-              <div class="box box-primary">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Loan table</h3>
 
-                 
+                
+
+          <div class="row justify-content-center">
+            <div class="col-lg-10 col-lg-offset-1">
+              <div class="box box-primary">
+                <div class="box-header with-border text-center">
+                  <h3 class="box-title heading">Loan Table</h3>
                 </div>
                 <div class="box-body">
+                     <div class="row total_row">
+                     <div class="col-md-3">
+                       
+                    <a href="/api/download/all/loan/pdf" target="_blank" class="btn btn-success"> <i class="fa fa-download"> </i> Export PDF </a>
+                     </div>
+                    <div class="col-md-3"> <h4> Total Loan : <b class="total_style"  style="color:red"> {{ total_loan }} </b> </h4> </div>
+                    <div class="col-md-3"> <h4> Total Paid : <b  class="total_style" style="color:green"> {{ total_loan_paid  }}</b> </h4> </div>
+                    <div class="col-md-3"> <h4> Total Due : <b  class="total_style" style="color:purple"> {{ total_due_amount }}</b> </h4> </div>
+                  </div>
                   <table class="table">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Loaner</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Action</th>
+                      
+                        <th scope="col">Name</th>
+                        <th scope="col">Mobile Number</th>
+                        <th scope="col">Address</th>
+                    
+                        <th scope="col">Taken Amount</th>
+                        <th scope="col">Paid Amount</th>
+                        <th scope="col">Due Amount </th>
                       </tr>
                     </thead>
                     <tbody>
                       <h1 class="text-center" v-if="loading">
                         <i class="fa fa-spin fa-spinner"></i>
                       </h1>
-                      <tr
-                        v-for="(loaner, index) in loaners.data"
-                        v-bind:key="index"
-                      >
+                      <tr v-for="(items, index) in loan.data" v-bind:key="index">
                         <td scope="row">{{ index + 1 }}</td>
-                        <td>{{ loaner.name }}</td>
-                        <td>{{ loaner.email }}</td>
-                        <td>{{ loaner.phone }}</td>
-                     <td>{{ loaner.address }}</td>
+                        <td>
+                           <router-link
+                            :to="{
+                              name: 'LoanerDetails',
+                              params: { id: items.id },
+                            }"
+
+                            >{{ items.name }}
+                          
+                          </router-link>
+      
+                       
+                          
+                          </td>
+                        <td>{{ items.mobile_no }}</td>
+
+                        <td>{{ items.address }}</td>
+
+                       <td>{{ items.taken_amount }}</td> 
+                        <td>{{ items.paid_amount }}</td> 
+                        <td> {{ items.taken_amount - items.paid_amount  }} </td>
                       </tr>
                     </tbody>
                   </table>
@@ -57,8 +85,8 @@
                   <div class="row">
                     <div class="col-lg-6">
                       <pagination
-                        :data="loaners"
-                        @pagination-change-page="getPagination"
+                        :data="loan"
+                        @pagination-change-page="getLoans"
                       >
                       </pagination>
                     </div>
@@ -67,9 +95,9 @@
                       style="margin-top: 25px; text-align: right"
                     >
                       <p>
-                        Showing <strong>{{ loaners.from }}</strong> to
-                        <strong>{{ loaners.to }}</strong> of total
-                        <strong>{{ loaners.total }}</strong> entries
+                        Showing <strong>{{ loan.from }}</strong> to
+                        <strong>{{ loan.to }}</strong> of total
+                        <strong>{{ loan.total }}</strong> entries
                       </p>
                     </div>
                   </div>
@@ -86,25 +114,32 @@
 <script>
 export default {
   created() {
-    this.adminList();
+    this.getLoans();
   },
   data() {
     return {
-      loaners: {},
+      loan: {},
       loading: true,
       basePath: this.$store.getters.image_base_link,
       item: "",
       search: "",
+      total_loan:"",
+      total_loan_paid:"",
+      total_due_amount:0
+      
     };
   },
   methods: {
-    adminList() {
+    getLoans(page=1) {
       axios
-        .get("/api/loaner")
+        .get("/api/loan?page="+page)
         .then((resp) => {
-          console.log(resp)
+          console.log(resp);
           if (resp.data.success == "OK") {
-            this.loaners = resp.data.loaners;
+            this.loan = resp.data.loan;
+            this.total_loan = resp.data.total_loan;
+            this.total_loan_paid = resp.data.total_loan_paid ;
+            this.total_due_amount=resp.data.due_amount;
             this.loading = false;
           }
         })
@@ -112,122 +147,45 @@ export default {
           console.log(error);
         });
     },
+    totalAmount(loan){
+    //  console.log(typeof loan)
 
-    searchAdmin(page = 1) {
-      axios
-        .get("/api/search/admin/" + this.search + "?page=" + page)
-        .then((resp) => {
-          console.log(resp);
-          if (resp.data.status == "OK") {
-            this.admins = resp.data.admins;
-          } else {
-            this.adminList();
-          }
-        })
-        .catch();
-    },
+      let total=0;
+      // loan.forEach(ele => {
+      //     total +=parseFloat(ele.amount);
+      // });
 
-    deActive(admin) {
-      Swal.fire({
-        title: "Are you sure?",
-        text: "You won't de-active this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes!",
-      }).then((result) => {
-        if (result.value) {
-          axios
-            .get("/deactive/admin/" + admin.id)
-            .then((resp) => {
-              if (resp.data.status == "SUCCESS") {
-                this.adminList();
-                this.$toasted.show(resp.data.message, {
-                  position: "top-center",
-                  type: "success",
-                  duration: 4000,
-                });
-              } else {
-                this.$toasted.show("some thing want to wrong", {
-                  position: "top-center",
-                  type: "error",
-                  duration: 4000,
-                });
-              }
-            })
-            .catch((error) => {
-              this.$toasted.show("some thing want to wrong", {
-                position: "top-center",
-                type: "error",
-                duration: 4000,
-              });
-            });
-        } else {
-          this.$toasted.show("OK ! no action here", {
-            position: "top-center",
-            type: "info",
-            duration: 3000,
-          });
-        }
-      });
-    },
-    active(admin) {
-      Swal.fire({
-        title: "Are you sure?",
-        text: "You won't active this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes!",
-      }).then((result) => {
-        if (result.value) {
-          axios
-            .get("/active/admin/" + admin.id)
-            .then((resp) => {
-              if (resp.data.status == "SUCCESS") {
-                this.adminList();
-                this.$toasted.show(resp.data.message, {
-                  position: "top-center",
-                  type: "success",
-                  duration: 4000,
-                });
-              } else {
-                this.$toasted.show("some thing want to wrong", {
-                  position: "top-center",
-                  type: "error",
-                  duration: 4000,
-                });
-              }
-            })
-            .catch((error) => {
-              this.$toasted.show("some thing want to wrong", {
-                position: "top-center",
-                type: "error",
-                duration: 4000,
-              });
-            });
-        } else {
-          this.$toasted.show("Ok ! no action here", {
-            position: "top-center",
-            type: "info",
-            duration: 3000,
-          });
-        }
-      });
-    },
-    getPagination(page = 1) {
-      this.loading = true;
-      axios.get("/list/admin?page=" + page).then((response) => {
-        this.loading = false;
-        this.admins = response.data.admins;
-      });
-    },
+      Object.keys(loan).forEach(function(key) {
+
+        console.log(key);
+
+})
+
+      return total;
+
+    }
   },
   computed: {},
 };
 </script>
 
 <style scoped>
+ 
+ .box-primary{
+
+    margin-left: -100px;
+    overflow-x: scroll;
+ }
+ 
+ .total_style{
+
+    border: 2px solid #ddd;
+    padding: 4px 15px;
+
+ }
+ .total_row{
+   padding-bottom: 20px;
+ }
+
+
 </style>

@@ -147,7 +147,7 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
 
-        _this.$toasted.show("some thing want to wrong", {
+        _this.$toasted.show("some thing went to wrong", {
           type: "error",
           position: "top-center",
           duration: 2000
@@ -172,7 +172,8 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   components: {
-    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_0___default.a
+    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_0___default.a,
+    HasError: vform__WEBPACK_IMPORTED_MODULE_2__["HasError"]
   }
 });
 

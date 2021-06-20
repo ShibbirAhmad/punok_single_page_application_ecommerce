@@ -28,7 +28,7 @@
                   <has-error :form="form" field="code"></has-error>
                 </div>
                 <br />
-                
+
                 <button :disabled="form.busy" class="btn btn-block btn-primary" type="submit">
                   <i class="fa fa-spinner fa-spin" v-if="form.busy"></i>Verify
                 </button>
@@ -57,7 +57,7 @@ export default {
       form: new Form({
         code: "",
       }),
-    
+
     };
   },
   methods: {
@@ -94,11 +94,12 @@ export default {
         });
     },
   },
- 
 
-  
+
+
   components: {
     Loading,
+    HasError
   },
 };
 </script>

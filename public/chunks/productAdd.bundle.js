@@ -321,6 +321,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -348,6 +360,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
         purchase_price: "",
         sale_price: "",
         discount: "",
+        wallet_point: "",
         price: "",
         details: "",
         attribute: "",
@@ -549,10 +562,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
         return;
       }
 
-      if (file.size / 1024 > 250) {
+      if (file.size / 1024 > 300) {
         Swal.fire({
           type: 'warning',
-          text: 'File size can not be bigger then 50kb.Reference file size is' + file.size / 1024 + 'KB'
+          text: 'File size can not be bigger then 300kb.Reference file size is' + file.size / 1024 + 'KB'
         });
         return;
       }
@@ -564,7 +577,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
         var img = new Image();
 
         img.onload = function () {
-          if (img.width <= 360 && img.height <= 360) {
+          if (img.width <= 1200 && img.height <= 1200) {
             _this9.form.image.push(file);
 
             _this9.form.files.push(evt.target.result);
@@ -572,7 +585,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
             return;
           } else {
             _this9.disabled = true;
-            alert("Image maximu size 350*350px.But Upload imaze size" + img.width + "*" + img.height + "px");
+            alert("Image maximu size 1200*1200px.But Upload imaze size" + img.width + "*" + img.height + "px");
             return;
           }
         };
@@ -1177,6 +1190,54 @@ var render = function() {
                               })
                             ],
                             1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c("label", [_vm._v(" wallet point ")]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.wallet_point,
+                                    expression: "form.wallet_point"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                class: {
+                                  "is-invalid": _vm.form.errors.has(
+                                    "wallet_point"
+                                  )
+                                },
+                                attrs: {
+                                  type: "number",
+                                  name: "wallet_point",
+                                  placeholder: "wallet_point"
+                                },
+                                domProps: { value: _vm.form.wallet_point },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "wallet_point",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: { form: _vm.form, field: "wallet_point" }
+                              })
+                            ],
+                            1
                           )
                         ])
                       ])
@@ -1612,7 +1673,9 @@ var staticRenderFns = [
         _vm._v("\n                  Image Gallery\n                  "),
         _c("small", [
           _c("b", [
-            _c("i", [_vm._v("(Every image can not be bigger than 350*350 px)")])
+            _c("i", [
+              _vm._v("(Every image can not be bigger than 1200*1200 px)")
+            ])
           ])
         ])
       ])

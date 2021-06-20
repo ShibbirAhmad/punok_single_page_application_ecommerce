@@ -4,10 +4,8 @@
 
     <div id="container">
       <div class="container">
-        <div style="min-height: 400px" class="row flex">
-                
+        <div style="min-height: 400px" class="row ">     
             <sidebar></sidebar> 
-
           <div class="col-md-6 col-sm-10">
             <div class="form-container content">
               <form
@@ -61,7 +59,7 @@
                     type="email"
                     class="form-control"
                     :class="{ 'is-invalid': form.errors.has('email') }"
-                    name="mobile_no"
+                    name="email"
                     v-model="form.email"
                     autocomplete="off"
                   />
@@ -103,10 +101,10 @@
 </template>
 
 <script>
-import { Form, HasError } from "vform";
 import sidebar from "./Sidebar.vue" ;
+import { Form, HasError } from "vform";
 export default {
-  props: ["categories"],
+  // props: ["categories"],
 
   created() {
     this.getCity();
@@ -186,12 +184,21 @@ export default {
     },
   },
   components:{
-    sidebar
+    sidebar,
+    HasError
   }
 };
 </script>
 
 <style scoped>
+
+ .form-container{
+   height: 420px;
+   margin-bottom: 50px;
+   margin-top: 26px;
+   box-shadow:1px 1px 5px 3px #ddd;
+ }
+
 .content{
   background:#fff;
   padding: 20px 20px;

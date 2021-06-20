@@ -681,7 +681,17 @@ __webpack_require__.r(__webpack_exports__);
       var _this7 = this;
 
       /////index initial for update order from orderLit or order arrow.
-      //start progress bar
+      if (!this.orders.data[index].courier_id) {
+        alert('please select a courier');
+        return;
+      }
+
+      if (!this.orders.data[index].memo_no) {
+        alert('Must Be Need Memo Number');
+        return;
+      } //start progress bar
+
+
       this.$Progress.start();
       axios.get("/shipment/order/" + order.id).then(function (resp) {
         console.log(resp); //end progress bar after resp
@@ -1171,7 +1181,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.orders-heading {\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n  border-bottom: 2px solid #000;\r\n  margin-bottom: 10px;\n}\r\n", ""]);
+exports.push([module.i, "\n.orders-heading {\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n  border-bottom: 2px solid #000;\r\n  margin-bottom: 10px;\n}\n.box{\r\n  width:100%;\r\n  overflow-x: scroll;\n}\r\n", ""]);
 
 // exports
 

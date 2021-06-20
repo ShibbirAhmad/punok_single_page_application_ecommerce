@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\SubSubCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 
 class SubSubCategoryController extends Controller
 {
@@ -189,4 +190,38 @@ class SubSubCategoryController extends Controller
             ]);
         }
     }
+
+
+    public function addDiscount(Request $request, $id){
+          $validatedData=$request->validate([
+              'discount' => 'required',
+              'discount_type' => 'required',
+          ]);
+
+          $sub_sub_c=SubSubCategory::findOrFail($id);
+          $sub_sub_c->discount=$request->discount;
+          $sub_sub_c->discount_type=$request->discount_type;
+          if ($sub_sub_c->save()) {
+
+            $products=Product::where('sub_sub_category_id',$sub_sub_c->id)->where('status',1)->get();
+            foreach ($products as $product) {
+                if ($request->discount_type=="flat") {
+                    $product->price=$product->sale_price - $request->discount ;
+                    $product->discount=$request->discount ;
+                }else{
+                    $discount=($product->sale_price*$request->discount/100);
+                    $product->price=$product->sale_price - $discount ;
+                    $product->discount=$discount ;
+                }
+                    $product->save();
+            }
+         }
+             return response()->json([
+                 "status" => "SUCCESS",
+                 "message" => "Discount applied successfully"
+             ]);
+    }
+
+
+
 }

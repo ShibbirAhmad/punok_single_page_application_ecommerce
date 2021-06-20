@@ -368,7 +368,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass: "btn btn-success",
-                  attrs: { to: { name: "SubCategory" } }
+                  attrs: { to: { name: "subCategory" } }
                 },
                 [_vm._v("sub category")]
               ),

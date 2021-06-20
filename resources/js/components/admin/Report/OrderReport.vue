@@ -13,7 +13,7 @@
       <section class="content">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-lg-11">
+            <div class="col-lg-10">
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <div class="row" style="margin-bottom: 3px">
@@ -258,7 +258,7 @@ export default {
     },
 
        downloadPDF(){
-      
+
       let start_date="All";
       let end_date="All";
 
@@ -270,7 +270,7 @@ export default {
       }
 
        window.open('/api/get/sale/order/pdf/'+start_date+'/'+end_date,'_blank');
-    
+
     },
 
   },
@@ -292,4 +292,9 @@ export default {
   border-bottom: 2px solid #000;
   margin-bottom: 10px;
 }
+
+.box-primary{
+  overflow-x: scroll;
+}
+
 </style>

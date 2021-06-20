@@ -20,11 +20,11 @@
       <section class="content">
         <div class="container">
           <div class="row">
-            <div class="col-lg-11">
+            <div class="col-lg-11 col-md-11">
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <div class="row">
-                    <div class="col-lg-1">
+                    <div class="col-lg-2">
                       <select
                         class="form-control"
                         v-model="item"
@@ -37,7 +37,7 @@
                         <option value="200">200</option>
                       </select>
                     </div>
-                    <div class="col-lg-5"></div>
+                    <div class="col-lg-4"></div>
                     <div class="col-lg-4">
                       <input
                         class="form-control"
@@ -61,20 +61,20 @@
                   </div>
                 </div>
                 <div class="box-body">
-                  <table class="table" id="table">
+                  <table class="table text-center table-striped table-hover table-bordered " id="table">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Barcode</th>
-                        <th scope="col">P_code</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Sale_price</th>
-                        <th scope="col">Discount</th>
-                        <th scope="col">price</th>
-                        <th scope="col">stock</th>
-                        <th scope="col">status</th>
-                        <th scope="col">Action</th>
+                        <th width="5%">#</th>
+                        <th width="10%">name</th>
+                        <th width="10%">barcode</th>
+                        <th width="5%">image</th>
+                        <th width="5%">sale price</th>
+                        <th width="5%">discount</th>
+                        <th width="5%">price</th>
+                        <th width="5%">stock</th>
+                        <th width="5%">status</th>
+                        <th width="5%">wallet point</th>
+                        <th width="10%">action</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -94,7 +94,6 @@
                             product.product_barcode.barcode_number
                           }}</span>
                         </td>
-                        <td>{{ product.product_code }}</td>
                         <td>
                           <img
                             v-if="product.product_image.length"
@@ -121,6 +120,7 @@
                             product.stock
                           }}</span>
                         </td>
+
                         <td>
                           <span
                             class="badge badge-success"
@@ -134,6 +134,9 @@
                           >
                           <span class="badge badge-warning" v-else>Deny</span>
                         </td>
+
+                           <td><span class="badge badge-info" > {{ product.wallet_point }} </span> </td>
+
                         <td>
                           <i
                             class="fa fa-bars"
@@ -206,7 +209,7 @@
               </div>
             </div>
           </div>
-         
+
         </div>
       </section>
     </div>
@@ -235,7 +238,7 @@ export default {
       item: "30",
       status: "all",
       base_url:this.$store.state.image_base_link,
-    
+
 
     };
   },
@@ -255,7 +258,7 @@ export default {
           this.products = resp.data.products;
 
           this.$Progress.finish();
-        
+
         })
         .catch((error) => {
           console.log(error);
@@ -477,10 +480,10 @@ export default {
             this.productList()
           }
       })
-     
+
      }else{
        this.productList();
-       
+
      }
     },
 
@@ -497,15 +500,18 @@ export default {
     },
   },
 
- 
 
- 
+
+
 };
 
 
 </script>
 
 <style scoped>
+.box{
+  overflow-x:scroll;
+}
 .dropbtn {
   width: 100% !important;
   margin-bottom: 5px !important;

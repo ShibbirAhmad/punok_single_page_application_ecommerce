@@ -19,7 +19,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-6 col-lg-offset-2">
             <div class="box box-primary">
-              <div class="box-header with-border">
+              <div class="box-header with-border text-center ">
                 <h3 class="box-title">Edit Your Information</h3>
               </div>
               <div class="box-body">
@@ -119,7 +119,7 @@
                       class="image-responsive"
                       style="width: 250px; height: 250px;margin-left:100px;"
                       />
-                    
+
                     </div>
                   <div class="form-group">
                     <label>Image</label>
@@ -132,7 +132,7 @@
                     />
                     <has-error :form="form" field="image"></has-error>
                   </div>
-                  <br />
+                 <div class="form-group text-center">
                   <button
                     :disabled="form.busy"
                     type="submit"
@@ -140,8 +140,10 @@
                   >
                     <i class="fa fa-spin fa-spinner" v-if="form.busy"></i>Update
                   </button>
+                 </div>
+
                 </form>
-              </div> 
+              </div>
             </div>
           </div>
         </div>
@@ -214,7 +216,7 @@ export default {
     getmerchant() {
       axios.get("/api/get/single/merchant")
       .then((resp) => {
-        
+
         if (resp.data.status == "OK") {
           this.form.name = resp.data.merchant.name;
           this.form.email = resp.data.merchant.email;

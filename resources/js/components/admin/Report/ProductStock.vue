@@ -4,32 +4,7 @@
     <div class="content-wrapper">
       <section class="content-header">
         <h1>
-          <router-link :to="{ name: 'addOrder' }" class="btn btn-primary">
-            <i class="fa fa-plus"></i>
-          </router-link>
-          <router-link :to="{ name: 'NewOrder' }" class="btn btn-sm btn-success"
-            >New</router-link
-          >
-          <router-link
-            :to="{ name: 'PendingOrder' }"
-            class="btn btn-sm btn-success"
-            >Pending</router-link
-          >
-          <router-link
-            :to="{ name: 'ApprovedOrder' }"
-            class="btn btn-sm btn-success"
-            >Approved</router-link
-          >
-          <router-link
-            :to="{ name: 'ShipmentOrder' }"
-            class="btn btn-sm btn-success"
-            >Shipment</router-link
-          >
-          <router-link
-            :to="{ name: 'DeliveredOrder' }"
-            class="btn btn-sm btn-success"
-            >Delivered</router-link
-          >
+
         </h1>
         <ol class="breadcrumb">
           <li>
@@ -41,7 +16,7 @@
       <section class="content">
         <div class="container">
           <div class="row">
-            <div class="col-lg-11">
+            <div class="col-lg-10">
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <div class="row">
@@ -123,7 +98,7 @@
                           {{ curentStockPrice(product.stock,product.purchase_item) }}
                         </td>
                         <td></td>
-                  
+
                       </tr>
                     </tbody>
                   </table>
@@ -176,7 +151,7 @@ export default {
       loading: true,
       search: "",
       item: 10,
-     
+
     };
   },
   methods: {
@@ -211,10 +186,10 @@ export default {
             this.productList()
           }
       })
-     
+
      }else{
        this.productList();
-       
+
      }
     },
 
@@ -259,7 +234,7 @@ let a_price=parseFloat(total)/parseFloat(total_stock);
 
        return `${stock}*${a_price.toFixed(2)}=${parseFloat(stock)*parseFloat(a_price.toFixed(2))}`
     }
-    
+
   },
 
   computed: {},
@@ -271,4 +246,9 @@ let a_price=parseFloat(total)/parseFloat(total_stock);
 </script>
 
 <style scoped>
+
+.box-primary{
+  overflow-x: scroll;
+}
+
 </style>

@@ -61,19 +61,21 @@
         }
 
     </style>
+
+ <?php
+
+  $setting = App\Models\GeneralSetting::latest()->first();
+
+ ?>
+
 </head>
 
 <body>
  <div class="container">
         <div class="row">
             <div class="address">
-                <p class="logo">Mohasagor.com</p>
-                <p class="address_line">
-                    Office: House:02, Lane:11,Block:A, Banarosi Polli, section-10,
-                    Mirpur,Dhaka.
-                </p>
-                <p>Email: support@mohasagor.com</p>
-                <p>Hot Line: <strong> 09636 203040</strong></p>
+              <p class="logo">sufilifestyle.com</p>
+              <p> {!! $setting->invoice_address_details !!} </p>
 
             </div>
 

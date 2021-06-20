@@ -23,17 +23,17 @@
             width: 40%;
         }
     table {
-        border: 1px solid #000; 
+        border: 1px solid #000;
         padding: 10px 10px;
          /* background-image: url("https://i.stack.imgur.com/fNC36.png"); */
 
-} 
+}
 td{
-        border: 1px solid #000; 
+        border: 1px solid #000;
         padding: 5px 5px;
         text-align: center;
-    
-}  
+
+}
  table {
        text-align: center !important;
   }
@@ -61,7 +61,7 @@ th{
   <body>
    <?php
 
-   
+
 
 $total_product_qty=0;
 $total_amount=$p_items->sum('total');
@@ -74,20 +74,17 @@ foreach ($p_items as $key => $p_item) {
 }
 
 
+  $setting = App\Models\GeneralSetting::latest()->first();
+
 
 ?>
-   
+
     <div class="container">
         <div class="row">
              <div class="address">
-                       <p class="logo">Mohasagor.com</p>     
-                      <p class="address_line">
-                        Office: House:02, Lane:11,Block:A, Banaroshi Polli, section-10,
-                        Mirpur,Dhaka.
-                      </p>
-                      <p>Email: support@mohasagor.com</p>
-                      <p>Hot Line: <strong> 09636 203040</strong></p>
-                     
+              <p class="logo">sufilifestyle.com</p>
+              <p> {!! $setting->invoice_address_details !!} </p>
+
                     </div>
 
                     <div  class="supplier">
@@ -114,16 +111,16 @@ foreach ($p_items as $key => $p_item) {
                     <tbody>
                         @foreach ($p_items as $k=> $p_item)
 
-                     
+
                                 <tr>
                                     <td>{{ $k+1 }}</td>
                                     <td  style="width:90px;">{{  date("d-m-Y", strtotime($p_item->purchase_date))}}</td>
                                     <td>{{ $p_item->invoice_no }}</td>
                                     <td>
-                                      
-                                       
+
+
                                         {{ $p_item->purchaseItems->sum('stock') }}
-                                     
+
                                     </td>
                                     <td>{{ $p_item->total }}</td>
                                     <td>{{ $p_item->paid }}</td>
@@ -140,15 +137,15 @@ foreach ($p_items as $key => $p_item) {
 
                             <td><strong> = {{ $total_paid }}</strong></td>
                             <td colspan="2"><strong> = {{ $total_amount- $total_paid}}</strong></td>
-                         
+
 
 
                         </tr>
-                        
+
                     </tbody>
                 </table>
             </div>
-            
+
         </div>
     </div>
 

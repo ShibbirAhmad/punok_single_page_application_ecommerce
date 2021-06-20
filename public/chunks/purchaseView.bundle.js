@@ -151,12 +151,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MODULE_1__["HasError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["HasError"]);
@@ -237,7 +231,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.mb-2[data-v-6f8ba8d8] {\r\n  margin-bottom: 5px !important;\n}\n.bottomBtn[data-v-6f8ba8d8] {\r\n  margin-top: 15px;\r\n  margin-left: 20px;\n}\n@media print {\n.navbar[data-v-6f8ba8d8] {\r\n    display: none;\n}\n.col-lg-2[data-v-6f8ba8d8] {\r\n    width: 20% !important;\n}\n.invoice-header[data-v-6f8ba8d8] {\r\n    display: block;\n}\n.box[data-v-6f8ba8d8] {\r\n    border-top: none;\n}\nfooter[data-v-6f8ba8d8] {\r\n    border-top: none !important;\n}\n.bottomBtn[data-v-6f8ba8d8] {\r\n    display: none;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.mb-2[data-v-6f8ba8d8] {\r\n  margin-bottom: 5px !important;\n}\n.bottomBtn[data-v-6f8ba8d8] {\r\n  margin-top: 15px;\r\n  margin-left: 20px;\n}\n@media print {\n.navbar[data-v-6f8ba8d8] {\r\n    display: none;\n}\n.col-lg-2[data-v-6f8ba8d8] {\r\n    width: 20% !important;\n}\n.invoice-header[data-v-6f8ba8d8] {\r\n    display: block;\n}\n.box[data-v-6f8ba8d8] {\r\n    border-top: none;\n}\nfooter[data-v-6f8ba8d8] {\r\n    border-top: none !important;\n}\n.bottomBtn[data-v-6f8ba8d8] {\r\n    display: none;\n}\n}\n.file_memo[data-v-6f8ba8d8]{\r\n  max-width:400px;\r\n  max-height: 400px;\n}\r\n", ""]);
 
 // exports
 
@@ -300,31 +294,20 @@ var render = function() {
         _c("section", { staticClass: "content" }, [
           _c("div", { staticClass: "container" }, [
             _c("div", { staticClass: "row justify-content-center" }, [
-              _c("div", { staticClass: "col-lg-11" }, [
+              _c("div", { staticClass: "col-lg-10" }, [
                 _c("div", { staticClass: "box box-primary" }, [
                   _c("div", { staticClass: "box-header" }),
                   _vm._v(" "),
                   _c("div", { staticClass: "box-body" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "invoice-header" }, [
-                        _c("img", {
-                          staticClass: "invoice-logo",
-                          attrs: {
-                            src: "/./frontend/image/logo.png",
-                            title: "MarketShop",
-                            alt: "MarketShop"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _vm._m(0)
-                      ])
-                    ]),
+                    _vm._m(0),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-1" }),
+                      _vm._v(" "),
                       _c(
                         "div",
                         {
-                          staticClass: "col-lg-4 invoice-body",
+                          staticClass: "col-lg-4 col-md-4 invoice-body",
                           staticStyle: { "margin-left": "27px" }
                         },
                         [
@@ -383,7 +366,7 @@ var render = function() {
                                         _vm._v(
                                           "\n                            " +
                                             _vm._s(item.product.name) +
-                                            "\n                         \n                          "
+                                            "\n\n                          "
                                         )
                                       ]),
                                       _vm._v(" "),
@@ -473,15 +456,6 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-success print",
-                          on: { click: _vm.print }
-                        },
-                        [_c("i", { staticClass: "fa fa-print" })]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
                           staticClass: "btn btn-warning back",
                           on: { click: _vm.back }
                         },
@@ -497,6 +471,7 @@ var render = function() {
               ? _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "col-lg-8" }, [
                     _c("img", {
+                      staticClass: "file_memo",
                       attrs: { src: _vm.base_url + _vm.purchase.file, alt: "" }
                     }),
                     _vm._v(" "),
@@ -526,16 +501,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "address" }, [
-      _c("p", [
-        _vm._v("Office: House:36,Road:06,Banaroshi Polli,Mirpur-10,Dhaka-1216.")
-      ]),
-      _vm._v(" "),
-      _c("p", [_vm._v("EmaiL:support@madinafashionbd.com")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Mobile:+88 01715-900066")]),
-      _vm._v(" "),
-      _c("h3", [_c("strong", [_vm._v("Purchase Invoice")])])
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "invoice-header" }, [
+        _c("div", { staticClass: "address" }, [
+          _c("h3", [_c("strong", [_vm._v("Purchase Invoice")])])
+        ])
+      ])
     ])
   },
   function() {

@@ -90,6 +90,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.searchProducts();
@@ -322,12 +323,37 @@ var render = function() {
                                 _vm._v(" "),
                                 _c("p", { staticClass: "price" }, [
                                   _c("span", { staticClass: "price-new" }, [
-                                    _vm._v(_vm._s(product.price))
+                                    _vm._v("৳" + _vm._s(product.price))
                                   ]),
                                   _vm._v(" "),
                                   product.discount
                                     ? _c("span", { staticClass: "price-old" }, [
-                                        _vm._v(_vm._s(product.sale_price))
+                                        _vm._v(
+                                          "৳ " + _vm._s(product.sale_price)
+                                        )
+                                      ])
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  product.discount > 0
+                                    ? _c("span", { staticClass: "discount" }, [
+                                        _c("i", {
+                                          staticClass:
+                                            "fa fa-star discount_star"
+                                        }),
+                                        _vm._v(
+                                          " " +
+                                            _vm._s(
+                                              (
+                                                (product.discount /
+                                                  product.sale_price) *
+                                                100
+                                              ).toFixed(0)
+                                            ) +
+                                            "%  "
+                                        ),
+                                        _c("span", { staticClass: "d_off" }, [
+                                          _vm._v("off")
+                                        ])
                                       ])
                                     : _vm._e()
                                 ])

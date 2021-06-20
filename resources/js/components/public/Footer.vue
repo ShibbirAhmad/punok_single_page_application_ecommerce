@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <footer id="footer">
       <div class="fpart-first">
         <div class="container">
@@ -66,7 +67,7 @@
                 <li>
                   <router-link :to="{ name: 'team' }"> Team </router-link>
                 </li>
-  
+
               </ul>
             </div>
 
@@ -90,11 +91,11 @@
                       </button>
                     </form>
                    </div>
-           
+
                 </div>
                 <div class="col-md-10 col-sm-12">
                   <div class="social-icon">
-                
+
                 <a :href="footer_setting.facebook_url" target="_blank" class="social-wrape">
                   <i class="fa fa-lg fa-facebook f-icon"></i>
                 </a>
@@ -102,7 +103,7 @@
                 <a :href="footer_setting.youtube_url" class="social-wrape"   target="_blank">
                   <i class="fa fa-lg fa-youtube f-icon"></i>
                 </a>
-                
+
                 <a :href="footer_setting.twitter_url" class="social-wrape"  target="_blank" >
                   <i class="fa fa-lg fa-twitter f-icon"></i>
                 </a>
@@ -190,6 +191,8 @@ export default {
         })
         .catch();
     },
+
+  
   },
   computed:{
 

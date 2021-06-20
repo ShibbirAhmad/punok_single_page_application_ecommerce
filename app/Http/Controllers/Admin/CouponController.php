@@ -13,28 +13,31 @@ class CouponController extends Controller
     {
         $coupons = Coupon::orderby('id', 'desc')->get();
         return response()->json([
-            'coupons' => $coupons,
-            'status' => 'SUCCESS'
+            'status' => 'OK',
+            'coupons' => $coupons, 
         ]);
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
-            'coupon_code' => 'required',
-            'type' => 'required',
+            'code' => 'required|unique:coupons',
+            'start_date' => 'required',
             'expire_date' => 'required',
-            'value' => 'required',
+            'discount_amount' => 'required',
+             'discount_type' => 'required',
         ]);
         $coupon = new Coupon();
-        $coupon->coupon_code = $request->coupon_code;
-        $coupon->type = $request->name;
-        $coupon->expire_date = $request->name;
-        $coupon->value = 1;
+        $coupon->code = $request->code;
+        $coupon->start_date = $request->start_date; 
+        $coupon->expire_date = $request->expire_date; 
+        $coupon->discount_type = $request->discount_type;
+        $coupon->discount_amount = $request->discount_amount;
+
         if ($coupon->save()) {
             return response()->json([
-                'status' => 'SUCCESS',
-                'message' => 'coupon add successfully'
+                'status' => 'OK',
+                'message' => 'Coupon added successfully'
             ]);
         }
     }
@@ -48,8 +51,8 @@ class CouponController extends Controller
             $coupon->status = 1;
             if ($coupon->save()) {
                 return response()->json([
-                    'status' => 'SUCCESS',
-                    'message' => 'coupon active successfully'
+                    'status' => 'OK',
+                    'message' => 'coupon activated'
                 ]);
             }
         }
@@ -62,49 +65,58 @@ class CouponController extends Controller
             $coupon->status = 0;
             if ($coupon->save()) {
                 return response()->json([
-                    'status' => 'SUCCESS',
-                    'message' => 'coupon de-active successfully'
+                    'status' => 'OK',
+                    'message' => 'coupon de-activated '
                 ]);
             }
         }
     }
 
 
-    public function edit($id)
-    {
+    public function get_edit_item($id){
+
         $coupon = Coupon::find($id);
-        if ($coupon) {
             return response()->json([
-                'status' => 'SUCCESS',
                 'coupon' => $coupon
             ]);
-        }
 
     }
+
 
     public function update(Request $request, $id)
     {
 
         $this->validate($request, [
-            'coupon_code' => 'required',
-            'type' => 'required',
+            'code' => 'required|unique:coupons,code,'.$id,
+            'start_date' => 'required',
             'expire_date' => 'required',
-            'value' => 'required',
+            'discount_amount' => 'required',
+            'discount_type' => 'required',
         ]);
 
         $coupon = Coupon::find($id);
-        $coupon->coupon_code = $request->coupon_code;
-        $coupon->type = $request->name;
-        $coupon->expire_date = $request->name;
+        $coupon->code = $request->code;
+        $coupon->start_date = $request->start_date; 
+        $coupon->expire_date = $request->expire_date; 
+        $coupon->discount_type = $request->discount_type;
+        $coupon->discount_amount = $request->discount_amount;
         if ($coupon->save()) {
             return response()->json([
-                'status' => 'SUCCESS',
-                'message' => 'coupon update successfully'
+                'status' => 'OK',
+                'message' => 'Coupon update successfully'
             ]);
         }
     }
-    public function destroy($id)
-    {
-        //
+
+
+    public function destroy($id){
+        
+        $coupon=Coupon::findOrFail($id);
+        $coupon->delete();
+        return response()->json([
+            'status' => 'OK',
+            'message' => 'Deleted successfully',
+        ]);
     }
+
 }

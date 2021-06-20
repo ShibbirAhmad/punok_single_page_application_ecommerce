@@ -15,7 +15,7 @@ import Permissions from "./components/admin/Permissions/Permissions.vue";
 Vue.use(datePicker);
 Vue.mixin(Permissions);
 
-//this is vue lazyloading image plaugin code 
+//this is vue lazyloading image plaugin code
 import { VLazyImagePlugin } from "v-lazy-image";
 Vue.use(VLazyImagePlugin);
 
@@ -62,8 +62,6 @@ Vue.component('quick-view', require('./components/public/QuickView.vue').default
 
 
 
-
-
 Vue.config.devtools = true;
 const app = new Vue({
     el: '#app',
@@ -72,7 +70,7 @@ const app = new Vue({
     basePath: 'storage/',
     data() {
         return {
-           
+
 
         }
     },
@@ -111,6 +109,7 @@ const app = new Vue({
       console.log('=== End ===');
     }
   }
+
 });
 
 

@@ -467,7 +467,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "box-header with-border" }, [
+    return _c("div", { staticClass: "box-header with-border text-center" }, [
       _c("h3", { staticClass: "box-title" }, [_vm._v("Edit Admin")])
     ])
   }

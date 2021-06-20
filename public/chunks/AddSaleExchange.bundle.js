@@ -487,7 +487,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
         address: "",
         //multiple product data
         products: [],
-        exchnage_products: [],
+        exchanage_products: [],
         // culation data
         AmountTotal: 0,
         paid: 0,
@@ -703,7 +703,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
       if (this.add_to_exchnage == 1) {
         this.form.products.push(this.preview_products);
       } else {
-        this.form.exchnage_products.push(this.preview_products);
+        this.form.exchanage_products.push(this.preview_products);
       }
 
       this.preview_products = {
@@ -737,37 +737,12 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
       }
     },
     finalValidation: function finalValidation() {
-      if (this.form.products.length <= 0) {
+      if (this.form.products.length <= 0 && this.form.exchanage_products.length <= 0 && this.form.sale_total < this.form.exchange_total && this.form.name.length <= 0 && this.form.mobile_no.length != 11 && this.form.address.length <= 0) {
         this.submitValidation = true;
         return;
+      } else {
+        return this.submitValidation = false;
       }
-
-      if (this.form.exchnage_products.length <= 0) {
-        this.submitValidation = true;
-        return;
-      }
-
-      if (this.form.sale_total < this.form.exchange_total) {
-        this.submitValidation = true;
-        return;
-      }
-
-      if (this.form.name.length <= 0) {
-        this.submitValidation = true;
-        return;
-      }
-
-      if (this.form.mobile_no.length != 11) {
-        this.submitValidation = true;
-        return;
-      }
-
-      if (this.form.address.length <= 0) {
-        this.submitValidation = true;
-        return;
-      }
-
-      this.submitValidation = false;
     },
     totalAmount: function totalAmount() {
       var sale_amount = 0;
@@ -781,8 +756,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
 
       var exchange_amount = 0;
 
-      if (this.form.exchnage_products.length > 0) {
-        this.form.exchnage_products.forEach(function (el) {
+      if (this.form.exchanage_products.length > 0) {
+        this.form.exchanage_products.forEach(function (el) {
           exchange_amount += parseInt(el.price) * parseInt(el.quantity);
         });
       } // console.log(exchange_amount);
@@ -811,7 +786,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
       if (this.add_to_exchnage == 1) {
         this.form.products.splice(index, 1);
       } else {
-        this.form.exchnage_products.splice(index, 1);
+        this.form.exchanage_products.splice(index, 1);
       }
 
       this.totalAmount();
@@ -1532,7 +1507,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-lg-6" }, [
-                      _vm.form.exchnage_products.length > 0
+                      _vm.form.exchanage_products.length > 0
                         ? _c("div", { staticClass: "product_preview" }, [
                             _c(
                               "h4",
@@ -1546,7 +1521,7 @@ var render = function() {
                               _c(
                                 "tbody",
                                 [
-                                  _vm._l(_vm.form.exchnage_products, function(
+                                  _vm._l(_vm.form.exchanage_products, function(
                                     product,
                                     index
                                   ) {
@@ -1611,7 +1586,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _vm.form.products.length > 0 ||
-                  _vm.form.exchnage_products.length > 0
+                  _vm.form.exchanage_products.length > 0
                     ? _c("div", { staticClass: "row" }, [
                         _c("div", { staticClass: "col-lg-12" }, [
                           _c("table", [
@@ -1668,8 +1643,11 @@ var render = function() {
                                       expression: "form.exchange_total"
                                     }
                                   ],
-                                  staticClass: "form - control",
-                                  attrs: { readonly: "", placeholder: "Paid" },
+                                  staticClass: "form-control",
+                                  attrs: {
+                                    type: "number",
+                                    placeholder: "Paid"
+                                  },
                                   domProps: { value: _vm.form.exchange_total },
                                   on: {
                                     input: function($event) {
@@ -1692,9 +1670,7 @@ var render = function() {
                                 _vm._v("Total")
                               ]),
                               _vm._v(" "),
-                              _c("td", { attrs: { colspan: "3" } }, [
-                                _vm._v("Colspan")
-                              ]),
+                              _c("td", { attrs: { colspan: "3" } }),
                               _vm._v(" "),
                               _c("td", [
                                 _c("input", {

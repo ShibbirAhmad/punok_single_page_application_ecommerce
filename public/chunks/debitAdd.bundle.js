@@ -172,6 +172,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -192,7 +195,13 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
         debit_from: "Cash",
         supplier_id: "",
         signature: null,
-        signature_write: false
+        signature_write: false,
+        loaner_id: "",
+        investor_id: "",
+        investor_return_id: "",
+        print_house_id: "",
+        profit_month: "",
+        bill_statement_id: ""
       }),
       loading: true,
       error: "",
@@ -201,6 +210,20 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
       options: {
         format: "YYYY-MM-DD",
         useCurrent: false
+      },
+      months: {
+        'January': 'January',
+        'February': 'February',
+        'March': 'March',
+        'April': 'April',
+        'May': 'May',
+        'June': 'June',
+        'July': 'July',
+        'August': 'August',
+        'September': 'Septembaer',
+        'October': 'October',
+        'November': 'November',
+        'December': 'December'
       },
       //signature pad.......
       option: {
@@ -232,6 +255,16 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
         this.employeeList();
       } else if (value == 9) {
         this.supplierList();
+      } else if (value == 11) {
+        this.loanerList();
+      } else if (value == 12) {
+        this.investorList();
+      } else if (value == 10) {
+        this.printHoueList();
+      } else if (value == 21) {
+        this.billStatementList();
+      } else if (value == 22) {
+        this.returnInvestorList();
       } else {
         this.form.employee_id = "";
         this.form.supplier_id = "";
@@ -263,8 +296,35 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
         console.log(e);
       });
     },
-    supplierList: function supplierList() {
+    loanerList: function loanerList() {
       var _this4 = this;
+
+      axios.get("/api/loaners").then(function (resp) {
+        console.log(resp);
+        var options = {};
+        resp.data.forEach(function (element) {
+          options[element.id] = element.name + "-" + element.mobile_no;
+        });
+        Swal.fire({
+          title: "Select a Loaner",
+          input: "select",
+          inputOptions: options,
+          inputPlaceholder: "Select One",
+          showCancelButton: true
+        }).then(function (result) {
+          if (result.value) {
+            _this4.form.loaner_id = result.value;
+          } else {
+            _this4.form.purpose = "";
+            _this4.form.loaner_id = "";
+          }
+        });
+      })["catch"](function (e) {
+        console.log(e);
+      });
+    },
+    supplierList: function supplierList() {
+      var _this5 = this;
 
       axios.get("/api/supplier/list").then(function (resp) {
         console.log(resp);
@@ -280,9 +340,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
           showCancelButton: true
         }).then(function (result) {
           if (result.value) {
-            _this4.form.supplier_id = result.value;
+            _this5.form.supplier_id = result.value;
           } else {
-            _this4.form.supplier_id = "";
+            _this5.form.supplier_id = "";
           }
         });
       })["catch"](function (e) {
@@ -290,7 +350,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
       });
     },
     add: function add() {
-      var _this5 = this;
+      var _this6 = this;
 
       this.save();
       console.log(this.form.signature);
@@ -299,21 +359,138 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
         console.log("resp");
 
         if (resp.data.status == "SUCCESS") {
-          _this5.$router.push({
+          _this6.$router.push({
             name: "debit"
           });
 
-          _this5.$toasted.show(resp.data.message, {
+          _this6.$toasted.show(resp.data.message, {
             type: "success",
             position: "top-center",
             duration: 2000
           });
         } else {
-          _this5.error = "some thing want to wrong";
+          _this6.error = "some thing want to wrong";
         }
       })["catch"](function (error) {
         //  console.log(error)
-        _this5.error = "some thing want to wrong";
+        _this6.error = "some thing want to wrong";
+      });
+    },
+    investorList: function investorList() {
+      var _this7 = this;
+
+      axios.get("/api/company/investor/list").then(function (resp) {
+        console.log(resp);
+        var options = {};
+        resp.data.forEach(function (element) {
+          options[element.id] = element.name + "-" + element.mobile_no;
+        });
+        Swal.fire({
+          title: "Select a Investor",
+          input: "select",
+          inputOptions: options,
+          inputPlaceholder: "Select One",
+          showCancelButton: true
+        }).then(function (result) {
+          if (result.value) {
+            _this7.form.investor_id = result.value;
+            Swal.fire({
+              title: "Select Profit Month",
+              input: "select",
+              inputOptions: _this7.months,
+              inputPlaceholder: "Select One",
+              showCancelButton: true
+            }).then(function (month) {
+              if (month.value) {
+                _this7.form.profit_month = month.value;
+              } else {
+                _this7.form.profit_month = "";
+              }
+            });
+          } else {
+            _this7.form.purpose = "";
+            _this7.form.investor_id = "";
+          }
+        });
+      })["catch"](function (e) {
+        console.log(e);
+      });
+    },
+    returnInvestorList: function returnInvestorList() {
+      var _this8 = this;
+
+      axios.get("/api/company/investor/list").then(function (resp) {
+        console.log(resp);
+        var options = {};
+        resp.data.forEach(function (element) {
+          options[element.id] = element.name + "-" + element.mobile_no;
+        });
+        Swal.fire({
+          title: "Select a Investor",
+          input: "select",
+          inputOptions: options,
+          inputPlaceholder: "Select One",
+          showCancelButton: true
+        }).then(function (result) {
+          if (result.value) {
+            _this8.form.investor_return_id = result.value;
+          } else {
+            _this8.form.purpose = "";
+            _this8.form.investor_return_id = "";
+          }
+        });
+      })["catch"](function (e) {
+        console.log(e);
+      });
+    },
+    printHoueList: function printHoueList() {
+      var _this9 = this;
+
+      axios.get("/api/print/house/list").then(function (resp) {
+        console.log(resp);
+        var options = {};
+        resp.data.forEach(function (element) {
+          options[element.id] = element.company_name + "-" + element.mobile_no;
+        });
+        Swal.fire({
+          title: "Select a print-house",
+          input: "select",
+          inputOptions: options,
+          inputPlaceholder: "Select One",
+          showCancelButton: true
+        }).then(function (result) {
+          if (result.value) {
+            _this9.form.print_house_id = result.value;
+          } else {
+            _this9.form.purpose = "";
+            _this9.form.print_house_id = "";
+          }
+        });
+      });
+    },
+    billStatementList: function billStatementList() {
+      var _this10 = this;
+
+      axios.get("/api/bill/statement/list").then(function (resp) {
+        console.log(resp);
+        var options = {};
+        resp.data.bills.forEach(function (element) {
+          options[element.id] = element.name;
+        });
+        Swal.fire({
+          title: "Select a bill",
+          input: "select",
+          inputOptions: options,
+          inputPlaceholder: "Select One",
+          showCancelButton: true
+        }).then(function (result) {
+          if (result.value) {
+            _this10.form.bill_statement_id = result.value;
+          } else {
+            _this10.form.purpose = "";
+            _this10.form.bill_statement_id = "";
+          }
+        });
       });
     },
     //method initial for  get current date
@@ -850,21 +1027,28 @@ var render = function() {
                           _vm._v(" "),
                           _c("br"),
                           _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary",
-                              attrs: { disabled: _vm.form.busy, type: "submit" }
-                            },
-                            [
-                              _vm.form.busy
-                                ? _c("i", {
-                                    staticClass: "fa fa-spin fa-spinner"
-                                  })
-                                : _vm._e(),
-                              _vm._v("Submit\n                ")
-                            ]
-                          )
+                          _c("div", { staticClass: "form-group text-center" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: {
+                                  disabled:
+                                    _vm.form.busy ||
+                                    _vm.form.signature_write == false,
+                                  type: "submit"
+                                }
+                              },
+                              [
+                                _vm.form.busy
+                                  ? _c("i", {
+                                      staticClass: "fa fa-spin fa-spinner"
+                                    })
+                                  : _vm._e(),
+                                _vm._v("Submit\n                ")
+                              ]
+                            )
+                          ])
                         ]
                       )
                 ])
@@ -897,7 +1081,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "box-header with-border" }, [
+    return _c("div", { staticClass: "box-header text-center with-border" }, [
       _c("h3", { staticClass: "box-title" }, [_vm._v("Add Debit")])
     ])
   }

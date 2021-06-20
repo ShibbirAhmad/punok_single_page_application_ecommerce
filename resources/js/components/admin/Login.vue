@@ -1,7 +1,7 @@
 <template>
   <div class="login-box" v-if="!isLoading">
     <div class="login-logo">
-      <a href="https://sufilifestyle.com"> <b>sufilifestyle</b>.com</a>
+      <a > <b> {{ general_setting.title }} </b></a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
@@ -61,10 +61,12 @@ Vue.component(HasError.name, HasError);
 export default {
   created() {
     this.removeClass();
-
     setTimeout(() => {
       this.isLoading = false;
     }, 1000);
+
+    this.$store.dispatch('general_setting');
+
   },
 
   data() {
@@ -134,6 +136,11 @@ export default {
 
       sidebar.classList.remove("none");
       footer.classList.remove("none");
+    },
+  },
+ computed: {
+    general_setting() {
+      return this.$store.getters.general_setting;
     },
   },
 };

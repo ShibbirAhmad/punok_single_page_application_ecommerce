@@ -54,7 +54,7 @@
           >&times;</span>
         </div>
         <div class="row">
-          <div class="col-lg-7 col-lg-offset-2" v-show="editContent==1">
+          <div class="col-lg-8 col-lg-offset-2" v-show="editContent==1">
             <form @submit.prevent="UpdateBasicInformation">
               <div class="box box-primary">
                 <div class="box-header with-border">
@@ -62,7 +62,7 @@
                 </div>
                 <div class="box-body">
                   <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                       <div class="form-group">
                         <label>
                           Name
@@ -81,28 +81,10 @@
                         <has-error :form="form" field="name"></has-error>
                       </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-6">
                       <div class="form-group">
                         <label>
-                          Purchase Price
-                          <b class="text-danger">*</b>
-                        </label>
-                        <input
-                          v-model="form.purchase_price"
-                          type="text"
-                          name="sale_price"
-                          class="form-control"
-                          :class="{ 'is-invalid': form.errors.has('purchase_price') }"
-                          autocomplete="off"
-                          placeholder="purchase_price"
-                        />
-                        <has-error :form="form" field="purchase_price"></has-error>
-                      </div>
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="form-group">
-                        <label>
-                          sale_price
+                          sale price
                           <b class="text-danger">*</b>
                         </label>
                         <input
@@ -118,10 +100,24 @@
                         <has-error :form="form" field="sale_price"></has-error>
                       </div>
                     </div>
+                    <div class="col-lg-6">
+                     <div class="form-group">
+                    <label> wallet point </label>
+                    <input
+                      v-model="form.wallet_point"
+                      type="number"
+                      name="wallet_point"
+                      class="form-control"
+                      :class="{ 'is-invalid': form.errors.has('wallet_point') }"
+                      placeholder="wallet_point"
+                    />
+                    <has-error :form="form" field="wallet_point"></has-error>
+                  </div>
+                    </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-6">
-                 
+
                       <div class="form-group">
                         <label>
                           Category
@@ -175,7 +171,7 @@
                         <has-error :form="form" field="price"></has-error>
                       </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                       <div class="form-group">
                         <label>
                           sub category
@@ -198,7 +194,7 @@
                         <has-error :form="form" field="sub_category"></has-error>
                       </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                       <div class="form-group">
                         <label>sub sub category</label>
                         <select
@@ -217,27 +213,58 @@
                         <has-error :form="form" field="sub_sub_category"></has-error>
                       </div>
                     </div>
-                     <div class="col-lg-6">
-                      <div class="form-group">
-                        <label>Select Product Placement</label>
-                        <select
-                          class="form-control"
-                          name="product_placement"
-                          v-model="form.product_placement"
-                        > 
-                         <option value="0">Normal Products</option>
-                          <option v-for="(sale_campaign,index) in campaigns" :key="index" :value="sale_campaign.id">{{ sale_campaign.name }}</option>
-                        
-                        </select>
-                      </div>
+
+                    <div class="col-lg-4">
+                      <label for="">Merchant</label>
+                      <select class="form-control" v-model="form.merchant_id">
+                        <option value="" disabled>Select Merchant</option>
+                        <option v-for="(merchant,mdx) in merchants" :value="merchant.id" :key="mdx">{{merchant.company_name ? merchant.company_name : merchant.name}}</option>
+                      </select>
                     </div>
                      <div class="col-lg-6">
                       <div class="form-group">
-                        <label>Product Postion</label>
+                        <label>Product Placement</label>
+                        <select
+                          class="form-control"
+                          name="campaign_id"
+                          v-model="form.campaign_id"
+                          @change="campaignSelection"
+                        >
+                          <option disabled value="">select campaign</option>
+                          <option  value="">Normal Products</option>
+                          <option  v-for="(campaign,index) in saleCampaign" :key="index" v-if="campaign.status==1" :value="campaign.id">{{ campaign.name }}</option>
+
+                        </select>
+                      </div>
+                   <div v-if="form.campaign_id" class="col-lg-10">
+                    <div class="form-group">
+                    <label> Expired Date</label>
+
+                    <date-picker autocomplete="off" :class="{'is-invaid' : form.errors.has('expired_date')}"
+                     v-model="form.expired_date" :config="options" >
+                     </date-picker>
+                    <has-error :form="form" field="expired_date"></has-error>
+
+                    </div>
+                   </div>
+
+                    </div>
+                     <div class="col-lg-3">
+                      <div class="form-group">
+                        <label>Product Position</label>
                       <input type="number" class="form-control" name="product_position" v-model="form.product_position">
                       </div>
                     </div>
-                  
+                     <div class="col-lg-3">
+                      <div class="form-group">
+                        <label>Select Home Page</label>
+                        <select class="form-control" v-model="form.select_home_page">
+                          <option value="1">yes</option>
+                          <option value="0">no</option>
+                        </select>
+                      </div>
+                    </div>
+
                   </div>
                   <div class="row">
                     <div class="col-lg-12">
@@ -310,7 +337,7 @@
                         v-for="variant in variants"
                         v-if="variants"
                         :value="variant.id"
-                       
+
                       >{{variant.name}}</option>
                     </select>
                     <has-error :form="form" field="variant"></has-error>
@@ -382,6 +409,7 @@
 <script>
 import Vue from "vue";
 import { Form, HasError, AlertError } from "vform";
+import datePicker from 'vue-bootstrap-datetimepicker';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 Vue.component(HasError.name, HasError);
@@ -396,7 +424,7 @@ export default {
     return {
       form: new Form({
         name: "",
-        merchant: "",
+        merchant_id: "",
         category: "",
         sub_category: "",
         sub_sub_category: "",
@@ -408,12 +436,20 @@ export default {
         sale_price: "",
         discount: "",
         price: "",
+        wallet_point: "",
         details: "",
         attribute:"",
         variant: [],
         image: [],
         files: [],
-      }),
+        select_home_page:1,
+        campaign_id:"select campaign",
+        expired_date:"",
+    }),
+     options:{
+       format:'YYYY-MM-DD',
+       useCurrent:false,
+     },
       loading: true,
       error: "",
       categories: "",
@@ -428,7 +464,7 @@ export default {
       dragCount: 0,
       basePath: this.$store.state.image_base_link,
       editContent: "1",
-      campaigns:"",
+      saleCampaign:"",
     };
   },
 
@@ -444,20 +480,19 @@ export default {
             this.loading=false;
             this.form.name = resp.data.product.name;
             this.form.category = resp.data.product.category_id;
-             this.form.sub_category = resp.data.product.sub_category_id;
-             this.form.sale_price = resp.data.product.sale_price;
-
-          
-            this.form.discount = resp.data.product.discount ? resp.data.product.discount : 0;
-
-
+            this.form.sub_category = resp.data.product.sub_category_id;
+            this.form.sale_price = resp.data.product.sale_price;
+            this.form.discount = resp.data.product.discount?resp.data.product.discount:'';
             this.form.price = resp.data.product.price;
+            this.form.wallet_point = resp.data.product.wallet_point;
             this.form.product_placement=resp.data.product.product_placement;
-             this.form.product_position=resp.data.product.product_position;
-            this.form.purchase_price=resp.data.product.purchase_price;
-            
-
+            this.form.campaign_id=resp.data.product.campaign_id?resp.data.product.campaign_id:"";
+            this.form.expired_date=resp.data.product.expired_date?resp.data.product.expired_date:"";
+            console.log(typeof this.form.expired_date);
+            this.form.product_position=resp.data.product.product_position;
+            this.form.select_home_page=resp.data.product.select_home_page;
             this.form.details = resp.data.product.details;
+            this.form.merchant_id=resp.data.product.merchant_id;
 
             if (resp.data.product.sub_category_id !== null) {
               this.form.sub_category = resp.data.product.sub_category_id;
@@ -482,7 +517,7 @@ export default {
 
               //variant push
               console.log(resp.data.productVariant)
-             //this.form.variant.push('2')
+//this.form.variant.push('2')
              // resp.data.productVariant.forEach(element=>this.form.variant.push(element.id));
               resp.data.productVariant.forEach(element => {
                 this.form.variant.push(element);
@@ -492,9 +527,9 @@ export default {
                 console.log(resp.data.productVariant[i].variant_id)
                 this.form.variant.push(resp.data.productVariant[i].variant_id);
               }
-           
+
               //  this.form.variant.push(...resp.data.productVariant);
-             
+
             }
           } else {
             this.error = "some thing want to wrong";
@@ -504,6 +539,13 @@ export default {
           console.log(error);
          // this.error = "some thing want to wrong";
         });
+    },
+    getSaleCampaign(){
+      axios.get('/api/sale/campaign/list')
+      .then((resp)=>{
+        console.log(resp)
+        this.saleCampaign=resp.data.sale_campaigns ;
+      })
     },
     DeleteProductImage(index) {
       Swal.fire({
@@ -523,7 +565,6 @@ export default {
               },
             })
             .then((resp) => {
-              console.log(resp)
               if (resp.data.status == "SUCCESS") {
                 this.$toasted.show(resp.data.message, {
                   type: "success",
@@ -589,7 +630,7 @@ export default {
       window.scrollTo(0, 0);
       this.$Progress.start();
       this.form
-        .post("/update/product/properties/"+this.$route.params.id, {
+        .post("/update/product/properties/" + this.$route.params.id, {
           transformRequest: [
             function (data, headers) {
               return objectToFormData(data);
@@ -617,7 +658,9 @@ export default {
         })
         .catch((error) => {
           console.log(error);
+          console.log(error);
           this.$Progress.finish();
+
           this.error = "some thing want to wrong";
         });
     },
@@ -641,8 +684,8 @@ export default {
           this.$Progress.finish();
 
           if (resp.data.status == "SUCCESS") {
-            
-            this.$router.push({ name: "/product" });
+
+            this.$router.push({ name: "product" });
             this.$toasted.show(resp.data.message, {
               type: "success",
               position: "top-center",
@@ -665,7 +708,7 @@ export default {
       axios
         .get("/others")
         .then((resp) => {
-          console.log(resp)
+          //console.log(resp)
           if (resp.data.status == "SUCCESS") {
             this.categories = resp.data.categories;
             this.merchants = resp.data.merchants;
@@ -675,26 +718,15 @@ export default {
           }
         })
         .catch((error) => {
-           console.log(error)
+          //  console.log(error)
           this.error = "some thing want to wrong";
         });
     },
-
-    getSaleCampaign(){
-      axios.get('/api/sale/campaign/list')
-      .then(resp =>{
-        console.log(resp);
-        if (resp.data.status=="OK") {
-          this.campaigns=resp.data.sale_campaigns ;
-        }
-      })
-    },
-
     categoryWiseSubCategory() {
       axios
         .get("/category/wise/subCategory/" + this.form.category)
         .then((resp) => {
-          console.log(resp)
+          // console.log(resp)
           //  console.log(resp.data.admins.data)
           if (resp.data.status == "SUCCESS") {
             if (resp.data.subCategories.length > 0) {
@@ -713,9 +745,9 @@ export default {
     },
     subCategoryWiseSubSUbCategory() {
       axios
-        .get("/subCategory/wise/subSubCategory/"+this.form.sub_category)
+        .get("/subCategory/wise/subSubCategory/" + this.form.sub_category)
         .then((resp) => {
-          console.log(resp.data.subsubcategories)
+          // console.log(resp.data.subsubcategories)
           //  console.log(resp.data.admins.data)
           if (resp.data.status == "SUCCESS") {
             if (resp.data.subsubcategories.length > 0) {
@@ -786,9 +818,16 @@ export default {
       Array.from(files).forEach((file) => this.addImage(file));
     },
     addImage(file) {
-       console.log(file);
+      //  console.log(file);
       if (!file.type.match("image.*")) {
         alert("this is not any kind of image");
+        return;
+      }
+      if(file.size/1024 > 300){
+        Swal.fire({
+          type:'warning',
+          text:'File size can not be bigger then 300kb.Reference file size is'+file.size/1024 +'KB',
+        });
         return;
       }
 
@@ -797,14 +836,14 @@ export default {
       reader.onload = (evt) => {
         let img = new Image();
         img.onload = () => {
-          if (img.width <= 350 && img.height <= 350) {
+          if (img.width <= 1200 && img.height <= 1200) {
             this.form.image.push(file);
             this.form.files.push(evt.target.result);
             return;
           } else {
             this.disabled = true;
             alert(
-              "Image maximu size 350*350px.But Upload imaze size" +
+              "Image maximu size 1200*1200px.But Upload imaze size" +
                 img.width +
                 "*" +
                 img.height +
@@ -820,6 +859,11 @@ export default {
       this.form.files.splice(index, 1);
       this.form.image.splice(index, 1);
     },
+    campaignSelection(){
+      if (this.form.campaign_id) {
+         this.form.expired_date="";
+      }
+    }
   },
 };
 </script>

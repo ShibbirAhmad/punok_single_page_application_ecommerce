@@ -21,8 +21,8 @@
                   <h4 class="title" style="margin-bottom: 2px;border-bottom:none;">{{heading}}</h4>
                   <span style="margin-left: 40px; margin-top: 2px"
                     >
-                   
-                    
+
+
                   </span>
                   <br />
                   <br />
@@ -30,7 +30,7 @@
                     <div class="form-group" >
                       <div class="row">
                         <div class="col-lg-8">
-                          
+
                         </div>
                       </div>
                      <label for="">{{ span_message }}</label>
@@ -55,6 +55,8 @@
                     >
                       <i class="fa fa-spinner fa-spin" v-if="form.busy"></i>SEND CODE
                     </button>
+                     <br>
+                     <router-link :to="{name:'UserLogin'}">Login with password</router-link>
                   </form>
                   <form @submit.prevent="verifyOtp" v-else>
                     <div class="form-group">
@@ -75,7 +77,7 @@
                     <button
                       class="btn btn-block btn-primary"
                       type="submit"
-                      :disabled="verify_code.length < 5"
+                      :disabled="verify_code.length<4"
                     >
                       VERIFY
                     </button>
@@ -136,7 +138,7 @@ export default {
               type: "success",
               position: "bottom-center",
               duration: 5000,
-              
+
             });
 
             this.$refs.verify_code;
@@ -194,12 +196,13 @@ export default {
         .catch((e) => {
 
           this.isLoading=false;
-          
+
      });
     },
   },
   components: {
     Loading,
+    HasError
   },
 };
 </script>

@@ -361,6 +361,87 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -383,7 +464,7 @@ __webpack_require__.r(__webpack_exports__);
         order_index: ""
       },
       couriers: "",
-      comments: '',
+      comments: "",
       search: "",
       start_date: "",
       end_date: "",
@@ -403,7 +484,7 @@ __webpack_require__.r(__webpack_exports__);
       heading: "All Order",
       bulkActionType: "0",
       //for filtaring order
-      courier_id: ''
+      courier_id: ""
     };
   },
   methods: {
@@ -466,7 +547,6 @@ __webpack_require__.r(__webpack_exports__);
         if (resp.data.status == "SUCCESS") {
           _this2.couriers = resp.data.couriers;
           _this2.comments = resp.data.comments;
-          ;
         }
       });
     },
@@ -803,23 +883,23 @@ __webpack_require__.r(__webpack_exports__);
     selectBulkAction: function selectBulkAction() {
       if (this.select_order_id.length <= 0) {
         Swal.fire({
-          type: 'warning',
-          text: 'Please select at least one row'
+          type: "warning",
+          text: "Please select at least one row"
         });
         return;
       }
 
       var action_type = this.bulkActionType;
 
-      if (action_type == 'LABEL PRINT') {
-        window.open('/order/label/print/' + this.select_order_id, '_blank');
+      if (action_type == "LABEL PRINT") {
+        window.open("/order/label/print/" + this.select_order_id, "_blank");
       }
 
-      if (action_type == 'INVOICE PRINT') {
-        window.open('/order/invoice/print/' + this.select_order_id, '_blank');
+      if (action_type == "INVOICE PRINT") {
+        window.open("/order/invoice/print/" + this.select_order_id, "_blank");
       }
 
-      if (action_type == 'PENDING ALL') {
+      if (action_type == "PENDING ALL") {
         if (confirm("are you sure")) {
           this.pendingAll(this.select_order_id);
         }
@@ -835,7 +915,7 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      if (action_type == 'SHIPMENT ALL') {
+      if (action_type == "SHIPMENT ALL") {
         if (confirm("are you sure")) {
           this.shipmentAll(this.select_order_id);
         }
@@ -843,7 +923,7 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      if (action_type == 'DELIVERED ALL') {
+      if (action_type == "DELIVERED ALL") {
         if (confirm("are you sure")) {
           this.deliveredAll(this.select_order_id);
         }
@@ -851,7 +931,7 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      if (action_type == 'CANCEL ALL') {
+      if (action_type == "CANCEL ALL") {
         if (confirm("are you sure")) {
           this.cancelAll(this.select_order_id);
         }
@@ -859,7 +939,7 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      if (action_type == 'RETURN ALLL') {
+      if (action_type == "RETURN ALLL") {
         if (confirm("are you sure")) {
           this.returnAll(this.select_order_id);
         }
@@ -868,13 +948,13 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     labelPrint: function labelPrint() {
-      window.open('', '_self', "width=600,height=600");
+      window.open("", "_self", "width=600,height=600");
     },
     apprvedAll: function apprvedAll(order_id) {
       var _this11 = this;
 
-      axios.get('/approved/all/order/' + order_id).then(function (resp) {
-        if (resp.data.status == 'OK') {
+      axios.get("/approved/all/order/" + order_id).then(function (resp) {
+        if (resp.data.status == "OK") {
           _this11.$toasted.show(resp.data, {
             type: "success",
             position: "top-center",
@@ -898,7 +978,7 @@ __webpack_require__.r(__webpack_exports__);
     pendingAll: function pendingAll(order_id) {
       var _this12 = this;
 
-      axios.get('/pending/all/order/' + order_id).then(function (resp) {
+      axios.get("/pending/all/order/" + order_id).then(function (resp) {
         if (resp.data) {
           _this12.$toasted.show(resp.data, {
             type: "success",
@@ -917,7 +997,7 @@ __webpack_require__.r(__webpack_exports__);
     shipmentAll: function shipmentAll(order_id) {
       var _this13 = this;
 
-      axios.get('/shipment/all/order/' + order_id).then(function (resp) {
+      axios.get("/shipment/all/order/" + order_id).then(function (resp) {
         if (resp.data) {
           _this13.$toasted.show(resp.data, {
             type: "success",
@@ -936,7 +1016,7 @@ __webpack_require__.r(__webpack_exports__);
     deliveredAll: function deliveredAll(order_id) {
       var _this14 = this;
 
-      axios.get('/delivered/all/order/' + order_id).then(function (resp) {
+      axios.get("/delivered/all/order/" + order_id).then(function (resp) {
         if (resp.data) {
           _this14.$toasted.show(resp.data, {
             type: "success",
@@ -955,7 +1035,7 @@ __webpack_require__.r(__webpack_exports__);
     returnAll: function returnAll(order_id) {
       var _this15 = this;
 
-      axios.get('/return/all/order/' + order_id).then(function (resp) {
+      axios.get("/return/all/order/" + order_id).then(function (resp) {
         if (resp.data) {
           _this15.$toasted.show(resp.data, {
             type: "success",
@@ -974,7 +1054,7 @@ __webpack_require__.r(__webpack_exports__);
     cancelAll: function cancelAll(order_id) {
       var _this16 = this;
 
-      axios.get('/cancel/all/order/' + order_id).then(function (resp) {
+      axios.get("/cancel/all/order/" + order_id).then(function (resp) {
         if (resp.data) {
           _this16.$toasted.show(resp.data, {
             type: "success",
@@ -996,16 +1076,16 @@ __webpack_require__.r(__webpack_exports__);
       this.comments.forEach(function (element) {
         options[element.name] = element.name;
       });
-      var sSelect = document.getElementsByClassName('swal2-select');
+      var sSelect = document.getElementsByClassName("swal2-select");
       Swal.fire({
-        title: _comment ? _comment : 'Select a comment',
-        input: 'select',
+        title: _comment ? _comment : "Select a comment",
+        input: "select",
         inputOptions: options,
-        inputPlaceholder: 'Select or change a comment',
+        inputPlaceholder: "Select or change a comment",
         showCancelButton: true
       }).then(function (result) {
         if (result.value) {
-          axios.get('/api/order/comment', {
+          axios.get("/api/order/comment", {
             params: {
               order_id: order_id,
               comment: result.value
@@ -1074,7 +1154,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.orders-heading {\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n  border-bottom: 2px solid #000;\r\n  margin-bottom: 10px;\n}\r\n", ""]);
+exports.push([module.i, "\n.orders-heading {\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n  border-bottom: 2px solid #000;\r\n  margin-bottom: 10px;\n}\n.box {\r\n  width: 100%;\r\n  overflow-x: scroll;\n}\r\n", ""]);
 
 // exports
 
@@ -1211,7 +1291,7 @@ var render = function() {
               _c(
                 "router-link",
                 {
-                  staticClass: "btn btn-sm btn-success ",
+                  staticClass: "btn btn-sm btn-success",
                   attrs: { to: { name: "WholeSaleOrder" } }
                 },
                 [_vm._v("whole sale")]
@@ -1286,7 +1366,11 @@ var render = function() {
                                     disabled: ""
                                   }
                                 },
-                                [_vm._v("Select Action")]
+                                [
+                                  _vm._v(
+                                    "\n                        Select Action\n                      "
+                                  )
+                                ]
                               ),
                               _vm._v(" "),
                               _c(
@@ -1299,7 +1383,11 @@ var render = function() {
                                 ? _c(
                                     "option",
                                     { attrs: { value: "INVOICE PRINT" } },
-                                    [_vm._v("Invoice Print")]
+                                    [
+                                      _vm._v(
+                                        "\n                        Invoice Print\n                      "
+                                      )
+                                    ]
                                   )
                                 : _vm._e(),
                               _vm._v(" "),
@@ -1307,7 +1395,11 @@ var render = function() {
                                 ? _c(
                                     "option",
                                     { attrs: { value: "APPROVED ALL" } },
-                                    [_vm._v("Approved All ")]
+                                    [
+                                      _vm._v(
+                                        "\n                        Approved All\n                      "
+                                      )
+                                    ]
                                   )
                                 : _vm._e(),
                               _vm._v(" "),
@@ -1315,7 +1407,11 @@ var render = function() {
                                 ? _c(
                                     "option",
                                     { attrs: { value: "CANCEL ALL" } },
-                                    [_vm._v("Cencel ALl")]
+                                    [
+                                      _vm._v(
+                                        "\n                        Cencel ALl\n                      "
+                                      )
+                                    ]
                                   )
                                 : _vm._e()
                             ]
@@ -1592,7 +1688,11 @@ var render = function() {
                                           disabled: ""
                                         }
                                       },
-                                      [_vm._v("Select Courier")]
+                                      [
+                                        _vm._v(
+                                          "\n                              Select Courier\n                            "
+                                        )
+                                      ]
                                     ),
                                     _vm._v(" "),
                                     _vm._l(_vm.couriers, function(courier) {
@@ -1602,7 +1702,13 @@ var render = function() {
                                           key: courier.id,
                                           domProps: { value: courier.id }
                                         },
-                                        [_vm._v(_vm._s(courier.name))]
+                                        [
+                                          _vm._v(
+                                            "\n                              " +
+                                              _vm._s(courier.name) +
+                                              "\n                            "
+                                          )
+                                        ]
                                       )
                                     })
                                   ],
@@ -1846,11 +1952,13 @@ var render = function() {
                                   _vm._v(" "),
                                   _c("td", { staticClass: "three-percent" }, [
                                     _vm._v(
-                                      _vm._s(
-                                        order.customer
-                                          ? order.customer.name
-                                          : ""
-                                      )
+                                      "\n                        " +
+                                        _vm._s(
+                                          order.customer
+                                            ? order.customer.name
+                                            : ""
+                                        ) +
+                                        "\n                      "
                                     )
                                   ]),
                                   _vm._v(" "),
@@ -1881,34 +1989,34 @@ var render = function() {
                                   _c("td", { staticClass: "two-percent" }, [
                                     _c("strong", [
                                       _vm._v(
-                                        "\n                          Total: " +
+                                        "\n                          Total:\n                          " +
                                           _vm._s(
                                             parseInt(order.total) -
                                               parseInt(order.discount) +
                                               parseInt(order.shipping_cost)
                                           ) +
-                                          "\n\n                        "
+                                          "\n                        "
                                       )
                                     ]),
                                     _vm._v(" "),
                                     _c("strong", [
                                       _vm._v(
-                                        "\n                          P: " +
+                                        " P: " +
                                           _vm._s(parseInt(order.paid)) +
-                                          "\n\n                        "
+                                          " "
                                       )
                                     ]),
                                     _vm._v(" "),
                                     _c("strong", [
                                       _vm._v(
-                                        "\n                          D: " +
+                                        "\n                          D:\n                          " +
                                           _vm._s(
                                             parseInt(order.total) -
                                               (parseInt(order.discount) +
                                                 parseInt(order.paid)) +
                                               parseInt(order.shipping_cost)
                                           ) +
-                                          "\n\n                        "
+                                          "\n                        "
                                       )
                                     ])
                                   ]),
@@ -1947,7 +2055,7 @@ var render = function() {
                                     order.order_type == 4
                                       ? _c("p", [
                                           _vm._v(
-                                            "\n                          Reseller "
+                                            "\n                          Reseller\n                          "
                                           ),
                                           order.reseller.username
                                             ? _c("strong", [
@@ -2111,6 +2219,7 @@ var render = function() {
                                     ],
                                     1
                                   ),
+                                  _vm._v(" "),
                                   _c("td", { staticStyle: { width: "1%" } }, [
                                     order.courier_id
                                       ? _c("small", [

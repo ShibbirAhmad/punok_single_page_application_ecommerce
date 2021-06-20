@@ -13,12 +13,12 @@
       <section class="content">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-lg-11">
+            <div class="col-lg-10">
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <div class="row" style="margin-bottom: 3px">
                     <div class="col-lg-2">
-                    
+
                     </div>
                     <div class="col-lg-2">
                       <div class="col-lg-2">
@@ -79,7 +79,7 @@
                          <td>{{item.order_delivered_date}}</td>
                         <td>
                            {{item.order_invoice }}
-                         
+
                         </td>
                         <td>{{ item.product_count }}</td>
                         <td>{{ parseInt(item.order_total) }}</td>
@@ -109,7 +109,7 @@
                         </td>
                         <td>
                           <strong> = {{ totalPurchasePrie() }}</strong>
-                          
+
                         </td>
                         <td>
                           <strong>
@@ -272,4 +272,9 @@ export default {
   border-bottom: 2px solid #000;
   margin-bottom: 10px;
 }
+
+.box-primary{
+  overflow-x: scroll;
+}
+
 </style>

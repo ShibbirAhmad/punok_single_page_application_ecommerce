@@ -10,9 +10,12 @@
                 <div>
               <div class="row product-info">
                 <div class="col-lg-6 col-md-6 product-image-viewer"  >
-                  <ProductZoomer :base-images="product_images" :base-zoomer-options="zoomerOptions" v-if="Object.keys(product_images).length" />
+                  <image-zoom v-if="product_images.length"
+                    :regular="base_url+product_images[0].product_image"
+                    img-class="single_product_image"
+                    >
+                  </image-zoom>
                   </div>
-              
               </div>
              </div>
             </div>
@@ -39,9 +42,8 @@
                   <ul class="price-box">
                     <li class="price">
                      <h3>
-                     
-                        <span class="price-old" v-if="product.discount">&#2547 {{product.sale_price}}</span>
-                      <span class="price-new">&#2547 {{product.price}}</span>
+                      <span class="price-old" v-if="product.discount">&#2547; {{product.sale_price}}</span>
+                      <span class="price-new">&#2547; {{product.price}}</span>
                      </h3>
                     </li>
                     <li></li>
@@ -62,12 +64,12 @@
                           name="option[200]"
                         >
                           <option value disabled>--- Please Select ---</option>
-                          <option
+                           <option
                             value
                             v-for="(variant,v) in product.product_variant"
                             :key="v"
                             :value="v"
-                          >{{variant.variant.name}}</option>
+                          >{{variant.variant ? variant.variant.name : ''}}</option>
                         </select>
                       </div>
                     </div>
@@ -91,10 +93,10 @@
                           <div class="clear"></div>
                         </div>
                       </div>
-                    </div>  
-                    
+                    </div>
+
                     <div class="row">
-                     
+
 
                       <div class="col-lg-6">
                         <button
@@ -103,9 +105,9 @@
                           id="button-cart"
                           class="btn btn-primary btn-lg btn-block"
                           style="margin-top:38px;"
-                         
-                         
-                        >Add to Cart</button>
+
+
+                        >Add to Bag </button>
                       </div>
 
                          <div class="col-lg-6">
@@ -115,8 +117,8 @@
                           id="button-cart"
                           class="btn btn-primary btn-lg btn-block"
                           style="margin-top:38px;background:#000;"
-                         
-                         
+
+
                         >Buy Now</button>
                       </div>
                     </div>
@@ -124,7 +126,7 @@
             </div>
          </div>
         </div>
-          
+
           <div class="product-details-tabe">
                <ul class="details-tab-menu-list">
                   <li class="details-tab-menu-item"  @click="tab_content=1" :class="{'tab-menu-item-active':tab_content==1}">Description</li>
@@ -146,17 +148,17 @@
                   <ul>
                     <li class="h-b-li">If your product is damaged, defective, incorrect or incomplete at the time of delivery, please file a return request on call to customer care support number within 3 days of the delivery date</li>
                     <li class="h-b-li">Change of mind is not applicable as a Return Reason for this product</li>
-                  
+
                   </ul>
                 </div>
 
               </div>
               </div>
-          
-      
+
+
         <div class="row realted-producs">
             <h3 class="title" >Related Products</h3>
-             <div class="col-lg-2 col-sm-6 col-md-6 col-xs-6 width-20" v-for="(product,index) in related_products" :key="index">
+             <div class="col-lg-2 col-sm-6 col-md-6 col-xs-6 width-20 small_width" v-for="(product,index) in related_products" :key="index">
             <div class="product-card ">
               <div class="product-card-body">
                 <router-link :to="{name: 'single', params: { slug: product.slug } }">
@@ -174,9 +176,10 @@
                     <span
                       class="price-old"
                       v-if="product.discount"
-                      >{{ product.sale_price }}</span
+                      >&#2547; {{ product.sale_price }}</span
                     >
-                    <!-- <span class="saving">-26%</span> -->
+                    <span v-if="product.discount > 0" class="discount"> <i class="fa fa-star discount_star"> </i> {{ ((product.discount/product.sale_price)*100).toFixed(0) }}%  <span class="d_off">off</span> </span>
+
                   </p>
                 </div>
               </div>
@@ -188,14 +191,14 @@
            <infinite-loading @infinite="getRelatedProducts">
             <div slot="no-more"></div>
           </infinite-loading>
-       
+
       </div>
-      
+
       </div>
     </div>
     <frontend-footer></frontend-footer>
       <quick-view v-if="quick_v_product_id" v-on:clicked="closedModal($event)" :quick_v_p_id="quick_v_product_id">  </quick-view>
-    
+
   </div>
 
 </template>
@@ -204,6 +207,8 @@
 <script>
 import Loading from "vue-loading-overlay";
 import "vue-loading-overlay/dist/vue-loading.css";
+import imageZoom from 'vue-image-zoomer';
+import 'lazysizes'
 
 export default {
   beforeCreated() {
@@ -246,7 +251,7 @@ export default {
     };
   },
   methods: {
-  
+
     CartToAdd() {
       axios
         .get("/_public/addToCart", {
@@ -261,14 +266,14 @@ export default {
          // console.log(resp);
           if (resp.data.status == "SUCCESS") {
             this.$toasted.show(resp.data.message, {
-              position: "bottom-left",
+              position: "top-center",
               type: "success",
               duration: 2000,
             });
             this.$store.dispatch("getCartContent");
           } else if (resp.data.status == "error") {
             this.$toasted.show(resp.data.message, {
-              position: "bottom-center",
+              position: "top-center",
               type: "error",
               duration: 4000,
             });
@@ -291,8 +296,8 @@ export default {
         .then((resp) => {
          // console.log(resp);
           if (resp.data.status == "SUCCESS") {
-            
-          
+
+
               this.$store.dispatch("getCartContent");
               this.$toasted.show(resp.data.message, {
               position: "bottom-left",
@@ -302,14 +307,14 @@ export default {
 
              let user=this.user;
               if(user.mobile_no){
-                  this.$router.push({ name: "Chekout" });    
+                  this.$router.push({ name: "Chekout" });
               }else{
                 this.$router.push({ name: "otpLogin" });
               }
 
           } else if (resp.data.status == "error") {
             this.$toasted.show(resp.data.message, {
-              position: "bottom-center",
+              position: "top-center",
               type: "error",
               duration: 4000,
             });
@@ -369,9 +374,9 @@ export default {
        this.quick_v_product_id="";
     },
 
-    
 
-  
+
+
   },
 
   mounted() {
@@ -393,20 +398,21 @@ export default {
      user() {
       return this.$store.getters.user;
     },
-    
+
   },
 
   components: {
     Loading,
+    imageZoom
   },
 
   watch:{
     product_images:function(value){
-    
+
       if(Object.keys(value).length>0){
        this.isLoading=false;
       }
-      
+
     }
   }
 };
@@ -426,7 +432,7 @@ img.responsive-image.preview-box {
 
 .btnQuick:hover{
 
-   background: #ff4d03; 
+   background: #ff4d03;
 
 }
 

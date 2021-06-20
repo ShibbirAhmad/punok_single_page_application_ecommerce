@@ -114,11 +114,11 @@
 
           <div id="content" class="col-sm-9">
            <div class="row">
-              <div class="col-lg-3 col-sm-6 col-md-3 col-xs-6 " v-for="product in products" :key="product.id">
+              <div class="col-lg-3 col-sm-6 col-md-3 col-xs-6 small_width " v-for="product in products" :key="product.id">
             <div class="product-card ">
               <div class="product-card-body">
                 <router-link :to="{name: 'single', params: { slug: product.slug } }">
-        
+
                  <v-lazy-image
                       v-if="product.product_image.length"
                      :src="base_url+product.product_image[0].product_image"
@@ -128,15 +128,16 @@
                 <div class="product-detail ">
                   <h4>   <router-link class="product-link" :to="{name: 'single', params: { slug: product.slug } }">{{ product.name }}</router-link ></h4>
                   <p class="price">
-                    <span class="price-new">{{
+                    <span class="price-new"> &#2547; {{
                       product.price
                     }}</span>
                     <span
                       class="price-old"
                       v-if="product.discount"
-                      >{{ product.sale_price }}</span
+                      > &#2547; {{ product.sale_price }}</span
                     >
-                    <!-- <span class="saving">-26%</span> -->
+                    <span v-if="product.discount > 0" class="discount"> <i class="fa fa-star discount_star"> </i> {{ ((product.discount/product.sale_price)*100).toFixed(0) }}%  <span class="d_off">off</span> </span>
+
                   </p>
                 </div>
               </div>
@@ -195,7 +196,7 @@ export default {
           },
         })
         .then((resp) => {
-         // console.log(resp);
+        // console.log(resp);
           if (resp.data.data.length) {
             this.page += 1;
             this.products.push(...resp.data.data);
@@ -232,7 +233,7 @@ export default {
       this.$Progress.finish();
     },
     price_sorting_asec_desc() {
-      
+
        axios.get('/_public/api/sort/product/according/to/asc/desc',{
            params:{
               sort_value : this.sort_by_price ,
@@ -241,7 +242,7 @@ export default {
            }
        })
        .then(resp => {
-        this.products=[]; 
+        this.products=[];
        this.products.push(...resp.data.products);
        })
      .catch()
@@ -288,7 +289,7 @@ export default {
 }
 .btnQuick:hover{
 
-   background: #ff4d03; 
+   background: #ff4d03;
 
 }
 

@@ -19,7 +19,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-6 col-lg-offset-2">
             <div class="box box-primary">
-              <div class="box-header with-border">
+              <div class="box-header with-border text-center">
                 <h3 class="box-title">Add member</h3>
               </div>
               <div class="box-body">
@@ -39,13 +39,13 @@
                       {{ error.name }}
                     </li>
                   </ul>
-                  
+
                     <div class="form-group">
                     <label>Joining Date</label>
 
                     <date-picker autocomplete="off" :class="{'is-invaid' : form.errors.has('joining_date')}"  v-model="form.joining_date" :config="options" > </date-picker>
                     <has-error :form="form" field="joining_date"></has-error>
-                    
+
                     </div>
 
                   <div class="form-group">
@@ -64,7 +64,7 @@
 
                     <has-error :form="form" field="name"></has-error>
                   </div>
-    
+
                   <div class="form-group">
                     <label for="">Position</label>
                     <select
@@ -166,7 +166,7 @@
                     />
                     <has-error :form="form" field="resume"></has-error>
                   </div>
-                  
+
                  <div class="form-group text-center">
                     <button
                     :disabled="form.busy"
@@ -196,7 +196,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
 Vue.component(HasError.name, HasError);
 
 export default {
-  
+
   created() {
     setTimeout(() => {
       this.loading = false;
@@ -205,7 +205,7 @@ export default {
   data() {
     return {
       form: new Form({
-       
+
         name: "",
         designation: "",
         email: "",

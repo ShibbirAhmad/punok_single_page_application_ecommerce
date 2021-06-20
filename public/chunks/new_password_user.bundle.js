@@ -108,7 +108,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   components: {
-    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_0___default.a
+    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_0___default.a,
+    HasError: vform__WEBPACK_IMPORTED_MODULE_2__["HasError"]
   }
 });
 

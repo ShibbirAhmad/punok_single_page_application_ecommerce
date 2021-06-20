@@ -29,7 +29,7 @@
                   />
                   <has-error :form="form" field="mobile_no"></has-error>
                 </div>
-              
+
                 <div class="form-group">
                   <label class="control-label" for="input-password">Password</label>
                   <input
@@ -61,12 +61,12 @@
                     Don't have an account?   <router-link  :to="{name:'UserRegister'}"> Register here</router-link>
 
                </div>
-                
+
 
                 <!-- <div style="background:#1D4C9A;margin-top:5px;" class="facebook-login ">
                     <a style="color:#fff" :href="'/login/facebook'" class="btn btn-block "  target="_self" rel="noopener noreferrer"> <i class="fa fa-lg fa-facebook"></i> Login with facebook</a>
                 </div> -->
-              
+
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@ export default {
             } else {
               this.$router.push({ name: "welcome" });
             }
-            
+
             this.$toasted.show(resp.data.message, {
               type: "success",
               position: "top-center",
@@ -131,7 +131,7 @@ export default {
         })
         .catch((error) => {
           console.log(error);
-          this.$toasted.show("some thing want to wrong", {
+          this.$toasted.show("some thing went to wrong", {
             type: "error",
             position: "top-center",
             duration: 2000,
@@ -160,6 +160,7 @@ export default {
   },
   components: {
     Loading,
+    HasError
   },
 };
 </script>

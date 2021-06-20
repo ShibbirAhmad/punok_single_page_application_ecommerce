@@ -22,7 +22,7 @@
                     <td >Amount</td>
                     <td >Status</td>
                     <td >Date</td>
-                    <td > Action </td>
+                    <td>Action </td>
                   </tr>
                 </thead>
                 <tbody class="table-responsive ">
@@ -74,27 +74,10 @@
                     </td>
                   </tr>
                 </tbody>
+                
               </table>
 
-              <div class="row">
-                <div class="col-lg-6">
-                  <pagination
-                    :data="order_lists"
-                    @pagination-change-page="getOrderList"
-                  ></pagination>
-                </div>
-                <div
-                  class="col-lg-6 mt-1"
-                  style="margin-top: 25px; text-align: right"
-                >
-                  <p>
-                    Showing
-                    <strong>{{ order_lists.from }}</strong> to
-                    <strong>{{ order_lists.to }}</strong> of total
-                    <strong>{{ order_lists.total }}</strong> entries
-                  </p>
-                </div>
-              </div>
+             
 
           </div>
 

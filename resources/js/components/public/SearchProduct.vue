@@ -51,11 +51,12 @@
                     >
                   </h4>
                   <p class="price">
-                    <span class="price-new">{{ product.price }}</span>
-                    <span class="price-old" v-if="product.discount">{{
+                    <span class="price-new">&#2547;{{ product.price }}</span>
+                    <span class="price-old" v-if="product.discount">&#2547; {{
                       product.sale_price
                     }}</span>
-                    <!-- <span class="saving">-26%</span> -->
+
+                    <span v-if="product.discount > 0" class="discount"> <i class="fa fa-star discount_star"> </i> {{ ((product.discount/product.sale_price)*100).toFixed(0) }}%  <span class="d_off">off</span> </span>
                   </p>
                 </div>
               </div>
@@ -65,7 +66,7 @@
             </div>
           </div>
 
-         
+
 
           <div class="col-lg-12 text-center" v-if="products.length < 1 ">
             <h3 class="alert alert-warning">No product Found</h3>
@@ -110,7 +111,7 @@ export default {
         });
     },
 
-    
+
   closedModal(close){
        this.quick_v_product_id="";
     }
@@ -124,7 +125,7 @@ export default {
 
 .btnQuick:hover{
 
-   background: #ff4d03; 
+   background: #ff4d03;
 
 }
 

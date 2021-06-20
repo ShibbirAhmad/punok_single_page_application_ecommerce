@@ -264,7 +264,7 @@
                     </div>
                   </div>
                   <div class="col-lg-6">
-                    <div class="product_preview" v-if="form.exchnage_products.length > 0">
+                    <div class="product_preview" v-if="form.exchanage_products.length > 0">
                       <h4 class="text-uppercase text-center">Exchange Product</h4>
                       <table class="table">
                         <thead>
@@ -279,7 +279,7 @@
                         </thead>
                         <tbody>
                           <tr
-                            v-for="(product, index) in form.exchnage_products"
+                            v-for="(product, index) in form.exchanage_products"
                             :key="index"
                           >
                             <td>{{ index + 1 }}</td>
@@ -336,7 +336,7 @@
                 </div>
                 <div
                   class="row"
-                  v-if="form.products.length > 0 || form.exchnage_products.length > 0"
+                  v-if="form.products.length > 0 || form.exchanage_products.length > 0"
                 >
                   <div class="col-lg-12">
                     <table>
@@ -357,8 +357,8 @@
                         <td colspan="3"></td>
                         <td>
                           <input
-                            class="form - control"
-                            readonly
+                            class="form-control"
+                            type="number"
                             placeholder="Paid"
                             v-model="form.exchange_total"
                           />
@@ -366,7 +366,7 @@
                       </tr>
                       <tr>
                         <td colspan="3">Total</td>
-                        <td colspan="3">Colspan</td>
+                        <td colspan="3"></td>
                         <td>
                           <input
                             type="text"
@@ -472,7 +472,7 @@ export default {
         address: "",
         //multiple product data
         products: [],
-        exchnage_products: [],
+        exchanage_products: [],
 
         // culation data
         AmountTotal: 0,
@@ -696,7 +696,7 @@ export default {
       if (this.add_to_exchnage == 1) {
         this.form.products.push(this.preview_products);
       } else {
-        this.form.exchnage_products.push(this.preview_products);
+        this.form.exchanage_products.push(this.preview_products);
       }
 
       this.preview_products = {
@@ -742,33 +742,21 @@ export default {
     },
 
     finalValidation() {
-      if (this.form.products.length <= 0) {
-        this.submitValidation = true;
+      if (this.form.products.length <= 0 && 
+         this.form.exchanage_products.length <= 0 && 
+         this.form.sale_total < this.form.exchange_total &&
+         this.form.name.length <= 0 &&
+         this.form.mobile_no.length != 11 &&
+         this.form.address.length <= 0
+         ) {
+         this.submitValidation = true;
         return;
+      }else {
+        return  this.submitValidation = false;
+         
       }
 
-      if (this.form.exchnage_products.length <= 0) {
-        this.submitValidation = true;
-        return;
-      }
-
-      if (this.form.sale_total < this.form.exchange_total) {
-        this.submitValidation = true;
-        return;
-      }
-      if (this.form.name.length <= 0) {
-        this.submitValidation = true;
-        return;
-      }
-      if (this.form.mobile_no.length != 11) {
-        this.submitValidation = true;
-        return;
-      }
-      if (this.form.address.length <= 0) {
-        this.submitValidation = true;
-        return;
-      }
-      this.submitValidation = false;
+    
     },
 
     totalAmount() {
@@ -782,8 +770,8 @@ export default {
       }
 
       let exchange_amount = 0;
-      if (this.form.exchnage_products.length > 0) {
-        this.form.exchnage_products.forEach((el) => {
+      if (this.form.exchanage_products.length > 0) {
+        this.form.exchanage_products.forEach((el) => {
           exchange_amount += parseInt(el.price) * parseInt(el.quantity);
         });
       }
@@ -812,7 +800,7 @@ export default {
       if (this.add_to_exchnage == 1) {
         this.form.products.splice(index, 1);
       } else {
-        this.form.exchnage_products.splice(index, 1);
+        this.form.exchanage_products.splice(index, 1);
       }
       this.totalAmount();
       this.amountDue();

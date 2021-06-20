@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
 import router from './router.js'  // Vue router instance
 
 Vue.use(Vuex)
@@ -11,7 +10,7 @@ const state = {
     //store admin
     admin: {},
 
-    //initialize merchant 
+    //initialize merchant
     merchant: {},
 
     //store cart
@@ -29,17 +28,22 @@ const state = {
 
     //store sliders
     sliders: '',
+    //store best selling products
+    best_selling_produtcs: [],
+
+   //store best selling products
+    new_rendom_products: [],
 
     //slider banner
     slider_banner: '',
 
-    //category slider 
+    //category slider
     category_sliders: '',
 
-    //sub category slider 
+    //sub category slider
     sub_category_sliders: '',
 
-    //sub sub category slider 
+    //sub sub category slider
     sub_sub_category_sliders: '',
 
 
@@ -48,7 +52,6 @@ const state = {
 
      //for campaign sale products
      sale_campaign: {},
-
 
     //for specific product
 
@@ -60,19 +63,15 @@ const state = {
     //for check admin page view permisson
     view_permission:false,
 
-    image_base_link: '/../storage/',
+    image_base_link: '/../public/storage/',
 
     //for home page products
     home_page_products: "",
 
-    //for show sub sub category product on home page
-    sub_sub_category_product: "",
-
-    
     //general setting
     general_setting:"",
 
-        
+
     //footer setting
     footer_setting:"",
 
@@ -104,6 +103,12 @@ const getters = {
     },
     sliders(state) {
         return state.sliders;
+    },
+    new_rendom_products(state) {
+        return state.new_rendom_products;
+    },
+    best_selling_produtcs(state){
+        return state.best_selling_produtcs;
     },
     slider_banner(state) {
         return state.slider_banner;
@@ -144,16 +149,12 @@ const getters = {
 
         return state.home_page_products;
     },
-    sub_sub_category_product(state) {
 
-        return state.sub_sub_category_product;
-        
-    },
     sale_campaign(state) {
         return state.sale_campaign;
     },
 
-    
+
     general_setting(state){
         return state.general_setting ;
     },
@@ -205,7 +206,6 @@ const actions = {
     getCartContent(context) {
         axios.get('/_public/cartToContent')
             .then(resp => {
-
                 context.commit('cartContent', resp.data);
                 // console.log('data')
              })
@@ -254,17 +254,19 @@ const actions = {
             });
     },
 
-    //get sliders 
+    //get sliders
     sliders(context) {
         axios
             .get("/_public/slider")
             .then((resp) => {
                 // console.log(resp)
                 context.commit('sliders', resp.data.sliders);
-                context.commit('slider_banner', resp.data.slider_banner)
-               
+                context.commit('slider_banner', resp.data.slider_banner);
+                context.commit('best_selling_produtcs', resp.data.best_selling_produtcs);
+                context.commit('new_rendom_products', resp.data.new_rendom_products);
+
             })
-          
+
     },
 
     //get category sliders
@@ -296,7 +298,7 @@ const actions = {
     },
 
 
-    //get offer_banner 
+    //get offer_banner
     offer_banner(context) {
         axios.get("/_public/offers")
             .then((resp) => {
@@ -307,11 +309,11 @@ const actions = {
     },
 
 
-       //method initial for get campaign sale 
+       //method initial for get campaign sale
        sale_campaign(context) {
         axios.get("/_public/api/display/sale/campaign")
             .then((resp) => {
-               // console.log(resp)
+               console.log(resp)
                 context.commit('sale_campaign', resp.data.sale_campaign)
 
             })
@@ -322,10 +324,8 @@ const actions = {
     //method initial for get single product from db
     single_product(context, payload) {
         axios.get("/_public/product/" + payload).then((resp) => {
-            
-            document.title = resp.data.product.name+"- Mohasagor";
-             context.commit('single_product', resp.data.product)
-
+            document.title = resp.data.product.name ;
+            context.commit('single_product', resp.data.product);
         });
     },
 
@@ -334,11 +334,11 @@ const actions = {
         axios.get('/_public/product/images/' + payload)
             .then(resp => {
                 console.log(resp.data);
-                context.commit('product_images', resp.data)
+                context.commit('product_images', resp.data.product_images)
             })
     },
     home_page_products(context) {
-        axios.get('/_public/products/')
+        axios.get('/_public/products')
             .then(resp => {
                 //  console.log(resp)
                 context.commit('home_page_products', resp.data)
@@ -347,26 +347,13 @@ const actions = {
                 // console.log(e);
             })
     },
-    sub_sub_category_product(context) {
-        axios.get("/_public/sub/sub/category/product")
-            .then(resp => {
-                // console.log(resp);
-                context.commit('sub_sub_category_product', resp.data)
-            })
-            .catch(e => {
-                // console.log(e)
 
-            })
-
-    },
-
-    
     general_setting(context){
         axios.get("/_public/api/get/general/setting")
         .then(resp => {
             // console.log(resp);
             context.commit('general_setting', resp.data.general_setting);
-        })       
+        })
     },
 
     footer_setting(context){
@@ -374,14 +361,14 @@ const actions = {
         .then(resp => {
             // console.log(resp);
             context.commit('footer_setting', resp.data.footer_setting) ;
-        })  
+        })
     },
     theme_setting(context){
         axios.get("/_public/api/get/theme/setting")
         .then(resp => {
             console.log(resp);
             context.commit('theme_setting', resp.data.theme_setting);
-        })  
+        })
     },
 
 }
@@ -412,6 +399,12 @@ const mutations = {
     sliders(state, payload) {
         return state.sliders = payload;
     },
+    new_rendom_products(state,payload) {
+        return state.new_rendom_products = payload;
+    },
+    best_selling_produtcs(state,payload) {
+        return state.best_selling_produtcs = payload;
+    },
     slider_banner(state, payload) {
         return state.slider_banner = payload;
     },
@@ -432,7 +425,7 @@ const mutations = {
     offer_banner(state, payload) {
         return state.offer_banner = payload;
     },
- 
+
     sale_campaign(state, payload) {
         return state.sale_campaign = payload;
 
@@ -448,30 +441,26 @@ const mutations = {
     home_page_products(state, payload) {
         return state.home_page_products = payload;
     },
-    sub_sub_category_product(state, payload) {
-        return state.sub_sub_category_product = payload;
 
-    },
-    
     general_setting(state,payload){
         return state.general_setting=payload ;
      },
- 
-     
+
+
      footer_setting(state,payload){
          return state.footer_setting=payload ;
       },
-  
- 
+
+
      theme_setting(state,payload){
          return state.theme_setting=payload ;
       },
-  
-  
+
+
 }
 
 const store = new Vuex.Store({
-    
+
     state: state,
     mutations: mutations,
     getters: getters,

@@ -725,7 +725,7 @@ export default {
       ///index initial for update order from orderLit or order arrow.
 
       //start progress bar
-     
+
     },
 
     shipment(order, index) {
@@ -1084,9 +1084,6 @@ export default {
             this.$router.push({ name: "CancelOrder" });
           }
         })
-        .catch((error) => {
-          console.log(error);
-        });
     },
    comment(order_id, order_index, comment) {
       console.log(comment);
@@ -1204,4 +1201,10 @@ export default {
   border-bottom: 2px solid #000;
   margin-bottom: 10px;
 }
+
+.box{
+  width:100%;
+  overflow-x: scroll;
+}
+
 </style>

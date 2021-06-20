@@ -18,7 +18,7 @@
             <div class="box box-primary">
               <div class="box-header text-center with-border">
                 <h3 class="box-title ">
-                  General Information 
+                  General Information
                 </h3>
               </div>
               <div class="box-body">
@@ -34,15 +34,15 @@
                     <div class="col-lg-12">
                       <div class="form-group">
                         <label> Title </label>
-                        <input class="form-control" 
+                        <input class="form-control"
                         :class="{'is-invalid' : form.errors.has('header_contact_number') }"
                          type="text"  v-model="form.title" />
                          <has-error :form="form" field="header_contact_number"> </has-error>
                       </div>
                        <br/>
-                    
 
-                          <div class="form-group"> 
+
+                          <div class="form-group">
                             <label > Upload Favicon </label>
                               <img id="preview_icon" @click="clickFavicon" :src="preview_icon" >
                             <input
@@ -64,15 +64,28 @@
                                 name="logo"
                               />
                           </div>
-                  
 
-                       <div class="form-group">
-                        <label> Header Contact Number </label>
-                        <input class="form-control" 
-                          :class="{'is-invalid':form.errors.has('header_contact_number')}"
-                          type="text" v-model="form.header_contact_number" />
-                          <has-error :form="form" field="header_contact_number"> </has-error>
-                      </div>
+
+                       <div class="row">
+                         <div class="col-md-6">
+                             <div class="form-group">
+                              <label> Header Contact Number </label>
+                              <input class="form-control"
+                                :class="{'is-invalid':form.errors.has('header_contact_number')}"
+                                type="text" v-model="form.header_contact_number" />
+                                <has-error :form="form" field="header_contact_number"> </has-error>
+                            </div>
+                         </div>
+                         <div class="col-md-6">
+                           <div class="form-group">
+                              <label> wallet point value <small> ex: 2 point = 1 Taka</small> </label>
+                              <input class="form-control"
+                                :class="{'is-invalid':form.errors.has('wallet_point_value')}"
+                                type="text" v-model="form.wallet_point_value" />
+                                <has-error :form="form" field="wallet_point_value"> </has-error>
+                              </div>
+                         </div>
+                       </div>
                       <div class="form-group">
                       <label for="invoice">Invoice Address Details </label>
                       <ckeditor
@@ -84,7 +97,7 @@
                       ></ckeditor>
                        <has-error :form="form" field="invoice_address_details"></has-error>
                       </div>
-                  
+
                     </div>
                   </div>
                    <div class="form-group text-center">
@@ -96,7 +109,7 @@
                     <i class="fa fa-spin fa-spinner" v-if="form.busy"></i>Submit
                   </button>
                    </div>
-              
+
                 </form>
               </div>
             </div>
@@ -134,7 +147,7 @@ export default {
       editorConfig: {},
       error: "",
       loading: true,
-      disabled: false, 
+      disabled: false,
       logo_width: 155,
       logo_height: 60,
       ilogo_size:550,
@@ -153,7 +166,7 @@ export default {
   methods: {
 
     getGeneralSetting(){
-            
+
         axios.get('/api/get/site/info')
         .then(resp => {
           console.log(resp);
@@ -162,6 +175,7 @@ export default {
             this.form.title= resp.data.setting.title ;
             this.form.logo= resp.data.setting.logo ;
             this.form.icon= resp.data.setting.icon ;
+            this.form.wallet_point_value= resp.data.setting.wallet_point_value ;
             this.form.header_contact_number= resp.data.setting.header_contact_number ;
             this.form.invoice_address_details= resp.data.setting.invoice_address_details ;
 
@@ -172,9 +186,9 @@ export default {
            if(this.form.icon){
               this.preview_icon=this.base_url+this.form.icon;
             }
- 
+
           }
-        })    
+        })
     },
 
     updateGeneralSetting() {
@@ -305,7 +319,7 @@ export default {
         img.src = evt.target.result;
       };
     },
-    
+
     setIcon(file, evt) {
       this.disabled = false;
       this.form.icon = file;
@@ -314,14 +328,14 @@ export default {
     clickImage(){
       let logo_file=document.getElementById('uploadLogo')
           logo_file.click()
-   
-  
+
+
     },
 
     clickFavicon(){
-       let favicon_file = document.getElementById('upload_icon');    
+       let favicon_file = document.getElementById('upload_icon');
            favicon_file.click();
-    }      
+    }
 
 
   },
