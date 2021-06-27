@@ -235,6 +235,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   crated: function crated() {
     this.$store.dispatch("user");
@@ -245,12 +248,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    colorChange: function colorChange() {//  let list_i = document.getElementsByClassName("router-link-active");
-      //      if(list_i.parentElement.classList.contains('active')){
-      //         list_i.parentElement.classList.remove("active");
-      //       } else {
-      //         list_i.parentElement.classList.add("active");
-      //     }
+    Logout: function Logout() {
+      var _this = this;
+
+      axios.get("/_public/user/logout").then(function (resp) {
+        console.log(resp);
+        _this.user = null;
+        localStorage.removeItem("user_token");
+        location.reload();
+      });
     }
   },
   computed: {
@@ -274,7 +280,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n@media print {\n.navbar[data-v-d3b389c6] {\r\n    display: none;\n}\n.col-lg-2[data-v-d3b389c6] {\r\n    width: 20% !important;\n}\n.invoice-header[data-v-d3b389c6] {\r\n    display: block;\n}\n.box[data-v-d3b389c6] {\r\n    border-top: none;\n}\nfooter[data-v-d3b389c6] {\r\n    border-top: none !important;\n}\n.bottomBtn[data-v-d3b389c6] {\r\n    display: none;\n}\n}\n@media screen  and ( max-width:650px) {\n.bottomBtn[data-v-d3b389c6]{\r\n      margin-left: 20px;\n}\n}\n.[data-v-d3b389c6]{\r\n  background: #ffffff;\r\n  padding: 20px 20px;\n}\r\n\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\n@media print {\n.navbar[data-v-d3b389c6] {\r\n    display: none;\n}\n.col-lg-2[data-v-d3b389c6] {\r\n    width: 20% !important;\n}\n.invoice-header[data-v-d3b389c6] {\r\n    display: block;\n}\n.box[data-v-d3b389c6] {\r\n    border-top: none;\n}\nfooter[data-v-d3b389c6] {\r\n    border-top: none !important;\n}\n.bottomBtn[data-v-d3b389c6] {\r\n    display: none;\n}\n}\n@media screen  and ( max-width:650px) {\n.bottomBtn[data-v-d3b389c6]{\r\n      margin-left: 20px;\n}\n.table_container[data-v-d3b389c6]{\r\n      overflow-x: scroll;\r\n       margin:10px;\n}\n}\r\n\r\n\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -395,120 +401,137 @@ var render = function() {
               [
                 _c("sidebar"),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-10 col-sm-10 " }, [
-                  _c("table", { staticClass: "table table-bordered content" }, [
-                    _vm._m(0),
-                    _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-md-10 col-sm-10 table_container" },
+                  [
                     _c(
-                      "tbody",
-                      [
-                        _vm._l(_vm.items, function(item, index) {
-                          return _c("tr", { key: index }, [
-                            _c("td", [_vm._v(_vm._s(index + 1))]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _vm._v(
-                                "\n                      " +
-                                  _vm._s(item.product.name) +
-                                  "\n                      "
-                              ),
-                              item.attribute
-                                ? _c("strong", [
-                                    _vm._v(
-                                      "-" +
-                                        _vm._s(item.attribute.name) +
-                                        "[" +
-                                        _vm._s(item.variant.name) +
-                                        "]"
-                                    )
-                                  ])
-                                : _vm._e()
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _vm._v(_vm._s(item.product.product_code))
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(item.quantity))]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(item.price))]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _vm._v(_vm._s(item.quantity * item.price))
-                            ])
-                          ])
-                        }),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", { attrs: { colspan: "4" } }),
-                          _vm._v(" "),
-                          _vm._m(1),
-                          _vm._v(" "),
-                          _c("td", [_c("b", [_vm._v(_vm._s(_vm.order.total))])])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", { attrs: { colspan: "4" } }),
-                          _vm._v(" "),
-                          _vm._m(2),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("b", [_vm._v(_vm._s(_vm.order.discount))])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", { attrs: { colspan: "4" } }),
-                          _vm._v(" "),
-                          _vm._m(3),
-                          _vm._v(" "),
-                          _c("td", [_c("b", [_vm._v(_vm._s(_vm.order.paid))])])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", { attrs: { colspan: "4" } }),
-                          _vm._v(" "),
-                          _vm._m(4),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("b", [_vm._v(_vm._s(_vm.order.shipping_cost))])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", { attrs: { colspan: "4" } }),
-                          _vm._v(" "),
-                          _vm._m(5),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("b", [
-                              _vm._v(
-                                _vm._s(
-                                  parseInt(_vm.order.total) -
-                                    (parseInt(_vm.order.discount) +
-                                      parseInt(_vm.order.paid)) +
-                                    parseInt(_vm.order.shipping_cost)
-                                )
-                              )
-                            ])
-                          ])
-                        ])
-                      ],
-                      2
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row bottomBtn" }, [
-                    _c(
-                      "button",
+                      "table",
                       {
-                        staticClass: "btn btn-warning back",
-                        on: { click: _vm.back }
+                        staticClass:
+                          "table table-hover table-striped table-bordered content"
                       },
-                      [_c("i", { staticClass: "fa fa-arrow-circle-right" })]
-                    )
-                  ])
-                ])
+                      [
+                        _vm._m(0),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          [
+                            _vm._l(_vm.items, function(item, index) {
+                              return _c("tr", { key: index }, [
+                                _c("td", [_vm._v(_vm._s(index + 1))]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(
+                                    "\n                      " +
+                                      _vm._s(item.product.name) +
+                                      "\n                      "
+                                  ),
+                                  item.attribute
+                                    ? _c("strong", [
+                                        _vm._v(
+                                          "-" +
+                                            _vm._s(item.attribute.name) +
+                                            "[" +
+                                            _vm._s(item.variant.name) +
+                                            "]"
+                                        )
+                                      ])
+                                    : _vm._e()
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(_vm._s(item.product.product_code))
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(item.quantity))]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(item.price))]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(_vm._s(item.quantity * item.price))
+                                ])
+                              ])
+                            }),
+                            _vm._v(" "),
+                            _c("tr", [
+                              _c("td", { attrs: { colspan: "4" } }),
+                              _vm._v(" "),
+                              _vm._m(1),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c("b", [_vm._v(_vm._s(_vm.order.total))])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("tr", [
+                              _c("td", { attrs: { colspan: "4" } }),
+                              _vm._v(" "),
+                              _vm._m(2),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c("b", [_vm._v(_vm._s(_vm.order.discount))])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("tr", [
+                              _c("td", { attrs: { colspan: "4" } }),
+                              _vm._v(" "),
+                              _vm._m(3),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c("b", [_vm._v(_vm._s(_vm.order.paid))])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("tr", [
+                              _c("td", { attrs: { colspan: "4" } }),
+                              _vm._v(" "),
+                              _vm._m(4),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c("b", [
+                                  _vm._v(_vm._s(_vm.order.shipping_cost))
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("tr", [
+                              _c("td", { attrs: { colspan: "4" } }),
+                              _vm._v(" "),
+                              _vm._m(5),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c("b", [
+                                  _vm._v(
+                                    _vm._s(
+                                      parseInt(_vm.order.total) -
+                                        (parseInt(_vm.order.discount) +
+                                          parseInt(_vm.order.paid)) +
+                                        parseInt(_vm.order.shipping_cost)
+                                    )
+                                  )
+                                ])
+                              ])
+                            ])
+                          ],
+                          2
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row bottomBtn" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-warning back",
+                          on: { click: _vm.back }
+                        },
+                        [_c("i", { staticClass: "fa fa-arrow-circle-right" })]
+                      )
+                    ])
+                  ]
+                )
               ],
               1
             )
@@ -668,7 +691,15 @@ var render = function() {
               )
             ],
             1
-          )
+          ),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "a",
+              { staticStyle: { cursor: "pointer" }, on: { click: _vm.Logout } },
+              [_c("i", { staticClass: "fa fa-sign-out" }), _vm._v(" Logout")]
+            )
+          ])
         ])
       ])
     ])

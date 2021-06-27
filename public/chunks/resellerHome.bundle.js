@@ -572,168 +572,180 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "box-body" }, [
-                    _c("table", { staticClass: "table" }, [
-                      _vm._m(1),
-                      _vm._v(" "),
-                      _c(
-                        "tbody",
-                        [
-                          _vm.loading
-                            ? _c("h1", { staticClass: "text-center" }, [
-                                _c("i", {
-                                  staticClass: "fa fa-spin fa-spinner"
-                                })
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm._l(_vm.resellerList.data, function(
-                            reseller,
-                            index
-                          ) {
-                            return _c("tr", { key: index }, [
-                              _c("td", [_vm._v(_vm._s(index + 1))]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c(
-                                  "a",
-                                  {
-                                    attrs: {
-                                      href: "/admin/to/reseller/" + reseller.id,
-                                      target: "_blank"
-                                    }
-                                  },
-                                  [_vm._v(_vm._s(reseller.name))]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v(_vm._s(reseller.username))]),
-                              _vm._v(" "),
-                              _c("td", { staticStyle: { width: "2px" } }, [
-                                _vm._v(_vm._s(reseller.company_name))
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v(_vm._s(reseller.email))]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("img", {
-                                  staticClass: "img-circle small-image",
-                                  attrs: {
-                                    src: reseller.photo
-                                      ? _vm.basePath + reseller.photo
-                                      : _vm.basePath +
-                                        "images/static/noimage.png",
-                                    alt: "reseller Image"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v(_vm._s(reseller.phone))]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v(_vm._s(reseller.bkash_number))]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v(_vm._s(reseller.address))]),
-                              _vm._v(" "),
-                              _c("td", [
-                                reseller.status == 1
-                                  ? _c("span", { staticClass: "badge" }, [
-                                      _vm._v("Active")
-                                    ])
-                                  : _c(
-                                      "span",
-                                      { staticClass: "badge text-bold" },
-                                      [_vm._v("De-Active")]
-                                    )
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                [
-                                  _c(
-                                    "router-link",
-                                    {
-                                      staticClass: "btn btn-sm btn-success",
-                                      attrs: {
-                                        to: {
-                                          name: "resellerEdit",
-                                          params: { id: reseller.id }
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("i", {
-                                        staticClass: "fa fa-sm fa-edit"
-                                      })
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  reseller.status == 1
-                                    ? _c(
-                                        "a",
-                                        {
-                                          staticClass: "btn btn-sm btn-warning",
-                                          attrs: { title: "De-active" },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.deActive(
-                                                reseller.id,
-                                                index
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c("i", {
-                                            staticClass: "fa fa-sm fa-ban"
-                                          })
-                                        ]
-                                      )
-                                    : _c(
-                                        "a",
-                                        {
-                                          staticClass: "btn btn-sm btn-primary",
-                                          attrs: { title: "active" },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.active(
-                                                reseller.id,
-                                                index
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c("i", {
-                                            staticClass: "fa fa-sm fa-check"
-                                          })
-                                        ]
-                                      ),
-                                  _vm._v(" "),
+                    _c(
+                      "table",
+                      {
+                        staticClass:
+                          "table table-hover table-bordered table-striped text-center  "
+                      },
+                      [
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          [
+                            _vm.loading
+                              ? _c("h1", { staticClass: "text-center" }, [
+                                  _c("i", {
+                                    staticClass: "fa fa-spin fa-spinner"
+                                  })
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm._l(_vm.resellerList.data, function(
+                              reseller,
+                              index
+                            ) {
+                              return _c("tr", { key: index }, [
+                                _c("td", [_vm._v(_vm._s(index + 1))]),
+                                _vm._v(" "),
+                                _c("td", [
                                   _c(
                                     "a",
-                                    { staticClass: "btn btn-sm btn-danger" },
-                                    [
-                                      _c("i", {
-                                        staticClass: "fa fa-sm fa-trash",
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.trash_reseller(
-                                              reseller.id,
-                                              index
-                                            )
+                                    {
+                                      attrs: {
+                                        href:
+                                          "/admin/to/reseller/" + reseller.id,
+                                        target: "_blank"
+                                      }
+                                    },
+                                    [_vm._v(_vm._s(reseller.name))]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(reseller.username))]),
+                                _vm._v(" "),
+                                _c("td", { staticStyle: { width: "2px" } }, [
+                                  _vm._v(_vm._s(reseller.company_name))
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(reseller.email))]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _c("img", {
+                                    staticClass: "img-circle small-image",
+                                    attrs: {
+                                      src: reseller.photo
+                                        ? _vm.basePath + reseller.photo
+                                        : _vm.basePath +
+                                          "images/static/noimage.png",
+                                      alt: "reseller Image"
+                                    }
+                                  })
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(reseller.phone))]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(_vm._s(reseller.bkash_number))
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(reseller.address))]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  reseller.status == 1
+                                    ? _c("span", { staticClass: "badge" }, [
+                                        _vm._v("Active")
+                                      ])
+                                    : _c(
+                                        "span",
+                                        { staticClass: "badge text-bold" },
+                                        [_vm._v("De-Active")]
+                                      )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  [
+                                    _c(
+                                      "router-link",
+                                      {
+                                        staticClass: "btn btn-sm btn-success",
+                                        attrs: {
+                                          to: {
+                                            name: "resellerEdit",
+                                            params: { id: reseller.id }
                                           }
                                         }
-                                      })
-                                    ]
-                                  )
-                                ],
-                                1
-                              )
-                            ])
-                          })
-                        ],
-                        2
-                      )
-                    ])
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass: "fa fa-sm fa-edit"
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    reseller.status == 1
+                                      ? _c(
+                                          "a",
+                                          {
+                                            staticClass:
+                                              "btn btn-sm btn-warning",
+                                            attrs: { title: "De-active" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.deActive(
+                                                  reseller.id,
+                                                  index
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fa fa-sm fa-ban"
+                                            })
+                                          ]
+                                        )
+                                      : _c(
+                                          "a",
+                                          {
+                                            staticClass:
+                                              "btn btn-sm btn-primary",
+                                            attrs: { title: "active" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.active(
+                                                  reseller.id,
+                                                  index
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fa fa-sm fa-check"
+                                            })
+                                          ]
+                                        ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a",
+                                      { staticClass: "btn btn-sm btn-danger" },
+                                      [
+                                        _c("i", {
+                                          staticClass: "fa fa-sm fa-trash",
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.trash_reseller(
+                                                reseller.id,
+                                                index
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                )
+                              ])
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "box-footer" }, [
@@ -841,7 +853,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Username")]),
         _vm._v(" "),
-        _c("th", { staticStyle: { width: "10px" } }, [_vm._v("C_name")]),
+        _c("th", { staticStyle: { width: "10px" } }, [_vm._v("C_Name")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Email")]),
         _vm._v(" "),

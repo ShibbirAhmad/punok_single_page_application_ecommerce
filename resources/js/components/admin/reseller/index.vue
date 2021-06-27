@@ -60,13 +60,13 @@
                 </div>
 
                 <div class="box-body">
-                  <table class="table">
+                  <table class="table table-hover table-bordered table-striped text-center  ">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Username</th>
-                        <th style="width: 10px">C_name</th>
+                        <th style="width: 10px">C_Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Image</th>
                         <th scope="col">phone</th>
@@ -102,7 +102,7 @@
                             class="img-circle small-image"
                             alt="reseller Image"
                           />
-                   
+
                         </td>
                         <td>{{ reseller.phone }}</td>
                         <td>{{ reseller.bkash_number }}</td>

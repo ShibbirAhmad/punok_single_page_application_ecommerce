@@ -28,7 +28,7 @@
         <div class="col-lg-6">
             <div class="pull-right moha_add_inv" >
 
-           <p class="logo">sufilifestyle.com</p>
+           <p class="logo"> {{ $setting->title }} </p>
           <p> {!! $setting->invoice_address_details !!} </p>
                 <p class="pull-right current_date" ><span style="border: .5px solid #000;padding:2px 4px 2px 4px; border-right: none;">Date: </span><span style="border: 1px solid #000;padding:2px 4px 2px 4px;"><?php echo date("d/m/Y"); ?></span></p>
             </div>

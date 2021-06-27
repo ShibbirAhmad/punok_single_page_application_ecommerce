@@ -56,4 +56,21 @@ class Product extends Model
         return $this->hasMany('App\Models\Purchaseitem','product_id');
 
     }
+
+
+    public function subCategory()
+    {
+        return $this->belongsTo('App\Models\SubCategory','sub_category_id');
+
+    }
+    public function subSubCategory()
+    {
+        return $this->belongsTo('App\Models\SubSubCategory','sub_sub_category_id');
+
+    }
+
+
+
+
+
 }

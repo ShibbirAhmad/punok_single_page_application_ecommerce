@@ -26,6 +26,9 @@
                   enctype="multipart/form-data"
                 >
 
+                                     <div class="row">
+                    <div class="col-md-8">
+
                    <div class="form-group">
                     <label for="invoice">Short Qoute </label>
                     <input
@@ -37,6 +40,17 @@
                       name="quote"
                     />
                     <has-error :form="form" field="quote"></has-error>
+                  </div>
+                    </div>
+                    <div class="col-md-4">
+                       <div class="form-group">
+                         <label style="color:red;" for="">*</label>
+                         <select  class="form-control" name="status" v-model="form.status">
+                           <option value="1">active</option>
+                           <option value="0">de-active</option>
+                         </select>
+                       </div>
+                    </div>
                   </div>
 
                   <div class="form-group">
@@ -52,7 +66,7 @@
                     <has-error :form="form" field="heading"></has-error>
                   </div>
 
-               
+
                   <div class="form-group">
                     <div class="row">
                       <div class="col-md-6">
@@ -136,6 +150,7 @@ export default {
         product_code_one: "",
         product_code_two: "",
         campaign_background: "",
+        status:"",
       }),
       error: "",
       loading: true,
@@ -152,6 +167,7 @@ export default {
         console.log(resp);
         if (resp.data.status == "OK") {
           this.form.id = resp.data.campaign.id;
+          this.form.status = resp.data.campaign.status;
           this.form.heading = resp.data.campaign.heading;
           this.form.quote = resp.data.campaign.quote;
           this.form.product_code_one = resp.data.campaign.product_code_one;
@@ -189,7 +205,7 @@ export default {
         });
     },
 
-    
+
     uploadcampaign_background(e) {
       const file = e.target.files[0];
      if (!file.type.match("image.*")) {
@@ -207,7 +223,7 @@ export default {
         img.onload = () => {
           console.log(img.width, img.height);
           this.setcampaign_background(file, evt);
-      
+
         };
         img.src = evt.target.result;
       };
@@ -218,12 +234,12 @@ export default {
       this.form.campaign_background = file;
       this.preview_campaign_background =evt.target.result;
     },
-    
+
     clickImage(){
       let logo_file=document.getElementById('uploadLogo')
           logo_file.click()
-   
-  
+
+
     },
 
   },
@@ -231,7 +247,7 @@ export default {
 </script>
 
 <style scoped>
- 
+
    #uploadLogo {
       display: none;
   }

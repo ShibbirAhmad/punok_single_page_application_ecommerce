@@ -40,10 +40,10 @@
                     </li>
                   </ul>
                   <ul class="price-box">
-                    <li class="price">
+                    <li class="price  ">
                      <h3>
-                      <span class="price-old" v-if="product.discount">&#2547; {{product.sale_price}}</span>
-                      <span class="price-new">&#2547; {{product.price}}</span>
+                      <span class="price-old single_p_price" v-if="product.discount">&#2547; {{product.sale_price}}</span>
+                      <span class="price-new single_p_price">&#2547; {{product.price}}</span>
                      </h3>
                     </li>
                     <li></li>

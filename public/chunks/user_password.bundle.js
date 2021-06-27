@@ -151,6 +151,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   crated: function crated() {
     this.$store.dispatch("user");
@@ -161,12 +164,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    colorChange: function colorChange() {//  let list_i = document.getElementsByClassName("router-link-active");
-      //      if(list_i.parentElement.classList.contains('active')){
-      //         list_i.parentElement.classList.remove("active");
-      //       } else {
-      //         list_i.parentElement.classList.add("active");
-      //     }
+    Logout: function Logout() {
+      var _this = this;
+
+      axios.get("/_public/user/logout").then(function (resp) {
+        console.log(resp);
+        _this.user = null;
+        localStorage.removeItem("user_token");
+        location.reload();
+      });
     }
   },
   computed: {
@@ -593,7 +599,15 @@ var render = function() {
               )
             ],
             1
-          )
+          ),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "a",
+              { staticStyle: { cursor: "pointer" }, on: { click: _vm.Logout } },
+              [_c("i", { staticClass: "fa fa-sign-out" }), _vm._v(" Logout")]
+            )
+          ])
         ])
       ])
     ])

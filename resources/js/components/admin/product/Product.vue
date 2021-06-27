@@ -90,7 +90,7 @@
                             v-html="product.product_barcode.barcode"
                             class="barcode"
                           ></p>
-                          <span class="barcode-number">{{
+                          <span>{{
                             product.product_barcode.barcode_number
                           }}</span>
                         </td>

@@ -821,18 +821,14 @@ var render = function() {
                                           }
                                         }),
                                         _vm._v(" "),
-                                        _c(
-                                          "span",
-                                          { staticClass: "barcode-number" },
-                                          [
-                                            _vm._v(
-                                              _vm._s(
-                                                product.product_barcode
-                                                  .barcode_number
-                                              )
+                                        _c("span", [
+                                          _vm._v(
+                                            _vm._s(
+                                              product.product_barcode
+                                                .barcode_number
                                             )
-                                          ]
-                                        )
+                                          )
+                                        ])
                                       ]
                                     ),
                                     _vm._v(" "),

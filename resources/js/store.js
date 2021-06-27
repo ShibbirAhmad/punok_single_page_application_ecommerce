@@ -63,7 +63,7 @@ const state = {
     //for check admin page view permisson
     view_permission:false,
 
-    image_base_link: '/../public/storage/',
+    image_base_link: '/../storage/',
 
     //for home page products
     home_page_products: "",

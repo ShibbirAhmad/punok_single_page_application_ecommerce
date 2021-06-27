@@ -11,9 +11,9 @@ use App\Models\BuyOneGetOneOffer;
 
 class SaleCampaignController extends Controller
 {
-      
-    
-    
+
+
+
 public function get_sale_campaign_list() {
 
         $sale_campaigns = SaleCampaign::orderBy('id','desc')->get();
@@ -25,7 +25,7 @@ public function get_sale_campaign_list() {
 }
 
 
-   
+
 public function store_sale_campaign(Request $request)
  {
 
@@ -33,9 +33,9 @@ public function store_sale_campaign(Request $request)
           'name'  => 'required',
           'expired_date'  => 'required',
           'border_width'  => 'required',
-          
+
       ]);
-    
+
       $sale_campaign =new SaleCampaign();
       $sale_campaign->name=$request->name;
       $sale_campaign->expired_date=$request->expired_date;
@@ -44,7 +44,7 @@ public function store_sale_campaign(Request $request)
       $sale_campaign->border_width=$request->border_width;
       $sale_campaign->order_by=$request->order_by;
       $sale_campaign->status=1;
- 
+
       if ($sale_campaign->save()) {
           return response()->json([
               'status' => 'SUCCESS',
@@ -54,7 +54,7 @@ public function store_sale_campaign(Request $request)
           return response()->json([
               'status' => 'FAIL',
               'message' => 'Expire date is required and something went wrong',
-          ]); 
+          ]);
       }
 }
 
@@ -111,26 +111,26 @@ public function de_active_sale_campaign($id) {
     public function get_edit_campaign($id) {
 
         $sale_campaign = SaleCampaign::findOrFail($id);
-            return response()->json([  
+            return response()->json([
                 'status' => "OK",
                 'sale_campaign'=>$sale_campaign,
             ]);
-        
+
         }
 
 
-     
 
-     
+
+
   public function update_sale_campaign(Request $request,$id){
 
     $validatedData = $request->validate([
         'name'  => 'required',
         'expired_date'  => 'required',
         'border_width'  => 'required',
-        
+
     ]);
-  
+
     $sale_campaign = SaleCampaign::findOrFail($id);
     $sale_campaign->name=$request->name;
     $sale_campaign->expired_date=$request->expired_date;
@@ -149,7 +149,7 @@ public function de_active_sale_campaign($id) {
         return response()->json([
             'status' => 'FAIL',
             'message' => 'Expire date is required and something went wrong',
-        ]); 
+        ]);
      }
 
  }
@@ -158,7 +158,7 @@ public function de_active_sale_campaign($id) {
 
 
     // occasion campaign is start from here
-        
+
     public function get_occasional_campaign() {
 
         $campaign = OccasionProduct::latest()->take(1)->first();
@@ -186,6 +186,7 @@ public function de_active_sale_campaign($id) {
         $campaign = OccasionProduct::findOrFail($id);
         $campaign->heading=$request->heading;
         $campaign->quote=$request->quote;
+        $campaign->status=$request->status;
         $campaign->product_code_one=$request->product_code_one;
         $campaign->product_code_two=$request->product_code_two;
         if ($request->hasFile('campaign_background') ) {
@@ -230,6 +231,7 @@ public function de_active_sale_campaign($id) {
             $campaign = SeasonalProduct::findOrFail($id);
             $campaign->heading=$request->heading;
             $campaign->quote=$request->quote;
+            $campaign->status=$request->status;
             $campaign->product_code_one=$request->product_code_one;
             $campaign->product_code_two=$request->product_code_two;
             if ($request->hasFile('campaign_background') ) {
@@ -248,9 +250,9 @@ public function de_active_sale_campaign($id) {
 
 
 
-    
 
-     //buy one get one is here  
+
+     //buy one get one is here
      public function get_buy_one_get_one_campaign(){
 
             $campaign = BuyOneGetOneOffer::latest()->take(1)->first();
@@ -287,13 +289,13 @@ public function de_active_sale_campaign($id) {
         }
 
 
-        
+
 
 
 
 
 }
- 
+
 
 
 

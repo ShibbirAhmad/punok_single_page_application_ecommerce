@@ -41,13 +41,13 @@
 
                     <div class="col-md-5"></div>
                    <div class="col-md-4">
-                    <input type="text" placeholder="company_name email or phone " @keyup="searchMerchant" v-model="search" class="form-control " > 
-                         
+                    <input type="text" placeholder="company_name email or phone " @keyup="searchMerchant" v-model="search" class="form-control " >
+
                    </div>
                      <button style="margin-left:-12px;" class="btn btn-primary" type="submit">search</button>
                 </div>
                 <div class="box-body">
-                  <table class="table text-center">
+                  <table class="table table-hover table-bordered table-striped text-center">
                     <thead>
                       <tr>
                         <th scope="col">Serial</th>
@@ -187,7 +187,7 @@ export default {
          }
        })
        .catch()
-     }, 
+     },
 
     deActive(merchant) {
       Swal.fire({

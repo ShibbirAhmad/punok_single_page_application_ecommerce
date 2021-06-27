@@ -23,16 +23,15 @@
 
                         <p>
                           Invoice No:
-                          <strong v-if="sale.invoice_no">{{ sale.invoice_no }}</strong>
-                          <strong v-else> {{ "S-" + sale.id }}</strong>
+                          <strong> {{ "S-" + sale.id }}</strong>
                         </p>
                       </div>
-                      <div v-else>
+                      <div v-if="sale.sale_type == 2">
                            <p>Name: {{ sale.company?sale.company.name : 'company' }}</p>
                         <p>
-                          Mobile No: <strong> {{ sale.company.phone }} </strong>
+                          Mobile No: <strong> {{ sale.company.phone ?  sale.company.phone : 'phone  not added' }} </strong>
                         </p>
-                        <p class="address_line">Address: {{ sale.company.address }}</p>
+                        <p class="address_line">Address: {{ sale.company.address? sale.company.address : 'address not added' }}</p>
 
                         <p>
                           Invoice No:

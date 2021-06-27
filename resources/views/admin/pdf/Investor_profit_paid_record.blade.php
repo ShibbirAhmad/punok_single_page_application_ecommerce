@@ -66,7 +66,7 @@
          <?php
          $setting=App\Models\GeneralSetting::latest()->first();
          ?>
-          <p class="logo">sufilifestyle.com</p>
+          <p class="logo"> {{ $setting->title }}  </p>
           <p> {!! $setting->invoice_address_details !!} </p>
 
         </div>

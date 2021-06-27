@@ -231,10 +231,10 @@ class Order extends Model
 
        public static function SendMessageCustomer($number,$name,$invoice){
 
-        $api_key = "C20047545e16e1c02a1b38.69878796";
+        $api_key = "C20080926059d38fab0643.83594698";
         $contacts = $number;
-        $senderid = '8809601000740';
-        $sms = 'Dear '.$name.','. 'Your order has been received. Invoice number is '.$invoice. '.' .'If you have any query please contact with us .'. '01812 221888. Thanks by  sufilifestyle.com';   // put here your dynamic message text here
+        $senderid = '8809612446756';
+        $sms = 'Dear '.$name.','. 'Your order has been received. Invoice number is '.$invoice. '.' .'If you have any query please contact with us .'. '01715-900066. Thanks by  madinafashion.com.bd';   // put here your dynamic message text here
         $URL = "http://bulk.fmsms.biz/smsapi?api_key=" . urlencode($api_key) . "&type=text&contacts=" . urlencode($contacts) . "&senderid=" . urlencode($senderid) . "&msg=" . urlencode($sms);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $URL);
@@ -259,13 +259,13 @@ class Order extends Model
         $shipment=Courier::where('id',$order->courier_id)->first();
         $courier_name=$shipment->name;
         $memo_no=$order->memo_no;
-        $total=$order->total;
+        $total= (($order->total + $order->shipping_cost) - $order->paid ) ;
         $customer_name=$order->customer->name;
         $contacts=$order->cutomer_phone;
 
-        $api_key = "C20047545e16e1c02a1b38.69878796";
-        $senderid = '8809601000740';
-        $sms = 'Dear ' . $customer_name .'.'. ' Your order has been shiped to '.$courier_name.' courier.'.' Your memo number is ' .$memo_no.' and payable amount '.$total.' Tk.'.' Thanks by sufilifestyle.com';
+        $api_key = "C20080926059d38fab0643.83594698";
+        $senderid = '8809612446756';
+        $sms = 'Dear ' . $customer_name .'.'. ' Your order has been shiped to '.$courier_name.' courier.'.' Your memo number is ' .$memo_no.' and payable amount '.$total.' Tk.'.' Thanks by madinafashion.com.bd';
        // put here your dynamic message text here
         $URL = "http://bulk.fmsms.biz/smsapi?api_key=" . urlencode($api_key) . "&type=text&contacts=" . urlencode($contacts) . "&senderid=" . urlencode($senderid) . "&msg=" . urlencode($sms);
         $ch = curl_init();
@@ -410,15 +410,15 @@ public static function due(){
                            ->where('order_type','!=',3)
                           ->get();
    //get this week order
-   $this_week_orders=Order::where('created_at','>=',Carbon::yesterday()->subDays('7')->startOfDay())
-                          ->where('created_at','<=', Carbon::yesterday()->endOfDay())
+   $this_week_orders=Order::where('created_at','>=',Carbon::today()->subDays('7')->startOfDay())
+                          ->where('created_at','<=', Carbon::today()->endOfDay())
                           ->where('status','!=',6)
                            ->where('order_type','!=',3)
                           ->get();
 
    //get this month order
-   $this_month_orders=Order::where('created_at','>=',Carbon::yesterday()->subDays('30')->startOfDay())
-                          ->where('created_at','<=', Carbon::yesterday()->endOfDay())
+   $this_month_orders=Order::where('created_at','>=',Carbon::today()->subDays('30')->startOfDay())
+                          ->where('created_at','<=', Carbon::today()->endOfDay())
                           ->where('status','!=',6)
                           ->where('order_type','!=',3)
                           ->get();
@@ -486,7 +486,7 @@ $analysis['this_month']=[];
   public static function WholeSaleAnalysis(){
 
     //get today _whole_sales
-    $totday_whole_sales=Order::where('created_at','>=',Carbon::today()->startOfDay())
+    $today_whole_sales=Order::where('created_at','>=',Carbon::today()->startOfDay())
                           ->where('created_at','<=',Carbon::today()->endOfDay())
                           ->where('status','!=',6)
                            ->where('order_type',3)
@@ -500,15 +500,15 @@ $analysis['this_month']=[];
                           ->get();
 
    //get this week _whole_sales
-   $this_week_whole_sales=Order::where('created_at','>=',Carbon::yesterday()->subDays('7')->startOfDay())
-                          ->where('created_at','<=', Carbon::yesterday()->endOfDay())
+   $this_week_whole_sales=Order::where('created_at','>=',Carbon::today()->subDays('7')->startOfDay())
+                          ->where('created_at','<=', Carbon::today()->endOfDay())
                           ->where('status','!=',6)
                            ->where('order_type',3)
                           ->get();
 
    //get this month _whole_sales
-   $this_month_whole_sales=Order::where('created_at','>=',Carbon::yesterday()->subDays('30')->startOfDay())
-                          ->where('created_at','<=', Carbon::yesterday()->endOfDay())
+   $this_month_whole_sales=Order::where('created_at','>=',Carbon::today()->subDays('30')->startOfDay())
+                          ->where('created_at','<=', Carbon::today()->endOfDay())
                           ->where('status','!=',6)
                           ->where('order_type',3)
                           ->get();
@@ -526,12 +526,12 @@ $analysis['this_month']=[];
 
 
 //today _whole_sales summary
-  foreach($totday_whole_sales as $totday_whole_sale){
+  foreach($today_whole_sales as $totday_whole_sale){
        $product_quantity_today+=OrderItem::where('order_id',$totday_whole_sale->id)->sum('quantity');
        $analysis['today']=[
-          'order_quantity'=>$totday_whole_sales->count(),
+          'order_quantity'=>$today_whole_sales->count(),
           'product_quanity'=>$product_quantity_today,
-          'amount'=>$totday_whole_sales->sum('total')-$totday_whole_sales->sum('discount')
+          'amount'=>$today_whole_sales->sum('total')-$today_whole_sales->sum('discount')
          ];
   }
 
@@ -572,7 +572,7 @@ $analysis['this_month']=[];
    public static function SaleAnalysis(){
 
     //get today sales
-    $totday_sales=Sale::where('created_at','>=',Carbon::today()->startOfDay())
+    $today_sales=Sale::where('created_at','>=',Carbon::today()->startOfDay())
                         ->where('created_at','<=',Carbon::today()->endOfDay())
                         ->get();
 
@@ -582,13 +582,13 @@ $analysis['this_month']=[];
                         ->get();
 
    //get this week _whole_sales
-   $this_week_sales=Sale::where('created_at','>=',Carbon::yesterday()->subDays('7')->startOfDay())
-                         ->where('created_at','<=', Carbon::yesterday()->endOfDay())
+   $this_week_sales=Sale::where('created_at','>=',Carbon::today()->subDays('7')->startOfDay())
+                         ->where('created_at','<=', Carbon::today()->endOfDay())
                          ->get();
 
    //get this month order
-   $this_monthe_sales=Sale::where('created_at','>=',Carbon::yesterday()->subDays('30')->startOfDay())
-                          ->where('created_at','<=', Carbon::yesterday()->endOfDay())
+   $this_month_sales=Sale::where('created_at','>=',Carbon::today()->subDays('30')->startOfDay())
+                          ->where('created_at','<=', Carbon::today()->endOfDay())
                           ->get();
 
 
@@ -604,12 +604,12 @@ $analysis['this_month']=[];
 
 
 //today order summary
-  foreach($totday_sales as $totday_sale){
+  foreach($today_sales as $totday_sale){
        $product_quantity_today+=SaleItems::where('sale_id',$totday_sale->id)->sum('qty');
        $analysis['today']=[
-          'order_quantity'=>$totday_sales->count(),
+          'order_quantity'=>$today_sales->count(),
           'product_quanity'=>$product_quantity_today,
-          'amount'=>$totday_sales->sum('total')-$totday_sales->sum('discount')
+          'amount'=>$today_sales->sum('total')-$today_sales->sum('discount')
          ];
     }
  //yesterday order summary
@@ -632,12 +632,12 @@ $analysis['this_month']=[];
     }
 
 //this month  order summary
-     foreach($this_monthe_sales as $this_monthe_sale){
+     foreach($this_month_sales as $this_monthe_sale){
        $product_quantity_month += SaleItems::where('sale_id',$this_monthe_sale->id)->sum('qty');
        $analysis['this_month']=[
-          'order_quantity'=>$this_monthe_sales->count(),
+          'order_quantity'=>$this_month_sales->count(),
           'product_quanity'=>$product_quantity_month,
-          'amount'=>$this_monthe_sales->sum('total')-$this_monthe_sales->sum('discount')
+          'amount'=>$this_month_sales->sum('total')-$this_month_sales->sum('discount')
          ];
     }
 

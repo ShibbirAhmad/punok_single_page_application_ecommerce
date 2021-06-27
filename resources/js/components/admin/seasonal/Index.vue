@@ -25,18 +25,34 @@
                   @keydown="form.onKeydown($event)"
                   enctype="multipart/form-data"
                 >
-
-                   <div class="form-group">
-                    <label for="invoice">Short Qoute </label>
-                    <input
-                      type="text"
-                      v-model="form.quote"
-                      placeholder=""
-                      class="form-control"
-                      :class="{ 'is-invalid': form.errors.has('quote') }"
-                      name="quote"
-                    />
-                    <has-error :form="form" field="quote"></has-error>
+                  <div class="row">
+                    <div class="col-md-8">
+                      <div class="form-group">
+                        <label for="invoice">Short Qoute </label>
+                        <input
+                          type="text"
+                          v-model="form.quote"
+                          placeholder=""
+                          class="form-control"
+                          :class="{ 'is-invalid': form.errors.has('quote') }"
+                          name="quote"
+                        />
+                        <has-error :form="form" field="quote"></has-error>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label style="color: red" for="">*</label>
+                        <select
+                          class="form-control"
+                          name="status"
+                          v-model="form.status"
+                        >
+                          <option value="1">active</option>
+                          <option value="0">de-active</option>
+                        </select>
+                      </div>
+                    </div>
                   </div>
 
                   <div class="form-group">
@@ -52,7 +68,6 @@
                     <has-error :form="form" field="heading"></has-error>
                   </div>
 
-               
                   <div class="form-group">
                     <div class="row">
                       <div class="col-md-6">
@@ -66,7 +81,8 @@
                           }"
                           name="product_code_one"
                         />
-                        <has-error :form="form" field="product_code_one"> </has-error>
+                        <has-error :form="form" field="product_code_one">
+                        </has-error>
                       </div>
                       <div class="col-md-6">
                         <label for="product_two"> Product_Code Bottom </label>
@@ -79,12 +95,15 @@
                           }"
                           name="product_code_two"
                         />
-                         <has-error :form="form" field="product_code_two"> </has-error>
+                        <has-error :form="form" field="product_code_two">
+                        </has-error>
                       </div>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="campaign_background">Upload campaign_background</label>
+                    <label for="campaign_background"
+                      >Upload campaign_background</label
+                    >
                     <img
                       @click="clickImage"
                       id="campaignBackground"
@@ -100,12 +119,13 @@
                   </div>
                   <div class="form-group text-center">
                     <button
-                    :disabled="form.busy"
-                    type="submit"
-                    class="btn btn-primary "
-                  >
-                    <i class="fa fa-spin fa-spinner" v-if="form.busy"></i>Submit
-                  </button>
+                      :disabled="form.busy"
+                      type="submit"
+                      class="btn btn-primary"
+                    >
+                      <i class="fa fa-spin fa-spinner" v-if="form.busy"></i
+                      >Submit
+                    </button>
                   </div>
                 </form>
               </div>
@@ -136,38 +156,40 @@ export default {
         product_code_one: "",
         product_code_two: "",
         campaign_background: "",
+        status: "",
       }),
       error: "",
       loading: true,
-      base_url:this.$store.state.image_base_link,
-      preview_campaign_background:this.$store.state.image_base_link+"images/no_image.jpg",
-
+      base_url: this.$store.state.image_base_link,
+      preview_campaign_background:
+        this.$store.state.image_base_link + "images/no_image.jpg",
     };
   },
 
   methods: {
     getSeasionalCampaign() {
-      axios.get("/api/get/seasional/campaign")
-      .then((resp) => {
+      axios.get("/api/get/seasional/campaign").then((resp) => {
         console.log(resp);
         if (resp.data.status == "OK") {
           this.form.id = resp.data.campaign.id;
+          this.form.status = resp.data.campaign.status;
           this.form.heading = resp.data.campaign.heading;
           this.form.quote = resp.data.campaign.quote;
           this.form.product_code_one = resp.data.campaign.product_code_one;
           this.form.product_code_two = resp.data.campaign.product_code_two;
           this.form.campaign_background = resp.data.campaign.background_image;
           this.loading = false;
-          if(this.form.campaign_background){
-              this.preview_campaign_background=this.base_url+this.form.campaign_background;
-           }
+          if (this.form.campaign_background) {
+            this.preview_campaign_background =
+              this.base_url + this.form.campaign_background;
+          }
         }
       });
     },
 
     updateSeasionalCampaign() {
       this.form
-        .post("/api/edit/seasional/campaign/"+ this.form.id, {
+        .post("/api/edit/seasional/campaign/" + this.form.id, {
           transformRequest: [
             function (data, headers) {
               return objectToFormData(data);
@@ -189,17 +211,16 @@ export default {
         });
     },
 
-    
     uploadcampaign_background(e) {
       const file = e.target.files[0];
-     if (!file.type.match("image.*")) {
-         Swal.fire({
-          type:'warning',
-          text:'this is not any kind of image',
+      if (!file.type.match("image.*")) {
+        Swal.fire({
+          type: "warning",
+          text: "this is not any kind of image",
         });
         return;
       }
-     //let image file size check
+      //let image file size check
       let reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = (evt) => {
@@ -207,7 +228,6 @@ export default {
         img.onload = () => {
           console.log(img.width, img.height);
           this.setcampaign_background(file, evt);
-      
         };
         img.src = evt.target.result;
       };
@@ -216,33 +236,28 @@ export default {
     setcampaign_background(file, evt) {
       this.disabled = false;
       this.form.campaign_background = file;
-      this.preview_campaign_background =evt.target.result;
-    },
-    
-    clickImage(){
-      let logo_file=document.getElementById('uploadLogo')
-          logo_file.click()
+      this.preview_campaign_background = evt.target.result;
     },
 
+    clickImage() {
+      let logo_file = document.getElementById("uploadLogo");
+      logo_file.click();
+    },
   },
 };
 </script>
 
 <style scoped>
- 
-   #uploadLogo {
-      display: none;
-  }
+#uploadLogo {
+  display: none;
+}
 
-  #campaignBackground {
-          border: 1px solid #ddd;
-          padding: 5px;
-          cursor: pointer;
-          margin-left: 25px;
-          width: 565px;
-          height: 325px;
-  }
-
-
-
+#campaignBackground {
+  border: 1px solid #ddd;
+  padding: 5px;
+  cursor: pointer;
+  margin-left: 25px;
+  width: 565px;
+  height: 325px;
+}
 </style>

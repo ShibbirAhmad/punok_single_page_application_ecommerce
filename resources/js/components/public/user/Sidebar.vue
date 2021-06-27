@@ -32,11 +32,14 @@
                       <i class="fa fa-key "></i> Set New Password</router-link
                     >
                   </li>
+                    <li  >
+                       <a  style="cursor:pointer" @click="Logout"> <i class="fa fa-sign-out"></i> Logout</a>
+                  </li>
                 </ul>
                 </div>
           </div>
     </div>
-</template>  
+</template>
 
 
 <script>
@@ -49,20 +52,21 @@ export default {
           base_url: this.$store.state.image_base_link ,
       }
     },
-    methods:{  
+    methods:{
 
-      colorChange(){
-
-        //  let list_i = document.getElementsByClassName("router-link-active");
-        //      if(list_i.parentElement.classList.contains('active')){
-        //         list_i.parentElement.classList.remove("active");
-        //       } else {
-        //         list_i.parentElement.classList.add("active");
-        //     }
-        }
+       Logout() {
+      axios
+        .get("/_public/user/logout")
+        .then((resp) => {
+          console.log(resp);
+          this.user = null;
+          localStorage.removeItem("user_token");
+          location.reload();
+        })
+      },
     },
     computed :{
-       user(){  
+       user(){
         return this.$store.getters.user ;
        }
     },
@@ -83,7 +87,7 @@ export default {
  .list-group{
     padding-top:25px;
  }
- 
+
  ul li a{
      color: #fff;
     background-color: #dd8a24;
@@ -104,7 +108,7 @@ export default {
 .customer_icon{
    font-size:80px;
 }
- 
+
  .customer_name{
    font-size:18px;
    color:#000;

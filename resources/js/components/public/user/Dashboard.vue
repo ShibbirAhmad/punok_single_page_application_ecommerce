@@ -8,13 +8,13 @@
 
            <sidebar></sidebar>
 
-          <div class="col-md-10 col-sm-10">
+          <div class="col-md-10 col-sm-10 table_container">
 
              <h4 class="heading">
 
               </h4>
               <br/>
-                <table class="table table-hover table-bordered table-striped">
+                <table class="table table-hover table-bordered table-striped ">
                 <thead>
                   <tr>
                     <td>#</td>
@@ -180,6 +180,10 @@ export default {
         width: 50px; height: 50px;
     }
 
+   .table_container{
+      overflow-x: scroll;
+       margin:10px;
+    }
 
 }
 

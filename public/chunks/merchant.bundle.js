@@ -560,163 +560,174 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "box-body" }, [
-                    _c("table", { staticClass: "table text-center" }, [
-                      _vm._m(1),
-                      _vm._v(" "),
-                      _c(
-                        "tbody",
-                        [
-                          _vm.loading
-                            ? _c("h1", { staticClass: "text-center" }, [
-                                _c("i", {
-                                  staticClass: "fa fa-spin fa-spinner"
-                                })
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm._l(_vm.merchantList.data, function(
-                            merchant,
-                            index
-                          ) {
-                            return _c("tr", { key: index }, [
-                              _c("td", [_vm._v(_vm._s(index))]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c(
-                                  "a",
-                                  {
-                                    attrs: { href: "#" },
-                                    on: {
-                                      click: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.merchantDashboard(
-                                          merchant.id,
-                                          index
-                                        )
-                                      }
-                                    }
-                                  },
-                                  [_vm._v(_vm._s(merchant.name) + " ")]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v(_vm._s(merchant.email))]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v(_vm._s(merchant.phone))]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v(_vm._s(merchant.company_name))]),
-                              _vm._v(" "),
-                              _c("td", [
-                                merchant.image
-                                  ? _c("img", {
-                                      staticClass: "img-circle small-image",
-                                      attrs: {
-                                        src: _vm.basePath + merchant.image
-                                      }
-                                    })
-                                  : _c("img", {
-                                      staticClass: "img-circle small-image",
-                                      attrs: {
-                                        src:
-                                          _vm.basePath +
-                                          "images/static/noimage.png"
-                                      }
-                                    })
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v(_vm._s(merchant.address))]),
-                              _vm._v(" "),
-                              _c("td", [
-                                merchant.status == 1
-                                  ? _c(
-                                      "span",
-                                      { staticClass: "badge btn-success" },
-                                      [_vm._v("Active")]
-                                    )
-                                  : _c(
-                                      "span",
-                                      { staticClass: "badge btn-warning" },
-                                      [_vm._v("De-Active")]
-                                    )
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                [
+                    _c(
+                      "table",
+                      {
+                        staticClass:
+                          "table table-hover table-bordered table-striped text-center"
+                      },
+                      [
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          [
+                            _vm.loading
+                              ? _c("h1", { staticClass: "text-center" }, [
+                                  _c("i", {
+                                    staticClass: "fa fa-spin fa-spinner"
+                                  })
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm._l(_vm.merchantList.data, function(
+                              merchant,
+                              index
+                            ) {
+                              return _c("tr", { key: index }, [
+                                _c("td", [_vm._v(_vm._s(index))]),
+                                _vm._v(" "),
+                                _c("td", [
                                   _c(
-                                    "router-link",
+                                    "a",
                                     {
-                                      staticClass: "btn btn-sm btn-success",
-                                      attrs: {
-                                        to: {
-                                          name: "edit_merchant",
-                                          params: { id: merchant.id }
+                                      attrs: { href: "#" },
+                                      on: {
+                                        click: function($event) {
+                                          $event.preventDefault()
+                                          return _vm.merchantDashboard(
+                                            merchant.id,
+                                            index
+                                          )
                                         }
                                       }
                                     },
-                                    [_c("i", { staticClass: "fa fa-edit" })]
-                                  ),
-                                  _vm._v(" "),
-                                  merchant.status == 1
-                                    ? _c(
-                                        "button",
-                                        {
-                                          staticClass: "btn btn-sm btn-warning"
-                                        },
-                                        [
-                                          _c("i", {
-                                            staticClass: "fa fa-ban",
-                                            on: {
-                                              click: function($event) {
-                                                return _vm.deActive(merchant)
-                                              }
-                                            }
-                                          })
-                                        ]
-                                      )
-                                    : _c(
-                                        "button",
-                                        {
-                                          staticClass: "btn btn-sm btn-success"
-                                        },
-                                        [
-                                          _c("i", {
-                                            staticClass: "fa fa-check",
-                                            on: {
-                                              click: function($event) {
-                                                return _vm.active(merchant)
-                                              }
-                                            }
-                                          })
-                                        ]
-                                      ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    { staticClass: "btn btn-sm btn-danger" },
-                                    [
-                                      _c("i", {
-                                        staticClass: "fa fa-trash",
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.trash_merchant(
-                                              merchant.id,
-                                              index
-                                            )
-                                          }
+                                    [_vm._v(_vm._s(merchant.name) + " ")]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(merchant.email))]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(merchant.phone))]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(_vm._s(merchant.company_name))
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  merchant.image
+                                    ? _c("img", {
+                                        staticClass: "img-circle small-image",
+                                        attrs: {
+                                          src: _vm.basePath + merchant.image
                                         }
                                       })
-                                    ]
-                                  )
-                                ],
-                                1
-                              )
-                            ])
-                          })
-                        ],
-                        2
-                      )
-                    ]),
+                                    : _c("img", {
+                                        staticClass: "img-circle small-image",
+                                        attrs: {
+                                          src:
+                                            _vm.basePath +
+                                            "images/static/noimage.png"
+                                        }
+                                      })
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(merchant.address))]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  merchant.status == 1
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "badge btn-success" },
+                                        [_vm._v("Active")]
+                                      )
+                                    : _c(
+                                        "span",
+                                        { staticClass: "badge btn-warning" },
+                                        [_vm._v("De-Active")]
+                                      )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  [
+                                    _c(
+                                      "router-link",
+                                      {
+                                        staticClass: "btn btn-sm btn-success",
+                                        attrs: {
+                                          to: {
+                                            name: "edit_merchant",
+                                            params: { id: merchant.id }
+                                          }
+                                        }
+                                      },
+                                      [_c("i", { staticClass: "fa fa-edit" })]
+                                    ),
+                                    _vm._v(" "),
+                                    merchant.status == 1
+                                      ? _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "btn btn-sm btn-warning"
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fa fa-ban",
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.deActive(merchant)
+                                                }
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      : _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "btn btn-sm btn-success"
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fa fa-check",
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.active(merchant)
+                                                }
+                                              }
+                                            })
+                                          ]
+                                        ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a",
+                                      { staticClass: "btn btn-sm btn-danger" },
+                                      [
+                                        _c("i", {
+                                          staticClass: "fa fa-trash",
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.trash_merchant(
+                                                merchant.id,
+                                                index
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                )
+                              ])
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    ),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
                       _c(

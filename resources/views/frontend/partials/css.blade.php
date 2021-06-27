@@ -1,4 +1,3 @@
-
 <!-- CSS Part Start-->
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/js/bootstrap/css/bootstrap.min.css')}}" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -2713,27 +2712,28 @@ span.price-new {
        .search-input {
             width: 80%;
             left: -7%;
-            margin-top: 6px;
+            margin-top: -60px;
             position:fixed;
         }
         .search-btn{
             position:fixed;
             display: block;
-            top: 16%;
+            top: 3.5%;
             left: 76%;
-
         }
 
         .search-content {
-            z-index: 1000;
+            z-index:1000;
             top: 107%;
             width: 87%;
             margin-left: -47%;
         }
 
 
+    }
 
-}
+
+
   .flip-card { font-size: 1.5rem !important; }
 
 
@@ -2754,12 +2754,11 @@ span.price-new {
         font-size:24px;
     }
 
- .card-body {
+    .card-body {
     margin:10px;
-}
+   }
 
     .user_profile_icon {
-
         width: 50px; height: 50px;
     }
 
@@ -2814,10 +2813,14 @@ span.price-new {
         }
 
 
+        .cart-empy img {
+            height: 130px;
+        }
 
 
 
-}
+
+    }
 
 
 
@@ -3062,6 +3065,10 @@ span.price-new {
 
 
 }
+
+
+
+
 
 
 

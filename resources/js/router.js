@@ -1020,6 +1020,28 @@ const routes = [
     },
 
 
+   {
+        path: '/backend/company/sale/details/:id',
+        component: () => import(/* webpackChunkName: "company_sale_details" */'./components/admin/sale/CompanySaleDetails.vue'),
+        name: 'company_sale_details',
+        meta: {
+            requiresAuthAdmin: true,
+            title: 'Company  | Sale Details'
+        }
+    },
+
+
+    {
+        path: '/backend/company/payment/details/:id',
+        component: () => import(/* webpackChunkName: "company_payment_details" */'./components/admin/sale/CompanyPaymentDetails.vue'),
+        name: 'company_payment_details',
+        meta: {
+            requiresAuthAdmin: true,
+            title: 'Company  | Payment  Details'
+        }
+    },
+
+
 
     {
         path: '/backend/found/transfer',

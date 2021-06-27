@@ -212,6 +212,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           item: this.item
         }
       }).then(function (resp) {
+        console.log(resp);
         _this2.credit_dues = resp.data;
         _this2.loading = false;
       })["catch"](function (error) {
@@ -431,19 +432,17 @@ var render = function() {
                                       attrs: {
                                         to: {
                                           name: "ViewSale",
-                                          params: { id: due.memo_no }
+                                          params: { id: due.sale_id }
                                         }
                                       }
                                     },
                                     [
                                       _vm._v(
-                                        "\n                        \n                        " +
+                                        "\n\n                        " +
                                           _vm._s("S-") +
                                           " " +
-                                          _vm._s(
-                                            due.memo_no ? due.memo_no : ""
-                                          ) +
-                                          "\n                        \n                          "
+                                          _vm._s(due.sale_id) +
+                                          "\n\n                          "
                                       )
                                     ]
                                   )

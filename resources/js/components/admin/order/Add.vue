@@ -353,7 +353,7 @@ Vue.use(Loading);
 Vue.component(HasError.name, HasError);
 
 export default {
-  name: "Add",
+
   created() {
     this.others();
   },
@@ -457,7 +457,7 @@ export default {
       console.log(length);
       //  alert(length)
 
-      if (length == 4) {
+      if (length >3) {
         this.$Progress.start();
         axios
           .get("/search/product/with/code/" + this.product_code)
@@ -507,7 +507,7 @@ export default {
             this.$Progress.finish();
           })
           .catch((error) => {
-        //    console.log(error);
+           console.log(error);
             this.$Progress.finish();
           });
       }
@@ -549,11 +549,11 @@ export default {
     // },
     //when chage qauntity
     quantity(index) {
-      // if(parseInt(this.products[index].stock ) < parseInt(this.form.products[index].quantity)){
-      //   alert(`max quantity ${this.form.products[index].stock}`)
-      //   this.form.products[index].quantity=this.form.products[index].stock;
-      //   return;
-      // }
+      if(parseInt(this.products[index].stock ) < parseInt(this.form.products[index].quantity)){
+        alert(`max quantity ${this.form.products[index].stock}`)
+        this.form.products[index].quantity=this.form.products[index].stock;
+        return;
+      }
       this.form.products[index].total =
         parseInt(this.form.products[index].price) *
         parseInt(this.form.products[index].quantity);

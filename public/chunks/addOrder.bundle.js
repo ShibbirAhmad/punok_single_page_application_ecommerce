@@ -373,7 +373,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_3___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MODULE_1__["HasError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["HasError"]);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Add",
   created: function created() {
     this.others();
   },
@@ -473,7 +472,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
       var length = this.product_code.length;
       console.log(length); //  alert(length)
 
-      if (length == 4) {
+      if (length > 3) {
         this.$Progress.start();
         axios.get("/search/product/with/code/" + this.product_code).then(function (resp) {
           console.log(resp);
@@ -523,7 +522,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
 
           _this3.$Progress.finish();
         })["catch"](function (error) {
-          //    console.log(error);
+          console.log(error);
+
           _this3.$Progress.finish();
         });
       }
@@ -561,11 +561,12 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
     // },
     //when chage qauntity
     quantity: function quantity(index) {
-      // if(parseInt(this.products[index].stock ) < parseInt(this.form.products[index].quantity)){
-      //   alert(`max quantity ${this.form.products[index].stock}`)
-      //   this.form.products[index].quantity=this.form.products[index].stock;
-      //   return;
-      // }
+      if (parseInt(this.products[index].stock) < parseInt(this.form.products[index].quantity)) {
+        alert("max quantity ".concat(this.form.products[index].stock));
+        this.form.products[index].quantity = this.form.products[index].stock;
+        return;
+      }
+
       this.form.products[index].total = parseInt(this.form.products[index].price) * parseInt(this.form.products[index].quantity);
       this.totalCalculation();
     },

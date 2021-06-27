@@ -210,7 +210,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MODULE_1__["HasError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["HasError"]);
@@ -427,16 +426,15 @@ var render = function() {
                                   _vm._v(
                                     "\n                        Invoice No:\n                        "
                                   ),
-                                  _vm.sale.invoice_no
-                                    ? _c("strong", [
-                                        _vm._v(_vm._s(_vm.sale.invoice_no))
-                                      ])
-                                    : _c("strong", [
-                                        _vm._v(" " + _vm._s("S-" + _vm.sale.id))
-                                      ])
+                                  _c("strong", [
+                                    _vm._v(" " + _vm._s("S-" + _vm.sale.id))
+                                  ])
                                 ])
                               ])
-                            : _c("div", [
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.sale.sale_type == 2
+                            ? _c("div", [
                                 _c("p", [
                                   _vm._v(
                                     "Name: " +
@@ -454,7 +452,13 @@ var render = function() {
                                   ),
                                   _c("strong", [
                                     _vm._v(
-                                      " " + _vm._s(_vm.sale.company.phone) + " "
+                                      " " +
+                                        _vm._s(
+                                          _vm.sale.company.phone
+                                            ? _vm.sale.company.phone
+                                            : "phone  not added"
+                                        ) +
+                                        " "
                                     )
                                   ])
                                 ]),
@@ -462,7 +466,11 @@ var render = function() {
                                 _c("p", { staticClass: "address_line" }, [
                                   _vm._v(
                                     "Address: " +
-                                      _vm._s(_vm.sale.company.address)
+                                      _vm._s(
+                                        _vm.sale.company.address
+                                          ? _vm.sale.company.address
+                                          : "address not added"
+                                      )
                                   )
                                 ]),
                                 _vm._v(" "),
@@ -475,6 +483,7 @@ var render = function() {
                                   ])
                                 ])
                               ])
+                            : _vm._e()
                         ]
                       ),
                       _vm._v(" "),

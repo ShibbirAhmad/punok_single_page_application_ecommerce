@@ -5,7 +5,7 @@
       <section class="content-header">
         <h1>
           <router-link :to="{ name: 'merchant' }" class="btn btn-primary"
-            ><i class="fa fa-arrow-right"></i
+            ><i class="fa fa-arrow-left"></i
           ></router-link>
         </h1>
         <ol class="breadcrumb">
@@ -19,7 +19,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-6 col-lg-offset-2">
             <div class="box box-primary">
-              <div class="box-header with-border">
+              <div class="box-header with-border text-center " >
                 <h3 class="box-title">Edit Merchant Information</h3>
               </div>
               <div class="box-body">
@@ -39,7 +39,9 @@
                       {{ error.name }}
                     </li>
                   </ul>
-                  <div class="form-group">
+                <div class="row">
+                  <div class="col-md-6">
+                     <div class="form-group">
                     <label>Name</label>
 
                     <input
@@ -55,6 +57,26 @@
 
                     <has-error :form="form" field="name"></has-error>
                   </div>
+                  </div>
+
+                  <div class="col-md-6">
+
+                  <div class="form-group">
+                    <label for="company_name">Compnay Name </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      :class="{ 'is-invalid': form.errors.has('company_name') }"
+                      autocomplete="off"
+                      autofocus
+                      v-model="form.company_name"
+                      name="company_name"
+                    />
+                    <has-error :form="form" field="company_name"> </has-error>
+                  </div>
+
+                  </div>
+                </div>
 
                   <div class="form-group">
                     <label>Email</label>
@@ -87,20 +109,6 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="company_name">Compnay Name </label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      :class="{ 'is-invalid': form.errors.has('company_name') }"
-                      autocomplete="off"
-                      autofocus
-                      v-model="form.company_name"
-                      name="company_name"
-                    />
-                    <has-error :form="form" field="company_name"> </has-error>
-                  </div>
-
-                  <div class="form-group">
                     <label for="address">Address</label>
 
                     <textarea placeholder="write title about this merchant"
@@ -113,27 +121,33 @@
 
                     <has-error :form="form" field="address"> </has-error>
                   </div>
-                    <div class="form-group text-center ">
-        
-                     <img
-                      :src=" form.image ? base_url + form.image : base_url + 'images/no_image.jpg'"
-                      class="image-responsive"  id="preview_Image"
-                      style="max-width:400px;"
-                    />
-                    </div>
 
-                  <div class="form-group">
-                    <label>Image</label>
-                    <input
-                      class="form-control"
-                      :class="{ 'is-invalid': form.errors.has('image') }"
-                      type="file"
-                      @change="uploadImage"
-                      name="image"
-                    />
-                    <has-error :form="form" field="image"></has-error>
-                  </div>
-                  <br />
+
+                   <div class="row">
+                     <div class="col-md-6">
+                       <br>
+                        <div class="form-group">
+                            <label>Image</label>
+                            <input
+                              class="form-control"
+                              :class="{ 'is-invalid': form.errors.has('image') }"
+                              type="file"
+                              @change="uploadImage"
+                              name="image"
+                            />
+                            <has-error :form="form" field="image"></has-error>
+                          </div>
+                       </div>
+                     <div class="col-md-6">
+                      <div class="form-group text-center ">
+                        <img
+                          :src=" form.image ? base_url + form.image : base_url + 'images/no_image.jpg'"
+                             class="profile_image"  id="preview_Image"
+
+                        />
+                    </div>
+                     </div>
+                   </div>
                   <div class="form-group text-center ">
                    <button
                     :disabled="form.busy"
@@ -144,10 +158,10 @@
                   </button>
                   </div>
                 </form>
-              </div> 
+              </div>
             </div>
           </div>
-    
+
         </div>
       </section>
     </div>
@@ -232,7 +246,7 @@ export default {
       this.form.image = file;
       ///let image file size check
       let reader = new FileReader();
-        
+
       reader.readAsDataURL(file);
       reader.onload = (evt) => {
         let img = new Image();
@@ -241,7 +255,7 @@ export default {
           console.log(img.width + "-" + img.height);
         };
         document.getElementById('preview_Image').src = evt.target.result;
-     
+
       };
     },
   },
@@ -253,4 +267,12 @@ export default {
 .mb-2 {
   margin-bottom: 5px !important;
 }
+
+.profile_image {
+  width:100px;
+  height: 100px;
+  border-radius: 50%;
+  border:2px solid #ddd
+}
+
 </style>

@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "chunks/" + ({"Loan":"Loan","LoanDetails":"LoanDetails","SupplierAmount":"SupplierAmount","about_seller":"about_seller","about_us":"about_us","account_purpose":"account_purpose","admin":"admin","admin_dashboard":"admin_dashboard","attribute":"attribute","category":"category","category_slider":"category_slider","managefabricsPurchase":"managefabricsPurchase","officesale":"officesale","purchase":"purchase","variant":"variant","applied_user":"applied_user","bill_statement":"bill_statement","bill_statement_details":"bill_statement_details","blog":"blog","city":"city","comment":"comment","company":"company","company_assets":"company_assets","contact_messgae":"contact_messgae","contact_us":"contact_us","coupon":"coupon","courier":"courier","credit":"credit","creditDue":"creditDue","debit":"debit","fabricsSupplier":"fabricsSupplier","factory_list":"factory_list","fondtransfer":"fondtransfer","home_carrier":"home_carrier","how_to_buy":"how_to_buy","investment":"investment","investor_details":"investor_details","merchant":"merchant","merchant_dashboard":"merchant_dashboard","offer":"offer","order_details":"order_details","order_history":"order_history","paidPayment":"paidPayment","paymentInvoice":"paymentInvoice","paymnetDetails":"paymnetDetails","print_details":"print_details","print_house":"print_house","print_house_details":"print_house_details","product_transfer":"product_transfer","product_transfer_details":"product_transfer_details","publicCarreir":"publicCarreir","public_category":"public_category","public_product_search":"public_product_search","public_sub_category":"public_sub_category","public_sub_sub_category":"public_sub_sub_category","public_team":"public_team","receive_print_details":"receive_print_details","resellerHome":"resellerHome","return_policy":"return_policy","role":"role","salaryDetails":"salaryDetails","selling_offer":"selling_offer","shipment":"shipment","showroom":"showroom","showroom_manager":"showroom_manager","slider":"slider","sub_city":"sub_city","subscriber_list":"subscriber_list","supplier":"supplier","team_member":"team_member","teamsalary":"teamsalary","unpaidPayment":"unpaidPayment","user_dashboard":"user_dashboard","user_profile":"user_profile","vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~63b7d928":"vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~63b7d928","AddSaleExchange":"AddSaleExchange","accoun_purpose_edit":"accoun_purpose_edit","account_purpose_add":"account_purpose_add","addCompany":"addCompany","addCompanySale":"addCompanySale","addFabricsSupplier":"addFabricsSupplier","addLoan":"addLoan","addOrder":"addOrder","addPurchase":"addPurchase","addPurchasefabrics":"addPurchasefabrics","addSale":"addSale","add_factory":"add_factory","add_merchant":"add_merchant","add_sale_campaign":"add_sale_campaign","add_selling_offer":"add_selling_offer","add_team_member":"add_team_member","addwholesale":"addwholesale","adminAdd":"adminAdd","adminProfile":"adminProfile","AccountReport":"AccountReport","DeliveredOrder":"DeliveredOrder","OrderProfite":"OrderProfite","ReturnOrder":"ReturnOrder","SaleProfite":"SaleProfite","approvedOrder":"approvedOrder","cancelOrder":"cancelOrder","newOrder":"newOrder","officesaleReport":"officesaleReport","order":"order","orderReport":"orderReport","pendingOrder":"pendingOrder","profiteReport":"profiteReport","purchaseReport":"purchaseReport","shipmentOrder":"shipmentOrder","sub_category":"sub_category","sub_sub_category":"sub_sub_category","supplier_Report":"supplier_Report","wholesaleOrder":"wholesaleOrder","assign_admin_permission":"assign_admin_permission","assingRoleAdmin":"assingRoleAdmin","attributeAdd":"attributeAdd","bill_statement_add":"bill_statement_add","buy_one_get_one":"buy_one_get_one","carier_detail":"carier_detail","categoryAdd":"categoryAdd","category_slider_add":"category_slider_add","category_slider_edit":"category_slider_edit","categoryedit":"categoryedit","checkout":"checkout","cityAdd":"cityAdd","cityEdit":"cityEdit","code_verified":"code_verified","commentAdd":"commentAdd","companysale":"companysale","contact_messgae_reply":"contact_messgae_reply","coupon_add":"coupon_add","coupon_edit":"coupon_edit","courierAdd":"courierAdd","creditAdd":"creditAdd","creditEdit":"creditEdit","customer":"customer","debitEdit":"debitEdit","editAdmin":"editAdmin","editComment":"editComment","editCompany":"editCompany","editCourier":"editCourier","editPermission":"editPermission","edit_factory":"edit_factory","edit_merchant":"edit_merchant","edit_offer":"edit_offer","edit_sale_campaign":"edit_sale_campaign","edit_selling_offer":"edit_selling_offer","edit_sub_city":"edit_sub_city","edit_team_member":"edit_team_member","fondtransferAdd":"fondtransferAdd","investment_add":"investment_add","investment_edit":"investment_edit","merchant_order_view":"merchant_order_view","merchant_password_edit":"merchant_password_edit","merchant_profile":"merchant_profile","merchant_profile_edit":"merchant_profile_edit","new_password_user":"new_password_user","occasional_campaign":"occasional_campaign","offerAdd":"offerAdd","orderEdit":"orderEdit","otp_login":"otp_login","passwordChange":"passwordChange","password_reset":"password_reset","print_house_add":"print_house_add","print_product_add":"print_product_add","productStock":"productStock","product_transfer_add":"product_transfer_add","purchaseEdit":"purchaseEdit","purchaseView":"purchaseView","receieve_printed_product":"receieve_printed_product","resellerAdd":"resellerAdd","resellerEdit":"resellerEdit","roleAdd":"roleAdd","sale_campaign":"sale_campaign","seasonal campaign":"seasonal campaign","showroom_add":"showroom_add","showroom_edit":"showroom_edit","showroom_manager_add":"showroom_manager_add","showroom_manager_edit":"showroom_manager_edit","slider_add":"slider_add","slider_edit":"slider_edit","sms_campaign":"sms_campaign","sub_category_add":"sub_category_add","sub_category_edit":"sub_category_edit","sub_city_add":"sub_city_add","sub_sub_category_add":"sub_sub_category_add","sub_sub_category_edit":"sub_sub_category_edit","supplierAdd":"supplierAdd","supplierEdit":"supplierEdit","user":"user","userLogin":"userLogin","admin_login":"admin_login","merchant_password_reset":"merchant_password_reset","merchant_register":"merchant_register","merchnat_code_verified":"merchnat_code_verified","merchnat_login":"merchnat_login","new_password_merchant":"new_password_merchant","user_password":"user_password","user_password_reset":"user_password_reset","user_profile_edit":"user_profile_edit","user_register":"user_register","variaantAdd":"variaantAdd","vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4":"vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4","about_and_contact":"about_and_contact","add_carrier":"add_carrier","company_assets_add":"company_assets_add","company_assets_edit":"company_assets_edit","edit_carrier":"edit_carrier","footer_setting":"footer_setting","generl_setting":"generl_setting","merchant_product_add":"merchant_product_add","merchant_product_edit":"merchant_product_edit","order_shipment_return":"order_shipment_return","productAdd":"productAdd","productEdit":"productEdit","show_carrier":"show_carrier","theme_setting":"theme_setting","vendors~debitAdd":"vendors~debitAdd","debitAdd":"debitAdd","vendors~merchant_order~merchnat_product_manage~product":"vendors~merchant_order~merchnat_product_manage~product","merchant_order":"merchant_order","merchnat_product_manage":"merchnat_product_manage","product":"product","viewOrder":"viewOrder","viewSale":"viewSale","vendors~single_product":"vendors~single_product","single_product":"single_product"}[chunkId]||chunkId) + ".bundle.js"
+/******/ 		return __webpack_require__.p + "chunks/" + ({"Loan":"Loan","LoanDetails":"LoanDetails","SupplierAmount":"SupplierAmount","about_seller":"about_seller","about_us":"about_us","account_purpose":"account_purpose","admin":"admin","admin_dashboard":"admin_dashboard","attribute":"attribute","category":"category","category_slider":"category_slider","company_sale_details":"company_sale_details","managefabricsPurchase":"managefabricsPurchase","officesale":"officesale","purchase":"purchase","variant":"variant","applied_user":"applied_user","bill_statement":"bill_statement","bill_statement_details":"bill_statement_details","blog":"blog","city":"city","comment":"comment","company":"company","company_assets":"company_assets","company_payment_details":"company_payment_details","contact_messgae":"contact_messgae","contact_us":"contact_us","coupon":"coupon","courier":"courier","credit":"credit","creditDue":"creditDue","debit":"debit","fabricsSupplier":"fabricsSupplier","factory_list":"factory_list","fondtransfer":"fondtransfer","home_carrier":"home_carrier","how_to_buy":"how_to_buy","investment":"investment","investor_details":"investor_details","merchant":"merchant","merchant_dashboard":"merchant_dashboard","offer":"offer","order_details":"order_details","order_history":"order_history","paidPayment":"paidPayment","paymentInvoice":"paymentInvoice","paymnetDetails":"paymnetDetails","print_details":"print_details","print_house":"print_house","print_house_details":"print_house_details","product_transfer":"product_transfer","product_transfer_details":"product_transfer_details","publicCarreir":"publicCarreir","public_category":"public_category","public_product_search":"public_product_search","public_sub_category":"public_sub_category","public_sub_sub_category":"public_sub_sub_category","public_team":"public_team","receive_print_details":"receive_print_details","resellerHome":"resellerHome","return_policy":"return_policy","role":"role","salaryDetails":"salaryDetails","selling_offer":"selling_offer","shipment":"shipment","showroom":"showroom","showroom_manager":"showroom_manager","slider":"slider","sub_city":"sub_city","subscriber_list":"subscriber_list","supplier":"supplier","team_member":"team_member","teamsalary":"teamsalary","unpaidPayment":"unpaidPayment","user_dashboard":"user_dashboard","user_profile":"user_profile","vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~63b7d928":"vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~63b7d928","AddSaleExchange":"AddSaleExchange","accoun_purpose_edit":"accoun_purpose_edit","account_purpose_add":"account_purpose_add","addCompany":"addCompany","addCompanySale":"addCompanySale","addFabricsSupplier":"addFabricsSupplier","addLoan":"addLoan","addOrder":"addOrder","addPurchase":"addPurchase","addPurchasefabrics":"addPurchasefabrics","addSale":"addSale","add_factory":"add_factory","add_merchant":"add_merchant","add_sale_campaign":"add_sale_campaign","add_selling_offer":"add_selling_offer","add_team_member":"add_team_member","addwholesale":"addwholesale","adminAdd":"adminAdd","adminProfile":"adminProfile","AccountReport":"AccountReport","DeliveredOrder":"DeliveredOrder","OrderProfite":"OrderProfite","ReturnOrder":"ReturnOrder","SaleProfite":"SaleProfite","approvedOrder":"approvedOrder","cancelOrder":"cancelOrder","newOrder":"newOrder","officesaleReport":"officesaleReport","order":"order","orderReport":"orderReport","pendingOrder":"pendingOrder","profiteReport":"profiteReport","purchaseReport":"purchaseReport","shipmentOrder":"shipmentOrder","sub_category":"sub_category","sub_sub_category":"sub_sub_category","supplier_Report":"supplier_Report","wholesaleOrder":"wholesaleOrder","assign_admin_permission":"assign_admin_permission","assingRoleAdmin":"assingRoleAdmin","attributeAdd":"attributeAdd","bill_statement_add":"bill_statement_add","buy_one_get_one":"buy_one_get_one","carier_detail":"carier_detail","categoryAdd":"categoryAdd","category_slider_add":"category_slider_add","category_slider_edit":"category_slider_edit","categoryedit":"categoryedit","checkout":"checkout","cityAdd":"cityAdd","cityEdit":"cityEdit","code_verified":"code_verified","commentAdd":"commentAdd","companysale":"companysale","contact_messgae_reply":"contact_messgae_reply","coupon_add":"coupon_add","coupon_edit":"coupon_edit","courierAdd":"courierAdd","creditAdd":"creditAdd","creditEdit":"creditEdit","customer":"customer","debitEdit":"debitEdit","editAdmin":"editAdmin","editComment":"editComment","editCompany":"editCompany","editCourier":"editCourier","editPermission":"editPermission","edit_factory":"edit_factory","edit_merchant":"edit_merchant","edit_offer":"edit_offer","edit_sale_campaign":"edit_sale_campaign","edit_selling_offer":"edit_selling_offer","edit_sub_city":"edit_sub_city","edit_team_member":"edit_team_member","fondtransferAdd":"fondtransferAdd","investment_add":"investment_add","investment_edit":"investment_edit","merchant_order_view":"merchant_order_view","merchant_password_edit":"merchant_password_edit","merchant_profile":"merchant_profile","merchant_profile_edit":"merchant_profile_edit","new_password_user":"new_password_user","occasional_campaign":"occasional_campaign","offerAdd":"offerAdd","orderEdit":"orderEdit","otp_login":"otp_login","passwordChange":"passwordChange","password_reset":"password_reset","print_house_add":"print_house_add","print_product_add":"print_product_add","productStock":"productStock","product_transfer_add":"product_transfer_add","purchaseEdit":"purchaseEdit","purchaseView":"purchaseView","receieve_printed_product":"receieve_printed_product","resellerAdd":"resellerAdd","resellerEdit":"resellerEdit","roleAdd":"roleAdd","sale_campaign":"sale_campaign","seasonal campaign":"seasonal campaign","showroom_add":"showroom_add","showroom_edit":"showroom_edit","showroom_manager_add":"showroom_manager_add","showroom_manager_edit":"showroom_manager_edit","slider_add":"slider_add","slider_edit":"slider_edit","sms_campaign":"sms_campaign","sub_category_add":"sub_category_add","sub_category_edit":"sub_category_edit","sub_city_add":"sub_city_add","sub_sub_category_add":"sub_sub_category_add","sub_sub_category_edit":"sub_sub_category_edit","supplierAdd":"supplierAdd","supplierEdit":"supplierEdit","user":"user","userLogin":"userLogin","admin_login":"admin_login","merchant_password_reset":"merchant_password_reset","merchant_register":"merchant_register","merchnat_code_verified":"merchnat_code_verified","merchnat_login":"merchnat_login","new_password_merchant":"new_password_merchant","user_password":"user_password","user_password_reset":"user_password_reset","user_profile_edit":"user_profile_edit","user_register":"user_register","variaantAdd":"variaantAdd","vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4":"vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4","about_and_contact":"about_and_contact","add_carrier":"add_carrier","company_assets_add":"company_assets_add","company_assets_edit":"company_assets_edit","edit_carrier":"edit_carrier","footer_setting":"footer_setting","generl_setting":"generl_setting","merchant_product_add":"merchant_product_add","merchant_product_edit":"merchant_product_edit","order_shipment_return":"order_shipment_return","productAdd":"productAdd","productEdit":"productEdit","show_carrier":"show_carrier","theme_setting":"theme_setting","vendors~debitAdd":"vendors~debitAdd","debitAdd":"debitAdd","vendors~merchant_order~merchnat_product_manage~product":"vendors~merchant_order~merchnat_product_manage~product","merchant_order":"merchant_order","merchnat_product_manage":"merchnat_product_manage","product":"product","viewOrder":"viewOrder","viewSale":"viewSale","vendors~single_product":"vendors~single_product","single_product":"single_product"}[chunkId]||chunkId) + ".bundle.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -3066,6 +3066,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+//
+//
 //
 //
 //
@@ -68383,273 +68385,355 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "row offer_collection" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "col-lg-6 col-sm-12 col-md-6 collection_left",
-                  style: {
-                    backgroundImage:
-                      "url(" +
-                      (_vm.base_url + _vm.occasion_campaign.background_image) +
-                      ")"
-                  }
-                },
-                [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-6 col-sm-12 col-xs-12" }, [
-                      _c(
-                        "div",
-                        { staticClass: "container_offer_header text-center" },
-                        [
-                          _c("p", [
-                            _vm._v(_vm._s(_vm.occasion_campaign.quote))
-                          ]),
-                          _vm._v(" "),
-                          _c("h4", [
-                            _vm._v(_vm._s(_vm.occasion_campaign.heading))
-                          ])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-6 col-sm-12 col-xs-12" }, [
-                      _c("div", { staticClass: "collection_content" }, [
-                        _vm.occasion_p_top.product_image.length
-                          ? _c("img", {
-                              attrs: {
-                                src:
-                                  _vm.base_url +
-                                  _vm.occasion_p_top.product_image[0]
-                                    .product_image
-                              }
-                            })
-                          : _vm._e(),
+            _vm.occasion_campaign.status == "1" &&
+            _vm.seasion_campaign.status == "1"
+              ? _c("div", { staticClass: "row offer_collection" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-lg-6 col-sm-12 col-md-6 collection_left",
+                      style: {
+                        backgroundImage:
+                          "url(" +
+                          (_vm.base_url +
+                            _vm.occasion_campaign.background_image) +
+                          ")"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "row" }, [
+                        _c(
+                          "div",
+                          { staticClass: "col-md-6 col-sm-12 col-xs-12" },
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "container_offer_header text-center"
+                              },
+                              [
+                                _c("p", [
+                                  _vm._v(_vm._s(_vm.occasion_campaign.quote))
+                                ]),
+                                _vm._v(" "),
+                                _c("h4", [
+                                  _vm._v(_vm._s(_vm.occasion_campaign.heading))
+                                ])
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm.occasion_p_top
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-6 col-sm-12 col-xs-12" },
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "collection_content" },
+                                  [
+                                    _vm.occasion_p_top.product_image.length
+                                      ? _c("img", {
+                                          attrs: {
+                                            src:
+                                              _vm.base_url +
+                                              _vm.occasion_p_top
+                                                .product_image[0].product_image
+                                          }
+                                        })
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "collect_sub_data text-center"
+                                      },
+                                      [
+                                        _c("p", { staticClass: "p1" }, [
+                                          _vm._v(
+                                            _vm._s(_vm.occasion_p_top.name)
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("p", { staticClass: "p2" }, [
+                                          _vm._v(
+                                            "৳ " +
+                                              _vm._s(_vm.occasion_p_top.price)
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "router-link",
+                                          {
+                                            staticClass: "btn btn_more",
+                                            attrs: {
+                                              to: {
+                                                name: "single",
+                                                params: {
+                                                  slug: _vm.occasion_p_top.slug
+                                                }
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                    More\n                    "
+                                            ),
+                                            _c("i", {
+                                              staticClass:
+                                                "fa fa-xs fa-arrow-right arrow_right_icon"
+                                            })
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "collection_content" },
+                                  [
+                                    _vm.occasion_p_bottom.product_image.length
+                                      ? _c("img", {
+                                          attrs: {
+                                            src:
+                                              _vm.base_url +
+                                              _vm.occasion_p_bottom
+                                                .product_image[0].product_image
+                                          }
+                                        })
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "collect_sub_data text-center"
+                                      },
+                                      [
+                                        _c("p", { staticClass: "p1" }, [
+                                          _vm._v(
+                                            _vm._s(_vm.occasion_p_bottom.name)
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("p", { staticClass: "p2" }, [
+                                          _vm._v(
+                                            "৳ " +
+                                              _vm._s(
+                                                _vm.occasion_p_bottom.price
+                                              )
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "router-link",
+                                          {
+                                            staticClass: "btn btn_more",
+                                            attrs: {
+                                              to: {
+                                                name: "single",
+                                                params: {
+                                                  slug:
+                                                    _vm.occasion_p_bottom.slug
+                                                }
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                    More\n                    "
+                                            ),
+                                            _c("i", {
+                                              staticClass:
+                                                "fa fa-xs fa-arrow-right arrow_right_icon"
+                                            })
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          : _vm._e()
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-lg-6 col-sm-12 col-md-6 collection_right",
+                      style: {
+                        backgroundImage:
+                          "url(" +
+                          (_vm.base_url +
+                            _vm.seasion_campaign.background_image) +
+                          ")"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "row" }, [
+                        _c(
+                          "div",
+                          { staticClass: "col-md-6 col-sm-12 col-xs-12" },
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "container_offer_header text-center"
+                              },
+                              [
+                                _c("p", [
+                                  _vm._v(_vm._s(_vm.seasion_campaign.quote))
+                                ]),
+                                _vm._v(" "),
+                                _c("h4", [
+                                  _vm._v(_vm._s(_vm.seasion_campaign.heading))
+                                ])
+                              ]
+                            )
+                          ]
+                        ),
                         _vm._v(" "),
                         _c(
                           "div",
-                          { staticClass: "collect_sub_data text-center" },
+                          { staticClass: "col-md-6 col-xs-12 col-sm-12" },
                           [
-                            _c("p", { staticClass: "p1" }, [
-                              _vm._v(_vm._s(_vm.occasion_p_top.name))
-                            ]),
+                            _vm.seasion_p_top
+                              ? _c(
+                                  "div",
+                                  { staticClass: "collection_content" },
+                                  [
+                                    _vm.seasion_p_top.product_image.length
+                                      ? _c("img", {
+                                          attrs: {
+                                            src:
+                                              _vm.base_url +
+                                              _vm.seasion_p_top.product_image[0]
+                                                .product_image
+                                          }
+                                        })
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "collect_sub_data text-center"
+                                      },
+                                      [
+                                        _c("p", { staticClass: "p1" }, [
+                                          _vm._v(_vm._s(_vm.seasion_p_top.name))
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("p", { staticClass: "p2" }, [
+                                          _vm._v(
+                                            "৳ " +
+                                              _vm._s(_vm.seasion_p_top.price)
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "router-link",
+                                          {
+                                            staticClass: "btn btn_more",
+                                            attrs: {
+                                              to: {
+                                                name: "single",
+                                                params: {
+                                                  slug: _vm.seasion_p_top.slug
+                                                }
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                    More\n                    "
+                                            ),
+                                            _c("i", {
+                                              staticClass:
+                                                "fa fa-xs fa-arrow-right arrow_right_icon"
+                                            })
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                )
+                              : _vm._e(),
                             _vm._v(" "),
-                            _c("p", { staticClass: "p2" }, [
-                              _vm._v("৳ " + _vm._s(_vm.occasion_p_top.price))
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn_more",
-                                attrs: {
-                                  to: {
-                                    name: "single",
-                                    params: { slug: _vm.occasion_p_top.slug }
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                    More\n                    "
-                                ),
-                                _c("i", {
-                                  staticClass:
-                                    "fa fa-xs fa-arrow-right arrow_right_icon"
-                                })
-                              ]
-                            )
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "collection_content" }, [
-                        _vm.occasion_p_bottom.product_image.length
-                          ? _c("img", {
-                              attrs: {
-                                src:
-                                  _vm.base_url +
-                                  _vm.occasion_p_bottom.product_image[0]
-                                    .product_image
-                              }
-                            })
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "collect_sub_data text-center" },
-                          [
-                            _c("p", { staticClass: "p1" }, [
-                              _vm._v(_vm._s(_vm.occasion_p_bottom.name))
-                            ]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "p2" }, [
-                              _vm._v("৳ " + _vm._s(_vm.occasion_p_bottom.price))
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn_more",
-                                attrs: {
-                                  to: {
-                                    name: "single",
-                                    params: { slug: _vm.occasion_p_bottom.slug }
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                    More\n                    "
-                                ),
-                                _c("i", {
-                                  staticClass:
-                                    "fa fa-xs fa-arrow-right arrow_right_icon"
-                                })
-                              ]
-                            )
-                          ],
-                          1
+                            _c("div", { staticClass: "collection_content" }, [
+                              _vm.seasion_p_bottom.product_image.length
+                                ? _c("img", {
+                                    attrs: {
+                                      src:
+                                        _vm.base_url +
+                                        _vm.seasion_p_bottom.product_image[0]
+                                          .product_image
+                                    }
+                                  })
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "collect_sub_data text-center" },
+                                [
+                                  _c("p", { staticClass: "p1" }, [
+                                    _vm._v(_vm._s(_vm.seasion_p_bottom.name))
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("p", { staticClass: "p2" }, [
+                                    _vm._v(
+                                      "৳ " + _vm._s(_vm.seasion_p_bottom.price)
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "router-link",
+                                    {
+                                      staticClass: "btn btn_more",
+                                      attrs: {
+                                        to: {
+                                          name: "single",
+                                          params: {
+                                            slug: _vm.seasion_p_bottom.slug
+                                          }
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                    More\n                    "
+                                      ),
+                                      _c("i", {
+                                        staticClass:
+                                          "fa fa-xs fa-arrow-right arrow_right_icon"
+                                      })
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            ])
+                          ]
                         )
                       ])
-                    ])
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col-lg-6 col-sm-12 col-md-6 collection_right",
-                  style: {
-                    backgroundImage:
-                      "url(" +
-                      (_vm.base_url + _vm.seasion_campaign.background_image) +
-                      ")"
-                  }
-                },
-                [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-6 col-sm-12 col-xs-12" }, [
-                      _c(
-                        "div",
-                        { staticClass: "container_offer_header text-center" },
-                        [
-                          _c("p", [_vm._v(_vm._s(_vm.seasion_campaign.quote))]),
-                          _vm._v(" "),
-                          _c("h4", [
-                            _vm._v(_vm._s(_vm.seasion_campaign.heading))
-                          ])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-6 col-xs-12 col-sm-12" }, [
-                      _c("div", { staticClass: "collection_content" }, [
-                        _vm.seasion_p_top.product_image.length
-                          ? _c("img", {
-                              attrs: {
-                                src:
-                                  _vm.base_url +
-                                  _vm.seasion_p_top.product_image[0]
-                                    .product_image
-                              }
-                            })
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "collect_sub_data text-center" },
-                          [
-                            _c("p", { staticClass: "p1" }, [
-                              _vm._v(_vm._s(_vm.seasion_p_top.name))
-                            ]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "p2" }, [
-                              _vm._v("৳ " + _vm._s(_vm.seasion_p_top.price))
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn_more",
-                                attrs: {
-                                  to: {
-                                    name: "single",
-                                    params: { slug: _vm.seasion_p_top.slug }
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                    More\n                    "
-                                ),
-                                _c("i", {
-                                  staticClass:
-                                    "fa fa-xs fa-arrow-right arrow_right_icon"
-                                })
-                              ]
-                            )
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "collection_content" }, [
-                        _vm.seasion_p_bottom.product_image.length
-                          ? _c("img", {
-                              attrs: {
-                                src:
-                                  _vm.base_url +
-                                  _vm.seasion_p_bottom.product_image[0]
-                                    .product_image
-                              }
-                            })
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "collect_sub_data text-center" },
-                          [
-                            _c("p", { staticClass: "p1" }, [
-                              _vm._v(_vm._s(_vm.seasion_p_bottom.name))
-                            ]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "p2" }, [
-                              _vm._v("৳ " + _vm._s(_vm.seasion_p_bottom.price))
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn_more",
-                                attrs: {
-                                  to: {
-                                    name: "single",
-                                    params: { slug: _vm.seasion_p_bottom.slug }
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                    More\n                    "
-                                ),
-                                _c("i", {
-                                  staticClass:
-                                    "fa fa-xs fa-arrow-right arrow_right_icon"
-                                })
-                              ]
-                            )
-                          ],
-                          1
-                        )
-                      ])
-                    ])
-                  ])
-                ]
-              )
-            ]),
+                    ]
+                  )
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _c("div", { staticClass: "row caegories_and_new_product_row" }, [
               _c("h4", { staticClass: "random_heading" }, [
@@ -88381,6 +88465,26 @@ var routes = [{
     title: 'edit company'
   }
 }, {
+  path: '/backend/company/sale/details/:id',
+  component: function component() {
+    return Promise.all(/*! import() | company_sale_details */[__webpack_require__.e("admin_dashboard"), __webpack_require__.e("company_sale_details")]).then(__webpack_require__.bind(null, /*! ./components/admin/sale/CompanySaleDetails.vue */ "./resources/js/components/admin/sale/CompanySaleDetails.vue"));
+  },
+  name: 'company_sale_details',
+  meta: {
+    requiresAuthAdmin: true,
+    title: 'Company  | Sale Details'
+  }
+}, {
+  path: '/backend/company/payment/details/:id',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | company_payment_details */ "company_payment_details").then(__webpack_require__.bind(null, /*! ./components/admin/sale/CompanyPaymentDetails.vue */ "./resources/js/components/admin/sale/CompanyPaymentDetails.vue"));
+  },
+  name: 'company_payment_details',
+  meta: {
+    requiresAuthAdmin: true,
+    title: 'Company  | Payment  Details'
+  }
+}, {
   path: '/backend/found/transfer',
   component: function component() {
     return __webpack_require__.e(/*! import() | fondtransfer */ "fondtransfer").then(__webpack_require__.bind(null, /*! ./components/admin/fondtransfer/Index */ "./resources/js/components/admin/fondtransfer/Index.vue"));
@@ -89673,7 +89777,7 @@ var state = {
   product_images: {},
   //for check admin page view permisson
   view_permission: false,
-  image_base_link: '/../public/storage/',
+  image_base_link: '/../storage/',
   //for home page products
   home_page_products: "",
   //general setting

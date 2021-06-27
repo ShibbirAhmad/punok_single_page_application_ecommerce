@@ -591,17 +591,21 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("ul", { staticClass: "price-box" }, [
-                      _c("li", { staticClass: "price" }, [
+                      _c("li", { staticClass: "price  " }, [
                         _c("h3", [
                           _vm.product.discount
-                            ? _c("span", { staticClass: "price-old" }, [
-                                _vm._v("৳ " + _vm._s(_vm.product.sale_price))
-                              ])
+                            ? _c(
+                                "span",
+                                { staticClass: "price-old single_p_price" },
+                                [_vm._v("৳ " + _vm._s(_vm.product.sale_price))]
+                              )
                             : _vm._e(),
                           _vm._v(" "),
-                          _c("span", { staticClass: "price-new" }, [
-                            _vm._v("৳ " + _vm._s(_vm.product.price))
-                          ])
+                          _c(
+                            "span",
+                            { staticClass: "price-new single_p_price" },
+                            [_vm._v("৳ " + _vm._s(_vm.product.price))]
+                          )
                         ])
                       ]),
                       _vm._v(" "),

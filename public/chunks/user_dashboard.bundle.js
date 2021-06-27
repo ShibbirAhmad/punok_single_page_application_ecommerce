@@ -217,6 +217,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   crated: function crated() {
     this.$store.dispatch("user");
@@ -227,12 +230,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    colorChange: function colorChange() {//  let list_i = document.getElementsByClassName("router-link-active");
-      //      if(list_i.parentElement.classList.contains('active')){
-      //         list_i.parentElement.classList.remove("active");
-      //       } else {
-      //         list_i.parentElement.classList.add("active");
-      //     }
+    Logout: function Logout() {
+      var _this = this;
+
+      axios.get("/_public/user/logout").then(function (resp) {
+        console.log(resp);
+        _this.user = null;
+        localStorage.removeItem("user_token");
+        location.reload();
+      });
     }
   },
   computed: {
@@ -256,7 +262,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.user_profile_icon{\n\n    width: 80px; height: 80px\n}\n@media screen  and ( max-width:650) {\n.user_profile_icon {\n\n        width: 50px; height: 50px;\n}\n}\n\n\n", ""]);
+exports.push([module.i, "\n.user_profile_icon{\n\n    width: 80px; height: 80px\n}\n@media screen  and ( max-width:650) {\n.user_profile_icon {\n\n        width: 50px; height: 50px;\n}\n.table_container{\n      overflow-x: scroll;\n       margin:10px;\n}\n}\n\n\n", ""]);
 
 // exports
 
@@ -374,199 +380,219 @@ var render = function() {
               [
                 _c("sidebar"),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-10 col-sm-10" }, [
-                  _c("h4", { staticClass: "heading" }),
-                  _vm._v(" "),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c(
-                    "table",
-                    {
-                      staticClass:
-                        "table table-hover table-bordered table-striped"
-                    },
-                    [
-                      _vm._m(0),
-                      _vm._v(" "),
-                      _c(
-                        "tbody",
-                        { staticClass: "table-responsive " },
-                        [
-                          _vm.loading
-                            ? _c("h1", [
-                                _c("i", {
-                                  staticClass: "fa fa-spin fa-spinner"
-                                })
-                              ])
-                            : _vm._l(_vm.order_lists.data, function(
-                                order,
-                                index
-                              ) {
-                                return _c("tr", { key: index }, [
-                                  _c("td", [_vm._v(_vm._s(index + 1))]),
-                                  _vm._v(" "),
-                                  _c("td", [
-                                    _vm._v(" " + _vm._s(order.invoice_no))
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("td", { staticClass: "text-left" }, [
-                                    _vm._v(
-                                      "\n                    " +
-                                        _vm._s(
-                                          parseInt(order.total) -
-                                            (parseInt(order.discount) +
-                                              parseInt(order.paid)) +
-                                            parseInt(order.shipping_cost)
-                                        ) +
-                                        "\n                  "
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("td", [
-                                    _c(
-                                      "span",
-                                      { staticClass: "badge badge-success " },
-                                      [
-                                        _vm._v(
-                                          " " + _vm._s(order.discount) + " "
-                                        )
-                                      ]
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("td", [
-                                    order.status == 1
-                                      ? _c(
-                                          "span",
-                                          { staticClass: "badge badge-info " },
-                                          [_vm._v("New")]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    order.status == 2
-                                      ? _c(
-                                          "span",
-                                          {
-                                            staticClass: "badge badge-warning"
-                                          },
-                                          [_vm._v("Pending")]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    order.status == 3
-                                      ? _c(
-                                          "span",
-                                          {
-                                            staticClass: "badge badge-success"
-                                          },
-                                          [_vm._v("Approved")]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    order.status == 4
-                                      ? _c(
-                                          "span",
-                                          {
-                                            staticClass: "badge badge-success"
-                                          },
-                                          [_vm._v("Shipment")]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    order.status == 5
-                                      ? _c(
-                                          "span",
-                                          {
-                                            staticClass: "badge badge-success"
-                                          },
-                                          [_vm._v("Delivered")]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    order.status == 6
-                                      ? _c(
-                                          "span",
-                                          { staticClass: "badge badge-danger" },
-                                          [_vm._v("Cancel")]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    order.status == 7
-                                      ? _c(
-                                          "span",
-                                          { staticClass: "badge badge-danger" },
-                                          [_vm._v("Return")]
-                                        )
-                                      : _vm._e()
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(order.created_at))]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "td",
-                                    [
-                                      _c(
-                                        "router-link",
-                                        {
-                                          staticClass: "btn btn-info btn-sm",
-                                          attrs: {
-                                            to: {
-                                              name: "order_details",
-                                              params: { id: order.id }
-                                            }
-                                          }
-                                        },
-                                        [_c("i", { staticClass: "fa fa-eye" })]
-                                      )
-                                    ],
-                                    1
-                                  )
-                                ])
-                              })
-                        ],
-                        2
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-6" },
-                      [
-                        _c("pagination", {
-                          attrs: { data: _vm.order_lists },
-                          on: { "pagination-change-page": _vm.getOrderList }
-                        })
-                      ],
-                      1
-                    ),
+                _c(
+                  "div",
+                  { staticClass: "col-md-10 col-sm-10 table_container" },
+                  [
+                    _c("h4", { staticClass: "heading" }),
+                    _vm._v(" "),
+                    _c("br"),
                     _vm._v(" "),
                     _c(
-                      "div",
+                      "table",
                       {
-                        staticClass: "col-lg-6 mt-1",
-                        staticStyle: {
-                          "margin-top": "25px",
-                          "text-align": "right"
-                        }
+                        staticClass:
+                          "table table-hover table-bordered table-striped "
                       },
                       [
-                        _c("p", [
-                          _vm._v(
-                            "\n                  Showing\n                  "
-                          ),
-                          _c("strong", [_vm._v(_vm._s(_vm.order_lists.from))]),
-                          _vm._v(" to\n                  "),
-                          _c("strong", [_vm._v(_vm._s(_vm.order_lists.to))]),
-                          _vm._v(" of total\n                  "),
-                          _c("strong", [_vm._v(_vm._s(_vm.order_lists.total))]),
-                          _vm._v(" entries\n                ")
-                        ])
+                        _vm._m(0),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          { staticClass: "table-responsive " },
+                          [
+                            _vm.loading
+                              ? _c("h1", [
+                                  _c("i", {
+                                    staticClass: "fa fa-spin fa-spinner"
+                                  })
+                                ])
+                              : _vm._l(_vm.order_lists.data, function(
+                                  order,
+                                  index
+                                ) {
+                                  return _c("tr", { key: index }, [
+                                    _c("td", [_vm._v(_vm._s(index + 1))]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      _vm._v(" " + _vm._s(order.invoice_no))
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", { staticClass: "text-left" }, [
+                                      _vm._v(
+                                        "\n                    " +
+                                          _vm._s(
+                                            parseInt(order.total) -
+                                              (parseInt(order.discount) +
+                                                parseInt(order.paid)) +
+                                              parseInt(order.shipping_cost)
+                                          ) +
+                                          "\n                  "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      _c(
+                                        "span",
+                                        { staticClass: "badge badge-success " },
+                                        [
+                                          _vm._v(
+                                            " " + _vm._s(order.discount) + " "
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      order.status == 1
+                                        ? _c(
+                                            "span",
+                                            {
+                                              staticClass: "badge badge-info "
+                                            },
+                                            [_vm._v("New")]
+                                          )
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      order.status == 2
+                                        ? _c(
+                                            "span",
+                                            {
+                                              staticClass: "badge badge-warning"
+                                            },
+                                            [_vm._v("Pending")]
+                                          )
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      order.status == 3
+                                        ? _c(
+                                            "span",
+                                            {
+                                              staticClass: "badge badge-success"
+                                            },
+                                            [_vm._v("Approved")]
+                                          )
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      order.status == 4
+                                        ? _c(
+                                            "span",
+                                            {
+                                              staticClass: "badge badge-success"
+                                            },
+                                            [_vm._v("Shipment")]
+                                          )
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      order.status == 5
+                                        ? _c(
+                                            "span",
+                                            {
+                                              staticClass: "badge badge-success"
+                                            },
+                                            [_vm._v("Delivered")]
+                                          )
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      order.status == 6
+                                        ? _c(
+                                            "span",
+                                            {
+                                              staticClass: "badge badge-danger"
+                                            },
+                                            [_vm._v("Cancel")]
+                                          )
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      order.status == 7
+                                        ? _c(
+                                            "span",
+                                            {
+                                              staticClass: "badge badge-danger"
+                                            },
+                                            [_vm._v("Return")]
+                                          )
+                                        : _vm._e()
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      _vm._v(_vm._s(order.created_at))
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      [
+                                        _c(
+                                          "router-link",
+                                          {
+                                            staticClass: "btn btn-info btn-sm",
+                                            attrs: {
+                                              to: {
+                                                name: "order_details",
+                                                params: { id: order.id }
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fa fa-eye"
+                                            })
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ])
+                                })
+                          ],
+                          2
+                        )
                       ]
-                    )
-                  ])
-                ])
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        { staticClass: "col-lg-6" },
+                        [
+                          _c("pagination", {
+                            attrs: { data: _vm.order_lists },
+                            on: { "pagination-change-page": _vm.getOrderList }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-lg-6 mt-1",
+                          staticStyle: {
+                            "margin-top": "25px",
+                            "text-align": "right"
+                          }
+                        },
+                        [
+                          _c("p", [
+                            _vm._v(
+                              "\n                  Showing\n                  "
+                            ),
+                            _c("strong", [
+                              _vm._v(_vm._s(_vm.order_lists.from))
+                            ]),
+                            _vm._v(" to\n                  "),
+                            _c("strong", [_vm._v(_vm._s(_vm.order_lists.to))]),
+                            _vm._v(" of total\n                  "),
+                            _c("strong", [
+                              _vm._v(_vm._s(_vm.order_lists.total))
+                            ]),
+                            _vm._v(" entries\n                ")
+                          ])
+                        ]
+                      )
+                    ])
+                  ]
+                )
               ],
               1
             )
@@ -698,7 +724,15 @@ var render = function() {
               )
             ],
             1
-          )
+          ),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "a",
+              { staticStyle: { cursor: "pointer" }, on: { click: _vm.Logout } },
+              [_c("i", { staticClass: "fa fa-sign-out" }), _vm._v(" Logout")]
+            )
+          ])
         ])
       ])
     ])

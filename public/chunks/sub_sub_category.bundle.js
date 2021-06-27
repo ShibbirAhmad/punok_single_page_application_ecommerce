@@ -501,176 +501,196 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "box-body" }, [
-                    _c("table", { staticClass: "table table-striped" }, [
-                      _vm._m(2),
-                      _vm._v(" "),
-                      _c(
-                        "tbody",
-                        [
-                          _vm.loading
-                            ? _c("h1", [
-                                _c("i", {
-                                  staticClass: "fa fa-spin fa-spinner"
-                                })
-                              ])
-                            : _vm._l(_vm.subSubCategories.data, function(
-                                subSubCategory,
-                                index
-                              ) {
-                                return _c("tr", { key: index }, [
-                                  _c("td", { attrs: { scope: "row" } }, [
-                                    _vm._v(_vm._s(index + 1))
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("td", [
-                                    _vm._v(_vm._s(subSubCategory.name))
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("td", [
-                                    _vm._v(_vm._s(subSubCategory.category.name))
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("td", [
-                                    _vm._v(
-                                      _vm._s(subSubCategory.sub_category.name)
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("td", [
-                                    subSubCategory.image
-                                      ? _c("img", {
-                                          staticClass: "img-circle small-image",
-                                          attrs: {
-                                            src:
-                                              _vm.basePath +
-                                              subSubCategory.image,
-                                            alt: "User Image"
-                                          }
-                                        })
-                                      : _c("img", {
-                                          staticClass: "img-circle small-image",
-                                          attrs: {
-                                            src:
-                                              _vm.basePath +
-                                              "images/static/noimage.png",
-                                            alt: "User Image"
-                                          }
-                                        })
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("td", [
-                                    subSubCategory.status == 1
-                                      ? _c("span", { staticClass: "badge" }, [
-                                          _vm._v("active")
-                                        ])
-                                      : _c("span", { staticClass: "badge" }, [
-                                          _vm._v("De-active")
-                                        ])
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("td", [
-                                    _c("span", { staticClass: "badge " }, [
-                                      _vm._v(
-                                        "\n                      " +
-                                          _vm._s(
-                                            subSubCategory.discount_type ==
-                                              "flat"
-                                              ? subSubCategory.discount + " BDT"
-                                              : subSubCategory.discount + " %"
-                                          ) +
-                                          "\n                        "
-                                      )
-                                    ])
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "td",
-                                    [
-                                      _c(
-                                        "router-link",
-                                        {
-                                          staticClass: "btn btn-success btn-sm",
-                                          attrs: {
-                                            to: {
-                                              name: "subSubCategoryEdit",
-                                              params: { id: subSubCategory.id }
-                                            }
-                                          }
-                                        },
-                                        [_c("i", { staticClass: "fa fa-edit" })]
-                                      ),
-                                      _vm._v(" "),
-                                      subSubCategory.status == 1
-                                        ? _c(
-                                            "a",
-                                            {
-                                              staticClass:
-                                                "btn btn-sm btn-warning",
-                                              attrs: { title: "De-active" },
-                                              on: {
-                                                click: function($event) {
-                                                  return _vm.deActive(
-                                                    subSubCategory
-                                                  )
-                                                }
-                                              }
-                                            },
-                                            [
-                                              _c("i", {
-                                                staticClass: "fa fa-ban"
-                                              })
-                                            ]
-                                          )
-                                        : _c(
-                                            "a",
-                                            {
-                                              staticClass:
-                                                "btn btn-sm btn-primary",
-                                              attrs: { title: "active" },
-                                              on: {
-                                                click: function($event) {
-                                                  return _vm.active(
-                                                    subSubCategory
-                                                  )
-                                                }
-                                              }
-                                            },
-                                            [
-                                              _c("i", {
-                                                staticClass: "fa fa-check"
-                                              })
-                                            ]
-                                          ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "button",
-                                        {
-                                          staticClass: "btn btn-sm btn-success",
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.displayModal(
-                                                subSubCategory.id,
-                                                subSubCategory.discount,
-                                                subSubCategory.discount_type
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                          apply discount\n                        "
-                                          )
-                                        ]
-                                      )
-                                    ],
-                                    1
-                                  )
+                    _c(
+                      "table",
+                      {
+                        staticClass:
+                          "table table-bordered table-hover table-striped"
+                      },
+                      [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          [
+                            _vm.loading
+                              ? _c("h1", [
+                                  _c("i", {
+                                    staticClass: "fa fa-spin fa-spinner"
+                                  })
                                 ])
-                              })
-                        ],
-                        2
-                      )
-                    ])
+                              : _vm._l(_vm.subSubCategories.data, function(
+                                  subSubCategory,
+                                  index
+                                ) {
+                                  return _c("tr", { key: index }, [
+                                    _c("td", { attrs: { scope: "row" } }, [
+                                      _vm._v(_vm._s(index + 1))
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      _vm._v(_vm._s(subSubCategory.name))
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      _vm._v(
+                                        _vm._s(subSubCategory.category.name)
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      _vm._v(
+                                        _vm._s(subSubCategory.sub_category.name)
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      subSubCategory.image
+                                        ? _c("img", {
+                                            staticClass:
+                                              "img-circle small-image",
+                                            attrs: {
+                                              src:
+                                                _vm.basePath +
+                                                subSubCategory.image,
+                                              alt: "User Image"
+                                            }
+                                          })
+                                        : _c("img", {
+                                            staticClass:
+                                              "img-circle small-image",
+                                            attrs: {
+                                              src:
+                                                _vm.basePath +
+                                                "images/static/noimage.png",
+                                              alt: "User Image"
+                                            }
+                                          })
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      subSubCategory.status == 1
+                                        ? _c("span", { staticClass: "badge" }, [
+                                            _vm._v("active")
+                                          ])
+                                        : _c("span", { staticClass: "badge" }, [
+                                            _vm._v("De-active")
+                                          ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      _c("span", { staticClass: "badge " }, [
+                                        _vm._v(
+                                          "\n                      " +
+                                            _vm._s(
+                                              subSubCategory.discount_type ==
+                                                "flat"
+                                                ? subSubCategory.discount +
+                                                    " BDT"
+                                                : subSubCategory.discount + " %"
+                                            ) +
+                                            "\n                        "
+                                        )
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      [
+                                        _c(
+                                          "router-link",
+                                          {
+                                            staticClass:
+                                              "btn btn-success btn-sm",
+                                            attrs: {
+                                              to: {
+                                                name: "subSubCategoryEdit",
+                                                params: {
+                                                  id: subSubCategory.id
+                                                }
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fa fa-edit"
+                                            })
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        subSubCategory.status == 1
+                                          ? _c(
+                                              "a",
+                                              {
+                                                staticClass:
+                                                  "btn btn-sm btn-warning",
+                                                attrs: { title: "De-active" },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.deActive(
+                                                      subSubCategory
+                                                    )
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-ban"
+                                                })
+                                              ]
+                                            )
+                                          : _c(
+                                              "a",
+                                              {
+                                                staticClass:
+                                                  "btn btn-sm btn-primary",
+                                                attrs: { title: "active" },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.active(
+                                                      subSubCategory
+                                                    )
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-check"
+                                                })
+                                              ]
+                                            ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "btn btn-sm btn-success",
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.displayModal(
+                                                  subSubCategory.id,
+                                                  subSubCategory.discount,
+                                                  subSubCategory.discount_type
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                          apply discount\n                        "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ])
+                                })
+                          ],
+                          2
+                        )
+                      ]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "box-footer" }, [

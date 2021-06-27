@@ -227,5 +227,8 @@
     "/chunks/vendors~single_product.bundle.js": "/chunks/vendors~single_product.bundle.js",
     "/chunks/viewOrder.bundle.js": "/chunks/viewOrder.bundle.js",
     "/chunks/viewSale.bundle.js": "/chunks/viewSale.bundle.js",
-    "/chunks/wholesaleOrder.bundle.js": "/chunks/wholesaleOrder.bundle.js"
+    "/chunks/wholesaleOrder.bundle.js": "/chunks/wholesaleOrder.bundle.js",
+    "/chunks/company_sale_details.bundle.js": "/chunks/company_sale_details.bundle.js",
+    "/chunks/company_payment_details.bundle.js": "/chunks/company_payment_details.bundle.js",
+    "/chunks/vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~ac48e7d1.bundle.js": "/chunks/vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~ac48e7d1.bundle.js"
 }

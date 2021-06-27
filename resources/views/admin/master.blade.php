@@ -4,9 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <link href="/frontend/image/favicon.png" rel="icon" />
+    @php
+        $setting=App\Models\GeneralSetting::latest()->first();
+    @endphp
 
-    <title>sufilifestyle.com</title>
+    <link href="{{ asset('storage/'.$setting->icon) }}" rel="icon" />
+
+    <title>{{ $setting->title }}</title>
+
     @include('admin.partials.css')
 </head>
 <style>
@@ -127,7 +132,7 @@ li.dropdown a:hover {
 }
 .permisson-denied {
         text-align: center;
-    
+
 }
 
 .permisson-denied img {
@@ -156,28 +161,28 @@ html {
     @if(session()->has('admin'))
         @include('admin.partials.sidebar')
    @endif
-    <router-view></router-view> 
+    <router-view></router-view>
     <vue-progress-bar></vue-progress-bar>
-    
+
 </div>
  @if(session()->has('admin'))
     @include('admin.partials.footer')
 @endif
 @include('admin.partials.js')
 
-<script src="{{'/js/app.js'}}" type="text/javascript"></script>
+<script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
 
 <script>
-  
 
- //set some global js variable 
+
+ //set some global js variable
 window.Permissions=[];
 
 @if(session()->has('admin'))
 window.Permissions =   {!! json_encode(App\Models\Admin::adminPermission(), true) !!};
 @endif
 
- 
+
 </script>
 
 </body>

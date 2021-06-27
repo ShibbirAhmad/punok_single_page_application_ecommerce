@@ -7,11 +7,11 @@
       <div class="container">
        <div style="min-height:400px;" class="row bg-white">
 
-           <sidebar></sidebar>  
+           <sidebar></sidebar>
 
-           <div class="col-md-10 col-sm-10 ">
-             
-                <table class="table table-bordered content">
+           <div class="col-md-10 col-sm-10 table_container">
+
+                <table class="table table-hover table-striped table-bordered content">
                   <thead>
                     <tr>
                       <th>#</th>
@@ -102,7 +102,7 @@
 
            </div>
           </div>
-       
+
 
 
       </div>
@@ -130,7 +130,7 @@ export default {
   methods: {
     back(){
         this.$router.push({ name : 'OrderHistory'});
-    },  
+    },
 
    print(order_id) {
 
@@ -207,17 +207,19 @@ export default {
 
 
 @media screen  and ( max-width:650px) {
-   
+
     .bottomBtn{
       margin-left: 20px;
     }
 
 
+   .table_container{
+      overflow-x: scroll;
+       margin:10px;
+    }
+
 }
-.{
-  background: #ffffff;
-  padding: 20px 20px;
-}
+
 
 
 

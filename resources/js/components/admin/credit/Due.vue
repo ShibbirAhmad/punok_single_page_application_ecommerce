@@ -102,16 +102,16 @@
 
                         <td>{{ due.customer_name }}</td>
                         <td>{{ due.customer_mobile_no }}</td>
-                        <td> 
+                        <td>
 
                             <router-link
                             :to="{
                               name: 'ViewSale',
-                              params: { id: due.memo_no},
+                              params: { id: due.sale_id},
                             }">
-                          
-                          {{ "S-" }} {{ due.memo_no ? due.memo_no : ""   }}
-                          
+
+                          {{ "S-" }} {{ due.sale_id  }}
+
                             </router-link>
                           </td>
 
@@ -199,6 +199,7 @@ export default {
           },
         })
         .then((resp) => {
+          console.log(resp);
           this.credit_dues = resp.data;
           this.loading = false;
         })

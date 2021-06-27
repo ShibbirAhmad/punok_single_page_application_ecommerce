@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>sufilifestyle.com</title>
+    <?php
+
+        $setting = App\Models\GeneralSetting::latest()->first();
+
+     ?>
+    <title>  {{ $setting->title }} </title>
     <style>
               .email_box{
 
@@ -92,17 +97,17 @@
                  <div class="box_left"></div>
                  <div class="box_center">
 
-                     <h4> sufilifestyle.<span style="color: black;">com</span></h4>
+                     <h4> {{ $setting->title }} </h4>
 
                        <p>
                            {!! $data !!}
                        </p>
                         <div class="follow">
                             <div class="follow1">
-                                <a href="https://sufilifestyle.com"> visit site </a>
+                                <a href="https://madinafashion.com.bd"> visit site </a>
                             </div>
                             <div class="follow2">
-                                <a href="https://facebook.com/sufilifestyle">follow facebook</a>
+                                <a href="https://facebook.com/madinafashion">follow facebook</a>
                             </div>
                         </div>
                </div>

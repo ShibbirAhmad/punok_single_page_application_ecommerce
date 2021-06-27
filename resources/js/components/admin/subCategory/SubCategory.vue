@@ -32,7 +32,7 @@
                                     </div>
                                 </div>
                                 <div class="box-body">
-                                    <table class="table table-striped">
+                                    <table class="table table-bordered table-hover table-striped">
                                         <thead>
                                         <tr>
                                             <th scope="col">#</th>

@@ -176,7 +176,9 @@
           </h2>
         </div>
 
-        <div class="row offer_collection">
+        <div v-if="occasion_campaign.status=='1'
+               && seasion_campaign.status=='1' "
+          class="row offer_collection">
           <div
             :style="{
               backgroundImage: `url(${
@@ -192,7 +194,7 @@
                   <h4>{{ occasion_campaign.heading }}</h4>
                 </div>
               </div>
-              <div class="col-md-6 col-sm-12 col-xs-12">
+              <div  v-if="occasion_p_top" class="col-md-6 col-sm-12 col-xs-12">
                 <div class="collection_content">
                   <img
                     v-if="occasion_p_top.product_image.length"
@@ -261,7 +263,7 @@
                 </div>
               </div>
               <div class="col-md-6 col-xs-12 col-sm-12">
-                <div class="collection_content">
+                <div v-if="seasion_p_top" class="collection_content">
                   <img
                     v-if="seasion_p_top.product_image.length"
                     :src="

@@ -133,6 +133,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MODULE_1__["HasError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["HasError"]);
@@ -149,7 +169,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
         quote: "",
         product_code_one: "",
         product_code_two: "",
-        campaign_background: ""
+        campaign_background: "",
+        status: ""
       }),
       error: "",
       loading: true,
@@ -166,6 +187,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
 
         if (resp.data.status == "OK") {
           _this.form.id = resp.data.campaign.id;
+          _this.form.status = resp.data.campaign.status;
           _this.form.heading = resp.data.campaign.heading;
           _this.form.quote = resp.data.campaign.quote;
           _this.form.product_code_one = resp.data.campaign.product_code_one;
@@ -209,8 +231,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
 
       if (!file.type.match("image.*")) {
         Swal.fire({
-          type: 'warning',
-          text: 'this is not any kind of image'
+          type: "warning",
+          text: "this is not any kind of image"
         });
         return;
       } //let image file size check
@@ -237,7 +259,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
       this.preview_campaign_background = evt.target.result;
     },
     clickImage: function clickImage() {
-      var logo_file = document.getElementById('uploadLogo');
+      var logo_file = document.getElementById("uploadLogo");
       logo_file.click();
     }
   }
@@ -257,7 +279,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n#uploadLogo[data-v-69c418bc] {\n    display: none;\n}\n#campaignBackground[data-v-69c418bc] {\n        border: 1px solid #ddd;\n        padding: 5px;\n        cursor: pointer;\n        margin-left: 25px;\n        width: 565px;\n        height: 325px;\n}\n\n\n\n", ""]);
+exports.push([module.i, "\n#uploadLogo[data-v-69c418bc] {\r\n  display: none;\n}\n#campaignBackground[data-v-69c418bc] {\r\n  border: 1px solid #ddd;\r\n  padding: 5px;\r\n  cursor: pointer;\r\n  margin-left: 25px;\r\n  width: 565px;\r\n  height: 325px;\n}\r\n", ""]);
 
 // exports
 
@@ -345,49 +367,115 @@ var render = function() {
                       }
                     },
                     [
-                      _c(
-                        "div",
-                        { staticClass: "form-group" },
-                        [
-                          _c("label", { attrs: { for: "invoice" } }, [
-                            _vm._v("Short Qoute ")
-                          ]),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.quote,
-                                expression: "form.quote"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            class: {
-                              "is-invalid": _vm.form.errors.has("quote")
-                            },
-                            attrs: {
-                              type: "text",
-                              placeholder: "",
-                              name: "quote"
-                            },
-                            domProps: { value: _vm.form.quote },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-8" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c("label", { attrs: { for: "invoice" } }, [
+                                _vm._v("Short Qoute ")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.quote,
+                                    expression: "form.quote"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                class: {
+                                  "is-invalid": _vm.form.errors.has("quote")
+                                },
+                                attrs: {
+                                  type: "text",
+                                  placeholder: "",
+                                  name: "quote"
+                                },
+                                domProps: { value: _vm.form.quote },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "quote",
+                                      $event.target.value
+                                    )
+                                  }
                                 }
-                                _vm.$set(_vm.form, "quote", $event.target.value)
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("has-error", {
-                            attrs: { form: _vm.form, field: "quote" }
-                          })
-                        ],
-                        1
-                      ),
+                              }),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: { form: _vm.form, field: "quote" }
+                              })
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-4" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "label",
+                              {
+                                staticStyle: { color: "red" },
+                                attrs: { for: "" }
+                              },
+                              [_vm._v("*")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.status,
+                                    expression: "form.status"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { name: "status" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.form,
+                                      "status",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c("option", { attrs: { value: "1" } }, [
+                                  _vm._v("active")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "0" } }, [
+                                  _vm._v("de-active")
+                                ])
+                              ]
+                            )
+                          ])
+                        ])
+                      ]),
                       _vm._v(" "),
                       _c(
                         "div",
@@ -573,7 +661,7 @@ var render = function() {
                         _c(
                           "button",
                           {
-                            staticClass: "btn btn-primary ",
+                            staticClass: "btn btn-primary",
                             attrs: { disabled: _vm.form.busy, type: "submit" }
                           },
                           [
@@ -582,7 +670,7 @@ var render = function() {
                                   staticClass: "fa fa-spin fa-spinner"
                                 })
                               : _vm._e(),
-                            _vm._v("Submit\n                ")
+                            _vm._v("Submit\n                  ")
                           ]
                         )
                       ])

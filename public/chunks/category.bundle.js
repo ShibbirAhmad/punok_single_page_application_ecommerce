@@ -428,176 +428,194 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "box-body" }, [
-                    _c("table", { staticClass: "table" }, [
-                      _vm._m(2),
-                      _vm._v(" "),
-                      _c(
-                        "tbody",
-                        [
-                          _vm.loading
-                            ? _c("h1", [
-                                _c("i", {
-                                  staticClass: "fa fa-spin fa-spinner"
-                                })
-                              ])
-                            : _vm._l(_vm.categories.data, function(
-                                category,
-                                index
-                              ) {
-                                return _c("tr", { key: index }, [
-                                  _c("td", { attrs: { scope: "row" } }, [
-                                    _vm._v(_vm._s(index + 1))
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(category.name))]),
-                                  _vm._v(" "),
-                                  _c("td", [
-                                    category.icon_image
-                                      ? _c("img", {
-                                          staticClass: "img-circle small-image",
-                                          attrs: {
-                                            src:
-                                              _vm.basePath +
-                                              category.icon_image,
-                                            alt: "Category Image"
-                                          }
-                                        })
-                                      : _c("img", {
-                                          staticClass: "img-circle small-image",
-                                          attrs: {
-                                            src:
-                                              _vm.basePath +
-                                              "images/static/noimage.png",
-                                            alt: "Category Image"
-                                          }
-                                        })
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("td", [
-                                    category.is_selected == 1
-                                      ? _c("span", { staticClass: "badge" }, [
-                                          _c("i", {
-                                            staticClass: "fa fa-check"
+                    _c(
+                      "table",
+                      {
+                        staticClass:
+                          "table table-bordered table-hover table-striped "
+                      },
+                      [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          [
+                            _vm.loading
+                              ? _c("h1", [
+                                  _c("i", {
+                                    staticClass: "fa fa-spin fa-spinner"
+                                  })
+                                ])
+                              : _vm._l(_vm.categories.data, function(
+                                  category,
+                                  index
+                                ) {
+                                  return _c("tr", { key: index }, [
+                                    _c("td", { attrs: { scope: "row" } }, [
+                                      _vm._v(_vm._s(index + 1))
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", [_vm._v(_vm._s(category.name))]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      category.icon_image
+                                        ? _c("img", {
+                                            staticClass:
+                                              "img-circle small-image",
+                                            attrs: {
+                                              src:
+                                                _vm.basePath +
+                                                category.icon_image,
+                                              alt: "Category Image"
+                                            }
                                           })
-                                        ])
-                                      : _c("span", { staticClass: "badge" }, [
-                                          _c("i", {
-                                            staticClass: "fa fa-close"
+                                        : _c("img", {
+                                            staticClass:
+                                              "img-circle small-image",
+                                            attrs: {
+                                              src:
+                                                _vm.basePath +
+                                                "images/static/noimage.png",
+                                              alt: "Category Image"
+                                            }
                                           })
-                                        ])
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("td", [
-                                    category.status == 1
-                                      ? _c("span", { staticClass: "badge" }, [
-                                          _vm._v("active")
-                                        ])
-                                      : _c("span", { staticClass: "badge" }, [
-                                          _vm._v("De-active")
-                                        ])
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "td",
-                                    [
-                                      _c(
-                                        "router-link",
-                                        {
-                                          staticClass: "btn btn-success btn-sm",
-                                          attrs: {
-                                            to: {
-                                              name: "CategoryEdit",
-                                              params: {
-                                                categoryId: category.id
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      category.is_selected == 1
+                                        ? _c("span", { staticClass: "badge" }, [
+                                            _c("i", {
+                                              staticClass: "fa fa-check"
+                                            })
+                                          ])
+                                        : _c("span", { staticClass: "badge" }, [
+                                            _c("i", {
+                                              staticClass: "fa fa-close"
+                                            })
+                                          ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("td", [
+                                      category.status == 1
+                                        ? _c("span", { staticClass: "badge" }, [
+                                            _vm._v("active")
+                                          ])
+                                        : _c("span", { staticClass: "badge" }, [
+                                            _vm._v("De-active")
+                                          ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      [
+                                        _c(
+                                          "router-link",
+                                          {
+                                            staticClass:
+                                              "btn btn-success btn-sm",
+                                            attrs: {
+                                              to: {
+                                                name: "CategoryEdit",
+                                                params: {
+                                                  categoryId: category.id
+                                                }
                                               }
                                             }
-                                          }
-                                        },
-                                        [_c("i", { staticClass: "fa fa-edit" })]
-                                      ),
-                                      _vm._v(" "),
-                                      category.is_selected == 1
-                                        ? _c(
-                                            "a",
-                                            {
-                                              staticClass: "btn btn-danger",
-                                              attrs: { title: "un-selected" },
-                                              on: {
-                                                click: function($event) {
-                                                  return _vm.unselected(
-                                                    category
-                                                  )
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fa fa-edit"
+                                            })
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        category.is_selected == 1
+                                          ? _c(
+                                              "a",
+                                              {
+                                                staticClass: "btn btn-danger",
+                                                attrs: { title: "un-selected" },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.unselected(
+                                                      category
+                                                    )
+                                                  }
                                                 }
-                                              }
-                                            },
-                                            [
-                                              _c("i", {
-                                                staticClass: "fa fa-close"
-                                              })
-                                            ]
-                                          )
-                                        : _c(
-                                            "a",
-                                            {
-                                              staticClass: "btn btn-primary",
-                                              attrs: { title: "selected" },
-                                              on: {
-                                                click: function($event) {
-                                                  return _vm.selected(category)
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-close"
+                                                })
+                                              ]
+                                            )
+                                          : _c(
+                                              "a",
+                                              {
+                                                staticClass: "btn btn-primary",
+                                                attrs: { title: "selected" },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.selected(
+                                                      category
+                                                    )
+                                                  }
                                                 }
-                                              }
-                                            },
-                                            [
-                                              _c("i", {
-                                                staticClass: "fa fa-chain"
-                                              })
-                                            ]
-                                          ),
-                                      _vm._v(" "),
-                                      category.status == 1
-                                        ? _c(
-                                            "a",
-                                            {
-                                              staticClass: "btn btn-warning",
-                                              attrs: { title: "De-active" },
-                                              on: {
-                                                click: function($event) {
-                                                  return _vm.deActive(category)
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-chain"
+                                                })
+                                              ]
+                                            ),
+                                        _vm._v(" "),
+                                        category.status == 1
+                                          ? _c(
+                                              "a",
+                                              {
+                                                staticClass: "btn btn-warning",
+                                                attrs: { title: "De-active" },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.deActive(
+                                                      category
+                                                    )
+                                                  }
                                                 }
-                                              }
-                                            },
-                                            [
-                                              _c("i", {
-                                                staticClass: "fa fa-ban"
-                                              })
-                                            ]
-                                          )
-                                        : _c(
-                                            "a",
-                                            {
-                                              staticClass: "btn btn-primary",
-                                              attrs: { title: "active" },
-                                              on: {
-                                                click: function($event) {
-                                                  return _vm.active(category)
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-ban"
+                                                })
+                                              ]
+                                            )
+                                          : _c(
+                                              "a",
+                                              {
+                                                staticClass: "btn btn-primary",
+                                                attrs: { title: "active" },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.active(category)
+                                                  }
                                                 }
-                                              }
-                                            },
-                                            [
-                                              _c("i", {
-                                                staticClass: "fa fa-check"
-                                              })
-                                            ]
-                                          )
-                                    ],
-                                    1
-                                  )
-                                ])
-                              })
-                        ],
-                        2
-                      )
-                    ])
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-check"
+                                                })
+                                              ]
+                                            )
+                                      ],
+                                      1
+                                    )
+                                  ])
+                                })
+                          ],
+                          2
+                        )
+                      ]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "box-footer" }, [
