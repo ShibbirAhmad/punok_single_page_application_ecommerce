@@ -4,7 +4,7 @@
     <div class="content-wrapper">
       <section class="content-header">
         <h1>
-          <router-link :to="{ name: 'supllierAdd' }" class="btn btn-primary"
+          <router-link :to="{ name: 'AddFabricsSupplier' }" class="btn btn-primary"
             ><i class="fa fa-plus"></i
           ></router-link>
         </h1>
@@ -12,7 +12,7 @@
           <li>
             <a href="#"><i class="fa fa-dashboard"></i>Dashboard</a>
           </li>
-          <li class="active">Suppliers</li>
+          <li class="active">Suppliers </li>
         </ol>
       </section>
       <section class="content">
@@ -23,7 +23,7 @@
                 <div class="box-header with-border">
                   <div class="row mt-2">
                     <div class="col-md-6">
-                      <h3 class="box-title">Suppliers table</h3>
+                      <h3 class="box-title">Fabrics Suppliers table</h3>
                     </div>
                     <div class="col-md-4">
                       <input
@@ -51,7 +51,7 @@
                   </div>
                 </div>
                 <div class="box-body">
-                  <table class="table">
+                   <table class="table table-striped  table-hover table-bordered">
                     <thead>
                       <tr>
                         <th scope="col">#</th>

@@ -127,7 +127,7 @@
                             <th width="3%" >#</th>
                             <th>Product</th>
                             <th>Quantity</th>
-                            <th width="10%" title="purchase price of sufilifestyle">Root Purchase Price</th>
+                            <th width="10%" title="purchase price ">Root Purchase Price</th>
                             <th width="15%" title=" assign showroom purchase price">Outlet Purchase Price</th>
                             <th>total</th>
                             <th width="5%" >Remove</th>

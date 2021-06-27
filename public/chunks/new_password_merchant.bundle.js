@@ -1,1 +1,407 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[127,214],{46:function(t,o,s){"use strict";s.r(o);var r=s(11),e=s.n(r),a=(s(18),s(0)),n={created:function(){},data:function(){return{form:new a.Form({mobile_no:"",password:""}),pre_route:null,isLoading:!0,fullPage:!0}},methods:{login:function(){var t=this;this.form.post("/_public/userToLogin").then((function(o){"SUCCESS"==o.data.status?(localStorage.setItem("user_token",o.data.token),t.$store.dispatch("user"),t.$router.push({name:"Chekout"}),t.$toasted.show(o.data.message,{type:"success",position:"top-center",duration:2e3})):t.$toasted.show("Your given credintial don not match our records",{type:"error",position:"top-center",duration:2e3})})).catch((function(o){console.log(o),t.$toasted.show("some thing went to wrong",{type:"error",position:"top-center",duration:2e3})}))}},beforeRouteEnter:function(t,o,s){s((function(t){console.log(),t.pre_route=o.name}))},components:{Loading:e.a,HasError:a.HasError}},i=s(1),l=Object(i.a)(n,(function(){var t=this,o=t.$createElement,s=t._self._c||o;return s("div",{staticClass:"wrapper-wide"},[s("div",[s("frontend-header"),t._v(" "),s("div",{attrs:{id:"container"}},[s("div",{staticClass:"container"},[s("div",{staticClass:"row"},[s("div",{staticClass:"col-lg-3"}),t._v(" "),s("div",{staticClass:"col-sm-10 col-lg-5",attrs:{id:"content"}},[s("div",{staticClass:"custom-box",staticStyle:{height:"auto"}},[s("h2",{staticClass:"title"},[t._v("welcome back")]),t._v(" "),s("form",{on:{submit:function(o){return o.preventDefault(),t.login(o)}}},[s("div",{staticClass:"form-group"},[s("label",{staticClass:"control-label",attrs:{for:"input-email"}},[t._v("Mobile_no")]),t._v(" "),s("input",{directives:[{name:"model",rawName:"v-model",value:t.form.mobile_no,expression:"form.mobile_no"}],staticClass:"form-control",class:{"is-invalid":t.form.errors.has("mobile_no")},attrs:{type:"text",name:"mobile_no",placeholder:"01xxx-xxxxx",autocomplete:"off",maxlength:"11",autofocus:""},domProps:{value:t.form.mobile_no},on:{input:function(o){o.target.composing||t.$set(t.form,"mobile_no",o.target.value)}}}),t._v(" "),s("has-error",{attrs:{form:t.form,field:"mobile_no"}})],1),t._v(" "),s("div",{staticClass:"form-group"},[s("label",{staticClass:"control-label",attrs:{for:"input-password"}},[t._v("Password")]),t._v(" "),s("input",{directives:[{name:"model",rawName:"v-model",value:t.form.password,expression:"form.password"}],staticClass:"form-control",class:{"is-invalid":t.form.errors.has("password")},attrs:{type:"password",name:"password",placeholder:"Password"},domProps:{value:t.form.password},on:{input:function(o){o.target.composing||t.$set(t.form,"password",o.target.value)}}}),t._v(" "),s("has-error",{attrs:{form:t.form,field:"password"}}),t._v(" "),s("br"),t._v(" "),s("router-link",{attrs:{to:{name:"UserPasswordReset"}}},[t._v("Forgotten Password")])],1),t._v(" "),s("button",{staticClass:"btn btn-block btn-primary",attrs:{disabled:t.form.busy,type:"submit"}},[t.form.busy?s("i",{staticClass:"fa fa-spinner fa-spin"}):t._e(),t._v("LOGIN\n              ")])]),t._v(" "),s("br"),t._v(" "),s("router-link",{staticClass:"btn btn-block btn-info",attrs:{to:{name:"otpLogin"},type:"submit"}},[t._v("\n                LOGIN WITH OTP\n              ")]),t._v(" "),s("br"),t._v(" "),s("br"),t._v("\n                  Don't have an account?   "),s("router-link",{attrs:{to:{name:"UserRegister"}}},[t._v(" Register here")])],1)])])])])],1),t._v(" "),s("frontend-footer")],1)}),[],!1,null,null,null);o.default=l.exports},523:function(t,o,s){"use strict";var r=s(95);s.n(r).a},524:function(t,o,s){(t.exports=s(3)(!1)).push([t.i,"\n.none {\r\n  display: none !important;\n}\n.form-wrapper {\r\n\r\n    margin: 0px 10px;\n}\n.form_column{\r\n     margin-bottom: 20px;\r\n     box-shadow: 1px 1px 5px 1px #2e2e2e;\n}\n.btn_group{\r\n    margin-bottom: 16px;\r\n    margin-top: 10px;\n}\n.logo_mohasagor{\r\n  margin-top: 50px;\r\n  margin-bottom: 5px !important;\n}\n.btn_register{\r\n  background:#00acd6;\r\n  color:#fff;\n}\r\n",""])},95:function(t,o,s){var r=s(524);"string"==typeof r&&(r=[[t.i,r,""]]);var e={hmr:!0,transform:void 0,insertInto:void 0};s(4)(r,e);r.locals&&(t.exports=r.locals)},963:function(t,o,s){"use strict";s.r(o);var r=s(2),e=s.n(r),a=s(0);s(46);e.a.component(a.HasError.name,a.HasError);var n={created:function(){this.$store.dispatch("general_setting")},data:function(){return{form:new a.Form({phone:""})}},methods:{submit:function(){var t=this;this.form.post("/api/merchant/new/password/set/"+this.$route.params.phone).then((function(o){console.log(o),"SUCCESS"==o.data.status?(t.$toasted.show(o.data.message,{type:"success",position:"top-center",duration:2e3}),t.$router.push({name:"merchant_login"})):t.$toasted.show(o.data.message,{type:"error",position:"top-center",duration:3e3})})).catch((function(o){console.log(o),t.$toasted.show("some thing want to wrong",{type:"error",position:"top-center",duration:2e3})}))}},computed:{general_setting:function(){return this.$store.getters.general_setting}}};document.addEventListener("DOMContentLoaded",(function(){var t=document.getElementsByClassName("main-sidebar")[0],o=document.getElementsByClassName("main-footer")[0];"http://127.0.0.1:8000/merchant/backend/login"==window.location.href&&(t.classList.add("none"),o.classList.add("none"))}));var i=n,l=(s(523),s(1)),c=Object(l.a)(i,(function(){var t=this,o=t.$createElement,s=t._self._c||o;return s("div",[s("div",{staticClass:"container"},[s("div",{staticClass:"text-center"},[s("h2",{staticClass:"logo_mohasagor"},[s("a",[s("b",{staticStyle:{color:"#000"}},[t._v(" "+t._s(t.general_setting.title)+" ")])])])]),t._v(" "),s("div",{staticClass:"row"},[s("div",{staticClass:"col-md-4 col-sm-12"}),t._v(" "),s("div",{staticClass:"col-md-4 col-sm-12 form_column bg-white"},[s("div",{staticClass:"form-wrapper "},[s("h3",{staticStyle:{"padding-top":"10px","text-align":"center"}},[t._v("\n              Update Password\n           ")]),t._v(" "),s("form",{on:{submit:function(o){return o.preventDefault(),t.submit(o)}}},[s("div",{staticClass:"form-grop"},[s("label",{staticClass:"control-label",attrs:{for:"input-email"}},[t._v("New Password")]),t._v(" "),s("input",{directives:[{name:"model",rawName:"v-model",value:t.form.password,expression:"form.password"}],staticClass:"form-control",class:{"is-invalid":t.form.errors.has("password")},attrs:{type:"password",name:"password",placeholder:"xxxxx",autocomplete:"off",autofocus:""},domProps:{value:t.form.password},on:{input:function(o){o.target.composing||t.$set(t.form,"password",o.target.value)}}}),t._v(" "),s("has-error",{attrs:{form:t.form,field:"password"}})],1),t._v(" "),s("br"),t._v(" "),s("div",{staticClass:"form-group"},[s("button",{staticClass:"btn btn-block btn-primary",attrs:{disabled:t.form.busy,type:"submit"}},[t.form.busy?s("i",{staticClass:"fa fa-spinner fa-spin"}):t._e(),t._v("Update Password\n               ")])])])])]),t._v(" "),s("div",{staticClass:"col-md-4 col-sm-12"})])])])}),[],!1,null,null,null);o.default=c.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["new_password_merchant"],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/merchant/NewPassword.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/merchant/NewPassword.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _public_Login_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../public/Login.vue */ "./resources/js/components/public/Login.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MODULE_1__["HasError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["HasError"]);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.$store.dispatch('general_setting');
+  },
+  data: function data() {
+    return {
+      form: new vform__WEBPACK_IMPORTED_MODULE_1__["Form"]({
+        phone: ""
+      })
+    };
+  },
+  methods: {
+    submit: function submit() {
+      var _this = this;
+
+      this.form.post("/api/merchant/new/password/set/" + this.$route.params.phone).then(function (resp) {
+        console.log(resp);
+
+        if (resp.data.status == "SUCCESS") {
+          _this.$toasted.show(resp.data.message, {
+            type: "success",
+            position: "top-center",
+            duration: 2000
+          });
+
+          _this.$router.push({
+            name: "merchant_login"
+          });
+        } else {
+          _this.$toasted.show(resp.data.message, {
+            type: "error",
+            position: "top-center",
+            duration: 3000
+          });
+        }
+      })["catch"](function (error) {
+        console.log(error);
+
+        _this.$toasted.show("some thing want to wrong", {
+          type: "error",
+          position: "top-center",
+          duration: 2000
+        });
+      });
+    }
+  },
+  computed: {
+    general_setting: function general_setting() {
+      return this.$store.getters.general_setting;
+    }
+  }
+});
+document.addEventListener("DOMContentLoaded", function () {
+  var sidebar = document.getElementsByClassName("main-sidebar")[0];
+  var footer = document.getElementsByClassName("main-footer")[0];
+
+  if (window.location.href == "http://127.0.0.1:8000/merchant/backend/login") {
+    sidebar.classList.add("none");
+    footer.classList.add("none");
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/merchant/NewPassword.vue?vue&type=style&index=0&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/merchant/NewPassword.vue?vue&type=style&index=0&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.none {\r\n  display: none !important;\n}\n.form-wrapper {\r\n\r\n    margin: 0px 10px;\n}\n.form_column{\r\n     margin-bottom: 20px;\r\n     box-shadow: 1px 1px 5px 1px #2e2e2e;\n}\n.btn_group{\r\n    margin-bottom: 16px;\r\n    margin-top: 10px;\n}\n.logo_mohasagor{\r\n  margin-top: 50px;\r\n  margin-bottom: 5px !important;\n}\n.btn_register{\r\n  background:#00acd6;\r\n  color:#fff;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/merchant/NewPassword.vue?vue&type=style&index=0&lang=css&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/merchant/NewPassword.vue?vue&type=style&index=0&lang=css& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./NewPassword.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/merchant/NewPassword.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/merchant/NewPassword.vue?vue&type=template&id=4e647d3f&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/merchant/NewPassword.vue?vue&type=template&id=4e647d3f& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "text-center" }, [
+        _c("h2", { staticClass: "logo_mohasagor" }, [
+          _c("a", [
+            _c("b", { staticStyle: { color: "#000" } }, [
+              _vm._v(" " + _vm._s(_vm.general_setting.title) + " ")
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-4 col-sm-12" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4 col-sm-12 form_column bg-white" }, [
+          _c("div", { staticClass: "form-wrapper " }, [
+            _c(
+              "h3",
+              {
+                staticStyle: { "padding-top": "10px", "text-align": "center" }
+              },
+              [_vm._v("\n              Update Password\n           ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.submit($event)
+                  }
+                }
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "form-grop" },
+                  [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "control-label",
+                        attrs: { for: "input-email" }
+                      },
+                      [_vm._v("New Password")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.password,
+                          expression: "form.password"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      class: { "is-invalid": _vm.form.errors.has("password") },
+                      attrs: {
+                        type: "password",
+                        name: "password",
+                        placeholder: "xxxxx",
+                        autocomplete: "off",
+                        autofocus: ""
+                      },
+                      domProps: { value: _vm.form.password },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "password", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("has-error", {
+                      attrs: { form: _vm.form, field: "password" }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-block btn-primary",
+                      attrs: { disabled: _vm.form.busy, type: "submit" }
+                    },
+                    [
+                      _vm.form.busy
+                        ? _c("i", { staticClass: "fa fa-spinner fa-spin" })
+                        : _vm._e(),
+                      _vm._v("Update Password\n               ")
+                    ]
+                  )
+                ])
+              ]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4 col-sm-12" })
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/merchant/NewPassword.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/merchant/NewPassword.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _NewPassword_vue_vue_type_template_id_4e647d3f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NewPassword.vue?vue&type=template&id=4e647d3f& */ "./resources/js/components/merchant/NewPassword.vue?vue&type=template&id=4e647d3f&");
+/* harmony import */ var _NewPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NewPassword.vue?vue&type=script&lang=js& */ "./resources/js/components/merchant/NewPassword.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _NewPassword_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NewPassword.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/merchant/NewPassword.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _NewPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _NewPassword_vue_vue_type_template_id_4e647d3f___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _NewPassword_vue_vue_type_template_id_4e647d3f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/merchant/NewPassword.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/merchant/NewPassword.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/merchant/NewPassword.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NewPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./NewPassword.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/merchant/NewPassword.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NewPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/merchant/NewPassword.vue?vue&type=style&index=0&lang=css&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/merchant/NewPassword.vue?vue&type=style&index=0&lang=css& ***!
+  \*******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewPassword_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./NewPassword.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/merchant/NewPassword.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewPassword_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewPassword_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewPassword_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewPassword_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewPassword_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/merchant/NewPassword.vue?vue&type=template&id=4e647d3f&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/merchant/NewPassword.vue?vue&type=template&id=4e647d3f& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewPassword_vue_vue_type_template_id_4e647d3f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./NewPassword.vue?vue&type=template&id=4e647d3f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/merchant/NewPassword.vue?vue&type=template&id=4e647d3f&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewPassword_vue_vue_type_template_id_4e647d3f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewPassword_vue_vue_type_template_id_4e647d3f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

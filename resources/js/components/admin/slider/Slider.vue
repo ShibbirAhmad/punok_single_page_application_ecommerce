@@ -17,24 +17,17 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8 col-lg-offset-1">
                             <div class="box box-primary">
-                                <div class="box-header with-border">
-                                    <div class="row">
-                                        <div class="col-lg-6">
+                                <div class="box-header with-border text-center">
                                             <h3 class="box-title">slider's table</h3>
-
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="box-body">
-                                    <table class="table table-striped">
+                                    <table class="table table-striped text-center table-hover table-bordered">
                                         <thead>
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Image</th>
                                             <th scope="col">status</th>
                                             <th scope="col">action</th>
-
-
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -69,7 +62,7 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <pagination :data="sliders"
-                                                        @pagination-change-page="getPagination">
+                                                        @pagination-change-page="slider">
 
                                             </pagination>
 
@@ -95,15 +88,9 @@
 </template>
 
 <script>
-    import Index from "../Index";
-
     export default {
-        components: {Index},
         created() {
-
-            setTimeout(() => {
-                this.slider();
-            }, 500)
+             this.slider();
         },
         data() {
             return {
@@ -122,21 +109,14 @@
                             this.sliders = resp.data.sliders;
                             this.loading = false
                         } else {
-                            this.$toasted.show('some thing want to wrong', {
+                            this.$toasted.show('some thing went to wrong', {
                                 type: "error",
                                 position: 'top-center',
                                 duration: 5000
                             });
                         }
                     })
-                    .catch((error) => {
-                        console.log(error)
-                        this.$toasted.show('some thing want to wrong', {
-                            type: "error",
-                            position: 'top-center',
-                            duration: 4000
-                        });
-                    })
+
             },
 
             active(slider) {
@@ -161,7 +141,7 @@
                                         duration: 4000
                                     });
                                 } else {
-                                    this.$toasted.show('some thing want to wrong', {
+                                    this.$toasted.show('some thing went to wrong', {
                                         position: 'top-center',
                                         type: 'error',
                                         duration: 4000
@@ -170,7 +150,7 @@
 
                             })
                             .catch((error) => {
-                                this.$toasted.show('some thing want to wrong', {
+                                this.$toasted.show('some thing went to wrong', {
                                     position: 'top-center',
                                     type: 'error',
                                     duration: 4000
@@ -209,7 +189,7 @@
                                         duration: 4000
                                     });
                                 } else {
-                                    this.$toasted.show('some thing want to wrong', {
+                                    this.$toasted.show('some thing went to wrong', {
                                         position: 'top-center',
                                         type: 'error',
                                         duration: 4000
@@ -218,7 +198,7 @@
 
                             })
                             .catch((error) => {
-                                this.$toasted.show('some thing want to wrong', {
+                                this.$toasted.show('some thing went to wrong', {
                                     position: 'top-center',
                                     type: 'error',
                                     duration: 4000
@@ -258,7 +238,7 @@
                                         duration: 4000
                                     });
                                 } else {
-                                    this.$toasted.show('some thing want to wrong', {
+                                    this.$toasted.show('some thing went to wrong', {
                                         position: 'top-center',
                                         type: 'error',
                                         duration: 4000
@@ -268,7 +248,7 @@
                             })
                             .catch((error) => {
                                 console.log(error)
-                                this.$toasted.show('some thing want to wrong', {
+                                this.$toasted.show('some thing went to wrong', {
                                     position: 'top-center',
                                     type: 'error',
                                     duration: 4000
@@ -285,14 +265,7 @@
                     }
                 })
             },
-            getPagination(page = 1) {
-                this.loading = true;
-                axios.get('/list/slider?page=' + page)
-                    .then(response => {
-                        this.loading = false;
-                        this.sliders = response.data.sliders;
-                    });
-            }
+
 
         }
     }

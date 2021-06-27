@@ -60,12 +60,25 @@ class AttributeAndVariantController extends Controller
 
     public function edit($id)
     {
-        //
+        $attribute=Attribute::findOrFail($id);
+        return response()->json([
+            'attribute' => $attribute ,
+        ]);
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|unique:attributes,name,'.$id,
+        ]);
+        $attribute = Attribute::findOrFail($id);
+        $attribute->name = $request->name;
+        if ($attribute->save()) {
+            return response()->json([
+                'status' => 'SUCCESS',
+                'message' => 'attribute changed'
+            ]);
+        }
     }
 
 
@@ -139,6 +152,7 @@ class AttributeAndVariantController extends Controller
 
     }
 
+
     public function storeVariant(Request $request)
     {
         $this->validate($request, [
@@ -157,7 +171,37 @@ class AttributeAndVariantController extends Controller
         }
     }
 
+
+
+  public function  getVariantItem($id){
+
+        $variant= Variant::findOrFail($id);
+        return \response()->json([
+            'variant'=> $variant ,
+        ]);
+  }
+
+
+    public function updateVariant(Request $request,$id)
+    {
+        $this->validate($request, [
+            'name' => 'required|unique:variants,name,'.$id,
+            'attribute' => 'required',
+
+        ]);
+        $variant = Variant::findOrFail($id);
+        $variant->name = $request->name;
+        $variant->attribute_id = $request->attribute;
+        if ($variant->save()) {
+            return response()->json([
+                'status' => 'SUCCESS',
+                'message' => 'Variant updated'
+            ]);
+        }
+    }
+
     public  function attributeWiseVariant($id){
+
         $variants=Variant::whereIn('attribute_id',[$id])->get();
         if ($variants){
             return response()->json([

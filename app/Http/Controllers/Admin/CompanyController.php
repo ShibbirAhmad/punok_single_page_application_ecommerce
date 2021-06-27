@@ -10,7 +10,7 @@ class CompanyController extends Controller
 {
   public function index(){
 
-        $companies = Company::orderBy('id', 'DESC')->get();
+        $companies = Company::orderBy('id', 'DESC')->with('sales','payments')->get();
         return response()->json([
             'status' => 'SUCCESS',
             'companies' => $companies
@@ -22,14 +22,19 @@ class CompanyController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|unique:companies',
+            'phone' => 'required|unique:companies',
+            'address' => 'required',
         ]);
 
         $company = new Company();
         $company->name = $request->name;
+        $company->address = $request->address;
+        $company->phone = $request->phone;
+        $company->status = 1;
         if ($company->save()) {
             return response()->json([
                 'status' => 'SUCCESS',
-                'message' => "company add successfully"
+                'message' => "company added successfully"
             ]);
         }
     }
@@ -38,22 +43,56 @@ class CompanyController extends Controller
 
          $company= Company::findOrFail($id);
        return response()->json($company);
-       
+
   }
 
   public function update(Request $request,$id)
     {
         $this->validate($request, [
             'name' => 'required|unique:companies,name,'.$id,
+            'phone' => 'required|unique:companies,phone,'.$id,
+            'address' => 'required'
         ]);
 
         $company= Company::findOrFail($id);
         $company->name = $request->name;
+        $company->address = $request->address;
+        $company->phone = $request->phone;
         if ($company->save()) {
             return response()->json([
                 'status' => 'SUCCESS',
-                'message' => "company was updated successfully"
+                'message' => "updated successfully"
             ]);
         }
     }
+
+
+       public function active($id)
+    {
+        $company = Company::find($id);
+        if ($company) {
+            $company->status = 1;
+            if ($company->save()) {
+                return response()->json([
+                    'status' => 'SUCCESS',
+                    'message' => 'active successfully'
+                ]);
+            }
+        }
+    }
+
+    public function deActive($id)
+    {
+        $company = Company::find($id);
+        if ($company) {
+            $company->status = 0;
+            if ($company->save()) {
+                return response()->json([
+                    'status' => 'SUCCESS',
+                    'message' => 'de-activet'
+                ]);
+            }
+        }
+    }
+
 }

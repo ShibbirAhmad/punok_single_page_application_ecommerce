@@ -5,7 +5,7 @@
       <section class="content-header">
         <h1>
           <router-link :to="{ name: 'company' }" class="btn btn-primary"
-            ><i class="fa fa-arrow-right"></i
+            ><i class="fa fa-arrow-left"></i
           ></router-link>
         </h1>
         <ol class="breadcrumb">
@@ -19,7 +19,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-6 col-lg-offset-2">
             <div class="box box-primary">
-              <div class="box-header with-border">
+              <div class="box-header with-border text-center ">
                 <h3 class="box-title">Edit Company</h3>
               </div>
               <div class="box-body">
@@ -48,14 +48,39 @@
                     <has-error :form="form" field="name"></has-error>
                   </div>
 
-                  <br />
-                  <button
+                            <div class="form-group">
+                    <label>Phone</label>
+                    <input
+                      v-model="form.phone"
+                      type="text"
+                      required
+                      :class="{'is-invalid':form.errors.has('phone') }"
+                      maxlength="11"
+                      placeholder="01xxxxxxxxx"
+                       class="form-control"
+                    />
+                    <has-error :form="form" field="phone"> </has-error>
+                  </div>
+
+                   <div class="form-group">
+                    <label>Address</label>
+                    <input
+                      v-model="form.address"
+                      type="text"
+                      required
+                       class="form-control"
+                      placeholder="Dhaka"
+                    />
+                  </div>
+                   <div class="form-group text-center">
+
+                   <button
                     :disabled="form.busy"
                     type="submit"
-                    class="btn btn-primary"
-                  >
+                    class="btn btn-primary" >
                     <i class="fa fa-spin fa-spinner" v-if="form.busy"></i>Submit
                   </button>
+                   </div>
                 </form>
               </div>
             </div>
@@ -81,8 +106,9 @@ export default {
     return {
       form: new Form({
         name: "",
+        phone: "",
+        address: "",
       }),
-
       loading: true,
       error: "",
     };
@@ -102,24 +128,20 @@ export default {
               duration: 2000,
             });
           } else {
-            this.error = "some thing want to wrong";
+            this.error = "some thing went to wrong";
           }
         })
-        .catch((error) => {
-          //  console.log(error)
-          this.error = "some thing want to wrong";
-        });
+
     },
 
     edit(){
         axios.get('/company/edit/'+this.$route.params.id)
         .then(resp=>{
-          
                 this.form.name=resp.data.name;
+                this.form.phone=resp.data.phone;
+                this.form.address=resp.data.address;
                 this.loading=false;
-            
         })
-        .catch()
     }
   },
 };

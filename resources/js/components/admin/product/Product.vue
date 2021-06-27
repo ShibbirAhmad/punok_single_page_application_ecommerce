@@ -164,6 +164,11 @@
                               >Deny</a
                             >
 
+                              <a
+                              class="dropdown-item btn btn-info btn-sm dropbtn"
+                              @click="copy(product.id)"
+                              >Copy</a>
+
                             <a
                               class="dropdown-item btn btn-warning btn-sm dropbtn"
                               @click.print="print(product.id)"
@@ -253,10 +258,8 @@ export default {
           },
         })
         .then((resp) => {
-         // console.log(resp);
-
+        //  console.log(resp);
           this.products = resp.data.products;
-
           this.$Progress.finish();
 
         })
@@ -265,6 +268,28 @@ export default {
           this.$Progress.finish();
         });
     },
+
+
+
+    copy($product_id){
+        let copy_items = prompt(
+        " item of copy ?"
+      );
+      axios.get('/api/copy/product/'+$product_id+'/'+copy_items)
+      .then(resp =>{
+        console.log(resp);
+        if (resp.data.status=='success') {
+            this.$toasted.show(resp.data.message,{
+              type : 'success',
+              position: 'top-center',
+               duration :3000
+            })
+            this.productList();
+        }
+      })
+
+    }
+,
     approved(product) {
       Swal.fire({
         title: "Are you sure?",

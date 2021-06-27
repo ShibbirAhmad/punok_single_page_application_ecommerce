@@ -18,16 +18,11 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8 col-lg-offset-1">
                             <div class="box box-primary">
-                                <div class="box-header with-border">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <h3 class="box-title">Variant table</h3>
-
-                                        </div>
-                                    </div>
+                                <div class="box-header with-border text-center">
+                                    <h3 class="box-title">Variant table</h3>
                                 </div>
                                 <div class="box-body">
-                                    <table class="table table-striped">
+                                    <table class="table text-center table-bordered table-hover table-striped">
                                         <thead>
                                         <tr>
                                             <th scope="col">#</th>
@@ -35,7 +30,6 @@
                                             <th scope="col">attribute</th>
                                             <th scope="col">status</th>
                                             <th scope="col">action</th>
-
 
                                         </tr>
                                         </thead>
@@ -51,12 +45,14 @@
                                             </td>
                                             <td>
 
-                                                <a class="btn btn-warning" title="De-active"
+                                                <a class="btn  btn-sm btn-warning" title="De-active"
                                                    @click="deActive(variant)"
                                                    v-if="variant.status==1"><i class="fa fa-ban"></i></a>
-                                                <a class="btn btn-primary" title="active" @click="active(variant)"
+                                                <a class="btn btn-sm  btn-primary" title="active" @click="active(variant)"
                                                    v-else><i
                                                     class="fa fa-check"></i></a>
+
+                                                <router-link class="btn btn-sm btn-success" :to="{name:'variantEdit',params:{id:variant.id}}"><i class="fa fa-edit"></i></router-link>
 
                                             </td>
                                         </tr>

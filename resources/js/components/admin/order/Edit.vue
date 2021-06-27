@@ -20,7 +20,7 @@
         <h1 v-if="loading">
           <i class="fa fa-spin fa-spinner"></i>
         </h1>
-       
+
         <form v-else @submit.prevent="add" @keydown="form.onKeydown($event)">
           <div class="row justify-content-center">
             <div
@@ -175,7 +175,7 @@
                       autofocus
                       autocomplete="off"
                       placeholder="Enter Product Code"
-                     
+
                       v-model="product_code"
                       form="ProductSearch"
                     />
@@ -188,7 +188,7 @@
                           <tr>
                             <th>#</th>
                             <th>Product</th>
-                            <th>Attribute</th>
+                            <!-- <th>Attribute</th> -->
                             <th>Variant</th>
                             <th>Quantity</th>
                             <th>Price</th>
@@ -203,7 +203,7 @@
                               {{ product.name + "-" + product.product_code }}
                               <input type="hidden" :value="product.id" />
                             </td>
-                            <td>
+                            <!-- <td>
                               <select
                                 class="form-control"
                                 v-model="form.products[index].attribute_id"
@@ -220,7 +220,7 @@
                                   {{ product_attribute.attribute.name }}
                                 </option>
                               </select>
-                            </td>
+                            </td> -->
                             <td>
                               <select
                                 class="form-control"
@@ -313,7 +313,7 @@
                                   <option value="Bkash(personal)">Bkash(personal)</option>
                                   <option value="Bkash(merchant)">Bkash(merchant)</option>
                                   <option value="Bank(SIBL)">Bank(SIBL)</option>
-                                  <option value="Bank(AIBL)">Bank(AIBL)</option>     
+                                  <option value="Bank(AIBL)">Bank(AIBL)</option>
                                   </select>
                                 <has-error :form="form" field="paid_by"></has-error>
                               </div>
@@ -520,7 +520,7 @@ export default {
               };
               for (let i = 0; i < resp.data.product.length; i++) {
                 //check the product stcok availity
-               
+
 
                 this.products.push(resp.data.product[i]);
                 product.product_id = resp.data.product[i].id;
@@ -636,15 +636,15 @@ export default {
                 this.sub_cities="";
                 alert('No sub city under selected city')
               }
-         
-         
+
+
           console.log(resp)
         })
         .catch(e=>{
           console.log(e);
-         
+
         })
-       
+
      }
   },
   computed: {},

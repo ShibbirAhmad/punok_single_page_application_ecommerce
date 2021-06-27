@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use App\Models\ProductImage;
 use App\Models\Purchaseitem;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 use App\Models\ProductBarcode;
 use App\Models\ProductVariant;
 use Illuminate\Validation\Rule;
@@ -44,6 +45,13 @@ class ProductController extends Controller
     }
 
 
+    public function slugCreator($string, $delimiter = '-') {
+        // Remove special characters
+          $string = preg_replace("/[~`{}.'\"\!\@\#\$\%\^\&\*\(\)\_\=\+\/\?\>\<\,\[\]\:\;\|\\\]/", "", $string);
+        // Replace blank space with delimeter
+        $string = preg_replace("/[\/_|+ -]+/", $delimiter, $string);
+        return $string;
+    }
 
 
 
@@ -68,7 +76,6 @@ class ProductController extends Controller
                 $id = Product::max('id') ?? 0;
                 $product_code = 1001 + $id;
                 //save product data
-                $slug=Str::slug($request->name);
                 $product = new Product();
                 $product->name = $request->name;
                 $product->merchant_id=282;
@@ -76,7 +83,7 @@ class ProductController extends Controller
                 $product->sub_category_id = $request->sub_category ?? null;
                 $product->sub_sub_category_id = $request->sub_sub_category ?? null;
                 $product->product_code = $product_code;
-                $product->slug =  $slug. '-' . $product_code;
+                $product->slug = $this->slugCreator($request->name).'-'.$product_code;
                 $product->stock = 0;
                 $product->sale_price = $request->sale_price;
                 $product->price = $request->price;
@@ -99,7 +106,19 @@ class ProductController extends Controller
 
                 //save product multiple image in store directory
                 if ($request->hasFile('image')) {
-                    $files = $request->file('image');
+                 $files = $request->file('image');
+
+                //make thumnail image
+                $filename = time() .$files[0]->getClientOriginalName();
+                $image_resize = Image::make($files[0]->getRealPath());
+                $image_resize->resize(200, 200, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                $image_resize->save(public_path('storage/images/product_thumbnail_img/'.$filename));
+                $product->thumbnail_img = $filename;
+                $product->save();
+
+
                     foreach ($files as $file) {
                         $product_image = new ProductImage();
                         $product_image->product_id = $product->id;
@@ -352,6 +371,17 @@ class ProductController extends Controller
         //save product multiple image in store directory
         if ($request->hasFile('image')) {
             $files = $request->file('image');
+                $product= Product::findOrFail($id);
+                //make thumnail image
+                $filename = time() .$files[0]->getClientOriginalName();
+                $image_resize = Image::make($files[0]->getRealPath());
+                $image_resize->resize(200, 200, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                $image_resize->save(public_path('storage/images/product_thumbnail_img/'.$filename));
+                $product->thumbnail_img = $filename;
+                $product->save();
+
             foreach ($files as $file) {
                 $product_image = new ProductImage();
                 $product_image->product_id = $id;
@@ -392,6 +422,87 @@ class ProductController extends Controller
                 'product'=>$data
                ]);
         }
+
+
+    }
+
+
+
+    public function copyProduct($id,$copy_items)
+    {
+            $c_product=Product::findOrFail($id);
+            DB::transaction(function() use($c_product,$copy_items){
+                for ($p=1; $p <= $copy_items ; $p++) {
+                     //get products tables max id
+                    $max_id = Product::max('id') ;
+                    $product_code = 1001 + $max_id ;
+                    $product = new Product() ;
+                    $product->name = $c_product->name;
+                    $product->category_id = $c_product->category_id;
+                    $product->sub_category_id = $c_product->sub_category_id ?? null;
+                    $product->sub_sub_category_id = $c_product->sub_sub_category_id ?? null;
+                    $product->product_code = $product_code;
+                    $product->slug =  $c_product->name.'_'. rand(111,777) .'-' . $product_code;
+                    $product->sale_price = $c_product->sale_price;
+                    $product->price = $c_product->price;
+                    $product->discount = $c_product->discount ?? null;
+                    $product->status = 1;
+                    $product->stock = 0;
+                    $product->details = $c_product->details;
+                    $product->product_placement = $c_product->product_placement ?? 0;
+                    $product->product_position = $c_product->product_position ?? 0;
+                    $product->save();
+
+
+                    //save product Image
+                    $c_product_variants_img=ProductImage::where('product_id',$c_product->id)->first();
+                    if (!empty($c_product_variants_img)) {
+                        $product_image = new ProductImage();
+                        $product_image->product_id = $product->id;
+                        $product_image->product_image = $c_product_variants_img->product_image;
+                        $product_image->save();
+                    }
+
+                    //if product save then generate product barcode
+                        $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+                        $barcode = $generator->getBarcode($product->product_code, $generator::TYPE_CODE_128);
+                        $product_barcode = new ProductBarcode();
+                        $product_barcode->product_id = $product->id;
+                        $product_barcode->barcode = $barcode;
+                        $product_barcode->barcode_number = $product->product_code;
+                        $product_barcode->save();
+
+                        //save the product
+                         $c_product_attribute=ProductAttribute::where('product_id',$c_product->id)->first();
+                         if (!empty($c_product_attribute)) {
+                            $product_attribute = new ProductAttribute();
+                            $product_attribute->product_id = $product->id;
+                            $product_attribute->attribute_id = $c_product_attribute->attribute_id;
+                            $product_attribute->save();
+                         }
+
+                         $c_product_variants=ProductVariant::where('product_id',$c_product->id)->get();
+                         if (!empty($c_product_variants)) {
+                             for ($v=0; $v <= count($c_product_variants); $v++) {
+                                    foreach ($c_product_variants as  $item) {
+                                        $product_variant = new ProductVariant();
+                                        $product_variant->product_id = $product->id;
+                                        $product_variant->variant_id = $item->variant_id;
+                                        $product_variant->save();
+                                    }
+                             }
+                         }
+
+
+                  }
+
+
+              });
+
+              return response()->json([
+                  'status' => 'success',
+                  'message' => 'product duplicated -'.$copy_items. ' times' ,
+              ]);
 
 
     }

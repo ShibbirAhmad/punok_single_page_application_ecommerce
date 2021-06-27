@@ -4,7 +4,7 @@
         <div class="content-wrapper">
             <section class="content-header">
                 <h1>
-                    <router-link :to="{name:'supplier'}" class="btn btn-primary"><i class="fa fa-arrow-right"></i></router-link>
+                    <router-link :to="{name:'FabricsSupplier'}" class="btn btn-primary"><i class="fa fa-arrow-right"></i></router-link>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i>Dashboard</a></li>
@@ -15,7 +15,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6 col-lg-offset-2">
                         <div class="box box-primary">
-                            <div class="box-header with-border">
+                            <div class="box-header with-border text-center">
                                 <h3 class="box-title">Add Fabrics Supplier</h3>
                             </div>
                             <div class="box-body">
@@ -63,10 +63,12 @@
                                         <input class="form-control" v-model="form.opening_balance"
                                                type="text" placeholder="supplier opening balance"  autocomplete="off">
                                     </div>
-                                    <br/>
-                                    <button :disabled="form.busy" type="submit" class="btn btn-primary"><i
+                                   <div class="form-group text-center">
+                                        <button :disabled="form.busy" type="submit" class="btn btn-primary"><i
                                         class="fa fa-spin fa-spinner" v-if="form.busy"></i>Submit
                                     </button>
+                                   </div>
+
                                 </form>
                             </div>
                         </div>
@@ -88,7 +90,7 @@
     export default {
         name: "Add",
         created() {
-           
+
         },
         data() {
             return {

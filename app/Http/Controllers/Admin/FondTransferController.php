@@ -11,7 +11,7 @@ use App\Models\FoundTransfer;
 
 class FondTransferController extends Controller
 {
-   
+
     public function index(Request $request)
     {
         $item=$request->items ?? 10;
@@ -23,13 +23,7 @@ class FondTransferController extends Controller
         ]);
     }
 
- 
-    public function create()
-    {
-        //
-    }
 
-    
     public function store(Request $request)
     {
 
@@ -48,10 +42,9 @@ class FondTransferController extends Controller
          $found_transfer->amount=$request->amount;
          $found_transfer->cost=$request->cost;
          $found_transfer->creator_admin=session()->get('admin')['name'];
-        
-         if($found_transfer->save()){
 
-             //create a  debit 
+         if($found_transfer->save()){
+            //create a  debit
             $debit = new Debit();
             $debit->purpose =9;
             $debit->debit_from=$request->from;
@@ -73,7 +66,6 @@ class FondTransferController extends Controller
              return \response()->json([
                  'status'=>"OK",
                  'message'=>'Transfer Successfully'
-                 
              ]);
          }
     }

@@ -1,6 +1,7 @@
+
 <!-- CSS Part Start-->
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/js/bootstrap/css/bootstrap.min.css')}}" />
-<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/font-awesome/css/font-awesome.min.css')}}"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/stylesheet.css')}}" />
 {{-- <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/owl.carousel.css')}}" /> --}}
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/owl.transitions.css')}}"/>
@@ -1943,7 +1944,7 @@ span.price-new {
     }
 
     .menu-item {
-        padding: 10px 15px;
+        padding: 10px 10px;
         display: flex;
     }
 
@@ -2022,6 +2023,12 @@ span.price-new {
      display: none;
  }
 
+.menu-item {
+        padding: 10px 15px;
+        display: flex;
+    }
+
+
    .sub-menu-icon {
         display: block;
     }
@@ -2040,7 +2047,14 @@ span.price-new {
       }
 
       .colapse-cart {
-          width: 95%;
+            width: 95%;
+            margin-bottom: 20%;
+            height: 70%;
+        }
+
+        ul.p-image-name li {
+            padding: 0px 5px !important;
+            font-size: 12px;
         }
 
        .main-header-right {
@@ -2133,7 +2147,7 @@ span.price-new {
         /* header respoonsive */
         img.site-logo {
             position: absolute;
-            left: -5%;
+            left: 6%;
             top: 2%;
         }
 
@@ -2147,8 +2161,15 @@ span.price-new {
 
         span.price-new {
         color: var(--primary-color);
-        font-size:12px !important;
+        font-size:12px ;
+        margin-left:-5% ;
         }
+
+        .single_p_price {
+                font-size: 20px !important;
+                margin-left: -35% !important;
+                padding: 0px 45px;
+            }
        /* new arrival section responsive issue */
 
        .arrival_heading {
@@ -2556,7 +2577,7 @@ span.price-new {
 
 
         .product-details{
-            margin-left: -16px;
+            margin-left:0px;
         }
 
         .product-details ul {
@@ -2591,7 +2612,7 @@ span.price-new {
 
         .cart_responsive_item {
 
-                margin-left: 250px;
+                margin-left: 260px;
                 margin-top: -54px;
 
         }
@@ -2682,9 +2703,9 @@ span.price-new {
         }
 
 
-        .short_desc_footer{
-            font-size: 16px;
-            line-height: 24px ;
+        #short_desc_footer{
+            font-size: 16px !important;
+            line-height: 24px !important;
             padding-right: 10px;
         }
 
@@ -2693,11 +2714,14 @@ span.price-new {
             width: 80%;
             left: -7%;
             margin-top: 6px;
+            position:fixed;
         }
         .search-btn{
-            display: block ;
-            top: 28%;
-            left:76%;
+            position:fixed;
+            display: block;
+            top: 16%;
+            left: 76%;
+
         }
 
         .search-content {
@@ -2728,6 +2752,20 @@ span.price-new {
 
     .discount_star {
         font-size:24px;
+    }
+
+ .card-body {
+    margin:10px;
+}
+
+    .user_profile_icon {
+
+        width: 50px; height: 50px;
+    }
+
+    .table_container{
+      overflow-x: scroll;
+       margin:10px;
     }
 
        .best_selling_discount{
@@ -2939,8 +2977,8 @@ span.price-new {
         }
 
         .sale_campaign h3 {
-            margin-left: -15%;
-            font-size: 18px;
+             margin-left: -32%;
+            font-size: 14px;
             margin-top: 10px;
             margin-bottom: 15px;
         }
@@ -2950,7 +2988,6 @@ span.price-new {
             height: 220px !important;
 
             }
-
 
 
     .single_product_image {
@@ -2970,6 +3007,7 @@ span.price-new {
 
 @media screen and (max-width:380px){
 
+
         #footer .f_info_right {
             padding-top: 25px;
             margin-right: 10%;
@@ -2988,10 +3026,10 @@ span.price-new {
         }
 
         .cart_responsive_price {
-            margin-left: 230px;
+            margin-left: 218px;
         }
         .cart_responsive_total {
-            margin-left: 265px;
+            margin-left: 252px;
         }
         .cart_responsive_remove {
                 margin-left: 297px;
@@ -3024,12 +3062,6 @@ span.price-new {
 
 
 }
-
-
-
-
-
-
 
 
 

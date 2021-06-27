@@ -9,7 +9,7 @@
           ></router-link>
            <button @click="exportSupplier" class="btn  btn-success"> <i class="fa fa-download"></i> Export Suppliers </button>
         </h1>
-       
+
         <ol class="breadcrumb">
           <li>
             <a href="#"><i class="fa fa-dashboard"></i>Dashboard</a>
@@ -24,7 +24,7 @@
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <div class="row mt-2">
-                    
+
                     <div class="col-md-6">
                        <h3 class="box-title">Suppliers table</h3>
 
@@ -52,11 +52,11 @@
                         <option value="50">50</option>
                       </select>
                     </div>
-                   
+
                   </div>
                 </div>
                 <div class="box-body">
-                  <table class="table">
+                  <table class="table table-striped text-center table-hover table-bordered">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
@@ -187,7 +187,7 @@ export default {
          }
        })
        .catch()
-     }, 
+     },
 
 
     deActive(supplier) {
@@ -284,7 +284,7 @@ export default {
     },
     exportSupplier(){
       window.open('/api/export/supplier','_balnk')
-     
+
     }
   },
 };

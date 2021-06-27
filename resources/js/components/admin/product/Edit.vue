@@ -532,12 +532,12 @@ export default {
 
             }
           } else {
-            this.error = "some thing want to wrong";
+            this.error = "some thing went to wrong";
           }
         })
         .catch((error) => {
           console.log(error);
-         // this.error = "some thing want to wrong";
+         // this.error = "some thing went to wrong";
         });
     },
     getSaleCampaign(){
@@ -577,7 +577,7 @@ export default {
             })
             .catch((error) => {
               console.log(error);
-              this.error = "some thing want to wrong";
+              this.error = "some thing went to wrong";
             });
         } else {
           this.$toasted.show("OK ! no action here", {
@@ -599,7 +599,7 @@ export default {
             },
           ],
           onUploadProgress: (e) => {
-            // Do whatever you want with the progress event
+            // Do whatever you went with the progress event
             console.log(e);
           },
         })
@@ -615,7 +615,7 @@ export default {
               duration: 4000,
             });
           } else {
-            this.error = "some thing want to wrong";
+            this.error = "some thing went to wrong";
           }
         })
         .catch((error) => {
@@ -623,7 +623,7 @@ export default {
           console.log(error);
           this.$Progress.finish();
 
-          this.error = "some thing want to wrong";
+          this.error = "some thing went to wrong";
         });
     },
     UpdateProductProperties() {
@@ -637,7 +637,7 @@ export default {
             },
           ],
           onUploadProgress: (e) => {
-            // Do whatever you want with the progress event
+            // Do whatever you went with the progress event
             console.log(e);
           },
         })
@@ -653,7 +653,7 @@ export default {
               duration: 4000,
             });
           } else {
-            this.error = "some thing want to wrong";
+            this.error = "some thing went to wrong";
           }
         })
         .catch((error) => {
@@ -661,7 +661,7 @@ export default {
           console.log(error);
           this.$Progress.finish();
 
-          this.error = "some thing want to wrong";
+          this.error = "some thing went to wrong";
         });
     },
     UpdateProductImage() {
@@ -675,7 +675,7 @@ export default {
             },
           ],
           onUploadProgress: (e) => {
-            // Do whatever you want with the progress event
+            // Do whatever you went with the progress event
             console.log(e);
           },
         })
@@ -684,7 +684,6 @@ export default {
           this.$Progress.finish();
 
           if (resp.data.status == "SUCCESS") {
-
             this.$router.push({ name: "product" });
             this.$toasted.show(resp.data.message, {
               type: "success",
@@ -692,15 +691,13 @@ export default {
               duration: 4000,
             });
           } else {
-            this.error = "some thing want to wrong";
+            this.error = "some thing went to wrong";
           }
         })
         .catch((error) => {
           console.log(error);
-          console.log(error);
           this.$Progress.finish();
-
-          this.error = "some thing want to wrong";
+          this.error = "some thing went to wrong" ;
         });
     },
 
@@ -714,12 +711,12 @@ export default {
             this.merchants = resp.data.merchants;
             this.attributes = resp.data.attributes;
           } else {
-            this.error = "some thing want to wrong";
+            this.error = "some thing went to wrong";
           }
         })
         .catch((error) => {
           //  console.log(error)
-          this.error = "some thing want to wrong";
+          this.error = "some thing went to wrong";
         });
     },
     categoryWiseSubCategory() {
@@ -740,7 +737,7 @@ export default {
           }
         })
         .catch((error) => {
-          this.error = "some thing want wrong";
+          this.error = "some thing went wrong";
         });
     },
     subCategoryWiseSubSUbCategory() {
@@ -761,7 +758,7 @@ export default {
           }
         })
         .catch((error) => {
-          this.error = "some thing want wrong";
+          this.error = "some thing went wrong";
         });
     },
     attributeWiseVariants() {
@@ -777,7 +774,7 @@ export default {
         })
         .catch((error) => {
           console.log(error);
-          this.error = "some thing want wrong";
+          this.error = "some thing went wrong";
         });
     },
     salePrice() {

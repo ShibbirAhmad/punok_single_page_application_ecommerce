@@ -21,7 +21,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-6 col-lg-offset-2">
             <div class="box box-primary">
-              <div class="box-header with-border">
+              <div class="box-header with-border text-center">
                 <h3 class="box-title">
                   Add slider
                   <small>({{ image_size_text }})</small>
@@ -46,21 +46,23 @@
                         <label>Url</label>
                         <input class="form-control" type="text" name="url" v-model="form.url" />
                       </div>
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <label>Postion</label>
                         <select
                           name="postion"
                           class="form-control"
+                          @change="selectPosition"
                           v-model="form.position"
                           :class="{ 'is-invalid': form.errors.has('postion') }"
                         >
                           <option value="1">Slider</option>
+                          <option value="2">Slider Banner</option>
                         </select>
                         <has-error :form="form" field="image"></has-error>
-                      </div>
+                      </div> -->
 
-                      <div class="form-group">
-                        <img id="previewImage" :src="preview" alt="slider"  style="width:508px;height:150px;" />
+                      <div class="preview-image">
+                        <img class="img-responsive" :src="form.file" alt="slider" />
                       </div>
                       <div class="form-group">
                         <label for="file" class="selectFile">select a file</label>
@@ -78,14 +80,16 @@
                     </div>
                   </div>
 
-                  <br />
-                  <button
+                   <div class="form-group text-center">
+                      <button
                     :disabled="form.busy || disabled"
                     type="submit"
                     class="btn btn-primary btn-block"
                   >
                     <i class="fa fa-spin fa-spinner" v-if="form.busy"></i>Submit
                   </button>
+                   </div>
+
                 </form>
               </div>
             </div>
@@ -113,18 +117,18 @@ export default {
     return {
       form: new Form({
         image: "",
+        file: this.$store.state.image_base_link+'images/slider-preview.jpg',
         position: 1,
         url: "#",
       }),
-      preview:this.$store.state.image_base_link+'images/noimage.png',
       error: "",
       loading: true,
       image: "",
-      disabled: true, 
-      image_width: 1360,
-      image_height: 365,
-      imagae_size:1024,
-      image_size_text: "Image size must be 1360*365px",
+      disabled: true,
+      image_width: 750,
+      image_height: 400,
+      imagae_size:550,
+      image_size_text: "Image size must be 750*400px",
     };
   },
 
@@ -140,7 +144,7 @@ export default {
         })
         .then((resp) => {
           console.log(resp)
-          if (resp.data.status == "OK") {
+          if (resp.data.status == "SUCCESS") {
             this.$router.push({ name: "slider" });
             this.$toasted.show(resp.data.message, {
               type: "success",
@@ -160,7 +164,7 @@ export default {
           });
         });
     },
-     uploadImage(e) {
+    uploadImage(e) {
       const file = e.target.files[0];
      if (!file.type.match("image.*")) {
          Swal.fire({
@@ -208,10 +212,24 @@ export default {
       console.log(file);
       this.disabled = false;
       this.form.image = file;
-      document.getElementById('previewImage').src = evt.target.result;
+      this.form.file = evt.target.result;
     },
 
-
+    selectPosition() {
+      if (this.form.position == 1) {
+        this.form.file = "/../storage/images/slider-preview.jpg";
+        this.image_width = 870;
+        this.image_height = 350;
+        this.image_size_text = "Image size must be 870*350px";
+        this.imagae_size=550;
+      } else {
+        this.form.file = this.$store.state.image_base_link+'images/static/300x350.jpg';
+        this.imagae_size=70;
+        this.image_size_text = "Image size must be 300*350px";
+        this.image_width = 300;
+        this.image_height = 350;
+      }
+    },
   },
   computed: {},
 };

@@ -1,1 +1,816 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[69],{1067:function(t,a,e){"use strict";e.r(a);var s={components:{Index:e(8).default},created:function(){this.saleList()},data:function(){return{sales:{},loading:!0,item:20,sale_type:2,start_date:"",end_date:"",data_search:"",options:{format:"YYYY-MM-DD",useCurrent:!1}}},methods:{saleSearch:function(){var t=this,a=arguments.length>0&&void 0!==arguments[0]?arguments[0]:1;this.data_search.length>1?(this.loading=!0,axios.get("/api/company/sale/search/data/"+this.data_search+"?page="+a).then((function(a){"OK"==a.data.status&&(t.sales=a.data.sales,t.loading=!1)})).catch((function(t){console.log(t),alert("some thing want wrong")}))):this.saleList()},filterCompanySale:function(){var t=this,a=arguments.length>0&&void 0!==arguments[0]?arguments[0]:1;axios.get("/api/company/sale/date/wise/filter?page="+a,{params:{start_date:this.start_date,end_date:this.end_date,item:this.item}}).then((function(a){console.log(a),"OK"==a.data.status&&(t.sales=a.data.sales)})).catch((function(t){console.log(t)}))},saleList:function(){var t=this,a=arguments.length>0&&void 0!==arguments[0]?arguments[0]:1;axios.get("/api/company/sales/list?page="+a,{params:{item:this.item,sale_type:this.sale_type}}).then((function(a){console.log(a),"SUCCESS"==a.data.status?(t.sales=a.data.sales,t.loading=!1):t.$toasted.show("some thing want to wrong",{type:"error",position:"top-center",duration:5e3})})).catch((function(a){t.$toasted.show("some thing want to wrong",{type:"error",position:"top-center",duration:4e3})}))},paid:function(t,a){var e=this;Swal.fire({title:"Are you sure?",text:"You won't make this paid",type:"warning",showCancelButton:!0,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Yes!"}).then((function(s){s.value?axios.get("/sale/paid/"+t).then((function(t){"OK"==t.data.success&&(e.sales.data[a].status=2,e.$toasted.show(t.data.message,{position:"top-center",type:"success",duration:2e3}))})).catch((function(t){e.$toasted.show("some thing want to wrong",{position:"top-center",type:"error",duration:4e3})})):e.$toasted.show("Ok ! no action here",{position:"top-center",type:"info",duration:3e3})}))},returned:function(t,a){var e=this;Swal.fire({title:"Are you sure?",text:"You won't make this paid",type:"warning",showCancelButton:!0,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Yes!"}).then((function(s){s.value?axios.get("/sale/returned/"+t).then((function(t){"OK"==t.data.success&&(e.sales.data[a].status=2,e.$toasted.show(t.data.message,{position:"top-center",type:"success",duration:2e3}))})).catch((function(t){})):e.$toasted.show("Ok ! no action here",{position:"top-center",type:"info",duration:3e3})}))}},watch:{start_date:function(t){t.length>1&&this.filterCompanySale()},end_date:function(t){t.length>1&&this.filterCompanySale()}}},o=e(1),n=Object(o.a)(s,(function(){var t=this,a=t.$createElement,e=t._self._c||a;return e("div",[e("admin-main"),t._v(" "),e("div",{staticClass:"content-wrapper"},[e("section",{staticClass:"content-header"},[e("h1",[e("router-link",{staticClass:"btn btn-primary",attrs:{to:{name:"AddSale"}}},[e("i",{staticClass:"fa fa-plus"})])],1),t._v(" "),t._m(0)]),t._v(" "),e("section",{staticClass:"content"},[e("div",{staticClass:"container"},[e("div",{staticClass:"row justify-content-center"},[e("div",{staticClass:"col-lg-11"},[e("div",{staticClass:"box box-primary"},[e("div",{staticClass:"box-header with-border"},[e("h3",{staticClass:"box-title"},[t._v("Company_sale")]),t._v(" "),e("div",{staticClass:"row",staticStyle:{"margin-top":"10px"}},[e("div",{staticClass:"col-lg-4"},[e("input",{directives:[{name:"model",rawName:"v-model",value:t.data_search,expression:"data_search"}],staticClass:"form-control",attrs:{placeholder:"enter name, phone or address "},domProps:{value:t.data_search},on:{keyup:t.saleSearch,input:function(a){a.target.composing||(t.data_search=a.target.value)}}})]),t._v(" "),e("div",{staticClass:"col-lg-6"},[e("form",{on:{submit:function(a){return a.preventDefault(),t.filterCompanySale(a)}}},[e("div",{staticClass:"row"},[e("div",{staticClass:"col-lg-5"},[e("date-picker",{attrs:{autocomplete:"off",placeholder:"start-date",config:t.options},model:{value:t.start_date,callback:function(a){t.start_date=a},expression:"start_date"}})],1),t._v(" "),e("div",{staticClass:"col-lg-5",staticStyle:{"margin-left":"-20px"}},[e("date-picker",{attrs:{autocomplete:"off",placeholder:"end-date",config:t.options},model:{value:t.end_date,callback:function(a){t.end_date=a},expression:"end_date"}})],1)])])]),t._v(" "),e("div",{staticClass:"col-lg-2"},[e("select",{directives:[{name:"model",rawName:"v-model",value:t.item,expression:"item"}],staticClass:"form-control",on:{change:[function(a){var e=Array.prototype.filter.call(a.target.options,(function(t){return t.selected})).map((function(t){return"_value"in t?t._value:t.value}));t.item=a.target.multiple?e:e[0]},t.saleList]}},[e("option",{attrs:{value:"10"}},[t._v("10")]),t._v(" "),e("option",{attrs:{value:"20"}},[t._v("20")]),t._v(" "),e("option",{attrs:{value:"40"}},[t._v("40")]),t._v(" "),e("option",{attrs:{value:"60"}},[t._v("60")]),t._v(" "),e("option",{attrs:{value:"40"}},[t._v("80")]),t._v(" "),e("option",{attrs:{value:"60"}},[t._v("100")])])])])]),t._v(" "),e("div",{staticClass:"box-body"},[e("table",{staticClass:"table"},[t._m(1),t._v(" "),e("tbody",[t.loading?e("h1",[e("i",{staticClass:"fa fa-spin fa-spinner"})]):t._l(t.sales.data,(function(a,s){return e("tr",{key:s},[e("td",{attrs:{scope:"row"}},[t._v(t._s(s+1))]),t._v(" "),e("td",[t._v(t._s(a.company?a.company.name:""))]),t._v(" "),e("td",[t._v(t._s(a.invoice_no?a.invoice_no:""))]),t._v(" "),e("td",[1==a.status?e("span",{staticClass:"badge badge-primary"},[t._v("Initial")]):t._e(),t._v(" "),2==a.status?e("span",{staticClass:"badge badge-success"},[t._v("Paid")]):t._e(),t._v(" "),3==a.status?e("span",{staticClass:"badge badge-danger"},[t._v("Retruned")]):t._e()]),t._v(" "),e("td",[t._v("\n                         Total: "+t._s(a.total)+",\n                        "),e("strong",[t._v("Paid: "+t._s(a.paid)+",")]),t._v(" \n                        Due: "+t._s(parseInt(a.total)-parseInt(a.paid))+"\n                      ")]),t._v(" "),e("td",[e("router-link",{staticClass:"btn btn-primary btn-sm",attrs:{to:{name:"ViewSale",params:{id:a.id}}}},[e("i",{staticClass:"fa fa-eye"})]),t._v(" "),1==a.status?e("a",{staticClass:"btn btn-success",on:{click:function(e){return e.preventDefault(),t.paid(a.id,s)}}},[t._v("Paid")]):t._e(),t._v(" "),1==a.status?e("a",{staticClass:"btn btn-danger",on:{click:function(e){return e.preventDefault(),t.returned(a.id,s)}}},[t._v("Returend")]):t._e()],1)])}))],2)])]),t._v(" "),e("div",{staticClass:"box-footer"},[e("div",{staticClass:"row"},[e("div",{staticClass:"col-lg-6"},[e("pagination",{attrs:{data:t.sales},on:{"pagination-change-page":t.saleList}})],1),t._v(" "),e("div",{staticClass:"col-lg-6 mt-1",staticStyle:{"margin-top":"25px","text-align":"right"}},[e("p",[t._v("\n                      Showing "),e("strong",[t._v(t._s(t.sales.from))]),t._v(" to\n                      "),e("strong",[t._v(t._s(t.sales.to))]),t._v(" of total\n                      "),e("strong",[t._v(t._s(t.sales.total))]),t._v(" entries\n                    ")])])])])])])])])])])],1)}),[function(){var t=this.$createElement,a=this._self._c||t;return a("ol",{staticClass:"breadcrumb"},[a("li",[a("a",{attrs:{href:"#"}},[a("i",{staticClass:"fa fa-dashboard"}),this._v("Dashboard")])]),this._v(" "),a("li",{staticClass:"active"},[this._v("Company_Sale")])])},function(){var t=this,a=t.$createElement,e=t._self._c||a;return e("thead",[e("tr",[e("th",{attrs:{scope:"col"}},[t._v("#")]),t._v(" "),e("th",{attrs:{scope:"col"}},[t._v("Company")]),t._v(" "),e("th",{attrs:{scope:"col"}},[t._v("Invoice_no")]),t._v(" "),e("th",{attrs:{scope:"col"}},[t._v("Status")]),t._v(" "),e("th",{attrs:{scope:"col"}},[t._v("Total")]),t._v(" "),e("th",{attrs:{scope:"col"}},[t._v("Action")])])])}],!1,null,"35017236",null);a.default=n.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["companysale"],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/sale/CompanySale.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/sale/CompanySale.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_bootstrap_datetimepicker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-bootstrap-datetimepicker */ "./node_modules/vue-bootstrap-datetimepicker/dist/vue-bootstrap-datetimepicker.js");
+/* harmony import */ var vue_bootstrap_datetimepicker__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_bootstrap_datetimepicker__WEBPACK_IMPORTED_MODULE_2__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MODULE_1__["HasError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["HasError"]);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.companyList();
+  },
+  data: function data() {
+    return {
+      companies: {},
+      loading: true,
+      form: new vform__WEBPACK_IMPORTED_MODULE_1__["Form"]({
+        date: "",
+        company_id: "",
+        credit_in: "Cash",
+        comment: "",
+        amount: ""
+      }),
+      options: {
+        format: "YYYY-MM-DD",
+        useCurrent: true
+      }
+    };
+  },
+  methods: {
+    getPayment: function getPayment() {
+      var _this = this;
+
+      this.form.post("/api/get/company/sale/payment", {
+        transformRequest: [function (data, headers) {
+          return objectToFormData(data);
+        }]
+      }).then(function (resp) {
+        console.log(resp);
+
+        if (resp.data.status == "OK") {
+          _this.$toasted.show(resp.data.message, {
+            type: "success",
+            position: "top-center",
+            duration: 4000
+          });
+
+          _this.form.date = '';
+          _this.form.amount = '';
+          _this.form.comment = '';
+
+          _this.$modal.hide("payment_modal");
+
+          _this.companyList();
+        }
+      });
+    },
+    companyList: function companyList() {
+      var _this2 = this;
+
+      axios.get("/company").then(function (resp) {
+        console.log(resp);
+
+        if (resp.data.status == "SUCCESS") {
+          _this2.companies = resp.data.companies;
+          _this2.loading = false;
+        }
+      });
+    },
+    totalPurchase: function totalPurchase($sales) {
+      var total = 0;
+      $sales.forEach(function (sale) {
+        total += sale.total;
+      });
+      return total;
+    },
+    totalPaid: function totalPaid(company) {
+      var total_partial_paid = 0;
+      var total_sale_paid = 0;
+      company.payments.forEach(function (payment) {
+        total_partial_paid += payment.amount;
+      });
+      company.sales.forEach(function (sale) {
+        total_sale_paid += sale.paid;
+      });
+      var total_paid = parseInt(total_sale_paid) + parseInt(total_partial_paid);
+      return total_paid;
+    },
+    dueStillNow: function dueStillNow(company) {
+      var total_paid = 0;
+      var total_due = 0;
+      company.payments.forEach(function (payment) {
+        total_paid += payment.amount;
+      });
+      company.sales.forEach(function (sale) {
+        total_due += sale.total - sale.paid;
+      });
+      var due_amount = total_due - total_paid;
+      return due_amount;
+    },
+    showModal: function showModal($id) {
+      this.form.company_id = $id;
+      this.$modal.show("payment_modal");
+    }
+  },
+  components: {
+    HasError: vform__WEBPACK_IMPORTED_MODULE_1__["HasError"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/sale/CompanySale.vue?vue&type=template&id=1524f147&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/sale/CompanySale.vue?vue&type=template&id=1524f147&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("admin-main"),
+      _vm._v(" "),
+      _c("div", { staticClass: "content-wrapper" }, [
+        _c("section", { staticClass: "content-header" }, [
+          _c(
+            "h1",
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { to: { name: "AddCompanySale" } }
+                },
+                [_c("i", { staticClass: "fa fa-plus" })]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm._m(0)
+        ]),
+        _vm._v(" "),
+        _c("section", { staticClass: "content" }, [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-lg-11" }, [
+                _c("div", { staticClass: "box box-primary" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "box-body" }, [
+                    _c(
+                      "table",
+                      {
+                        staticClass:
+                          "\n                    table\n                    text-center\n                    table-hover table-striped table-bordered\n                  "
+                      },
+                      [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          [
+                            _vm.loading
+                              ? _c("h1", { staticClass: "text-center" }, [
+                                  _c("i", {
+                                    staticClass: "fa fa-spin fa-spinner"
+                                  })
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm._l(_vm.companies, function(company, index) {
+                              return _c("tr", { key: index }, [
+                                _c("td", { attrs: { scope: "row" } }, [
+                                  _vm._v(_vm._s(index + 1))
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  [
+                                    _c(
+                                      "router-link",
+                                      {
+                                        staticStyle: {
+                                          color: "blue !important",
+                                          "font-size": "14px"
+                                        },
+                                        attrs: {
+                                          to: {
+                                            name: "company_sale_details",
+                                            params: { id: company.id }
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                          " +
+                                            _vm._s(company.name) +
+                                            "\n                        "
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(company.phone))]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(company.address))]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(
+                                    "\n                        total sale\n                        "
+                                  ),
+                                  _c(
+                                    "span",
+                                    { staticClass: "badge badge-danger" },
+                                    [
+                                      _vm._v(
+                                        "\n                          ৳ " +
+                                          _vm._s(
+                                            _vm.totalPurchase(company.sales)
+                                          ) +
+                                          "\n                        "
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(
+                                    "  ||\n\n                        due\n                        "
+                                  ),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass: "badge badge-warning s_d_n"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                          ৳ " +
+                                          _vm._s(_vm.dueStillNow(company)) +
+                                          "\n                        "
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _c(
+                                    "span",
+                                    { staticClass: "badge badge-success" },
+                                    [
+                                      _vm._v(
+                                        " ৳ " +
+                                          _vm._s(_vm.totalPaid(company)) +
+                                          " "
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-success btn-sm",
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.showModal(company.id)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                          get paid\n                        "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "router-link",
+                                      {
+                                        staticClass: "btn btn-primary btn-sm",
+                                        attrs: {
+                                          to: {
+                                            name: "company_payment_details",
+                                            params: { id: company.id }
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                          Payment Details\n                        "
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                )
+                              ])
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "modal",
+        { attrs: { name: "payment_modal", width: 400, height: 370 } },
+        [
+          _c(
+            "form",
+            {
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.getPayment($event)
+                }
+              }
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "card", staticStyle: { padding: "20px" } },
+                [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", [_vm._v("Date")]),
+                        _vm._v(" "),
+                        _c("date-picker", {
+                          class: { "is-invaid": _vm.form.errors.has("date") },
+                          attrs: { required: "", config: _vm.options },
+                          model: {
+                            value: _vm.form.date,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "date", $$v)
+                            },
+                            expression: "form.date"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "date" }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", [_vm._v("Amount")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.amount,
+                            expression: "form.amount"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", required: "" },
+                        domProps: { value: _vm.form.amount },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "amount", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", [_vm._v(" Credit In ")]),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.credit_in,
+                                expression: "form.credit_in"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("credit_in")
+                            },
+                            attrs: { name: "credit_in" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.form,
+                                  "credit_in",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "Cash" } }, [
+                              _vm._v("Cash")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              { attrs: { value: "Bkash(personal)" } },
+                              [_vm._v("Bkash(personal)")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              { attrs: { value: "Bkash(merchant)" } },
+                              [_vm._v("Bkash(merchant)")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Bank(SIBL)" } }, [
+                              _vm._v("Bank(SIBL)")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Bank(AIBL)" } }, [
+                              _vm._v("Bank(AIBL)")
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "credit_in" }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", [_vm._v("Comment")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.comment,
+                            expression: "form.comment"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text" },
+                        domProps: { value: _vm.form.comment },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "comment", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success btn-block",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("\n            Submit\n          ")]
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ol", { staticClass: "breadcrumb" }, [
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fa fa-dashboard" }),
+          _vm._v("Dashboard")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "active" }, [_vm._v("Company_Sale")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "box-header with-border text-center" }, [
+      _c("h3", { staticClass: "box-title" }, [_vm._v("Company Sales")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Phone")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Address")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Due")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Paid")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Action")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/sale/CompanySale.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/admin/sale/CompanySale.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CompanySale_vue_vue_type_template_id_1524f147_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CompanySale.vue?vue&type=template&id=1524f147&scoped=true& */ "./resources/js/components/admin/sale/CompanySale.vue?vue&type=template&id=1524f147&scoped=true&");
+/* harmony import */ var _CompanySale_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CompanySale.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/sale/CompanySale.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CompanySale_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CompanySale_vue_vue_type_template_id_1524f147_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CompanySale_vue_vue_type_template_id_1524f147_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "1524f147",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/sale/CompanySale.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/sale/CompanySale.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/admin/sale/CompanySale.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CompanySale_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CompanySale.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/sale/CompanySale.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CompanySale_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/sale/CompanySale.vue?vue&type=template&id=1524f147&scoped=true&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/admin/sale/CompanySale.vue?vue&type=template&id=1524f147&scoped=true& ***!
+  \*******************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CompanySale_vue_vue_type_template_id_1524f147_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CompanySale.vue?vue&type=template&id=1524f147&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/sale/CompanySale.vue?vue&type=template&id=1524f147&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CompanySale_vue_vue_type_template_id_1524f147_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CompanySale_vue_vue_type_template_id_1524f147_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

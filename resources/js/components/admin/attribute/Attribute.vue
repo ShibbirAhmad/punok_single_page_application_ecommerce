@@ -16,25 +16,19 @@
             <section class="content">
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-lg-8 col-lg-offset-1">
+                        <div class="col-lg-6 col-lg-offset-1">
                             <div class="box box-primary">
-                                <div class="box-header with-border">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <h3 class="box-title">Attribute table</h3>
-
-                                        </div>
-                                    </div>
+                                <div class="box-header with-border text-center">
+                                   <h3 class="box-title">Attribute table</h3>
                                 </div>
                                 <div class="box-body">
-                                    <table class="table table-striped">
+                                    <table class="table text-center table-striped table-bordered table-hover">
                                         <thead>
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">name</th>
                                             <th scope="col">status</th>
                                             <th scope="col">action</th>
-
 
                                         </tr>
                                         </thead>
@@ -48,13 +42,14 @@
                                                 <span v-else class="badge">De-active</span>
                                             </td>
                                             <td>
-                                                <a class="btn btn-warning" title="De-active"
+                                                <a class="btn btn-sm btn-warning" title="De-active"
                                                    @click="deActive(attribute)"
                                                    v-if="attribute.status==1"><i class="fa fa-ban"></i></a>
-                                                <a class="btn btn-primary" title="active" @click="active(attribute)"
+                                                <a class="btn btn-sm btn-primary" title="active" @click="active(attribute)"
                                                    v-else><i
                                                     class="fa fa-check"></i></a>
 
+                                                 <router-link class="btn btn-sm btn-success" :to="{name:'attributeEdit',params:{id:attribute.id}}"><i class="fa fa-edit"></i></router-link>
                                             </td>
                                         </tr>
                                         </tbody>

@@ -28,10 +28,16 @@
                         </p>
                       </div>
                       <div v-else>
-                        <div class="col-lg-4 invoice-body" style="margin-left: 27px">
-                          <p>Sale Type:Company_sale</p>
-                          <p>Company Name: "Daraz"</p>
-                        </div>
+                           <p>Name: {{ sale.company?sale.company.name : 'company' }}</p>
+                        <p>
+                          Mobile No: <strong> {{ sale.company.phone }} </strong>
+                        </p>
+                        <p class="address_line">Address: {{ sale.company.address }}</p>
+
+                        <p>
+                          Invoice No:
+                          <strong> {{ "S-" + sale.id }}</strong>
+                        </p>
                       </div>
                     </div>
 
@@ -45,9 +51,9 @@
                     </div>
                     <div style="margin-left: 27px" class="col-md-4 col-sm-4 address">
                       <p v-html="general_setting.invoice_address_details" class="address_line">
-                        
+
                       </p>
-                    
+
                       <p>
                         Date:<strong> {{ sale.created_at}}</strong>
                       </p>

@@ -4,7 +4,7 @@
         <div class="content-wrapper">
             <section class="content-header">
                 <h1>
-                    <router-link :to="{name:'variant'}" class="btn btn-primary"><i class="fa fa-arrow-right"></i>
+                    <router-link :to="{name:'variant'}" class="btn btn-primary"><i class="fa fa-arrow-left"></i>
                     </router-link>
                 </h1>
                 <ol class="breadcrumb">
@@ -16,7 +16,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6 col-lg-offset-2">
                         <div class="box box-primary">
-                            <div class="box-header with-border">
+                            <div class="box-header with-border text-center">
                                 <h3 class="box-title">Add Variant</h3>
                             </div>
                             <div class="box-body">
@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="form-group">
                                         <select class="form-control" name="attribute" v-model="form.attribute">
-                                            <option value="">Select attribute</option>
+                                            <option value="">Select Attribute</option>
                                             <option v-for="attribute in attributes" :class="{ 'is-invalid': form.errors.has('attribute') }" :value="attribute.id">{{attribute.name}}</option>
                                         </select>
                                         <has-error :form="form" field="attribute"></has-error>
@@ -41,11 +41,12 @@
                                         <has-error :form="form" field="name"></has-error>
                                     </div>
 
-                                    <!--                                    <img :src="image" style="width: 500px;">-->
-                                    <br/>
-                                    <button :disabled="form.busy" type="submit" class="btn btn-primary"><i
+                                   <div class="form-group text-center">
+                                       <button :disabled="form.busy" type="submit" class="btn btn-primary"><i
                                         class="fa fa-spin fa-spinner" v-if="form.busy"></i>Submit
                                     </button>
+                                   </div>
+
                                 </form>
                             </div>
                         </div>

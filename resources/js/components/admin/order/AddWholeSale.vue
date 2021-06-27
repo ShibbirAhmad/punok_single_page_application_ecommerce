@@ -171,6 +171,7 @@
               </div>
             </div>
 
+
             <div class="col-lg-8">
               <div class="box box-success">
                 <div class="box-header with-border">
@@ -179,19 +180,21 @@
                 <div class="box-body">
                   <div class="form-group">
                     <label>Scan Barcode || prodcut code</label>
-                    <input type="text"
+                    <input
+                      type="text"
                       name="name"
                       class="form-control"
                       autofocus
                       autocomplete="off"
                       placeholder="Enter Product Code"
-                    form="searchProductform"
-                      v-model="product_code"/>
+                      form="searchProductform"
+                      v-model="product_code"
+                    />
                   </div>
 
                   <div class="row">
                     <div class="col-lg-12">
-                      <table class="table">
+                      <table class="table table-hover table-bordered table-striped ">
                         <thead>
                           <tr>
                             <th>#</th>
@@ -206,39 +209,22 @@
                         </thead>
                         <tbody v-if="products.length > 0">
                           <tr v-for="(product, index) in products" :key="index">
-                            <td>{{ index  }}</td>
+                            <td  style="width:10px" >{{ index }}</td>
                             <td>
                               {{ product.name + "-" + product.product_code }}
                               <input type="hidden" :value="product.id" />
                             </td>
-                            <!-- <td>
-                              <select
-                                class="form-control"
-                                v-model="form.products[index].attribute_id"
-                              >
-                                <option value>select attribute</option>
-                                <option
-                                  v-if="product.attributes"
-                                  v-for="(product_attribute,
-                                  index) in product.attributes"
-                                  :key="index"
-                                  :value="product_attribute.attribute.id"
-                                >
-                                  {{ product_attribute.attribute.name }}
-                                </option>
-                              </select>
-                            </td> -->
+
                             <td>
                               <select
                                 class="form-control"
                                 v-model="form.products[index].variant_id"
-                                  style="width: 30px"
+                                style="width: 80px"
                               >
-                                <option value>select attribute</option>
+                                <option value>select variant</option>
                                 <option
                                   v-if="product.variants"
-                                  v-for="(product_variant,
-                                  index) in product.variants"
+                                  v-for="(product_variant, index) in product.variants"
                                   :key="index"
                                   :value="product_variant.variant.id"
                                 >
@@ -252,39 +238,34 @@
                                 v-model="form.products[index].quantity"
                                 @keyup="quantity(index)"
                                 @change="quantity(index)"
-                                style="width:30px"
+                                style="width: 70px"
                               />
-                              <span class="badge badge-danger">{{
-                                product.stock
-                              }}</span>
+                              <span class="badge badge-danger">{{ product.stock }}</span>
                             </td>
-                            <td>
-                              <input
+                            <td >
+                              <input style="width: 80px" 
                                 v-model="form.products[index].price"
                                 @keyup="totalCalculation && quantity(index)"
                                 v-if="form.order_type == 3"
-                                  style="width:40px"
                               />
                               <strong v-else>{{ product.price }}</strong>
                             </td>
                             <td>{{ form.products[index].total }}</td>
                             <td>
-                              <a
-                                class="btn btn-danger btn-sm"
-                                @click="remove(index)"
+                              <a class="btn btn-danger btn-sm" @click="remove(index)"
                                 ><i class="fa fa-trash"></i
                               ></a>
                             </td>
                           </tr>
                           <tr v-if="products.length > 0">
-                            <td colspan="5"></td>
+                            <td colspan="4"></td>
                             <td>Total Amount</td>
-                            <td>{{ form.total }}</td>
+                            <td colspan="2">{{ form.total }}</td>
                           </tr>
                           <tr v-if="products.length > 0">
-                            <td colspan="5"></td>
+                            <td colspan="4"></td>
                             <td>Discount</td>
-                            <td style="width:70px;">
+                            <td colspan="2">
                               <input
                                 class="form-control"
                                 @keyup="totalCalculation"
@@ -294,9 +275,9 @@
                             </td>
                           </tr>
                           <tr v-if="products.length > 0">
-                            <td colspan="5"></td>
+                            <td colspan="4"></td>
                             <td>Paid</td>
-                            <td>
+                            <td colspan="2">
                               <input
                                 v-model="form.paid"
                                 @keyup="totalCalculation"
@@ -306,31 +287,36 @@
                             </td>
                           </tr>
                            <tr>
-                            <td colspan="5"></td>
-
+                            <td colspan="4"></td>
                             <td>Paid By</td>
-                            <td>
-                               <div class="form-group">
-                                  <select name="debit_from" id="" class="form-control" v-model="form.paid_by"  :class="{ 'is-invalid': form.errors.has('paid_by') }">
-                                     <option value="Cash">Cash</option>
-                                     <option value="Bkash(personal)">Bkash(personal)</option>
-                                     <option value="Bkash(merchant)">Bkash(merchant)</option>
-                                     <option value="Bank(SIBL)">Bank(SIBL)</option>
-                                     <option value="Bank(AIBL)">Bank(AIBL)</option>
-                                     </select>
+                            <td colspan="2">
+                              <div class="form-group">
+                                <select
+                                  name="debit_from"
+                                  id=""
+                                  class="form-control"
+                                  v-model="form.paid_by"
+                                  :class="{ 'is-invalid': form.errors.has('paid_by') }"
+                                >
+                                  <option value="Cash">Cash</option>
+                                  <option value="Bkash(personal)">Bkash(personal)</option>
+                                  <option value="Bkash(merchant)">Bkash(merchant)</option>
+                                  <option value="Bank(SIBL)">Bank(SIBL)</option>
+                                  <option value="Bank( )">Bank(AIBL)</option>                                </select>
                                 <has-error :form="form" field="paid_by"></has-error>
                               </div>
                             </td>
                           </tr>
+
                           <tr v-if="products.length > 0">
-                            <td colspan="5"></td>
+                            <td colspan="4"></td>
                             <td>Shipping_charge</td>
-                            <td>{{ form.shipping_cost }}</td>
+                            <td colspan="2">{{ form.shipping_cost }}</td>
                           </tr>
                           <tr v-if="products.length > 0">
-                            <td colspan="5"></td>
+                            <td colspan="4"></td>
                             <td>Amoutn due</td>
-                            <td>{{ form.due }}</td>
+                           <td colspan="2">{{ form.due }}</td>
                           </tr>
 
                           <button
@@ -351,73 +337,6 @@
           </div>
         </form>
 
-        <div class="row justify-content-center" id="sg-product">
-          <div class="col-md-12">
-            <div class="box box-success">
-              <div class="box-header with-border text-center">
-                <h4 class="heading text-uppercase text-bold">Add to product from suggested product</h4>
-              </div>
-              <div class="box-body">
-                <div class="row">
-                  <div class="col-md-4">
-                    <input
-                      type="text"
-                      @keyup="search_suggested_product"
-                      v-model="search_product_code"
-                      placeholder="enter product code"
-                      class="form-control"
-                    />
-
-                  </div>
-                   <div class="col-md-6">
-                   </div>
-                  <div class="col-md-2">
-                    <select
-                      class="form-control"
-                      name="item"
-                      @change="getSuggestingProducts"
-                      v-model="product_per_page"
-                    >
-                      <option value="" disabled>select item</option>
-                      <option value="10">10</option>
-                      <option value="20">20</option>
-                      <option value="30">30</option>
-                      <option value="40">40</option>
-                      <option value="50">50</option>
-                    </select>
-                  </div>
-                </div>
-                <br/>
-                <div class="row suggest-box">
-                    <div
-                    v-for="(product_item, index) in suggested_products.data"
-                    :key="index"
-                    class="col-md-2"
-                  >
-                    <div class="suggest-product">
-                      <img
-                        class="sug-image-product"
-                        v-if="product_item.product_image.length"
-                        :src="
-                          base_link +
-                          product_item.product_image[0].product_image
-                        "
-                        alt="image"
-                      />
-                      <p>code: {{ product_item.product_code }}</p>
-                      <p> <strong>Stock: {{ product_item.stock }}</strong> </p>
-                       <div class="add-item text-center"  @click="product_code=product_item.product_code.toString()">
-                          ADD
-                    </div>
-                    </div>
-
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
     </div>
   </div>
@@ -437,7 +356,6 @@ export default {
   name: "Add",
   created() {
     this.others();
-    this.getSuggestingProducts();
 
   },
   data() {
@@ -474,8 +392,6 @@ export default {
       couriers: null,
       product_quantity: 1,
       errors: [],
-
-      suggested_products: {},
       product_per_page:10,
       base_link: this.$store.state.image_base_link,
       sub_cities:""
@@ -756,23 +672,10 @@ export default {
               this.suggested_products = resp.data.products;
             }
           });
-      } else {
-        this.getSuggestingProducts();
       }
     },
 
-    getSuggestingProducts(page = 1) {
-      axios
-        .get("/api/get/seggested/product/for/order?page=" + page, {
-          params: { item: this.product_per_page },
-        })
-        .then((resp) => {
-          // console.log(resp);
-          if (resp.data.status == "OK") {
-            this.suggested_products = resp.data.products;
-          }
-        });
-    },
+
 
     },
 

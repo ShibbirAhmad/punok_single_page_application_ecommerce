@@ -115,7 +115,7 @@
 
                         </td>
 
-                      
+
                       </tr>
                     </tbody>
                   </table>
@@ -144,7 +144,7 @@
               </div>
             </div>
           </div>
-         
+
         </div>
       </section>
     </div>
@@ -194,7 +194,7 @@ export default {
           })
           .catch((error) => {
             console.log(error);
-            alert("some thing want wrong");
+            alert("some thing went wrong");
           });
       } else {
         this.purchaseList();
@@ -215,7 +215,7 @@ export default {
             this.purchases = resp.data.purchases;
             this.loading = false;
           } else {
-            this.$toasted.show("some thing want to wrong", {
+            this.$toasted.show("some thing went to wrong", {
               type: "error",
               position: "top-center",
               duration: 5000,
@@ -223,7 +223,7 @@ export default {
           }
         })
         .catch((error) => {
-          this.$toasted.show("some thing want to wrong", {
+          this.$toasted.show("some thing went to wrong", {
             type: "error",
             position: "top-center",
             duration: 4000,
@@ -252,7 +252,7 @@ export default {
           console.log(error);
         });
     },
-   
+
 
     memoUpload(id){
        Swal.fire({
@@ -279,7 +279,7 @@ export default {
             });
            }
          })
-        
+
        }
       })
     },

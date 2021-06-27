@@ -28,6 +28,10 @@ Route::group([
     Route::get('api/get/general/setting','HomeController@get_general_setting');
     Route::get('api/get/theme/setting','HomeController@get_theme_setting');
 
+     //chekout route
+     Route::get('apply/coupon/code', 'HomeController@ApplyCoupon');
+
+
 
     // public carrier route
     Route::get('carrier/list','CarrierController@index');
@@ -302,17 +306,21 @@ Route::group([
     Route::get('api/category/deActive/slider/{id}', 'SliderController@deActive_category_slider');
     Route::get('api/category/delete/slider/{id}', 'SliderController@destroy_category_slider');
 
-    //start teh attribute route route
+      //start teh attribute route route
     Route::get('/list/attribute', 'AttributeAndVariantController@index');
     Route::post('/attribute/add', 'AttributeAndVariantController@store');
+    Route::get('api/attribute/item/{id}', 'AttributeAndVariantController@edit');
+    Route::post('api/attribute/update/{id}', 'AttributeAndVariantController@update');
     Route::get('active/attribute/{id}', 'AttributeAndVariantController@active');
     Route::get('deActive/attribute/{id}', 'AttributeAndVariantController@deActive');
     Route::get('delete/attribute/{id}', 'AttributeAndVariantController@destroy');
 
 
-    //start the variant route route
+     //start the variant route route
     Route::get('/list/variant', 'AttributeAndVariantController@variant');
     Route::post('/variant/add', 'AttributeAndVariantController@storeVariant');
+    Route::get('/api/get/edit/item/{id}', 'AttributeAndVariantController@getVariantItem');
+    Route::post('/api/variant/update/{id}', 'AttributeAndVariantController@updateVariant');
     Route::get('active/variant/{id}', 'AttributeAndVariantController@activeVariant');
     Route::get('deActive/variant/{id}', 'AttributeAndVariantController@deActiveVariant');
 
@@ -404,6 +412,7 @@ Route::group([
     Route::get('/approved/product/{id}', 'ProductController@approved');
     Route::get('/pending/product/{id}', 'ProductController@pending');
     Route::get('/deny/product/{id}', 'ProductController@deny');
+    Route::get('api/copy/product/{id}/{copy_items}','ProductController@copyProduct');
     Route::post('/stock/update/product/{id}', 'ProductController@stockUpdate');
     Route::get('/edit/product/{id}', 'ProductController@edit');
     Route::post('/update/product/basicInformation/{id}', 'ProductController@updateBasicInformation');
@@ -453,20 +462,24 @@ Route::group([
 
 
 
-    //start the sale route
+  //start the sale route
     Route::post('/sale/store', 'SaleController@store');
-     Route::post('/sale/exchange/store', 'SaleController@exchangeStore');
+    Route::post('api/get/company/sale/payment', 'SaleController@companySalePayment');
+    Route::get('api/company/sale/payment/details/{id}', 'SaleController@companyPayment');
+    Route::post('/sale/exchange/store', 'SaleController@exchangeStore');
     Route::get('/api/office/sales/list', 'SaleController@office_sale_index');
     Route::get('/api/company/sales/list', 'SaleController@company_sale_index');
     Route::get('/sale/view/{id}', 'SaleController@show');
     Route::get('/sale/paid/{id}', 'SaleController@paid');
     Route::get('/sale/returned/{id}', 'SaleController@return');
+    Route::get('api/company/sale/details/{id}', 'SaleController@CompanySaleDetails');
     // this route for office sale
     Route::get('api/office/sale/search/data/{data}', 'SaleController@office_sale_search_according_data');
     Route::get('api/officeSale/date/wise/filter', 'SaleController@office_sale_search_according_date_wise');
     //this route for company sale
     Route::get('api/company/sale/search/data/{data}', 'SaleController@company_sale_search_according_data');
     Route::get('api/company/sale/date/wise/filter', 'SaleController@company_sale_search_according_date_wise');
+
 
 
 

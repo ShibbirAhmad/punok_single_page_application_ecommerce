@@ -236,12 +236,13 @@
                                 v-model="form.products[index].quantity"
                                 @keyup="quantity(index)"
                                 @change="quantity(index)"
-                                style="width: 50px"
+                                style="width: 70px"
                               />
                               <span class="badge badge-danger">{{ product.stock }}</span>
                             </td>
                             <td>
                               <input
+                               style="width: 80px"
                                 v-model="form.products[index].price"
                                 @keyup="totalCalculation && quantity(index)"
                                 v-if="form.order_type == 3"
@@ -462,6 +463,7 @@ export default {
           .get("/search/product/with/code/" + this.product_code)
 
           .then((resp) => {
+            console.log(resp)
             if (resp.data.status == "SUCCESS") {
               this.product_code = "";
               let product = {
@@ -475,13 +477,13 @@ export default {
               };
               for (let i = 0; i < resp.data.product.length; i++) {
                 //check the product stcok availity
-                // if (resp.data.product[i].stock <= 0) {
-                //   return Swal.fire({
-                //     type: "warning",
-                //     title: "Wopps....",
-                //     html: `${resp.data.product[i].name} - <strong> ${resp.data.product[i].product_code} </strong> in <b>stcok not available</b>.`,
-                //   });
-                // }
+                if (resp.data.product[i].stock <= 0) {
+                  return Swal.fire({
+                    type: "warning",
+                    title: "Wopps....",
+                    html: `${resp.data.product[i].name} - <strong> ${resp.data.product[i].product_code} </strong> in <b>stcok not available</b>.`,
+                  });
+                }
 
                 this.products.push(resp.data.product[i]);
                 product.id = resp.data.product[i].id;
@@ -505,7 +507,7 @@ export default {
             this.$Progress.finish();
           })
           .catch((error) => {
-            console.log(error);
+        //    console.log(error);
             this.$Progress.finish();
           });
       }

@@ -9,14 +9,14 @@
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i>Dashboard</a></li>
-                    <li class="active">Sub Category</li>
+                    <li class="active">attribute</li>
                 </ol>
             </section>
             <section class="content">
                 <div class="row justify-content-center">
                     <div class="col-lg-6 col-lg-offset-2">
                         <div class="box box-primary">
-                            <div class="box-header with-border">
+                            <div class="box-header with-border text-center">
                                 <h3 class="box-title">Add Attribute</h3>
                             </div>
                             <div class="box-body">
@@ -32,12 +32,11 @@
                                                type="text" name="name" placeholder="Ex:Size">
                                         <has-error :form="form" field="name"></has-error>
                                     </div>
-
-                                    <!--                                    <img :src="image" style="width: 500px;">-->
-                                    <br/>
+                                  <div class="form-group text-center">
                                     <button :disabled="form.busy" type="submit" class="btn btn-primary"><i
                                         class="fa fa-spin fa-spinner" v-if="form.busy"></i>Submit
                                     </button>
+                                  </div>
                                 </form>
                             </div>
                         </div>
@@ -57,11 +56,10 @@
 
     Vue.component(HasError.name, HasError)
     export default {
-        name: "subCategory",
         created() {
             setTimeout(() => {
                 this.loading = false
-            }, 500)
+            }, 300)
         },
         data() {
             return {
@@ -91,39 +89,16 @@
                                 duration: 4000
                             });
                         } else {
-                            this.error = 'some thing want to wrong';
+                            this.error = 'some thing went to wrong';
 
                         }
 
                     })
-                    .catch((error) => {
-                        console.log(error)
-                        this.error = 'some thing want to wrong';
-                        this.$toasted.show('some thing want to wrong', {
-                            type: "error",
-                            position: 'top-center',
-                            duration: 5000
-                        });
-                    })
+
             },
-            uploadImage(e) {
-                const file = e.target.files[0]
-                this.form.image = file
-                // this.read(file);
-            },
-
-            read(image) {
-                let reader = new FileReader();
-                reader.readAsDataURL(image);
-                reader.onload = e => {
-                    this.image = e.target.result;
-                }
-
-            }
-
 
         },
-        computed: {}
+
     }
 </script>
 

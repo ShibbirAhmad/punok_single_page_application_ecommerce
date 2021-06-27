@@ -4,7 +4,7 @@
     <div class="content-wrapper">
       <section class="content-header">
         <h1>
-          <router-link :to="{ name: 'officeSale' }" class="btn btn-primary">
+          <router-link :to="{ name: 'compnaySale' }" class="btn btn-primary">
             <i class="fa fa-arrow-right"></i>
           </router-link>
         </h1>
@@ -20,55 +20,20 @@
           <div class="col-lg-12">
             <div class="box box-primary">
               <div class="box-header with-border">
-                <h3 class="box-title">Add Company Sale</h3>
+                <h3 class="box-title">Add Company Sale </h3>  <router-link style="margin-left:25px" class="btn btn-success" :to="{name:'addCompany'}">add new company </router-link>
               </div>
               <div class="box-body">
                 <div class="alert-danger alert" v-if="error">{{ error }}</div>
-                <div class="row">
-                 
-                  <div v-if="form.type == 1">
-                    <div class="col-lg-3">
-                      <div class="form-group">
-                        <label>Name</label>
-                        <input
-                          class="form-control"
-                          v-model="form.name"
-                          placeholder="Name"
-                          autofocus
-                          @keyup="finalValidation"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="form-group">
-                        <label>Mobile_no</label>
-                        <input
-                          class="form-control"
-                          v-model="form.mobile_no"
-                          placeholder="017xx-xxxxxx"
-                          @keyup="finalValidation"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="form-group">
-                        <label>Address</label>
-                        <input
-                          class="form-control"
-                          v-model="form.address"
-                          placeholder="address"
-                          @keyup="finalValidation"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div v-else>
-                    <div class="col-lg-5">
+
+                <div class="product_information">
+                  <div class="row">
+
+                    <div class="col-lg-2 ">
+                        <div class="form-group">
                       <label>Company</label>
                       <select
                         class="form-control"
                         v-model="form.company_id"
-                        @change="finalValidation"
                       >
                         <option value="" selected disabled>
                           Select Company
@@ -81,22 +46,9 @@
                         </option>
                       </select>
                     </div>
-                   
-                    <div class="col-lg-5">
-                      <label>Invvoice_no</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        @keydown="finalValidation"
-                        v-model="form.invoice_no"
-                      />
                     </div>
-                  </div>
-                </div>
-                 <br>
-                <div class="product_information">
-                  <div class="row">
-                    <div class="col-lg-4">
+
+                    <div class="col-lg-3">
                       <div class="form-group">
                         <label>Product_code</label>
                         <input
@@ -174,7 +126,6 @@
                         class="btn btn-success btn-sm"
                         style="margin-top: 25px"
                         @click="productAdd"
-                        :disabled="validationPreview"
                       >
                         Add
                       </button>
@@ -182,7 +133,7 @@
                   </div>
                 </div>
                 <div class="product_preview" v-if="form.products.length > 0">
-                  <table class="table">
+                  <table class="table table-hover table-striped table-bordered ">
                     <thead>
                       <tr>
                         <th>#</th>
@@ -195,7 +146,7 @@
                     </thead>
                     <tbody>
                       <tr v-for="(product, index) in form.products">
-                        <td>{{ index + 1 }}</td>
+                        <td>{{ index }}</td>
                         <td>
                           {{
                             product.product_code + "-" + product.product_name
@@ -247,8 +198,8 @@
                   </table>
                 </div>
 
-                <br />
-                <button
+              <div class="form-group text-center">
+                      <button
                   :disabled="submitValidation"
                   type="submit"
                   @click="add()"
@@ -256,6 +207,8 @@
                 >
                   Submit
                 </button>
+              </div>
+
 
                 <!--                                </form>-->
               </div>
@@ -288,17 +241,15 @@ export default {
         name: "",
         mobile_no: "",
         address: "",
-
         //multiple product data
         products: [],
-
         // culation data
         AmountTotal: 0,
         paid: 0,
         due: 0,
         company_id: "",
         paid_by: 'Cash',
-        invoice_no: "",
+
       }),
 
       companies: "",
@@ -310,9 +261,6 @@ export default {
       //auto complete
       automcomplete: false,
       search: "",
-
-      //for check product reltaed property validation
-      validationPreview: true,
 
       submitValidation: true,
 
@@ -341,11 +289,7 @@ export default {
           console.log(resp);
           if (resp.data.status == "SUCCESS") {
             console.log(resp);
-            if (this.form.type == 1) {
-              this.$router.push({ name: "officeSale" });
-            } else {
-              this.$router.push({ name: "compnaySale" });
-            }
+            this.$router.push({ name: "compnaySale" });
             this.$toasted.show(resp.data.message, {
               type: "success",
               position: "top-center",
@@ -365,9 +309,7 @@ export default {
     //method initial for get product data when admin type product code or name
     autocompleteSearh() {
       let length = this.search.length;
-      this.validation();
-
-      if (length >= 2) {
+      if (length >= 3) {
         axios
           .get("/search/product/" + this.search)
 
@@ -404,15 +346,16 @@ export default {
     selectedProduct(productItem) {
       if (productItem.name == "No product found") {
         alert("please enter product valid code or name");
-        this.validation();
         return;
       } else {
         this.automcomplete = false;
         this.preview_products.product_name = productItem.name;
+        this.preview_products.price = productItem.price;
+        this.preview_products.quantity = 1;
         this.preview_products.product_id = productItem.id;
         this.preview_products.product_code = productItem.product_code;
         this.search = productItem.product_code + "-" + productItem.name;
-        this.validation();
+        this.total();
       }
     },
 
@@ -425,7 +368,6 @@ export default {
           duration: 3000,
         });
         this.$refs.price.focus();
-        this.validation();
         return;
       } else {
         let price = this.preview_products.price;
@@ -436,12 +378,29 @@ export default {
         }
         let total = price * quantity;
         this.preview_products.total = total;
-        this.validation();
       }
     },
 
     //method initial for product add on form.prodcut arraw
     productAdd() {
+
+       if(this.preview_products.price.length <= 0){
+        alert("price is empty");
+        return ;
+      }
+     if(this.preview_products.product_id.length <= 0){
+        alert("product id is empty");
+        return ;
+      }
+     if(this.preview_products.product_code.length <= 0){
+        alert("product code is empty");
+        return ;
+      }
+    if(this.form.company_id.length <= 0){
+        alert("select company");
+        return ;
+      }
+
       this.form.products.push(this.preview_products);
       this.preview_products = {
         product_id: "",
@@ -455,41 +414,18 @@ export default {
       this.search = "";
       this.totalAmount();
       this.amountDue();
-      this.validation();
       this.finalValidation();
     },
 
     //method initial for validation product data
-    validation() {
-      //console.log(this.preview_products.price)
-      if (
-        this.preview_products.price.length > 0 &&
-        this.preview_products.quantity.length > 0 &&
-        this.preview_products.product_id &&
-        this.search.length > 0
-      ) {
-        this.validationPreview = false;
-        return;
-      } else {
-        this.validationPreview = true;
-        return;
-        // this.submitValidation=true;
-      }
-    },
-
     finalValidation() {
       if (this.form.products.length <= 0) {
         this.submitValidation = true;
         return;
       }
 
-     
-      if (this.form.company_id.length <= 0) {
-        this.submitValidation = true;
-        return;
-      }
 
-      if ( this.form.invoice_no.length <= 0) {
+      if (this.form.company_id.length <= 0) {
         this.submitValidation = true;
         return;
       }
@@ -518,7 +454,6 @@ export default {
       this.form.products.splice(index, 1);
       this.totalAmount();
       this.amountDue();
-      this.validation();
       this.finalValidation();
     },
     pDate() {

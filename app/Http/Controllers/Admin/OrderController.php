@@ -67,25 +67,12 @@ class OrderController extends Controller
          }
       }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+
+
     public function store(Request $request)
     {
-
        // return $request->all();
         $validatedData = $request->validate([
             'customer_mobile' => 'required|digits:11 ',
@@ -98,9 +85,7 @@ class OrderController extends Controller
             'sub_city' => 'required',
         ]);
 
-
         //check order status.product qauntity,and stock
-
         if($request->status==3){
             foreach($request->products as $item){
                 $product=Product::where('id',$item['id'])->first();
@@ -115,13 +100,13 @@ class OrderController extends Controller
                 }
             }
         }
+        DB::transaction(function() use($request){
         //first find find the customer
         $customer=Customer::where('phone',$request->customer_mobile)->first();
         $customertype=1;
         if($request->order_type==3){
             $customertype=2;
         }
-
         //if not customer then save, as a new customer
         if(!$customer){
             $customer=new Customer();
@@ -132,7 +117,8 @@ class OrderController extends Controller
             $customer->customer_type=$customertype;
             $customer->save();
         }else{
-             $customer->name=$request->customer_name;
+            $customer->user_id=0;
+            $customer->name=$request->customer_name;
             $customer->address=$request->customer_address;
             $customer->city_id=$request->city;
             $customer->customer_type=$customertype;
@@ -168,13 +154,9 @@ class OrderController extends Controller
              $order->pending_admin_id=session()->get('admin')['id'];
             $order->pending_date=Carbon::now();
         }
-
+        $order->save();
         //if order save then save the order details
-        if($order->save()){
-
-
             foreach($request->products as $product){
-
                 //update product stock
                 $product_stock=Product::where('id',$product['id'])->first();
                 $product_stock->stock=$product_stock->stock-$product['quantity'];
@@ -186,7 +168,6 @@ class OrderController extends Controller
                 $details->price=$product['price'];
                 $details->quantity=$product['quantity'];
                 $details->total=$product['quantity']*$product['price'];
-
                 $details->attribute_id=$product['attribute_id'] ?? null;
                 $details->variant_id=$product['variant_id'] ?? null;
                 $details->save();
@@ -194,12 +175,9 @@ class OrderController extends Controller
                 $phone=$order->cutomer_phone;
                 $name=$customer->name;
                 $invoice=$order->invoice_no;
-             Order::SendMessageCustomer($phone,$name,$invoice);
-
+                Order::SendMessageCustomer($phone,$name,$invoice);
               //create a credit
-
               if($order->paid>0){
-
                 $credit = new Credit();
                 $credit->purpose = "Order Paid Amount";
                 $credit->amount = $order->paid;
@@ -211,22 +189,11 @@ class OrderController extends Controller
               }
 
 
-           //create a barcode for order
-            $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
-            $barcode = $generator->getBarcode($order->invoice_no, $generator::TYPE_CODE_128);
-            $order_barcode = new OrderBarcode();
-            $order_barcode->order_id = $order->id;
-            $order_barcode->barcode = $barcode;
-            $order_barcode->barcode_number = $order->invoice_no;
-            $order_barcode->save();
-                return \response()->json([
-                    'status'=>'SUCCESS',
-                    'message'=>'Order was created successfully'
-                ]);
-
-        }
-
-
+        });
+        return response()->json([
+                'status'=>'SUCCESS',
+                'message'=>'Order was created successfully'
+            ]);
     }
 
 

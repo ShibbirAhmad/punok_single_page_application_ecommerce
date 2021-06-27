@@ -1,1 +1,864 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[150],{1129:function(t,s,e){"use strict";e.r(s);var a={created:function(){this.getprint_house()},data:function(){return{loading:!0,item:"",investMode:!0,receiveMode:!1,paymentMode:!1,print_house:"",total_print_cost:"",payment_paid:"",total_payment_paid:"",total_qty:"",prints_details:"",receive_details:""}},methods:{getprint_house:function(){var t=this;axios.get("/api/print/house/details/"+this.$route.params.id).then((function(s){console.log(s),t.print_house=s.data.print_house,t.total_print_cost=s.data.total_print_cost,t.payment_paid=s.data.payment_paid,t.total_payment_paid=s.data.total_payment_paid,t.investor_id=t.$route.params.id,t.prints_details=s.data.print_details,t.receive_details=s.data.receive_details,t.loading=!1})).catch((function(t){console.log(t)}))},i_mode:function(){this.investMode=!0,this.receiveMode=!1,this.paymentMode=!1},r_mode:function(){this.receiveMode=!0,this.paymentMode=!1,this.investMode=!1},p_mode:function(){this.paymentMode=!0,this.investMode=!1,this.receiveMode=!1}}},i=(e(783),e(1)),n=Object(i.a)(a,(function(){var t=this,s=t.$createElement,e=t._self._c||s;return e("div",[e("admin-main"),t._v(" "),e("div",{staticClass:"content-wrapper"},[e("section",{staticClass:"content-header"},[e("h1",[e("router-link",{staticClass:"btn btn-primary",attrs:{to:{name:"print_product_add"}}},[e("i",{staticClass:"fa fa-plus"}),t._v(" Add Product For Print\n        ")]),t._v(" "),e("router-link",{staticClass:"btn btn-success",staticStyle:{"margin-left":"45%"},attrs:{to:{name:"receieve_printed_product"}}},[e("i",{staticClass:"fa fa-backward"}),t._v(" receive Printed Product\n        ")])],1),t._v(" "),t._m(0)]),t._v(" "),e("section",{staticClass:"content"},[e("div",{staticClass:"container"},[e("div",{staticClass:"row"},[e("div",{staticClass:"col-lg-1"}),t._v(" "),e("div",{staticClass:"col-lg-3 __c_box"},[e("h4",[t._v("\n              Total Cost Amount:\n\n              "+t._s(t.total_print_cost)+"\n            ")])]),t._v(" "),e("div",{staticClass:"col-lg-3 __c_box"},[e("h4",[t._v("Total Paid Amount: "+t._s(t.total_payment_paid)+" ")])]),t._v(" "),e("div",{staticClass:"col-lg-3 __c_box"},[e("h4",[t._v("Total Due Amount:  "+t._s(parseInt(t.total_print_cost)-parseInt(t.total_payment_paid))+" ")])])]),t._v(" "),e("div",{staticClass:"row"},[e("div",{staticClass:"col-lg-8 col-md-8 __o_box text-center"},[e("h4",{staticClass:"heading"},[t._v("Print Production Overview")]),t._v(" "),e("table",{staticClass:"table table-bordered table-striped text-center"},[t._m(1),t._v(" "),e("tbody",t._l(t.prints_details,(function(s,a){return e("tr",{key:a},[e("td",[t._v(t._s(a))]),t._v(" "),e("td",[t._v(" "+t._s(s.qty)+" ")]),t._v(" "),e("td",[t._v(" "+t._s(s.receive_qty)+"  ")]),t._v(" "),e("td",[t._v(" "+t._s(parseInt(s.qty)-parseInt(s.receive_qty))+" ")])])})),0)])])]),t._v(" "),e("div",{staticClass:"row justify-content-center"},[e("div",{staticClass:"col-lg-8 col-lg-offset-1"},[e("div",{staticClass:"box box-primary"},[e("div",{staticClass:"box-header with-border"},[e("div",{staticClass:"row"},[e("div",{staticClass:"col-md-3"},[e("h3",{staticClass:"box-title",class:{bb:t.investMode},on:{click:t.i_mode}},[t._v("\n                      Print History\n                    ")])]),t._v(" "),e("div",{staticClass:"col-md-4"},[e("h3",{staticClass:"box-title",on:{click:t.r_mode}},[t._v("\n                      receive History\n                    ")])]),t._v(" "),e("div",{staticClass:"col-md-4"},[e("h3",{staticClass:"box-title",on:{click:t.p_mode}},[t._v("\n                      Payment Paid History\n                    ")])])])]),t._v(" "),e("div",{staticClass:"box-body"},[t.investMode?e("table",{staticClass:"table",attrs:{id:"printTable"}},[t._m(2),t._v(" "),e("tbody",[t.loading?e("h1",{staticClass:"text-center"},[e("i",{staticClass:"fa fa-spin fa-spinner"})]):t._e(),t._v(" "),t._l(t.prints_details,(function(s,a){return e("tr",{key:a},[e("td",[e("router-link",{attrs:{to:{name:"print_details",params:{name:a}}}},[t._v("\n                          "+t._s(a)+"\n                        ")])],1),t._v(" "),e("td",[t._v(t._s(s.qty))]),t._v(" "),e("td",[t._v(t._s(s.total_cost))])])}))],2)]):t._e(),t._v(" "),t.receiveMode?e("table",{staticClass:"table text-center table-striped",attrs:{id:"receiveTable"}},[t._m(3),t._v(" "),e("tbody",[t.loading?e("h1",{staticClass:"text-center"},[e("i",{staticClass:"fa fa-spin fa-spinner"})]):t._e(),t._v(" "),t._l(t.receive_details,(function(s,a){return e("tr",{key:a},[e("td",{attrs:{scope:"row"}},[e("router-link",{attrs:{to:{name:"receive_print_details",params:{name:a}}}},[t._v("\n                          "+t._s(a)+"\n                        ")])],1),t._v(" "),e("td",[t._v(t._s(s.qty))])])}))],2)]):t._e(),t._v(" "),t.paymentMode?e("table",{staticClass:"table"},[t._m(4),t._v(" "),e("tbody",[t._l(t.payment_paid,(function(s,a){return e("tr",{key:a},[e("td",{attrs:{scope:"row"}},[t._v(t._s(a+1))]),t._v(" "),e("td",[t._v(t._s(s.date))]),t._v(" "),e("td",[t._v(t._s(s.comment))]),t._v(" "),e("td",[t._v(t._s(s.paid_by))]),t._v(" "),e("td",[t._v(t._s(s.amount))])])})),t._v(" "),e("tr",[e("td",{attrs:{colspan:"4"}},[t._v(" Total payment paid ")]),t._v(" "),e("td",[e("strong",[t._v(" ="+t._s(t.total_payment_paid))])])])],2)]):t._e()])])])])])])])],1)}),[function(){var t=this.$createElement,s=this._self._c||t;return s("ol",{staticClass:"breadcrumb"},[s("li",[s("a",{attrs:{href:"#"}},[s("i",{staticClass:"fa fa-dashboard"}),this._v("Dashboard")])]),this._v(" "),s("li",{staticClass:"active"},[this._v("Print Product")])])},function(){var t=this.$createElement,s=this._self._c||t;return s("thead",[s("tr",[s("th",[this._v("Product Name")]),this._v(" "),s("th",[this._v("Total Given")]),this._v(" "),s("th",[this._v("Total Received")]),this._v(" "),s("th",[this._v("Total Due")])])])},function(){var t=this.$createElement,s=this._self._c||t;return s("thead",[s("tr",[s("th",{attrs:{scope:"col"}},[this._v("Product Name")]),this._v(" "),s("th",{attrs:{scope:"col"}},[this._v("Qty")]),this._v(" "),s("th",{attrs:{scope:"col"}},[this._v("Total Cost")])])])},function(){var t=this.$createElement,s=this._self._c||t;return s("thead",[s("tr",[s("th",{attrs:{scope:"col"}},[this._v("Proudct Name")]),this._v(" "),s("th",{attrs:{scope:"col"}},[this._v("Quantity")])])])},function(){var t=this,s=t.$createElement,e=t._self._c||s;return e("thead",[e("tr",[e("th",{attrs:{scope:"col"}},[t._v("#")]),t._v(" "),e("th",{attrs:{scope:"col"}},[t._v("Date")]),t._v(" "),e("th",{attrs:{scope:"col"}},[t._v("Comment")]),t._v(" "),e("th",{attrs:{scope:"col"}},[t._v("Paid By")]),t._v(" "),e("th",{attrs:{scope:"col"}},[t._v("Amount")])])])}],!1,null,null,null);s.default=n.exports},225:function(t,s,e){var a=e(784);"string"==typeof a&&(a=[[t.i,a,""]]);var i={hmr:!0,transform:void 0,insertInto:void 0};e(4)(a,i);a.locals&&(t.exports=a.locals)},783:function(t,s,e){"use strict";var a=e(225);e.n(a).a},784:function(t,s,e){(t.exports=e(3)(!1)).push([t.i,"\n.col-lg-3.__c_box {\r\n  padding: 10px;\r\n  background: #fff;\r\n  width: 250px;\r\n  height: 85px;\r\n  margin-right: 15px;\r\n  margin-bottom: 20px;\r\n  text-align: center;\r\n  box-shadow: 3px 3px 3px #ddd;\n}\n.__o_box {\r\n  margin-left: 8.5%;\r\n  padding: 10px;\r\n  background: #fff;\r\n  height: 200px;\r\n  margin-bottom: 20px;\r\n  box-shadow: 3px 3px 3px #ddd;\n}\n.box-title {\r\n  padding: 5px 6px;\r\n  cursor: pointer;\n}\n.bb {\r\n  border-bottom: 2px solid #000;\n}\r\n",""])}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["print_house_details"],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.getprint_house();
+  },
+  data: function data() {
+    return {
+      loading: true,
+      item: "",
+      investMode: true,
+      receiveMode: false,
+      paymentMode: false,
+      print_house: "",
+      total_print_cost: "",
+      payment_paid: "",
+      total_payment_paid: "",
+      total_qty: "",
+      prints_details: "",
+      receive_details: ""
+    };
+  },
+  methods: {
+    getprint_house: function getprint_house() {
+      var _this = this;
+
+      axios.get("/api/print/house/details/" + this.$route.params.id).then(function (resp) {
+        console.log(resp);
+        _this.print_house = resp.data.print_house;
+        _this.total_print_cost = resp.data.total_print_cost;
+        _this.payment_paid = resp.data.payment_paid;
+        _this.total_payment_paid = resp.data.total_payment_paid;
+        _this.investor_id = _this.$route.params.id;
+        _this.prints_details = resp.data.print_details;
+        _this.receive_details = resp.data.receive_details;
+        _this.loading = false;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    i_mode: function i_mode() {
+      this.investMode = true;
+      this.receiveMode = false;
+      this.paymentMode = false;
+    },
+    r_mode: function r_mode() {
+      this.receiveMode = true;
+      this.paymentMode = false;
+      this.investMode = false;
+    },
+    p_mode: function p_mode() {
+      this.paymentMode = true;
+      this.investMode = false;
+      this.receiveMode = false;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=style&index=0&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=style&index=0&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.col-lg-3.__c_box {\r\n  padding: 10px;\r\n  background: #fff;\r\n  width: 250px;\r\n  height: 85px;\r\n  margin-right: 15px;\r\n  margin-bottom: 20px;\r\n  text-align: center;\r\n  box-shadow: 3px 3px 3px #ddd;\n}\n.__o_box {\r\n  margin-left: 8.5%;\r\n  padding: 10px;\r\n  background: #fff;\r\n  height: 200px;\r\n  margin-bottom: 20px;\r\n  box-shadow: 3px 3px 3px #ddd;\n}\n.box-title {\r\n  padding: 5px 6px;\r\n  cursor: pointer;\n}\n.bb {\r\n  border-bottom: 2px solid #000;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=style&index=0&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=style&index=0&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./PrintHouseDetails.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=template&id=4569c3b3&":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=template&id=4569c3b3& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("admin-main"),
+      _vm._v(" "),
+      _c("div", { staticClass: "content-wrapper" }, [
+        _c("section", { staticClass: "content-header" }, [
+          _c(
+            "h1",
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { to: { name: "print_product_add" } }
+                },
+                [
+                  _c("i", { staticClass: "fa fa-plus" }),
+                  _vm._v(" Add Product For Print\n        ")
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass: "btn btn-success",
+                  staticStyle: { "margin-left": "45%" },
+                  attrs: { to: { name: "receieve_printed_product" } }
+                },
+                [
+                  _c("i", { staticClass: "fa fa-backward" }),
+                  _vm._v(" receive Printed Product\n        ")
+                ]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm._m(0)
+        ]),
+        _vm._v(" "),
+        _c("section", { staticClass: "content" }, [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-lg-1" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3 __c_box" }, [
+                _c("h4", [
+                  _vm._v(
+                    "\n              Total Cost Amount:\n\n              " +
+                      _vm._s(_vm.total_print_cost) +
+                      "\n            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3 __c_box" }, [
+                _c("h4", [
+                  _vm._v(
+                    "Total Paid Amount: " + _vm._s(_vm.total_payment_paid) + " "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-3 __c_box" }, [
+                _c("h4", [
+                  _vm._v(
+                    "Total Due Amount:  " +
+                      _vm._s(
+                        parseInt(_vm.total_print_cost) -
+                          parseInt(_vm.total_payment_paid)
+                      ) +
+                      " "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                { staticClass: "col-lg-8 col-md-8 __o_box text-center" },
+                [
+                  _c("h4", { staticClass: "heading" }, [
+                    _vm._v("Print Production Overview")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "table",
+                    {
+                      staticClass:
+                        "table table-bordered table-striped text-center"
+                    },
+                    [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.prints_details, function(item, index) {
+                          return _c("tr", { key: index }, [
+                            _c("td", [_vm._v(_vm._s(index))]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(" " + _vm._s(item.qty) + " ")]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(" " + _vm._s(item.receive_qty) + "  ")
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                " " +
+                                  _vm._s(
+                                    parseInt(item.qty) -
+                                      parseInt(item.receive_qty)
+                                  ) +
+                                  " "
+                              )
+                            ])
+                          ])
+                        }),
+                        0
+                      )
+                    ]
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row justify-content-center" }, [
+              _c("div", { staticClass: "col-lg-8 col-lg-offset-1" }, [
+                _c("div", { staticClass: "box box-primary" }, [
+                  _c("div", { staticClass: "box-header with-border" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-3" }, [
+                        _c(
+                          "h3",
+                          {
+                            staticClass: "box-title",
+                            class: { bb: _vm.investMode },
+                            on: { click: _vm.i_mode }
+                          },
+                          [
+                            _vm._v(
+                              "\n                      Print History\n                    "
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-4" }, [
+                        _c(
+                          "h3",
+                          {
+                            staticClass: "box-title",
+                            on: { click: _vm.r_mode }
+                          },
+                          [
+                            _vm._v(
+                              "\n                      receive History\n                    "
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-4" }, [
+                        _c(
+                          "h3",
+                          {
+                            staticClass: "box-title",
+                            on: { click: _vm.p_mode }
+                          },
+                          [
+                            _vm._v(
+                              "\n                      Payment Paid History\n                    "
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "box-body" }, [
+                    _vm.investMode
+                      ? _c(
+                          "table",
+                          { staticClass: "table", attrs: { id: "printTable" } },
+                          [
+                            _vm._m(2),
+                            _vm._v(" "),
+                            _c(
+                              "tbody",
+                              [
+                                _vm.loading
+                                  ? _c("h1", { staticClass: "text-center" }, [
+                                      _c("i", {
+                                        staticClass: "fa fa-spin fa-spinner"
+                                      })
+                                    ])
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm._l(_vm.prints_details, function(
+                                  items,
+                                  index
+                                ) {
+                                  return _c("tr", { key: index }, [
+                                    _c(
+                                      "td",
+                                      [
+                                        _c(
+                                          "router-link",
+                                          {
+                                            attrs: {
+                                              to: {
+                                                name: "print_details",
+                                                params: { name: index }
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                          " +
+                                                _vm._s(index) +
+                                                "\n                        "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c("td", [_vm._v(_vm._s(items.qty))]),
+                                    _vm._v(" "),
+                                    _c("td", [_vm._v(_vm._s(items.total_cost))])
+                                  ])
+                                })
+                              ],
+                              2
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.receiveMode
+                      ? _c(
+                          "table",
+                          {
+                            staticClass: "table text-center table-striped",
+                            attrs: { id: "receiveTable" }
+                          },
+                          [
+                            _vm._m(3),
+                            _vm._v(" "),
+                            _c(
+                              "tbody",
+                              [
+                                _vm.loading
+                                  ? _c("h1", { staticClass: "text-center" }, [
+                                      _c("i", {
+                                        staticClass: "fa fa-spin fa-spinner"
+                                      })
+                                    ])
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm._l(_vm.receive_details, function(
+                                  item,
+                                  idx
+                                ) {
+                                  return _c("tr", { key: idx }, [
+                                    _c(
+                                      "td",
+                                      { attrs: { scope: "row" } },
+                                      [
+                                        _c(
+                                          "router-link",
+                                          {
+                                            attrs: {
+                                              to: {
+                                                name: "receive_print_details",
+                                                params: { name: idx }
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                          " +
+                                                _vm._s(idx) +
+                                                "\n                        "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c("td", [_vm._v(_vm._s(item.qty))])
+                                  ])
+                                })
+                              ],
+                              2
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.paymentMode
+                      ? _c("table", { staticClass: "table" }, [
+                          _vm._m(4),
+                          _vm._v(" "),
+                          _c(
+                            "tbody",
+                            [
+                              _vm._l(_vm.payment_paid, function(item, index) {
+                                return _c("tr", { key: index }, [
+                                  _c("td", { attrs: { scope: "row" } }, [
+                                    _vm._v(_vm._s(index + 1))
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(item.date))]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(item.comment))]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(item.paid_by))]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(item.amount))])
+                                ])
+                              }),
+                              _vm._v(" "),
+                              _c("tr", [
+                                _c("td", { attrs: { colspan: "4" } }, [
+                                  _vm._v(" Total payment paid ")
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _c("strong", [
+                                    _vm._v(
+                                      " =" + _vm._s(_vm.total_payment_paid)
+                                    )
+                                  ])
+                                ])
+                              ])
+                            ],
+                            2
+                          )
+                        ])
+                      : _vm._e()
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ol", { staticClass: "breadcrumb" }, [
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fa fa-dashboard" }),
+          _vm._v("Dashboard")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "active" }, [_vm._v("Print Product")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Product Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Total Given")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Total Received")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Total Due")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Product Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Qty")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Total Cost")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Proudct Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Quantity")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Date")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Comment")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Paid By")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Amount")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/print_house/PrintHouseDetails.vue":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/admin/print_house/PrintHouseDetails.vue ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PrintHouseDetails_vue_vue_type_template_id_4569c3b3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PrintHouseDetails.vue?vue&type=template&id=4569c3b3& */ "./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=template&id=4569c3b3&");
+/* harmony import */ var _PrintHouseDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PrintHouseDetails.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _PrintHouseDetails_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PrintHouseDetails.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _PrintHouseDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PrintHouseDetails_vue_vue_type_template_id_4569c3b3___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PrintHouseDetails_vue_vue_type_template_id_4569c3b3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/print_house/PrintHouseDetails.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PrintHouseDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./PrintHouseDetails.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PrintHouseDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=style&index=0&lang=css&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=style&index=0&lang=css& ***!
+  \**********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_PrintHouseDetails_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./PrintHouseDetails.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_PrintHouseDetails_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_PrintHouseDetails_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_PrintHouseDetails_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_PrintHouseDetails_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_PrintHouseDetails_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=template&id=4569c3b3&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=template&id=4569c3b3& ***!
+  \********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PrintHouseDetails_vue_vue_type_template_id_4569c3b3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./PrintHouseDetails.vue?vue&type=template&id=4569c3b3& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/print_house/PrintHouseDetails.vue?vue&type=template&id=4569c3b3&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PrintHouseDetails_vue_vue_type_template_id_4569c3b3___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PrintHouseDetails_vue_vue_type_template_id_4569c3b3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

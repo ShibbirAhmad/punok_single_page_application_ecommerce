@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Models\Sale;
 use App\Models\Credit;
 use App\Models\CreditDue;
 use App\Models\CustomerDue;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CreditDueController extends Controller
 {
@@ -17,17 +18,18 @@ class CreditDueController extends Controller
         }
 
         $this->middleware('admin');
-        
+
     }
-    public function index(Request $request)
+   public function index(Request $request)
     {
         $item=$request->item??10;
-        $credit_dues=CustomerDue::orderBy('id','DESC')->where('status',0)->paginate($item);
+        $without_company_sale=Sale::where('company_id',null)->pluck('id');
+        $credit_dues=CustomerDue::whereIn('sale_id',$without_company_sale)->orderBy('id','DESC')->where('status',0)->paginate($item);
         return response()->json($credit_dues);
     }
 
     public function  duePaid(Request $request,$id){
-        
+
         $customer_due=CustomerDue::find($id);
 
         if($request->amount > $customer_due->amount){
@@ -35,14 +37,14 @@ class CreditDueController extends Controller
         }
         if($customer_due->amount==$request->amount){
             $customer_due->status=1;
-        }  
+        }
 
 
         $customer_due->amount=$customer_due->amount-$request->amount;
-        
+
         if($customer_due->save()){
-      
-          //create a credit.......     
+
+          //create a credit.......
         $credit = new Credit();
         $credit->purpose ="Due amount, Paid....";
         $credit->amount =$request->amount;
@@ -58,6 +60,6 @@ class CreditDueController extends Controller
             ]);
         }
     }
-   
+
 
 }

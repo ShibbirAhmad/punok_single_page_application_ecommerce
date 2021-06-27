@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Debit;
 use App\Models\Product;
 use App\Models\Purchase;
+use App\Models\Supplier;
 use App\Models\Purchaseitem;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Debit;
-use App\Models\Supplier;
 use App\Models\SupplierPayment;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
+
 class PurchaseController extends Controller
 {
 
@@ -47,15 +49,6 @@ class PurchaseController extends Controller
      */
     public function store(Request $request)
     {
-
-    //  return $request->all();
-
-    //   if($request->hasFile('memo')){
-    //     return "yes";
-    //   }else{
-    //       return "no";
-    //   }
-
         $this->validate($request, [
             'supplier_id' => 'required|',
             'invoice_no' => 'required|',
@@ -63,8 +56,8 @@ class PurchaseController extends Controller
           //  'AmountTotal' => 'required|numeric',
 
         ]);
-
-        //first save the purchase information
+         DB::transaction(function() use($request){
+       //first save the purchase information
         $purchase = new Purchase();
         $purchase->supplier_id = $request->supplier_id;
         $purchase->invoice_no = $request->invoice_no;
@@ -77,19 +70,12 @@ class PurchaseController extends Controller
             $path=$request->file('memo')->store('file/memo', 'public');
             $purchase->file=$path;
         }
-
-        $purchase_memo='memo-'.time().'.jpg';
-
-     //   return $purchase_memo;
-        Image::make(file_get_contents($request->memo))->save(public_path('storage/images/purchase_memo/').$purchase_memo);
-        $purchase->file='images/purchase_memo/'.$purchase_memo;
         $purchase->save();
 
         if(!empty($request->products)){
-        
+
         //save the purchase item
         foreach ($request->products as $item) {
-
             $product = Product::where('id', $item['product_id'])->first();
             $product->stock = $product->stock + $item['quantity'];
             $product->save();
@@ -100,12 +86,10 @@ class PurchaseController extends Controller
             $p_item->insert_quantity = $item['quantity'];
             $p_item->stock = $item['quantity'];
             $p_item->save();
-
-
-        }
+          }
         }
 
-       //save a supplier paid amount 
+       //save a supplier paid amount
        if($purchase->paid>0){
          $supplier_payment=new SupplierPayment();
          $supplier_payment->supplier_id=$request->supplier_id;
@@ -123,7 +107,7 @@ class PurchaseController extends Controller
            if(empty($request->products)){
             $comment="Fabrics Purchase";
            }
-           $debit = new Debit();
+            $debit = new Debit();
             $debit->purpose =9;
             $debit->debit_from=$request->paid_by;
             $debit->amount = $request->paid;
@@ -133,6 +117,8 @@ class PurchaseController extends Controller
             $debit->save();
        }
 
+    });
+
       return response()->json([
             'status' => 'SUCCESS',
             'message' => 'new purchase was added'
@@ -140,10 +126,10 @@ class PurchaseController extends Controller
 
     }
 
-    
+
     public function show($id)
     {
-        
+
     }
 
     public function edit($id)
@@ -174,32 +160,32 @@ class PurchaseController extends Controller
  }
 
 
- 
-    
+
+
  public function  search_according_data($search){
 
-    $purchases = Purchase::where('invoice_no','like', '%' . $search . '%') 
+    $purchases = Purchase::where('invoice_no','like', '%' . $search . '%')
                     ->orderBy('id', 'DESC')->with('supplier')
                     ->paginate(10);
-                   
+
     return response()->json([
         'status'=>'OK',
         'purchases'=>$purchases
-     ]);        
+     ]);
 }
 
 
 
 
 public function  according_date_wise(Request $request){
-    
+
     $purchases='';
     $paginate=$request->item??10;
     if(!empty($request->start_date) && empty($request->end_date)){
-        
+
             $purchases=Purchase::whereDate('created_at','=',$request->start_date)->with('supplier')
                          ->paginate($paginate);
-         
+
     }
     elseif(!empty($request->end_date) && !empty($request->start_date)){
 
@@ -210,19 +196,19 @@ public function  according_date_wise(Request $request){
 
         $purchases=Purchase::whereDate('created_at','=',$request->end_date)->with('supplier')
                  ->paginate($paginate);
-          
+
      }
          return response()->json([
                     'status'=>'OK',
                     'purchases'=>$purchases
-  
+
   ]);
 
 
 }
 
 public function uploadFile(Request $request){
-   
+
     $purchase=Purchase::where('id',$request->id)->first();
     if($request->hasFile('file')){
         $path=$request->file('file')->store('file/memo','public');

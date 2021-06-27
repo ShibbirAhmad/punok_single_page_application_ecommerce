@@ -28,7 +28,7 @@
                 <h1 v-if="loading">
                   <i class="fa fa-spin fa-spinner"></i>
                 </h1>
-            
+
                <div v-else>
                   <div class="alert-danger alert" v-if="error">{{error}}</div>
                 <div class="row">
@@ -107,12 +107,12 @@
                  </div>
                 </div>
                </div>
-               
+
               <br />
                 <button :disabled="submitValidation" type="submit" @click="add()" class="btn btn-primary"
                 >Submit</button>
 
-               
+
               </div>
             </div>
           </div>
@@ -135,7 +135,7 @@ export default {
   created() {
     this.pDate();
     this.supplierList();
-   
+
   },
   data() {
     return {
@@ -178,7 +178,7 @@ export default {
         console.log(resp)
           if (resp.data.status == "SUCCESS") {
             console.log(resp);
-            this.$router.push({ name: "purchase" });
+            this.$router.push({ name: "ManagePurchaseFabrics" });
             this.$toasted.show(resp.data.message, {
               type: "success",
               position: "top-center",
@@ -213,14 +213,14 @@ export default {
           console.log(error);
         });
     },
-  
+
     dueAmount() {
         this.due=parseInt(this.total)-parseInt(this.paid);
         this.validation()
-      
+
     },
      validation() {
-      
+
       if (this.invoice_no.length > 0 && this.supplier_id && this.total>0 ) {
         this.submitValidation = false;
       } else {
@@ -230,7 +230,7 @@ export default {
     },
      uploadImage(e) {
       var file = e.target.files[0];
-    
+
     if (!file.type.match("image.*")) {
          Swal.fire({
           type:'warning',
@@ -247,10 +247,10 @@ export default {
          this.validation();
         };
       reader.readAsDataURL(file);
-     
+
     },
 
-   
+
     pDate() {
       let d = new Date();
 

@@ -1,1 +1,806 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[212],{120:function(t,e,a){var i=a(574);"string"==typeof i&&(i=[[t.i,i,""]]);var n={hmr:!0,transform:void 0,insertInto:void 0};a(4)(i,n);i.locals&&(t.exports=i.locals)},573:function(t,e,a){"use strict";var i=a(120);a.n(i).a},574:function(t,e,a){(t.exports=a(3)(!1)).push([t.i,"\n.dropbtn[data-v-45362d5b] {\r\n  width: 100% !important;\r\n  margin-bottom: 5px !important;\n}\n.dropbtn-active[data-v-45362d5b] {\r\n  display: block !important;\n}\n.dropdown-action[data-v-45362d5b] {\r\n  display: none;\r\n  width: 90px;\r\n  position: absolute;\n}\r\n",""])},994:function(t,e,a){"use strict";a.r(e);var i={mounted:function(){console.log("mounted reseller"),this.unpaidPaidPayment()},data:function(){return{unpaid_payment_list:{},loading:!0,item:10,reseller_id:"",id:[],action:""}},methods:{unpaidPaidPayment:function(){var t=this,e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:1;axios.get("/api/unpaid/payment?page="+e,{params:{item:this.item,reseller_id:this.reseller_id}}).then((function(e){e.data.data.length>0&&(t.unpaid_payment_list=e.data,t.$toasted.show("Paid......",{type:"info",position:"top-center",duration:3e3})),t.loading=!1}))},resellerFilter:function(){var t=this;this.$Progress.start(),axios.get("/api/reseller/list",{params:{item:3e3}}).then((function(e){if(t.$Progress.finish(),e.data){var a={};e.data.resellers.data.forEach((function(t){a[t.id]=t.username+"-"+t.name})),Swal.fire({title:"Select Reseller",input:"select",inputOptions:a,inputPlaceholder:"Select Reseller",showCancelButton:!0}).then((function(e){e.value?(t.reseller_id=e.value,t.unpaidPaidPayment()):t.reseller_id=""}))}}))},selectId:function(t){var e=this.id.indexOf(t);e<0?this.id.push(t):this.id.splice(e,1)},selectAll:function(){var t=this;this.unpaid_payment_list.data.forEach((function(e){t.selectId(e.id),0==document.getElementById("check_"+e.id).checked?document.getElementById("check_"+e.id).checked=!0:document.getElementById("check_"+e.id).checked=!1}))},selecAction:function(){"payment"==this.action&&this.paidSelected()},paidSelected:function(){var t=this;if(this.id.length<=0)return this.$toasted.show("please select at least on row",{type:"error",position:"top-center",duration:4e3}),void(this.action="");axios.get("/api/reseller/to/paid",{params:{id:this.id,reseller_id:this.reseller_id}}).then((function(e){console.log(e),"OK"==e.data.status?console.log("ok"):(t.$toasted.show(e.data,{type:"error",position:"top-center",duration:4e3}),t.action="")})).catch((function(t){console.log(t)}))}}},n=(a(573),a(1)),s=Object(n.a)(i,(function(){var t=this,e=t.$createElement,a=t._self._c||e;return a("div",[a("admin-main"),t._v(" "),a("div",{staticClass:"content-wrapper"},[a("section",{staticClass:"content-header"},[a("h1",[a("router-link",{staticClass:"btn btn-primary",attrs:{to:{name:"resellerAdd"}}},[a("i",{staticClass:"fa fa-plus"})])],1),t._v(" "),t._m(0)]),t._v(" "),a("section",{staticClass:"content"},[a("div",{staticClass:"container"},[a("div",{staticClass:"row"},[a("div",{staticClass:"col-lg-11"},[a("div",{staticClass:"box box-primary"},[a("div",{staticClass:"box-header with-border"},[a("div",{staticClass:"row"},[a("div",{staticClass:"col-md-2",staticStyle:{"margin-left":"10px"}},[a("select",{directives:[{name:"model",rawName:"v-model",value:t.item,expression:"item"}],staticClass:"form-control",on:{change:[function(e){var a=Array.prototype.filter.call(e.target.options,(function(t){return t.selected})).map((function(t){return"_value"in t?t._value:t.value}));t.item=e.target.multiple?a:a[0]},t.unpaidPaidPayment]}},[a("option",{attrs:{selected:"",value:"10"}},[t._v("10")]),t._v(" "),a("option",{attrs:{value:"20"}},[t._v("20")]),t._v(" "),a("option",{attrs:{value:"30"}},[t._v("30")]),t._v(" "),a("option",{attrs:{value:"40"}},[t._v("40")]),t._v(" "),a("option",{attrs:{value:"50"}},[t._v("50")])])]),t._v(" "),a("div",{staticClass:"col-lg-4"}),t._v(" "),a("div",{staticClass:"col-lg-3",staticStyle:{display:"flex",position:"absolute",right:"0"}},[a("button",{staticClass:"btn btn-info btn-sm",staticStyle:{"margin-right":"5px"},on:{click:t.resellerFilter}},[t._v("\n                      Filter\n                    ")]),t._v(" "),a("select",{directives:[{name:"model",rawName:"v-model",value:t.action,expression:"action"}],staticClass:"form-control",on:{change:[function(e){var a=Array.prototype.filter.call(e.target.options,(function(t){return t.selected})).map((function(t){return"_value"in t?t._value:t.value}));t.action=e.target.multiple?a:a[0]},t.selecAction]}},[a("option",{attrs:{selected:"",value:""}},[t._v("Select Action")]),t._v(" "),a("option",{attrs:{value:"payment"}},[t._v("Make Payment")])])])])]),t._v(" "),a("div",{staticClass:"box-body"},[a("table",{staticClass:"table"},[a("thead",[a("tr",[a("th",[a("input",{attrs:{type:"checkbox"},on:{click:t.selectAll}})]),t._v(" "),a("th",[t._v("Invoie_no")]),t._v(" "),a("th",[t._v("Reseller")]),t._v(" "),a("th",[t._v("commission")]),t._v(" "),a("th",[t._v("Total amount")])])]),t._v(" "),a("tbody",t._l(t.unpaid_payment_list.data,(function(e,i){return a("tr",{key:i},[a("td",[a("input",{attrs:{type:"checkbox",id:"check_"+e.id},on:{click:function(a){return t.selectId(e.id)}}}),t._v("\n                          "+t._s(i+1)+"\n                      ")]),t._v(" "),a("td",[a("router-link",{attrs:{target:"_blank",to:{name:"viewOrder",params:{id:e.order.id}}}},[t._v("   "+t._s(e.order.invoice_no)+"\n                          ")])],1),t._v(" "),a("td",[t._v(t._s(e.reseller.username))]),t._v(" "),a("td",[t._v(t._s(e.total_amount))]),t._v(" "),a("td",[t._v(t._s(e.total_percent))])])})),0)])]),t._v(" "),a("div",{staticClass:"box-footer"},[a("div",{staticClass:"row"},[a("div",{staticClass:"col-md-6"},[a("pagination",{attrs:{data:t.unpaid_payment_list,limit:3},on:{"pagination-change-page":t.unpaidPaidPayment}},[a("span",{attrs:{slot:"prev-nav"},slot:"prev-nav"},[t._v("< Previous")]),t._v(" "),a("span",{attrs:{slot:"next-nav"},slot:"next-nav"},[t._v("Next >")])])],1),t._v(" "),a("div",{staticClass:"col-md-6",staticStyle:{"margin-top":"25px","text-align":"right"}},[a("p",[t._v("\n                      showing\n                      "),a("strong",[t._v(t._s(t.unpaid_payment_list.from)+" ")]),t._v(" to\n                      "),a("strong",[t._v(t._s(t.unpaid_payment_list.from)+" ")]),t._v(" of\n                      total entities "+t._s(t.unpaid_payment_list.total)+"\n                    ")])])])])])])])])])])],1)}),[function(){var t=this.$createElement,e=this._self._c||t;return e("ol",{staticClass:"breadcrumb"},[e("li",[e("a",{attrs:{href:"#"}},[e("i",{staticClass:"fa fa-dashboard"}),this._v("Dashboard")])]),this._v(" "),e("li",{staticClass:"active"},[this._v("Reseller")])])}],!1,null,"45362d5b",null);e.default=s.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["unpaidPayment"],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log("mounted reseller");
+    this.unpaidPaidPayment();
+  },
+  data: function data() {
+    return {
+      unpaid_payment_list: {},
+      loading: true,
+      item: 10,
+      reseller_id: '',
+      id: [],
+      action: ''
+    };
+  },
+  methods: {
+    unpaidPaidPayment: function unpaidPaidPayment() {
+      var _this = this;
+
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get("/api/unpaid/payment?page=" + page, {
+        params: {
+          item: this.item,
+          reseller_id: this.reseller_id
+        }
+      }).then(function (resp) {
+        if (resp.data.data.length > 0) {
+          _this.unpaid_payment_list = resp.data;
+
+          _this.$toasted.show('Paid......', {
+            type: "info",
+            position: "top-center",
+            duration: 3000
+          });
+        }
+
+        _this.loading = false;
+      });
+    },
+    resellerFilter: function resellerFilter() {
+      var _this2 = this;
+
+      this.$Progress.start();
+      axios.get("/api/reseller/list", {
+        params: {
+          item: 3000
+        }
+      }).then(function (resp) {
+        _this2.$Progress.finish();
+
+        if (resp.data) {
+          var input_options = {};
+          resp.data.resellers.data.forEach(function (element) {
+            input_options[element.id] = element.username + '-' + element.name;
+          });
+          Swal.fire({
+            title: "Select Reseller",
+            input: 'select',
+            inputOptions: input_options,
+            inputPlaceholder: 'Select Reseller',
+            showCancelButton: true
+          }).then(function (result) {
+            if (result.value) {
+              _this2.reseller_id = result.value;
+
+              _this2.unpaidPaidPayment();
+            } else {
+              _this2.reseller_id = "";
+            }
+          });
+        }
+      });
+    },
+    selectId: function selectId(id) {
+      var index = this.id.indexOf(id);
+
+      if (index < 0) {
+        this.id.push(id);
+      } else {
+        this.id.splice(index, 1);
+      } //console.log(this.id)
+
+    },
+    selectAll: function selectAll() {
+      var _this3 = this;
+
+      this.unpaid_payment_list.data.forEach(function (ele) {
+        _this3.selectId(ele.id);
+
+        if (document.getElementById('check_' + ele.id).checked == false) {
+          document.getElementById('check_' + ele.id).checked = true;
+        } else {
+          document.getElementById('check_' + ele.id).checked = false;
+        }
+      });
+    },
+    selecAction: function selecAction() {
+      if (this.action == "payment") {
+        this.paidSelected();
+      }
+    },
+    paidSelected: function paidSelected() {
+      var _this4 = this;
+
+      if (this.id.length <= 0) {
+        this.$toasted.show("please select at least on row", {
+          type: "error",
+          position: "top-center",
+          duration: 4000
+        });
+        this.action = '';
+        return;
+      }
+
+      axios.get('/api/reseller/to/paid', {
+        params: {
+          id: this.id,
+          reseller_id: this.reseller_id
+        }
+      }).then(function (resp) {
+        console.log(resp);
+
+        if (resp.data.status == "OK") {
+          console.log('ok');
+        } else {
+          _this4.$toasted.show(resp.data, {
+            type: "error",
+            position: "top-center",
+            duration: 4000
+          });
+
+          _this4.action = '';
+        }
+      })["catch"](function (e) {
+        console.log(e);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=style&index=0&id=7bdd6fef&scoped=true&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=style&index=0&id=7bdd6fef&scoped=true&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.dropbtn[data-v-7bdd6fef] {\r\n  width: 100% !important;\r\n  margin-bottom: 5px !important;\n}\n.dropbtn-active[data-v-7bdd6fef] {\r\n  display: block !important;\n}\n.dropdown-action[data-v-7bdd6fef] {\r\n  display: none;\r\n  width: 90px;\r\n  position: absolute;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=style&index=0&id=7bdd6fef&scoped=true&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=style&index=0&id=7bdd6fef&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./UnpaidPayment.vue?vue&type=style&index=0&id=7bdd6fef&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=style&index=0&id=7bdd6fef&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=template&id=7bdd6fef&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=template&id=7bdd6fef&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("admin-main"),
+      _vm._v(" "),
+      _c("div", { staticClass: "content-wrapper" }, [
+        _c("section", { staticClass: "content-header" }, [
+          _c(
+            "h1",
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { to: { name: "resellerAdd" } }
+                },
+                [_c("i", { staticClass: "fa fa-plus" })]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm._m(0)
+        ]),
+        _vm._v(" "),
+        _c("section", { staticClass: "content" }, [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-lg-11" }, [
+                _c("div", { staticClass: "box box-primary" }, [
+                  _c("div", { staticClass: "box-header with-border" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-md-2",
+                          staticStyle: { "margin-left": "10px" }
+                        },
+                        [
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.item,
+                                  expression: "item"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              on: {
+                                change: [
+                                  function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.item = $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  },
+                                  _vm.unpaidPaidPayment
+                                ]
+                              }
+                            },
+                            [
+                              _c(
+                                "option",
+                                { attrs: { selected: "", value: "10" } },
+                                [_vm._v("10")]
+                              ),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "20" } }, [
+                                _vm._v("20")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "30" } }, [
+                                _vm._v("30")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "40" } }, [
+                                _vm._v("40")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "50" } }, [
+                                _vm._v("50")
+                              ])
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-lg-4" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-lg-3",
+                          staticStyle: {
+                            display: "flex",
+                            position: "absolute",
+                            right: "0"
+                          }
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-info btn-sm",
+                              staticStyle: { "margin-right": "5px" },
+                              on: { click: _vm.resellerFilter }
+                            },
+                            [
+                              _vm._v(
+                                "\n                      Filter\n                    "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.action,
+                                  expression: "action"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              on: {
+                                change: [
+                                  function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.action = $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  },
+                                  _vm.selecAction
+                                ]
+                              }
+                            },
+                            [
+                              _c(
+                                "option",
+                                { attrs: { selected: "", value: "" } },
+                                [_vm._v("Select Action")]
+                              ),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "payment" } }, [
+                                _vm._v("Make Payment")
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "box-body" }, [
+                    _c("table", { staticClass: "table" }, [
+                      _c("thead", [
+                        _c("tr", [
+                          _c("th", [
+                            _c("input", {
+                              attrs: { type: "checkbox" },
+                              on: { click: _vm.selectAll }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("Invoie_no")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("Reseller")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("commission")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("Total amount")])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.unpaid_payment_list.data, function(
+                          unpaid_payment,
+                          index
+                        ) {
+                          return _c("tr", { key: index }, [
+                            _c("td", [
+                              _c("input", {
+                                attrs: {
+                                  type: "checkbox",
+                                  id: "check_" + unpaid_payment.id
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.selectId(unpaid_payment.id)
+                                  }
+                                }
+                              }),
+                              _vm._v(
+                                "\n                          " +
+                                  _vm._s(index + 1) +
+                                  "\n                      "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              [
+                                _c(
+                                  "router-link",
+                                  {
+                                    attrs: {
+                                      target: "_blank",
+                                      to: {
+                                        name: "viewOrder",
+                                        params: { id: unpaid_payment.order.id }
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "   " +
+                                        _vm._s(
+                                          unpaid_payment.order.invoice_no
+                                        ) +
+                                        "\n                          "
+                                    )
+                                  ]
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(_vm._s(unpaid_payment.reseller.username))
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(_vm._s(unpaid_payment.total_amount))
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(_vm._s(unpaid_payment.total_percent))
+                            ])
+                          ])
+                        }),
+                        0
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "box-footer" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        { staticClass: "col-md-6" },
+                        [
+                          _c(
+                            "pagination",
+                            {
+                              attrs: {
+                                data: _vm.unpaid_payment_list,
+                                limit: 3
+                              },
+                              on: {
+                                "pagination-change-page": _vm.unpaidPaidPayment
+                              }
+                            },
+                            [
+                              _c(
+                                "span",
+                                {
+                                  attrs: { slot: "prev-nav" },
+                                  slot: "prev-nav"
+                                },
+                                [_vm._v("< Previous")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  attrs: { slot: "next-nav" },
+                                  slot: "next-nav"
+                                },
+                                [_vm._v("Next >")]
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-md-6",
+                          staticStyle: {
+                            "margin-top": "25px",
+                            "text-align": "right"
+                          }
+                        },
+                        [
+                          _c("p", [
+                            _vm._v(
+                              "\n                      showing\n                      "
+                            ),
+                            _c("strong", [
+                              _vm._v(_vm._s(_vm.unpaid_payment_list.from) + " ")
+                            ]),
+                            _vm._v(" to\n                      "),
+                            _c("strong", [
+                              _vm._v(_vm._s(_vm.unpaid_payment_list.from) + " ")
+                            ]),
+                            _vm._v(
+                              " of\n                      total entities " +
+                                _vm._s(_vm.unpaid_payment_list.total) +
+                                "\n                    "
+                            )
+                          ])
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ol", { staticClass: "breadcrumb" }, [
+      _c("li", [
+        _c("a", { attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fa fa-dashboard" }),
+          _vm._v("Dashboard")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "active" }, [_vm._v("Reseller")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/reseller/UnpaidPayment.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/admin/reseller/UnpaidPayment.vue ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _UnpaidPayment_vue_vue_type_template_id_7bdd6fef_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UnpaidPayment.vue?vue&type=template&id=7bdd6fef&scoped=true& */ "./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=template&id=7bdd6fef&scoped=true&");
+/* harmony import */ var _UnpaidPayment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UnpaidPayment.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _UnpaidPayment_vue_vue_type_style_index_0_id_7bdd6fef_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UnpaidPayment.vue?vue&type=style&index=0&id=7bdd6fef&scoped=true&lang=css& */ "./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=style&index=0&id=7bdd6fef&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _UnpaidPayment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UnpaidPayment_vue_vue_type_template_id_7bdd6fef_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _UnpaidPayment_vue_vue_type_template_id_7bdd6fef_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "7bdd6fef",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/reseller/UnpaidPayment.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UnpaidPayment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./UnpaidPayment.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UnpaidPayment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=style&index=0&id=7bdd6fef&scoped=true&lang=css&":
+/*!***************************************************************************************************************************!*\
+  !*** ./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=style&index=0&id=7bdd6fef&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UnpaidPayment_vue_vue_type_style_index_0_id_7bdd6fef_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./UnpaidPayment.vue?vue&type=style&index=0&id=7bdd6fef&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=style&index=0&id=7bdd6fef&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UnpaidPayment_vue_vue_type_style_index_0_id_7bdd6fef_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UnpaidPayment_vue_vue_type_style_index_0_id_7bdd6fef_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UnpaidPayment_vue_vue_type_style_index_0_id_7bdd6fef_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UnpaidPayment_vue_vue_type_style_index_0_id_7bdd6fef_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UnpaidPayment_vue_vue_type_style_index_0_id_7bdd6fef_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=template&id=7bdd6fef&scoped=true&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=template&id=7bdd6fef&scoped=true& ***!
+  \*************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UnpaidPayment_vue_vue_type_template_id_7bdd6fef_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./UnpaidPayment.vue?vue&type=template&id=7bdd6fef&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/reseller/UnpaidPayment.vue?vue&type=template&id=7bdd6fef&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UnpaidPayment_vue_vue_type_template_id_7bdd6fef_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UnpaidPayment_vue_vue_type_template_id_7bdd6fef_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

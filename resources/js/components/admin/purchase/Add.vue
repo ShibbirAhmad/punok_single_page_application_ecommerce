@@ -89,6 +89,7 @@
                           autocomplete="off"
                           name="product"
                           v-model="search"
+                          maxlength="4"
                           placeholder="type product code"
                           @keyup="autocompleteSearh"
                         />
@@ -226,7 +227,7 @@
                             <option value="Bkash(personal)">Bkash(personal)</option>
                             <option value="Bkash(merchant)">Bkash(merchant)</option>
                             <option value="Bank(AIBL)">Bank(AIBL)</option>
-                            
+
                             <option value="Bank(SIBL)">Bank(SIBL)</option>
                           </select>
                         </td>
@@ -312,6 +313,7 @@ export default {
 
   methods: {
     add() {
+    
       this.$Progress.start();
       axios
         .post("/add/purchase", {
@@ -369,7 +371,7 @@ export default {
       let length = this.search.length;
       this.validation();
 
-      if (length >= 2) {
+      if (length > 3) {
         axios
           .get("/search/product/" + this.search)
 
@@ -461,7 +463,7 @@ export default {
         this.invoice_no.length > 0 &&
         this.preview_products.product_id &&
         this.search.length > 0 &&
-        this.supplier_id 
+        this.supplier_id
       ) {
         this.validationPreview = false;
       } else {
@@ -516,7 +518,7 @@ export default {
     },
      uploadImage(e) {
       var file = e.target.files[0];
-    
+
     if (!file.type.match("image.*")) {
          Swal.fire({
           type:'warning',
@@ -533,7 +535,7 @@ export default {
          this.validation();
         };
       reader.readAsDataURL(file);
-     
+
     },
   },
   computed: {},

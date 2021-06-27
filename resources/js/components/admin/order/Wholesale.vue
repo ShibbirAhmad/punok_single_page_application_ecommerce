@@ -4,7 +4,7 @@
     <div class="content-wrapper">
       <section class="content-header">
         <h1>
-          <router-link :to="{ name: 'addOrder' }" class="btn btn-primary">
+          <router-link :to="{ name: 'addWholeSale' }" class="btn btn-primary">
             <i class="fa fa-plus"></i>
           </router-link>
           <router-link :to="{ name: 'NewOrder' }" class="btn btn-sm btn-success"
@@ -60,8 +60,8 @@
       </section>
       <section class="content">
         <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-10">
+          <div class="row">
+            <div class="col-lg-11 col-md-11">
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <div class="row">

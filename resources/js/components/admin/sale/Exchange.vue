@@ -249,7 +249,7 @@
                         <td style="display:flex;">
                           <select class="form-control" v-model="form.paid_by">
                           <option  v-for="(paid_by_option,index) in paid_by_options" :value="paid_by_option" :key="index">{{paid_by_option}}</option>
-                         
+
                           </select>
                           <button  v-if="form.paid> 0 &&  form.partials_payment_amount <=0 " title="Partials paymnet" class="btn btn-sm btn-info" @click="partialsPayment">PP</button>
                         </td>
@@ -319,7 +319,7 @@
                         <td style="display:flex;">
                           <select class="form-control" v-model="form.paid_by">
                           <option  v-for="(paid_by_option,index) in paid_by_options" :value="paid_by_option" :key="index">{{paid_by_option}}</option>
-                         
+
                           </select>
                           <button  v-if="form.paid> 0 &&  form.partials_payment_amount <=0 " title="Partials paymnet" class="btn btn-sm btn-info" @click="partialsPayment">PP</button>
                         </td>
@@ -560,7 +560,7 @@ export default {
       let length = this.search.length;
       this.validation();
 
-      if (length >= 4) {
+      if (length > 3) {
         axios
           .get("/search/single/product/" + this.search)
 
@@ -730,7 +730,7 @@ export default {
       } else if (
         parseInt(this.preview_products.quantity) <=
           parseInt(this.preview_products.stock) &&
-        this.add_to_exchnage == 1
+         this.add_to_exchnage == 1 ||  this.add_to_exchnage == 2
       ) {
         this.validationPreview = false;
         return;
@@ -742,8 +742,8 @@ export default {
     },
 
     finalValidation() {
-      if (this.form.products.length <= 0 && 
-         this.form.exchanage_products.length <= 0 && 
+      if (this.form.products.length <= 0 &&
+         this.form.exchanage_products.length <= 0 &&
          this.form.sale_total < this.form.exchange_total &&
          this.form.name.length <= 0 &&
          this.form.mobile_no.length != 11 &&
@@ -753,10 +753,10 @@ export default {
         return;
       }else {
         return  this.submitValidation = false;
-         
+
       }
 
-    
+
     },
 
     totalAmount() {

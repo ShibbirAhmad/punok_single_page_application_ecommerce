@@ -21,7 +21,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-6 col-lg-offset-2">
             <div class="box box-primary">
-              <div class="box-header with-border">
+              <div class="box-header with-border text-center">
                 <h3 class="box-title">
                   Edit  slider
                   <small>({{ image_size_text }})</small>
@@ -46,18 +46,20 @@
                         <label>Url</label>
                         <input class="form-control" type="text" name="url" v-model="form.url" />
                       </div>
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <label>Postion</label>
                         <select
                           name="postion"
                           class="form-control"
+                          @change="selectPosition"
                           v-model="form.position"
                           :class="{ 'is-invalid': form.errors.has('postion') }"
                         >
                           <option value="1">Slider</option>
+                          <option value="2">Slider Banner</option>
                         </select>
                         <has-error :form="form" field="image"></has-error>
-                      </div>
+                      </div> -->
 
                       <div class="preview-image">
                         <img class="img-responsive" :src="form.file" alt="slider" />
@@ -78,15 +80,16 @@
                     </div>
                   </div>
 
-     
-                  <br />
-                  <button
-                    :disabled="form.busy || disabled"
+                  <div class="form-group text-center">
+                     <button
+                    :disabled="form.busy"
                     type="submit"
                     class="btn btn-primary btn-block"
                   >
                     <i class="fa fa-spin fa-spinner" v-if="form.busy"></i>Submit
                   </button>
+                  </div>
+
                 </form>
               </div>
             </div>
@@ -115,18 +118,18 @@ export default {
     return {
       form: new Form({
         image: "",
-        file: this.$store.state.image_base_link+'images/static/1360x365.jpeg',
+        file: this.$store.state.image_base_link+'images/slider-preview.jpg',
         position: 1,
         url: "#",
       }),
       error: "",
       loading: true,
       image: "",
-      disabled: false,
-      image_width: 1360,
-      image_height: 365,
-      image_size_text: "Image size must be 1360*365px",
-      imagae_size:1024,
+      disabled: true,
+      image_width: 750,
+      image_height: 400,
+      image_size_text: "Image size must be 750*400px",
+      imagae_size:550,
     };
   },
 
@@ -136,7 +139,7 @@ export default {
 
             axios.get('/get/edit/slider/'+this.$route.params.id)
             .then(resp => {
-                if (resp.data.success== "OK") {
+                if (resp.data.status== "OK") {
                     this.form.url=resp.data.slider.url ;
                     this.form.position=resp.data.slider.position ;
                     this.form.file= this.$store.state.image_base_link+resp.data.slider.image ;
@@ -154,7 +157,7 @@ export default {
           ],
         })
         .then((resp) => {
-          console.log(resp);
+          console.log(resp)
           if (resp.data.status == "OK") {
             this.$router.push({ name: "slider" });
             this.$toasted.show(resp.data.message, {
@@ -166,6 +169,15 @@ export default {
             this.error = "some thing want to wrong";
           }
         })
+        .catch((error) => {
+          console.log(e)
+          this.error = error.response.data.errors;
+          this.$toasted.show("some thing want to wrong", {
+            type: "error",
+            position: "top-center",
+            duration: 5000,
+          });
+        });
     },
     uploadImage(e) {
       const file = e.target.files[0];
@@ -215,14 +227,28 @@ export default {
         img.src = evt.target.result;
       };
     },
-    
+
     setImage(file, evt) {
       this.disabled = false;
       this.form.image = file;
       this.form.file = evt.target.result;
     },
 
-
+    selectPosition() {
+       if (this.form.position == 1) {
+        this.form.file = "/../storage/images/slider-preview.jpg";
+        this.image_width = 870;
+        this.image_height = 350;
+        this.image_size_text = "Image size must be 870*350px";
+        this.imagae_size=550;
+      } else {
+        this.form.file = this.$store.state.image_base_link+'images/static/300x350.jpg';
+        this.imagae_size=55;
+        this.image_size_text = "Image size must be 300*350px";
+        this.image_width = 300;
+        this.image_height = 350;
+      }
+    },
   },
   computed: {},
 };

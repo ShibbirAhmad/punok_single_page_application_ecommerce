@@ -242,7 +242,7 @@ export default {
                 duration: 400,
                 position: "top-center",
               });
-              this.Campaigns.splice(index, 1);
+              this.getSaleCampaigns();
             }
           });
       }

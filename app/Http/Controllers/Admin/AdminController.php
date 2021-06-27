@@ -26,7 +26,7 @@ class AdminController extends Controller
         if(!$request->ajax()){
           return abort(404);
         }
-        
+
     }
     public function index()
     {
@@ -66,19 +66,15 @@ class AdminController extends Controller
 
         if ($request->hasFile('image')) {
 
-            //validate image size || dimensions
-            $validatedData = $request->validate([
-                'image' => 'required|file|image|dimensions:max_width=1000,max_height=1000',
-            ]);
             $path = $request->file('image')->store('images/admin', 'public');
             $admin->image = $path;
         }
         if ($admin->save()) {
 
-           
+
             return response()->json([
                 'status' => 'SUCCESS',
-                'message' => 'admin add successfully'
+                'message' => 'admin added successfully'
             ]);
         }
 
@@ -90,11 +86,7 @@ class AdminController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
-
+  
 
     public function edit($id)
     {
@@ -148,10 +140,9 @@ class AdminController extends Controller
         $admin->email = $request->email;
 
         if ($request->hasFile('image')) {
-             
             $path = $request->file('image')->store('images/admin', 'public');
             $admin->image = $path;
-        }  
+        }
         if ($admin->save()) {
 
             return response()->json([
@@ -179,19 +170,19 @@ class AdminController extends Controller
                     "message" => "current password and new password can't be same ",
                 ]);
             }else{
-                $admin->password=Hash::make($request->new_password);  
+                $admin->password=Hash::make($request->new_password);
                     if ($admin->save()) {
                         return response()->json([ "success" => "OK", "message" => "password changed successfully" ]);
-                    }  
+                    }
             }
          }else{
              return response()->json([
                 "message" => "current password is incorrect! ",
               ]);
-         } 
-        
+         }
 
-           
+
+
     }
 
     /**
@@ -274,13 +265,13 @@ class AdminController extends Controller
               "permissions" => $permissions ,
               "admin_name"   => $admin_name ,
               "admin_has_permissions_id" => $admin_has_permissions_id ,
-              
+
           ]);
     }
 
 
 
-    
+
     public function assignAdminPermission(Request $request , $id){
 
       //  $model = Permission::findOrFail($id);
@@ -299,13 +290,13 @@ class AdminController extends Controller
 
             "status" => "OK",
             "message" => "Permission assigned successfully" ,
-            
+
         ]);
   }
 
 
 
 
-       
-    
+
+
 }

@@ -1,1 +1,2683 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{105:function(s,a,t){var e=t(544);"string"==typeof e&&(e=[[s.i,e,""]]);var n={hmr:!0,transform:void 0,insertInto:void 0};t(4)(e,n);e.locals&&(s.exports=e.locals)},543:function(s,a,t){"use strict";var e=t(105);t.n(e).a},544:function(s,a,t){(s.exports=t(3)(!1)).push([s.i,"\n.box-gradiant {\r\n  background: linear-gradient(to right, #c33764, #1d2671);\n}\n.small-box .icon {\r\n  color: #fff !important;\r\n  opacity: 0.6;\n}\n.product-thumb.clearfix {\r\n  padding: 12px 13px;\r\n  margin-right: 10px;\r\n  margin-right: 10px;\r\n  border: 1px solid #eee;\r\n  box-shadow: 2px 2px 2px #eee;\n}\n.custom-box {\r\n  background: #fff;\r\n  padding: 13px;\r\n  height: 280px;\r\n  box-shadow: 3px 3px 3px #ddd;\r\n  border-radius: 6px;\r\n  margin-bottom: 10px;\n}\n.custom-box-body strong {\r\n  position: absolute;\r\n  right: 10%;\r\n  color: blue;\n}\n.custom-box-footer {\r\n  background: #00a65a;\r\n  color: #fff;\n}\n.analysis-item {\r\n  display: flex;\r\n  list-style-type: none;\r\n  float: right;\n}\n.analysis-item li {\r\n  padding: 10px 10px;\r\n  text-transform: uppercase;\r\n  font-weight: bold;\r\n  cursor: pointer;\n}\n.analysis-item .active {\r\n  border-bottom: 2px solid #000;\n}\r\n",""])},8:function(s,a,t){"use strict";t.r(a);var e=t(35),n={name:"Index",data:function(){return{orders:{},loading:!0,due:"",balance:{},stock:"",admin_orders:"",top_selling_products_today:"",base_url:this.$store.state.image_base_link,analysis:"",analysisshow:1}},created:function(){},mounted:function(){this.$store.dispatch("admin"),this.dashboard()},methods:{dashboard:function(){var s=this;axios.get("/dashboard").then((function(a){console.log(a),s.orders=a.data.orders,s.balance=a.data.balance,s.stock=a.data.stock,s.admin_orders=a.data.admin_order,s.top_selling_products_today=a.data.top_selling_products_today,s.analysis=a.data.analysis,s.due=a.data.due,s.loading=!1})).catch((function(s){console.log(s)}))}},components:{carousel:t.n(e).a},computed:{admin:function(){return this.$store.getters.admin}}},i=(t(543),t(1)),r=Object(i.a)(n,(function(){var s=this,a=s.$createElement,t=s._self._c||a;return t("div",[t("admin-main"),s._v(" "),t("div",{staticClass:"content-wrapper"},[s._m(0),s._v(" "),s.loading?t("h1",{staticStyle:{"text-align":"center","font-size":"50px"}},[t("i",{staticClass:"fa fa-spinner fa-spin"})]):t("section",{staticClass:"content"},[s.$can("view dashboard")?t("div",{staticClass:"row"},[t("div",{staticClass:"col-lg-3 col-xs-6"},[t("div",{staticClass:"small-box bg-green"},[t("div",{staticClass:"inner"},[t("h3",{},[s._v(s._s(s.orders.new_order))]),s._v(" "),t("h4",[s._v("New Orders")])]),s._v(" "),t("div",{staticClass:"icon"}),s._v(" "),t("router-link",{staticClass:"small-box-footer",attrs:{to:{name:"NewOrder"}}},[s._v("More info "),t("i",{staticClass:"fa fa-arrow-circle-right"})])],1)]),s._v(" "),t("div",{staticClass:"col-lg-3 col-xs-6"},[t("div",{staticClass:"small-box bg-green"},[t("div",{staticClass:"inner"},[t("h3",[s._v(s._s(s.orders.pending_order))]),s._v(" "),t("h4",[s._v("Pending Order")])]),s._v(" "),t("div",{staticClass:"icon"}),s._v(" "),t("router-link",{staticClass:"small-box-footer",attrs:{to:{name:"PendingOrder"}}},[s._v("More info "),t("i",{staticClass:"fa fa-arrow-circle-right"})])],1)]),s._v(" "),t("div",{staticClass:"col-lg-3 col-xs-6"},[t("div",{staticClass:"small-box bg-green"},[t("div",{staticClass:"inner"},[t("h3",[s._v(s._s(s.orders.approved_order))]),s._v(" "),t("h4",[s._v("Approved Order")])]),s._v(" "),t("div",{staticClass:"icon"}),s._v(" "),t("router-link",{staticClass:"small-box-footer",attrs:{to:{name:"ApprovedOrder"}}},[s._v("More info "),t("i",{staticClass:"fa fa-arrow-circle-right"})])],1)]),s._v(" "),t("div",{staticClass:"col-lg-3 col-sm-6 col-xs-6"},[t("div",{staticClass:"small-box bg-green"},[t("div",{staticClass:"inner"},[t("h3",[s._v(s._s(s.orders.shipment_order))]),s._v(" "),t("h4",[s._v("Shipment order")])]),s._v(" "),t("div",{staticClass:"icon"}),s._v(" "),t("router-link",{staticClass:"small-box-footer",attrs:{to:{name:"ShipmentOrder"}}},[s._v("More info "),t("i",{staticClass:"fa fa-arrow-circle-right"})])],1)]),s._v(" "),t("div",{staticClass:"col-lg-3 col-sm-6 col-xs-6"},[t("div",{staticClass:"small-box bg-green"},[t("div",{staticClass:"inner"},[t("h3",[s._v(s._s(s.orders.delivered_order))]),s._v(" "),t("p",[s._v("Delivered order")])]),s._v(" "),t("div",{staticClass:"icon"}),s._v(" "),t("router-link",{staticClass:"small-box-footer",attrs:{to:{name:"DeliveredOrder"}}},[s._v("More info "),t("i",{staticClass:"fa fa-arrow-circle-right"})])],1)]),s._v(" "),t("div",{staticClass:"col-lg-3 col-sm-6 col-xs-6"},[t("div",{staticClass:"small-box bg-yellow"},[t("div",{staticClass:"inner"},[t("h3",[s._v(s._s(s.orders.return_order))]),s._v(" "),t("h4",[s._v("Return order")])]),s._v(" "),t("div",{staticClass:"icon"}),s._v(" "),t("router-link",{staticClass:"small-box-footer",attrs:{to:{name:"ReturnOrder"}}},[s._v("More info "),t("i",{staticClass:"fa fa-arrow-circle-right"})])],1)]),s._v(" "),t("div",{staticClass:"col-lg-3 col-sm-12 col-xs-12"},[t("div",{staticClass:"small-box bg-red"},[t("div",{staticClass:"inner"},[t("h3",[s._v(s._s(s.orders.cancel_order))]),s._v(" "),t("h4",[s._v("Cancel order")])]),s._v(" "),t("div",{staticClass:"icon"}),s._v(" "),t("router-link",{staticClass:"small-box-footer",attrs:{to:{name:"CancelOrder"}}},[s._v("More info "),t("i",{staticClass:"fa fa-arrow-circle-right"})])],1)]),s._v(" "),t("div",{staticClass:"col-lg-3 col-sm-12 col-xs-12"},[t("div",{staticClass:"small-box bg-green"},[t("div",{staticClass:"inner"},[t("h3",[s._v(s._s(s.orders.total))]),s._v(" "),t("h4",[s._v("All order")])]),s._v(" "),t("div",{staticClass:"icon"}),s._v(" "),t("router-link",{staticClass:"small-box-footer",attrs:{to:{name:"order"}}},[s._v("More info "),t("i",{staticClass:"fa fa-arrow-circle-right"})])],1)])]):s._e(),s._v(" "),s.$can("Manage accounts")?t("div",{staticClass:"row"},[t("h1",{staticStyle:{"margin-left":"15px"}},[s._v("Accounts")]),s._v(" "),t("div",{staticClass:"col-lg-3"},[t("div",{staticClass:"custom-box"},[t("div",{staticClass:"custom-box-body"},[t("h4",[s._v("\n                In Cash: "),t("strong",[s._v(s._s(parseInt(s.balance.today_credit_cash)))])]),s._v(" "),t("h4",[s._v("\n                In Bkash(personal):\n                "),t("strong",[s._v(s._s(parseInt(s.balance.today_credit_bkash_personal)))])]),s._v(" "),t("h4",[s._v("\n                In Bkash(merchant):\n                "),t("strong",[s._v(s._s(parseInt(s.balance.today_credit_bkash_merchant)))])]),s._v(" "),t("h4",[s._v("\n                In Bank(SIBL): "),t("strong",[s._v(s._s(parseInt(s.balance.today_credit_bank_sibl)))])]),s._v(" "),t("h4",[s._v("\n                In Bank(AIBL): "),t("strong",[s._v(s._s(parseInt(s.balance.today_credit_bank_aibl)))])]),s._v(" "),t("h4",[s._v("\n                Total: "),t("strong",[s._v(s._s(parseInt(s.balance.today_credit)))])])]),s._v(" "),s._m(1)])]),s._v(" "),t("div",{staticClass:"col-lg-3"},[t("div",{staticClass:"custom-box"},[t("div",{staticClass:"custom-box-body"},[t("h4",[s._v("\n                In Cash: "),t("strong",[s._v(s._s(parseInt(s.balance.today_debitt_cash)))])]),s._v(" "),t("h4",[s._v("\n                In Bkash(personal):\n                "),t("strong",[s._v(s._s(parseInt(s.balance.today_debit_bkash_personal)))])]),s._v(" "),t("h4",[s._v("\n                In Bkash(merchant):\n                "),t("strong",[s._v(s._s(parseInt(s.balance.today_debit_bkash_merchant)))])]),s._v(" "),t("h4",[s._v("\n                In Bank(SIBL): "),t("strong",[s._v(s._s(parseInt(s.balance.today_debit_bank_sibl)))])]),s._v(" "),t("h4",[s._v("\n                In Bank(AIBL): "),t("strong",[s._v(s._s(parseInt(s.balance.today_debit_bank_aibl)))])]),s._v(" "),t("h4",[s._v("\n                Total: "),t("strong",[s._v(s._s(parseInt(s.balance.today_debit)))])])]),s._v(" "),s._m(2)])]),s._v(" "),t("div",{staticClass:"col-lg-3"},[t("div",{staticClass:"custom-box"},[t("div",{staticClass:"custom-box-body"},[t("h4",[s._v("\n                In Cash:\n                "),t("strong",[s._v(s._s(parseInt(s.balance.total_credit_cash)-parseInt(s.balance.total_debitt_cash)))])]),s._v(" "),t("h4",[s._v("\n                In Bkash(personal):\n                "),t("strong",[s._v(s._s(parseInt(s.balance.total_credit_bkash_personal)-parseInt(s.balance.total_debit_bkash_personal)))])]),s._v(" "),t("h4",[s._v("\n                In Bkash(merchant):\n                "),t("strong",[s._v(s._s(parseInt(s.balance.total_credit_bkash_merchant)-parseInt(s.balance.total_debit_bkash_merchant)))])]),s._v(" "),t("h4",[s._v("\n                In Bank(SIBL):\n                "),t("strong",[s._v(s._s(parseInt(s.balance.total_credit_bank_sibl)-parseInt(s.balance.total_debit_bank_sibl)))])]),s._v(" "),t("h4",[s._v("\n                In Bank(AIBL):\n                "),t("strong",[s._v(s._s(parseInt(s.balance.total_credit_bank_aibl)-parseInt(s.balance.total_debit_bank_aibl)))])]),s._v(" "),t("h4",[s._v("\n                Total:\n                "),t("strong",[s._v(s._s(parseInt(s.balance.total_credit)-parseInt(s.balance.total_debit)))])])]),s._v(" "),s._m(3)])])]):s._e(),s._v(" "),s.$can("Manage accounts")?t("div",{staticClass:"row"},[t("div",{staticClass:"col-lg-6"},[t("div",{staticClass:"row"},[t("h1",{staticStyle:{"margin-left":"15px"}},[s._v("Due Summary")]),s._v(" "),t("div",{staticClass:"col-lg-6"},[t("div",{staticClass:"custom-box"},[t("div",{staticClass:"custom-box-body"},[t("h4",[s._v("\n                    Office Sale Due "),t("strong",[s._v(s._s(parseInt(s.due.office_sale_due)))])]),s._v(" "),t("h4",[s._v("\n                    Whole Sale Due "),t("strong",[s._v(s._s(parseInt(s.due.whole_sale_due)))])]),s._v(" "),t("h4",[s._v("\n                    Order Due "),t("strong",[s._v(s._s(parseInt(s.due.order_due)))])]),s._v(" "),t("h4",[t("strong",[s._v("=\n                      "+s._s(parseInt(s.due.office_sale_due)+parseInt(s.due.whole_sale_due)+parseInt(s.due.order_due)))])])]),s._v(" "),s._m(4)])]),s._v(" "),t("div",{staticClass:"col-lg-6"},[t("div",{staticClass:"custom-box"},[t("div",{staticClass:"custom-box-body"},[t("h4",[s._v("\n                    Product Supplier\n                    "),t("strong",[s._v(s._s(parseInt(s.due.product_supplier)))])]),s._v(" "),t("h4",[s._v("\n                    Fabrics Supplier\n                    "),t("strong",[s._v(s._s(parseInt(s.due.fabrics_supplier)))])]),s._v(" "),t("h4",[t("strong",[s._v("=\n                      "+s._s(parseInt(s.due.product_supplier)+parseInt(s.due.fabrics_supplier)))])])]),s._v(" "),s._m(5)])])])]),s._v(" "),t("div",{staticClass:"col-lg-6"},[t("div",{staticClass:"row"},[t("div",{staticClass:"col-lg-12"},[t("h1",{staticStyle:{"text-align":"right","margin-top":"30px"}},[s._v("Order Analysis")]),s._v(" "),t("div",{staticClass:"custom-box"},[t("div",{staticClass:"custom-box-body"},[t("ul",{staticClass:"analysis-item"},[t("li",{class:{active:1==s.analysisshow},on:{click:function(a){s.analysisshow=1}}},[s._v("\n                      Today\n                    ")]),s._v(" "),t("li",{class:{active:4==s.analysisshow},on:{click:function(a){s.analysisshow=4}}},[s._v("\n                      yesterday\n                    ")]),s._v(" "),t("li",{class:{active:2==s.analysisshow},on:{click:function(a){s.analysisshow=2}}},[s._v("\n                      This week\n                    ")]),s._v(" "),t("li",{class:{active:3==s.analysisshow},on:{click:function(a){s.analysisshow=3}}},[s._v("\n                      This Month\n                    ")])]),s._v(" "),t("table",{staticClass:"table"},[s._m(6),s._v(" "),t("tbody",[s._l(s.analysis,(function(a,e){return t("tr",{key:e},[t("td",[s._v(s._s(e))]),s._v(" "),t("td",[1==s.analysisshow?t("span",[s._v("\n                                "+s._s(a.today.order_quantity)+"\n                              ")]):s._e(),s._v(" "),4==s.analysisshow?t("span",[s._v("\n                                "+s._s(a.yesterday.order_quantity)+"\n                              ")]):s._e(),s._v(" "),2==s.analysisshow?t("span",[s._v("\n                                "+s._s(a.this_week.order_quantity)+"\n                              ")]):s._e(),s._v(" "),3==s.analysisshow?t("span",[s._v("\n                                "+s._s(a.this_month.order_quantity)+"\n                              ")]):s._e()]),s._v(" "),t("td",[1==s.analysisshow?t("span",[s._v("\n                                "+s._s(a.today.product_quanity)+"\n                              ")]):s._e(),s._v(" "),4==s.analysisshow?t("span",[s._v("\n                                "+s._s(a.yesterday.product_quanity)+"\n                              ")]):s._e(),s._v(" "),2==s.analysisshow?t("span",[s._v("\n                                "+s._s(a.this_week.product_quanity)+"\n                              ")]):s._e(),s._v(" "),3==s.analysisshow?t("span",[s._v("\n                                "+s._s(a.this_month.product_quanity)+"\n                              ")]):s._e()]),s._v(" "),t("td",[1==s.analysisshow?t("span",[s._v("\n                                "+s._s(a.today.amount)+"\n                              ")]):s._e(),s._v(" "),4==s.analysisshow?t("span",[s._v("\n                                "+s._s(a.yesterday.amount)+"\n                              ")]):s._e(),s._v(" "),2==s.analysisshow?t("span",[s._v("\n                                "+s._s(a.this_week.amount)+"\n                              ")]):s._e(),s._v(" "),3==s.analysisshow?t("span",[s._v("\n                                "+s._s(a.this_month.amount)+"\n                              ")]):s._e()])])})),s._v(" "),t("tr",[t("td"),s._v(" "),t("td",[t("span",[s._v(" = "),1==s.analysisshow?t("b",[s._v("\n                              "+s._s(parseInt(s.analysis.sale.today.order_quantity?s.analysis.sale.today.order_quantity:0)+parseInt(s.analysis.wholesale.today.order_quantity?s.analysis.wholesale.today.order_quantity:0)+parseInt(s.analysis.order.today.order_quantity?s.analysis.order.today.order_quantity:0))+"\n                                ")]):s._e(),s._v(" "),4==s.analysisshow?t("b",[s._v("\n                              "+s._s(parseInt(s.analysis.sale.yesterday.order_quantity?s.analysis.sale.yesterday.order_quantity:0)+parseInt(s.analysis.wholesale.yesterday.order_quantity?s.analysis.wholesale.yesterday.order_quantity:0)+parseInt(s.analysis.order.yesterday.order_quantity?s.analysis.order.yesterday.order_quantity:0))+"\n                                ")]):s._e(),s._v(" "),2==s.analysisshow?t("b",[s._v("\n                              "+s._s(parseInt(s.analysis.sale.this_week.order_quantity?s.analysis.sale.this_week.order_quantity:0)+parseInt(s.analysis.wholesale.this_week.order_quantity?s.analysis.wholesale.this_week.order_quantity:0)+parseInt(s.analysis.order.this_week.order_quantity?s.analysis.order.this_week.order_quantity:0))+"\n\n                                 ")]):s._e(),s._v(" "),3==s.analysisshow?t("b",[s._v("\n                              "+s._s(parseInt(s.analysis.sale.this_month.order_quantity?s.analysis.sale.this_month.order_quantity:0)+parseInt(s.analysis.wholesale.this_month.order_quantity?s.analysis.wholesale.this_month.order_quantity:0)+parseInt(s.analysis.order.this_month.order_quantity?s.analysis.order.this_month.order_quantity:0))+"\n\n                                  ")]):s._e()])]),s._v(" "),t("td",[t("span",[s._v(" = "),1==s.analysisshow?t("b",[s._v("\n                              "+s._s(parseInt(s.analysis.sale.today.product_quanity?s.analysis.sale.today.product_quanity:0)+parseInt(s.analysis.wholesale.today.product_quanity?s.analysis.wholesale.today.product_quanity:0)+parseInt(s.analysis.order.today.product_quanity?s.analysis.order.today.product_quanity:0))+"\n                                ")]):s._e(),s._v(" "),4==s.analysisshow?t("b",[s._v("\n                              "+s._s(parseInt(s.analysis.sale.yesterday.product_quanity?s.analysis.sale.yesterday.product_quanity:0)+parseInt(s.analysis.wholesale.yesterday.product_quanity?s.analysis.wholesale.yesterday.product_quanity:0)+parseInt(s.analysis.order.yesterday.product_quanity?s.analysis.order.yesterday.product_quanity:0))+"\n                                ")]):s._e(),s._v(" "),2==s.analysisshow?t("b",[s._v("\n                              "+s._s(parseInt(s.analysis.sale.this_week.product_quanity?s.analysis.sale.this_week.product_quanity:0)+parseInt(s.analysis.wholesale.this_week.product_quanity?s.analysis.wholesale.this_week.product_quanity:0)+parseInt(s.analysis.order.this_week.product_quanity?s.analysis.order.this_week.product_quanity:0))+"\n\n                                 ")]):s._e(),s._v(" "),3==s.analysisshow?t("b",[s._v("\n                              "+s._s(parseInt(s.analysis.sale.this_month.product_quanity?s.analysis.sale.this_month.product_quanity:0)+parseInt(s.analysis.wholesale.this_month.product_quanity?s.analysis.wholesale.this_month.product_quanity:0)+parseInt(s.analysis.order.this_month.product_quanity?s.analysis.order.this_month.product_quanity:0))+"\n\n                                  ")]):s._e()])]),s._v(" "),t("td",[t("span",[s._v(" = "),1==s.analysisshow?t("b",[s._v("\n                              "+s._s(parseInt(s.analysis.sale.today.amount?s.analysis.sale.today.amount:0)+parseInt(s.analysis.wholesale.today.amount?s.analysis.wholesale.today.amount:0)+parseInt(s.analysis.order.today.amount?s.analysis.order.today.amount:0))+"\n                                ")]):s._e(),s._v(" "),4==s.analysisshow?t("b",[s._v("\n                               "+s._s(parseInt(s.analysis.sale.yesterday.amount?s.analysis.sale.yesterday.amount:0)+parseInt(s.analysis.wholesale.yesterday.amount?s.analysis.wholesale.yesterday.amount:0)+parseInt(s.analysis.order.yesterday.amount?s.analysis.order.yesterday.amount:0))+"\n                                ")]):s._e(),s._v(" "),2==s.analysisshow?t("b",[s._v("\n                              "+s._s(parseInt(s.analysis.sale.this_week.amount?s.analysis.sale.this_week.amount:0)+parseInt(s.analysis.wholesale.this_week.amount?s.analysis.wholesale.this_week.amount:0)+parseInt(s.analysis.order.this_week.amount?s.analysis.order.this_week.amount:0))+"\n\n                                 ")]):s._e(),s._v(" "),3==s.analysisshow?t("b",[s._v("\n                              "+s._s(parseInt(s.analysis.sale.this_month.amount?s.analysis.sale.this_month.amount:0)+parseInt(s.analysis.wholesale.this_month.amount?s.analysis.wholesale.this_month.amount:0)+parseInt(s.analysis.order.this_month.amount?s.analysis.order.this_month.amount:0))+"\n\n                                  ")]):s._e()])])])],2)])])])])])])]):s._e(),s._v(" "),s.$can("manage product")?t("div",{staticClass:"row"},[t("h1",{staticStyle:{"margin-left":"15px"}},[s._v("Stock")]),s._v(" "),t("div",{staticClass:"col-lg-4 col-xs-6"},[t("div",{staticClass:"small-box bg-green"},[t("div",{staticClass:"inner"},[t("h3",{},[s._v(s._s(s.stock.total_quantity))]),s._v(" "),t("h4",[s._v("Total Stock Quantity")])])])]),s._v(" "),t("div",{staticClass:"col-lg-4 col-xs-6"},[t("div",{staticClass:"small-box bg-green"},[t("div",{staticClass:"inner"},[t("h3",{},[s._v(s._s(parseInt(s.stock.total_price)))]),s._v(" "),t("h4",[s._v("Total Stock Amount")])])])])]):s._e(),s._v(" "),t("div",{staticClass:"row"},[t("h3",{staticClass:"text-center text-uppercase"},[s._v("Create Analysis")]),s._v(" "),t("div",{staticClass:"col-lg-6"},[t("div",{staticClass:"box box-primary"},[t("div",{staticClass:"box-header with-border text-center"},[s.admin.image?t("img",{staticClass:"img-circle small-image",attrs:{src:s.base_url+s.admin.image,alt:s.admin.name}}):t("img",{staticClass:"img-circle small-image",attrs:{src:s.base_url+"images/static/user2-160x160.jpg",alt:s.admin.name}}),s._v(" "),t("h4",{staticClass:"text-center"},[s._v("\n                "+s._s("Hi "+s.admin.name+" see your order create history")+"\n              ")])]),s._v(" "),t("div",{staticClass:"box-body"},[t("table",{staticClass:"table"},[s._m(7),s._v(" "),t("tbody",s._l(s.admin_orders.session_admin,(function(a,e){return t("tr",{key:e},[t("td",[s._v(s._s(e+1))]),s._v(" "),t("td",[s._v(s._s(a.created_at))]),s._v(" "),t("td",[s._v(s._s(a.total))])])})),0)])])])]),s._v(" "),t("div",{staticClass:"col-lg-6"},[t("div",{staticClass:"box box-success"},[t("div",{staticClass:"box-header with-border text-center"},[t("h4",{staticClass:"text-center"},[s._v(s._s("Today order create count  "))])]),s._v(" "),t("div",{staticClass:"box-body"},[t("table",{staticClass:"table"},[s._m(8),s._v(" "),t("tbody",s._l(s.admin_orders.all,(function(a,e){return t("tr",{key:e},[t("td",[s._v(s._s(e+1))]),s._v(" "),t("td",[a.create_admin.image?t("img",{staticClass:"img-circle small-image",staticStyle:{width:"30px"},attrs:{src:s.base_url+a.create_admin.image}}):s._e(),s._v("\n                      "+s._s(a.create_admin.name)+"\n                    ")]),s._v(" "),t("td",[s._v(s._s(a.total))])])})),0)])])])])]),s._v(" "),s.$can("view dashboard")?t("div",{staticClass:"row"},[t("h3",{staticClass:"text-center text-uppercase"},[s._v("Top Sell Product Today")]),s._v(" "),t("div",{staticClass:"col-lg-12"},[t("div",{staticClass:"box box-primary"},[t("div",{staticClass:"bx-header with-border"}),s._v(" "),t("div",{staticClass:"box-body"},[s.top_selling_products_today.length?t("carousel",{attrs:{nav:!1,autoplay:!0,autoplayTimeout:4e3,responsive:{0:{items:3},600:{items:7}}}},s._l(s.top_selling_products_today,(function(a){return t("div",{key:a.id,staticClass:"product-thumb clearfix"},[t("div",{staticClass:"image"},[t("img",{staticClass:"img-responsive",attrs:{src:s.base_url+a.product.product_image[0].product_image}})]),s._v(" "),t("div",{staticClass:"caption"},[t("h6",[t("a",{attrs:{href:"/public/product/view/"+a.product.slug}},[s._v(s._s(a.product.name+""+a.product.product_code))])])])])})),0):s._e()],1)])])]):s._e()])])],1)}),[function(){var s=this.$createElement,a=this._self._c||s;return a("section",{staticClass:"content-header"},[a("h1",[this._v("Order")]),this._v(" "),a("ol",{staticClass:"breadcrumb"},[a("li",[a("a",{attrs:{href:"#"}},[a("i",{staticClass:"fa fa-dashboard"}),this._v("Home")])]),this._v(" "),a("li",{staticClass:"active"},[this._v("Dashboard")])])])},function(){var s=this.$createElement,a=this._self._c||s;return a("div",{staticClass:"custom-box-footer"},[a("h3",{staticClass:"text-center text-uppercase"},[this._v("today credit")])])},function(){var s=this.$createElement,a=this._self._c||s;return a("div",{staticClass:"custom-box-footer"},[a("h3",{staticClass:"text-center text-uppercase"},[this._v("today debit")])])},function(){var s=this.$createElement,a=this._self._c||s;return a("div",{staticClass:"custom-box-footer"},[a("h3",{staticClass:"text-center text-uppercase"},[this._v("total balance")])])},function(){var s=this.$createElement,a=this._self._c||s;return a("div",{staticClass:"custom-box-footer",staticStyle:{"margin-top":"70px"}},[a("h3",{staticClass:"text-center text-uppercase"},[this._v("GET it")])])},function(){var s=this.$createElement,a=this._self._c||s;return a("div",{staticClass:"custom-box-footer",staticStyle:{"margin-top":"100px"}},[a("h3",{staticClass:"text-center text-uppercase"},[this._v("To Pay")])])},function(){var s=this.$createElement,a=this._self._c||s;return a("thead",[a("tr",[a("td"),this._v(" "),a("td",[this._v("O.Qty")]),this._v(" "),a("td",[this._v("P.Qty")]),this._v(" "),a("td",[this._v("Amount")])])])},function(){var s=this.$createElement,a=this._self._c||s;return a("thead",[a("tr",[a("th",[this._v("#")]),this._v(" "),a("th",[this._v("Date")]),this._v(" "),a("th",[this._v("Total Create")])])])},function(){var s=this.$createElement,a=this._self._c||s;return a("thead",[a("tr",[a("th",[this._v("#")]),this._v(" "),a("th",[this._v("Admin")]),this._v(" "),a("th",[this._v("Total Create")])])])}],!1,null,null,null);a.default=r.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["admin_dashboard"],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/Index.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/Index.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_owl_carousel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-owl-carousel */ "./node_modules/vue-owl-carousel/dist/vue-owl-carousel.js");
+/* harmony import */ var vue_owl_carousel__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_owl_carousel__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Index",
+  data: function data() {
+    return {
+      orders: {},
+      loading: true,
+      due: "",
+      balance: {},
+      stock: "",
+      admin_orders: "",
+      top_selling_products_today: "",
+      base_url: this.$store.state.image_base_link,
+      analysis: "",
+      analysisshow: 1
+    };
+  },
+  created: function created() {},
+  mounted: function mounted() {
+    this.$store.dispatch("admin");
+    this.dashboard();
+  },
+  methods: {
+    dashboard: function dashboard() {
+      var _this = this;
+
+      axios.get("/dashboard").then(function (resp) {
+        console.log(resp);
+        _this.orders = resp.data.orders;
+        _this.balance = resp.data.balance;
+        _this.stock = resp.data.stock;
+        _this.admin_orders = resp.data.admin_order;
+        _this.top_selling_products_today = resp.data.top_selling_products_today;
+        _this.analysis = resp.data.analysis;
+        _this.due = resp.data.due;
+        _this.loading = false; //  console.log(resp.data.stock)
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  },
+  components: {
+    carousel: vue_owl_carousel__WEBPACK_IMPORTED_MODULE_0___default.a
+  },
+  computed: {
+    admin: function admin() {
+      return this.$store.getters.admin;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/Index.vue?vue&type=style&index=0&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/Index.vue?vue&type=style&index=0&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.box-gradiant {\r\n  background: linear-gradient(to right, #c33764, #1d2671);\n}\n.small-box .icon {\r\n  color: #fff !important;\r\n  opacity: 0.6;\n}\n.product-thumb.clearfix {\r\n  padding: 12px 13px;\r\n  margin-right: 10px;\r\n  margin-right: 10px;\r\n  border: 1px solid #eee;\r\n  box-shadow: 2px 2px 2px #eee;\n}\n.custom-box {\r\n  background: #fff;\r\n  padding: 13px;\r\n  height: 280px;\r\n  box-shadow: 3px 3px 3px #ddd;\r\n  border-radius: 6px;\r\n  margin-bottom: 10px;\n}\n.custom-box-body strong {\r\n  position: absolute;\r\n  right: 10%;\r\n  color: blue;\n}\n.custom-box-footer {\r\n  background: #00a65a;\r\n  color: #fff;\n}\n.analysis-item {\r\n  display: flex;\r\n  list-style-type: none;\r\n  float: right;\n}\n.analysis-item li {\r\n  padding: 10px 10px;\r\n  text-transform: uppercase;\r\n  font-weight: bold;\r\n  cursor: pointer;\n}\n.analysis-item .active {\r\n  border-bottom: 2px solid #000;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/Index.vue?vue&type=style&index=0&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/Index.vue?vue&type=style&index=0&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Index.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/Index.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/Index.vue?vue&type=template&id=3d8603f7&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/Index.vue?vue&type=template&id=3d8603f7& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("admin-main"),
+      _vm._v(" "),
+      _c("div", { staticClass: "content-wrapper" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm.loading
+          ? _c(
+              "h1",
+              { staticStyle: { "text-align": "center", "font-size": "50px" } },
+              [_c("i", { staticClass: "fa fa-spinner fa-spin" })]
+            )
+          : _c("section", { staticClass: "content" }, [
+              _vm.$can("view dashboard")
+                ? _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-lg-3 col-xs-6" }, [
+                      _c(
+                        "div",
+                        { staticClass: "small-box bg-green" },
+                        [
+                          _c("div", { staticClass: "inner" }, [
+                            _c("h3", {}, [
+                              _vm._v(_vm._s(_vm.orders.new_order))
+                            ]),
+                            _vm._v(" "),
+                            _c("h4", [_vm._v("New Orders")])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "icon" }),
+                          _vm._v(" "),
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "small-box-footer",
+                              attrs: { to: { name: "NewOrder" } }
+                            },
+                            [
+                              _vm._v("More info "),
+                              _c("i", {
+                                staticClass: "fa fa-arrow-circle-right"
+                              })
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3 col-xs-6" }, [
+                      _c(
+                        "div",
+                        { staticClass: "small-box bg-green" },
+                        [
+                          _c("div", { staticClass: "inner" }, [
+                            _c("h3", [
+                              _vm._v(_vm._s(_vm.orders.pending_order))
+                            ]),
+                            _vm._v(" "),
+                            _c("h4", [_vm._v("Pending Order")])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "icon" }),
+                          _vm._v(" "),
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "small-box-footer",
+                              attrs: { to: { name: "PendingOrder" } }
+                            },
+                            [
+                              _vm._v("More info "),
+                              _c("i", {
+                                staticClass: "fa fa-arrow-circle-right"
+                              })
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3 col-xs-6" }, [
+                      _c(
+                        "div",
+                        { staticClass: "small-box bg-green" },
+                        [
+                          _c("div", { staticClass: "inner" }, [
+                            _c("h3", [
+                              _vm._v(_vm._s(_vm.orders.approved_order))
+                            ]),
+                            _vm._v(" "),
+                            _c("h4", [_vm._v("Approved Order")])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "icon" }),
+                          _vm._v(" "),
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "small-box-footer",
+                              attrs: { to: { name: "ApprovedOrder" } }
+                            },
+                            [
+                              _vm._v("More info "),
+                              _c("i", {
+                                staticClass: "fa fa-arrow-circle-right"
+                              })
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3 col-sm-6 col-xs-6" }, [
+                      _c(
+                        "div",
+                        { staticClass: "small-box bg-green" },
+                        [
+                          _c("div", { staticClass: "inner" }, [
+                            _c("h3", [
+                              _vm._v(_vm._s(_vm.orders.shipment_order))
+                            ]),
+                            _vm._v(" "),
+                            _c("h4", [_vm._v("Shipment order")])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "icon" }),
+                          _vm._v(" "),
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "small-box-footer",
+                              attrs: { to: { name: "ShipmentOrder" } }
+                            },
+                            [
+                              _vm._v("More info "),
+                              _c("i", {
+                                staticClass: "fa fa-arrow-circle-right"
+                              })
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3 col-sm-6 col-xs-6" }, [
+                      _c(
+                        "div",
+                        { staticClass: "small-box bg-green" },
+                        [
+                          _c("div", { staticClass: "inner" }, [
+                            _c("h3", [
+                              _vm._v(_vm._s(_vm.orders.delivered_order))
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Delivered order")])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "icon" }),
+                          _vm._v(" "),
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "small-box-footer",
+                              attrs: { to: { name: "DeliveredOrder" } }
+                            },
+                            [
+                              _vm._v("More info "),
+                              _c("i", {
+                                staticClass: "fa fa-arrow-circle-right"
+                              })
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3 col-sm-6 col-xs-6" }, [
+                      _c(
+                        "div",
+                        { staticClass: "small-box bg-yellow" },
+                        [
+                          _c("div", { staticClass: "inner" }, [
+                            _c("h3", [_vm._v(_vm._s(_vm.orders.return_order))]),
+                            _vm._v(" "),
+                            _c("h4", [_vm._v("Return order")])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "icon" }),
+                          _vm._v(" "),
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "small-box-footer",
+                              attrs: { to: { name: "ReturnOrder" } }
+                            },
+                            [
+                              _vm._v("More info "),
+                              _c("i", {
+                                staticClass: "fa fa-arrow-circle-right"
+                              })
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3 col-sm-12 col-xs-12" }, [
+                      _c(
+                        "div",
+                        { staticClass: "small-box bg-red" },
+                        [
+                          _c("div", { staticClass: "inner" }, [
+                            _c("h3", [_vm._v(_vm._s(_vm.orders.cancel_order))]),
+                            _vm._v(" "),
+                            _c("h4", [_vm._v("Cancel order")])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "icon" }),
+                          _vm._v(" "),
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "small-box-footer",
+                              attrs: { to: { name: "CancelOrder" } }
+                            },
+                            [
+                              _vm._v("More info "),
+                              _c("i", {
+                                staticClass: "fa fa-arrow-circle-right"
+                              })
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3 col-sm-12 col-xs-12" }, [
+                      _c(
+                        "div",
+                        { staticClass: "small-box bg-green" },
+                        [
+                          _c("div", { staticClass: "inner" }, [
+                            _c("h3", [_vm._v(_vm._s(_vm.orders.total))]),
+                            _vm._v(" "),
+                            _c("h4", [_vm._v("All order")])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "icon" }),
+                          _vm._v(" "),
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "small-box-footer",
+                              attrs: { to: { name: "order" } }
+                            },
+                            [
+                              _vm._v("More info "),
+                              _c("i", {
+                                staticClass: "fa fa-arrow-circle-right"
+                              })
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.$can("Manage accounts")
+                ? _c("div", { staticClass: "row" }, [
+                    _c("h1", { staticStyle: { "margin-left": "15px" } }, [
+                      _vm._v("Accounts")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("div", { staticClass: "custom-box" }, [
+                        _c("div", { staticClass: "custom-box-body" }, [
+                          _c("h4", [
+                            _vm._v("\n                In Cash: "),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(parseInt(_vm.balance.today_credit_cash))
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("h4", [
+                            _vm._v(
+                              "\n                In Bkash(personal):\n                "
+                            ),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  parseInt(
+                                    _vm.balance.today_credit_bkash_personal
+                                  )
+                                )
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("h4", [
+                            _vm._v(
+                              "\n                In Bkash(merchant):\n                "
+                            ),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  parseInt(
+                                    _vm.balance.today_credit_bkash_merchant
+                                  )
+                                )
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("h4", [
+                            _vm._v("\n                In Bank(SIBL): "),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  parseInt(_vm.balance.today_credit_bank_sibl)
+                                )
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("h4", [
+                            _vm._v("\n                In Bank(AIBL): "),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  parseInt(_vm.balance.today_credit_bank_aibl)
+                                )
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("h4", [
+                            _vm._v("\n                Total: "),
+                            _c("strong", [
+                              _vm._v(_vm._s(parseInt(_vm.balance.today_credit)))
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(1)
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("div", { staticClass: "custom-box" }, [
+                        _c("div", { staticClass: "custom-box-body" }, [
+                          _c("h4", [
+                            _vm._v("\n                In Cash: "),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(parseInt(_vm.balance.today_debitt_cash))
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("h4", [
+                            _vm._v(
+                              "\n                In Bkash(personal):\n                "
+                            ),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  parseInt(
+                                    _vm.balance.today_debit_bkash_personal
+                                  )
+                                )
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("h4", [
+                            _vm._v(
+                              "\n                In Bkash(merchant):\n                "
+                            ),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  parseInt(
+                                    _vm.balance.today_debit_bkash_merchant
+                                  )
+                                )
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("h4", [
+                            _vm._v("\n                In Bank(SIBL): "),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  parseInt(_vm.balance.today_debit_bank_sibl)
+                                )
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("h4", [
+                            _vm._v("\n                In Bank(AIBL): "),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  parseInt(_vm.balance.today_debit_bank_aibl)
+                                )
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("h4", [
+                            _vm._v("\n                Total: "),
+                            _c("strong", [
+                              _vm._v(_vm._s(parseInt(_vm.balance.today_debit)))
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(2)
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("div", { staticClass: "custom-box" }, [
+                        _c("div", { staticClass: "custom-box-body" }, [
+                          _c("h4", [
+                            _vm._v(
+                              "\n                In Cash:\n                "
+                            ),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  parseInt(_vm.balance.total_credit_cash) -
+                                    parseInt(_vm.balance.total_debitt_cash)
+                                )
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("h4", [
+                            _vm._v(
+                              "\n                In Bkash(personal):\n                "
+                            ),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  parseInt(
+                                    _vm.balance.total_credit_bkash_personal
+                                  ) -
+                                    parseInt(
+                                      _vm.balance.total_debit_bkash_personal
+                                    )
+                                )
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("h4", [
+                            _vm._v(
+                              "\n                In Bkash(merchant):\n                "
+                            ),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  parseInt(
+                                    _vm.balance.total_credit_bkash_merchant
+                                  ) -
+                                    parseInt(
+                                      _vm.balance.total_debit_bkash_merchant
+                                    )
+                                )
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("h4", [
+                            _vm._v(
+                              "\n                In Bank(SIBL):\n                "
+                            ),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  parseInt(_vm.balance.total_credit_bank_sibl) -
+                                    parseInt(_vm.balance.total_debit_bank_sibl)
+                                )
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("h4", [
+                            _vm._v(
+                              "\n                In Bank(AIBL):\n                "
+                            ),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  parseInt(_vm.balance.total_credit_bank_aibl) -
+                                    parseInt(_vm.balance.total_debit_bank_aibl)
+                                )
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("h4", [
+                            _vm._v(
+                              "\n                Total:\n                "
+                            ),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  parseInt(_vm.balance.total_credit) -
+                                    parseInt(_vm.balance.total_debit)
+                                )
+                              )
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(3)
+                      ])
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.$can("Manage accounts")
+                ? _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-lg-6" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("h1", { staticStyle: { "margin-left": "15px" } }, [
+                          _vm._v("Due Summary")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-lg-6" }, [
+                          _c("div", { staticClass: "custom-box" }, [
+                            _c("div", { staticClass: "custom-box-body" }, [
+                              _c("h4", [
+                                _vm._v(
+                                  "\n                    Office Sale Due "
+                                ),
+                                _c("strong", [
+                                  _vm._v(
+                                    _vm._s(parseInt(_vm.due.office_sale_due))
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("h4", [
+                                _vm._v("\n                    Whole Sale Due "),
+                                _c("strong", [
+                                  _vm._v(
+                                    _vm._s(parseInt(_vm.due.whole_sale_due))
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("h4", [
+                                _vm._v("\n                    Order Due "),
+                                _c("strong", [
+                                  _vm._v(_vm._s(parseInt(_vm.due.order_due)))
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("h4", [
+                                _c("strong", [
+                                  _vm._v(
+                                    "=\n                      " +
+                                      _vm._s(
+                                        parseInt(_vm.due.office_sale_due) +
+                                          parseInt(_vm.due.whole_sale_due) +
+                                          parseInt(_vm.due.order_due)
+                                      )
+                                  )
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(4)
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-lg-6" }, [
+                          _c("div", { staticClass: "custom-box" }, [
+                            _c("div", { staticClass: "custom-box-body" }, [
+                              _c("h4", [
+                                _vm._v(
+                                  "\n                    Product Supplier\n                    "
+                                ),
+                                _c("strong", [
+                                  _vm._v(
+                                    _vm._s(parseInt(_vm.due.product_supplier))
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("h4", [
+                                _vm._v(
+                                  "\n                    Fabrics Supplier\n                    "
+                                ),
+                                _c("strong", [
+                                  _vm._v(
+                                    _vm._s(parseInt(_vm.due.fabrics_supplier))
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("h4", [
+                                _c("strong", [
+                                  _vm._v(
+                                    "=\n                      " +
+                                      _vm._s(
+                                        parseInt(_vm.due.product_supplier) +
+                                          parseInt(_vm.due.fabrics_supplier)
+                                      )
+                                  )
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(5)
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-6" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-lg-12" }, [
+                          _c(
+                            "h1",
+                            {
+                              staticStyle: {
+                                "text-align": "right",
+                                "margin-top": "30px"
+                              }
+                            },
+                            [_vm._v("Order Analysis")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "custom-box" }, [
+                            _c("div", { staticClass: "custom-box-body" }, [
+                              _c("ul", { staticClass: "analysis-item" }, [
+                                _c(
+                                  "li",
+                                  {
+                                    class: { active: _vm.analysisshow == 1 },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.analysisshow = 1
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                      Today\n                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "li",
+                                  {
+                                    class: { active: _vm.analysisshow == 4 },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.analysisshow = 4
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                      yesterday\n                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "li",
+                                  {
+                                    class: { active: _vm.analysisshow == 2 },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.analysisshow = 2
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                      This week\n                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "li",
+                                  {
+                                    class: { active: _vm.analysisshow == 3 },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.analysisshow = 3
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                      This Month\n                    "
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("table", { staticClass: "table" }, [
+                                _vm._m(6),
+                                _vm._v(" "),
+                                _c(
+                                  "tbody",
+                                  [
+                                    _vm._l(_vm.analysis, function(item, index) {
+                                      return _c("tr", { key: index }, [
+                                        _c("td", [_vm._v(_vm._s(index))]),
+                                        _vm._v(" "),
+                                        _c("td", [
+                                          _vm.analysisshow == 1
+                                            ? _c("span", [
+                                                _vm._v(
+                                                  "\n                                " +
+                                                    _vm._s(
+                                                      item.today.order_quantity
+                                                    ) +
+                                                    "\n                              "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 4
+                                            ? _c("span", [
+                                                _vm._v(
+                                                  "\n                                " +
+                                                    _vm._s(
+                                                      item.yesterday
+                                                        .order_quantity
+                                                    ) +
+                                                    "\n                              "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 2
+                                            ? _c("span", [
+                                                _vm._v(
+                                                  "\n                                " +
+                                                    _vm._s(
+                                                      item.this_week
+                                                        .order_quantity
+                                                    ) +
+                                                    "\n                              "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 3
+                                            ? _c("span", [
+                                                _vm._v(
+                                                  "\n                                " +
+                                                    _vm._s(
+                                                      item.this_month
+                                                        .order_quantity
+                                                    ) +
+                                                    "\n                              "
+                                                )
+                                              ])
+                                            : _vm._e()
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("td", [
+                                          _vm.analysisshow == 1
+                                            ? _c("span", [
+                                                _vm._v(
+                                                  "\n                                " +
+                                                    _vm._s(
+                                                      item.today.product_quanity
+                                                    ) +
+                                                    "\n                              "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 4
+                                            ? _c("span", [
+                                                _vm._v(
+                                                  "\n                                " +
+                                                    _vm._s(
+                                                      item.yesterday
+                                                        .product_quanity
+                                                    ) +
+                                                    "\n                              "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 2
+                                            ? _c("span", [
+                                                _vm._v(
+                                                  "\n                                " +
+                                                    _vm._s(
+                                                      item.this_week
+                                                        .product_quanity
+                                                    ) +
+                                                    "\n                              "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 3
+                                            ? _c("span", [
+                                                _vm._v(
+                                                  "\n                                " +
+                                                    _vm._s(
+                                                      item.this_month
+                                                        .product_quanity
+                                                    ) +
+                                                    "\n                              "
+                                                )
+                                              ])
+                                            : _vm._e()
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("td", [
+                                          _vm.analysisshow == 1
+                                            ? _c("span", [
+                                                _vm._v(
+                                                  "\n                                " +
+                                                    _vm._s(item.today.amount) +
+                                                    "\n                              "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 4
+                                            ? _c("span", [
+                                                _vm._v(
+                                                  "\n                                " +
+                                                    _vm._s(
+                                                      item.yesterday.amount
+                                                    ) +
+                                                    "\n                              "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 2
+                                            ? _c("span", [
+                                                _vm._v(
+                                                  "\n                                " +
+                                                    _vm._s(
+                                                      item.this_week.amount
+                                                    ) +
+                                                    "\n                              "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 3
+                                            ? _c("span", [
+                                                _vm._v(
+                                                  "\n                                " +
+                                                    _vm._s(
+                                                      item.this_month.amount
+                                                    ) +
+                                                    "\n                              "
+                                                )
+                                              ])
+                                            : _vm._e()
+                                        ])
+                                      ])
+                                    }),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c("td"),
+                                      _vm._v(" "),
+                                      _c("td", [
+                                        _c("span", [
+                                          _vm._v(" = "),
+                                          _vm.analysisshow == 1
+                                            ? _c("b", [
+                                                _vm._v(
+                                                  "\n                              " +
+                                                    _vm._s(
+                                                      parseInt(
+                                                        _vm.analysis.sale.today
+                                                          .order_quantity
+                                                          ? _vm.analysis.sale
+                                                              .today
+                                                              .order_quantity
+                                                          : 0
+                                                      ) +
+                                                        parseInt(
+                                                          _vm.analysis.wholesale
+                                                            .today
+                                                            .order_quantity
+                                                            ? _vm.analysis
+                                                                .wholesale.today
+                                                                .order_quantity
+                                                            : 0
+                                                        ) +
+                                                        parseInt(
+                                                          _vm.analysis.order
+                                                            .today
+                                                            .order_quantity
+                                                            ? _vm.analysis.order
+                                                                .today
+                                                                .order_quantity
+                                                            : 0
+                                                        )
+                                                    ) +
+                                                    "\n                                "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 4
+                                            ? _c("b", [
+                                                _vm._v(
+                                                  "\n                              " +
+                                                    _vm._s(
+                                                      parseInt(
+                                                        _vm.analysis.sale
+                                                          .yesterday
+                                                          .order_quantity
+                                                          ? _vm.analysis.sale
+                                                              .yesterday
+                                                              .order_quantity
+                                                          : 0
+                                                      ) +
+                                                        parseInt(
+                                                          _vm.analysis.wholesale
+                                                            .yesterday
+                                                            .order_quantity
+                                                            ? _vm.analysis
+                                                                .wholesale
+                                                                .yesterday
+                                                                .order_quantity
+                                                            : 0
+                                                        ) +
+                                                        parseInt(
+                                                          _vm.analysis.order
+                                                            .yesterday
+                                                            .order_quantity
+                                                            ? _vm.analysis.order
+                                                                .yesterday
+                                                                .order_quantity
+                                                            : 0
+                                                        )
+                                                    ) +
+                                                    "\n                                "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 2
+                                            ? _c("b", [
+                                                _vm._v(
+                                                  "\n                              " +
+                                                    _vm._s(
+                                                      parseInt(
+                                                        _vm.analysis.sale
+                                                          .this_week
+                                                          .order_quantity
+                                                          ? _vm.analysis.sale
+                                                              .this_week
+                                                              .order_quantity
+                                                          : 0
+                                                      ) +
+                                                        parseInt(
+                                                          _vm.analysis.wholesale
+                                                            .this_week
+                                                            .order_quantity
+                                                            ? _vm.analysis
+                                                                .wholesale
+                                                                .this_week
+                                                                .order_quantity
+                                                            : 0
+                                                        ) +
+                                                        parseInt(
+                                                          _vm.analysis.order
+                                                            .this_week
+                                                            .order_quantity
+                                                            ? _vm.analysis.order
+                                                                .this_week
+                                                                .order_quantity
+                                                            : 0
+                                                        )
+                                                    ) +
+                                                    "\n\n                                 "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 3
+                                            ? _c("b", [
+                                                _vm._v(
+                                                  "\n                              " +
+                                                    _vm._s(
+                                                      parseInt(
+                                                        _vm.analysis.sale
+                                                          .this_month
+                                                          .order_quantity
+                                                          ? _vm.analysis.sale
+                                                              .this_month
+                                                              .order_quantity
+                                                          : 0
+                                                      ) +
+                                                        parseInt(
+                                                          _vm.analysis.wholesale
+                                                            .this_month
+                                                            .order_quantity
+                                                            ? _vm.analysis
+                                                                .wholesale
+                                                                .this_month
+                                                                .order_quantity
+                                                            : 0
+                                                        ) +
+                                                        parseInt(
+                                                          _vm.analysis.order
+                                                            .this_month
+                                                            .order_quantity
+                                                            ? _vm.analysis.order
+                                                                .this_month
+                                                                .order_quantity
+                                                            : 0
+                                                        )
+                                                    ) +
+                                                    "\n\n                                  "
+                                                )
+                                              ])
+                                            : _vm._e()
+                                        ])
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("td", [
+                                        _c("span", [
+                                          _vm._v(" = "),
+                                          _vm.analysisshow == 1
+                                            ? _c("b", [
+                                                _vm._v(
+                                                  "\n                              " +
+                                                    _vm._s(
+                                                      parseInt(
+                                                        _vm.analysis.sale.today
+                                                          .product_quanity
+                                                          ? _vm.analysis.sale
+                                                              .today
+                                                              .product_quanity
+                                                          : 0
+                                                      ) +
+                                                        parseInt(
+                                                          _vm.analysis.wholesale
+                                                            .today
+                                                            .product_quanity
+                                                            ? _vm.analysis
+                                                                .wholesale.today
+                                                                .product_quanity
+                                                            : 0
+                                                        ) +
+                                                        parseInt(
+                                                          _vm.analysis.order
+                                                            .today
+                                                            .product_quanity
+                                                            ? _vm.analysis.order
+                                                                .today
+                                                                .product_quanity
+                                                            : 0
+                                                        )
+                                                    ) +
+                                                    "\n                                "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 4
+                                            ? _c("b", [
+                                                _vm._v(
+                                                  "\n                              " +
+                                                    _vm._s(
+                                                      parseInt(
+                                                        _vm.analysis.sale
+                                                          .yesterday
+                                                          .product_quanity
+                                                          ? _vm.analysis.sale
+                                                              .yesterday
+                                                              .product_quanity
+                                                          : 0
+                                                      ) +
+                                                        parseInt(
+                                                          _vm.analysis.wholesale
+                                                            .yesterday
+                                                            .product_quanity
+                                                            ? _vm.analysis
+                                                                .wholesale
+                                                                .yesterday
+                                                                .product_quanity
+                                                            : 0
+                                                        ) +
+                                                        parseInt(
+                                                          _vm.analysis.order
+                                                            .yesterday
+                                                            .product_quanity
+                                                            ? _vm.analysis.order
+                                                                .yesterday
+                                                                .product_quanity
+                                                            : 0
+                                                        )
+                                                    ) +
+                                                    "\n                                "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 2
+                                            ? _c("b", [
+                                                _vm._v(
+                                                  "\n                              " +
+                                                    _vm._s(
+                                                      parseInt(
+                                                        _vm.analysis.sale
+                                                          .this_week
+                                                          .product_quanity
+                                                          ? _vm.analysis.sale
+                                                              .this_week
+                                                              .product_quanity
+                                                          : 0
+                                                      ) +
+                                                        parseInt(
+                                                          _vm.analysis.wholesale
+                                                            .this_week
+                                                            .product_quanity
+                                                            ? _vm.analysis
+                                                                .wholesale
+                                                                .this_week
+                                                                .product_quanity
+                                                            : 0
+                                                        ) +
+                                                        parseInt(
+                                                          _vm.analysis.order
+                                                            .this_week
+                                                            .product_quanity
+                                                            ? _vm.analysis.order
+                                                                .this_week
+                                                                .product_quanity
+                                                            : 0
+                                                        )
+                                                    ) +
+                                                    "\n\n                                 "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 3
+                                            ? _c("b", [
+                                                _vm._v(
+                                                  "\n                              " +
+                                                    _vm._s(
+                                                      parseInt(
+                                                        _vm.analysis.sale
+                                                          .this_month
+                                                          .product_quanity
+                                                          ? _vm.analysis.sale
+                                                              .this_month
+                                                              .product_quanity
+                                                          : 0
+                                                      ) +
+                                                        parseInt(
+                                                          _vm.analysis.wholesale
+                                                            .this_month
+                                                            .product_quanity
+                                                            ? _vm.analysis
+                                                                .wholesale
+                                                                .this_month
+                                                                .product_quanity
+                                                            : 0
+                                                        ) +
+                                                        parseInt(
+                                                          _vm.analysis.order
+                                                            .this_month
+                                                            .product_quanity
+                                                            ? _vm.analysis.order
+                                                                .this_month
+                                                                .product_quanity
+                                                            : 0
+                                                        )
+                                                    ) +
+                                                    "\n\n                                  "
+                                                )
+                                              ])
+                                            : _vm._e()
+                                        ])
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("td", [
+                                        _c("span", [
+                                          _vm._v(" = "),
+                                          _vm.analysisshow == 1
+                                            ? _c("b", [
+                                                _vm._v(
+                                                  "\n                              " +
+                                                    _vm._s(
+                                                      parseInt(
+                                                        _vm.analysis.sale.today
+                                                          .amount
+                                                          ? _vm.analysis.sale
+                                                              .today.amount
+                                                          : 0
+                                                      ) +
+                                                        parseInt(
+                                                          _vm.analysis.wholesale
+                                                            .today.amount
+                                                            ? _vm.analysis
+                                                                .wholesale.today
+                                                                .amount
+                                                            : 0
+                                                        ) +
+                                                        parseInt(
+                                                          _vm.analysis.order
+                                                            .today.amount
+                                                            ? _vm.analysis.order
+                                                                .today.amount
+                                                            : 0
+                                                        )
+                                                    ) +
+                                                    "\n                                "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 4
+                                            ? _c("b", [
+                                                _vm._v(
+                                                  "\n                               " +
+                                                    _vm._s(
+                                                      parseInt(
+                                                        _vm.analysis.sale
+                                                          .yesterday.amount
+                                                          ? _vm.analysis.sale
+                                                              .yesterday.amount
+                                                          : 0
+                                                      ) +
+                                                        parseInt(
+                                                          _vm.analysis.wholesale
+                                                            .yesterday.amount
+                                                            ? _vm.analysis
+                                                                .wholesale
+                                                                .yesterday
+                                                                .amount
+                                                            : 0
+                                                        ) +
+                                                        parseInt(
+                                                          _vm.analysis.order
+                                                            .yesterday.amount
+                                                            ? _vm.analysis.order
+                                                                .yesterday
+                                                                .amount
+                                                            : 0
+                                                        )
+                                                    ) +
+                                                    "\n                                "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 2
+                                            ? _c("b", [
+                                                _vm._v(
+                                                  "\n                              " +
+                                                    _vm._s(
+                                                      parseInt(
+                                                        _vm.analysis.sale
+                                                          .this_week.amount
+                                                          ? _vm.analysis.sale
+                                                              .this_week.amount
+                                                          : 0
+                                                      ) +
+                                                        parseInt(
+                                                          _vm.analysis.wholesale
+                                                            .this_week.amount
+                                                            ? _vm.analysis
+                                                                .wholesale
+                                                                .this_week
+                                                                .amount
+                                                            : 0
+                                                        ) +
+                                                        parseInt(
+                                                          _vm.analysis.order
+                                                            .this_week.amount
+                                                            ? _vm.analysis.order
+                                                                .this_week
+                                                                .amount
+                                                            : 0
+                                                        )
+                                                    ) +
+                                                    "\n\n                                 "
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.analysisshow == 3
+                                            ? _c("b", [
+                                                _vm._v(
+                                                  "\n                              " +
+                                                    _vm._s(
+                                                      parseInt(
+                                                        _vm.analysis.sale
+                                                          .this_month.amount
+                                                          ? _vm.analysis.sale
+                                                              .this_month.amount
+                                                          : 0
+                                                      ) +
+                                                        parseInt(
+                                                          _vm.analysis.wholesale
+                                                            .this_month.amount
+                                                            ? _vm.analysis
+                                                                .wholesale
+                                                                .this_month
+                                                                .amount
+                                                            : 0
+                                                        ) +
+                                                        parseInt(
+                                                          _vm.analysis.order
+                                                            .this_month.amount
+                                                            ? _vm.analysis.order
+                                                                .this_month
+                                                                .amount
+                                                            : 0
+                                                        )
+                                                    ) +
+                                                    "\n\n                                  "
+                                                )
+                                              ])
+                                            : _vm._e()
+                                        ])
+                                      ])
+                                    ])
+                                  ],
+                                  2
+                                )
+                              ])
+                            ])
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.$can("manage product")
+                ? _c("div", { staticClass: "row" }, [
+                    _c("h1", { staticStyle: { "margin-left": "15px" } }, [
+                      _vm._v("Stock")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4 col-xs-6" }, [
+                      _c("div", { staticClass: "small-box bg-green" }, [
+                        _c("div", { staticClass: "inner" }, [
+                          _c("h3", {}, [
+                            _vm._v(_vm._s(_vm.stock.total_quantity))
+                          ]),
+                          _vm._v(" "),
+                          _c("h4", [_vm._v("Total Stock Quantity")])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4 col-xs-6" }, [
+                      _c("div", { staticClass: "small-box bg-green" }, [
+                        _c("div", { staticClass: "inner" }, [
+                          _c("h3", {}, [
+                            _vm._v(_vm._s(parseInt(_vm.stock.total_price)))
+                          ]),
+                          _vm._v(" "),
+                          _c("h4", [_vm._v("Total Stock Amount")])
+                        ])
+                      ])
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("h3", { staticClass: "text-center text-uppercase" }, [
+                  _vm._v("Create Analysis")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-6" }, [
+                  _c("div", { staticClass: "box box-primary" }, [
+                    _c(
+                      "div",
+                      { staticClass: "box-header with-border text-center" },
+                      [
+                        _vm.admin.image
+                          ? _c("img", {
+                              staticClass: "img-circle small-image",
+                              attrs: {
+                                src: _vm.base_url + _vm.admin.image,
+                                alt: _vm.admin.name
+                              }
+                            })
+                          : _c("img", {
+                              staticClass: "img-circle small-image",
+                              attrs: {
+                                src:
+                                  _vm.base_url +
+                                  "images/static/user2-160x160.jpg",
+                                alt: _vm.admin.name
+                              }
+                            }),
+                        _vm._v(" "),
+                        _c("h4", { staticClass: "text-center" }, [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(
+                                "Hi " +
+                                  _vm.admin.name +
+                                  " see your order create history"
+                              ) +
+                              "\n              "
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "box-body" }, [
+                      _c("table", { staticClass: "table" }, [
+                        _vm._m(7),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          _vm._l(_vm.admin_orders.session_admin, function(
+                            session_admin_order,
+                            index
+                          ) {
+                            return _c("tr", { key: index }, [
+                              _c("td", [_vm._v(_vm._s(index + 1))]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _vm._v(_vm._s(session_admin_order.created_at))
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _vm._v(_vm._s(session_admin_order.total))
+                              ])
+                            ])
+                          }),
+                          0
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-6" }, [
+                  _c("div", { staticClass: "box box-success" }, [
+                    _c(
+                      "div",
+                      { staticClass: "box-header with-border text-center" },
+                      [
+                        _c("h4", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s("Today order create count  "))
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "box-body" }, [
+                      _c("table", { staticClass: "table" }, [
+                        _vm._m(8),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          _vm._l(_vm.admin_orders.all, function(
+                            order_create_count,
+                            index
+                          ) {
+                            return _c("tr", { key: index }, [
+                              _c("td", [_vm._v(_vm._s(index + 1))]),
+                              _vm._v(" "),
+                              _c("td", [
+                                order_create_count.create_admin.image
+                                  ? _c("img", {
+                                      staticClass: "img-circle small-image",
+                                      staticStyle: { width: "30px" },
+                                      attrs: {
+                                        src:
+                                          _vm.base_url +
+                                          order_create_count.create_admin.image
+                                      }
+                                    })
+                                  : _vm._e(),
+                                _vm._v(
+                                  "\n                      " +
+                                    _vm._s(
+                                      order_create_count.create_admin.name
+                                    ) +
+                                    "\n                    "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _vm._v(_vm._s(order_create_count.total))
+                              ])
+                            ])
+                          }),
+                          0
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _vm.$can("view dashboard")
+                ? _c("div", { staticClass: "row" }, [
+                    _c("h3", { staticClass: "text-center text-uppercase" }, [
+                      _vm._v("Top Sell Product Today")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-12" }, [
+                      _c("div", { staticClass: "box box-primary" }, [
+                        _c("div", { staticClass: "bx-header with-border" }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "box-body" },
+                          [
+                            _vm.top_selling_products_today.length
+                              ? _c(
+                                  "carousel",
+                                  {
+                                    attrs: {
+                                      nav: false,
+                                      autoplay: true,
+                                      autoplayTimeout: 4000,
+                                      responsive: {
+                                        0: { items: 3 },
+                                        600: { items: 7 }
+                                      }
+                                    }
+                                  },
+                                  _vm._l(
+                                    _vm.top_selling_products_today,
+                                    function(top_s_product) {
+                                      return _c(
+                                        "div",
+                                        {
+                                          key: top_s_product.id,
+                                          staticClass: "product-thumb clearfix"
+                                        },
+                                        [
+                                          _c("div", { staticClass: "image" }, [
+                                            _c("img", {
+                                              staticClass: "img-responsive",
+                                              attrs: {
+                                                src:
+                                                  _vm.base_url +
+                                                  top_s_product.product
+                                                    .product_image[0]
+                                                    .product_image
+                                              }
+                                            })
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "caption" },
+                                            [
+                                              _c("h6", [
+                                                _c(
+                                                  "a",
+                                                  {
+                                                    attrs: {
+                                                      href:
+                                                        "/public/product/view/" +
+                                                        top_s_product.product
+                                                          .slug
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(
+                                                        top_s_product.product
+                                                          .name +
+                                                          "" +
+                                                          top_s_product.product
+                                                            .product_code
+                                                      )
+                                                    )
+                                                  ]
+                                                )
+                                              ])
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    }
+                                  ),
+                                  0
+                                )
+                              : _vm._e()
+                          ],
+                          1
+                        )
+                      ])
+                    ])
+                  ])
+                : _vm._e()
+            ])
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "content-header" }, [
+      _c("h1", [_vm._v("Order")]),
+      _vm._v(" "),
+      _c("ol", { staticClass: "breadcrumb" }, [
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", { staticClass: "fa fa-dashboard" }),
+            _vm._v("Home")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "active" }, [_vm._v("Dashboard")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "custom-box-footer" }, [
+      _c("h3", { staticClass: "text-center text-uppercase" }, [
+        _vm._v("today credit")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "custom-box-footer" }, [
+      _c("h3", { staticClass: "text-center text-uppercase" }, [
+        _vm._v("today debit")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "custom-box-footer" }, [
+      _c("h3", { staticClass: "text-center text-uppercase" }, [
+        _vm._v("total balance")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "custom-box-footer",
+        staticStyle: { "margin-top": "70px" }
+      },
+      [
+        _c("h3", { staticClass: "text-center text-uppercase" }, [
+          _vm._v("GET it")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "custom-box-footer",
+        staticStyle: { "margin-top": "100px" }
+      },
+      [
+        _c("h3", { staticClass: "text-center text-uppercase" }, [
+          _vm._v("To Pay")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("td"),
+        _vm._v(" "),
+        _c("td", [_vm._v("O.Qty")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("P.Qty")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("Amount")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Date")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Total Create")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Admin")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Total Create")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/Index.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/components/admin/Index.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Index_vue_vue_type_template_id_3d8603f7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Index.vue?vue&type=template&id=3d8603f7& */ "./resources/js/components/admin/Index.vue?vue&type=template&id=3d8603f7&");
+/* harmony import */ var _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Index.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/Index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Index.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/admin/Index.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Index_vue_vue_type_template_id_3d8603f7___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Index_vue_vue_type_template_id_3d8603f7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/Index.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/Index.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/admin/Index.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/Index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/Index.vue?vue&type=style&index=0&lang=css&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/admin/Index.vue?vue&type=style&index=0&lang=css& ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Index.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/Index.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/Index.vue?vue&type=template&id=3d8603f7&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/admin/Index.vue?vue&type=template&id=3d8603f7& ***!
+  \********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_3d8603f7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Index.vue?vue&type=template&id=3d8603f7& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/Index.vue?vue&type=template&id=3d8603f7&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_3d8603f7___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_3d8603f7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);
