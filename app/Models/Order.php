@@ -229,12 +229,11 @@ class Order extends Model
             ]);
     }
 
-       public static function SendMessageCustomer($number,$name,$invoice){
-
-        $api_key = "C20080926059d38fab0643.83594698";
+     public static function SendMessageCustomer($number,$name,$invoice){
+        $api_key = "C2008151606a05deddbd63.40969555";
         $contacts = $number;
-        $senderid = '8809612446756';
-        $sms = 'Dear '.$name.','. 'Your order has been received. Invoice number is '.$invoice. '.' .'If you have any query please contact with us .'. '01715-900066. Thanks by  madinafashion.com.bd';   // put here your dynamic message text here
+        $senderid = '8809612446732';
+        $sms = 'Dear '.$name.','. 'Your order has been received. Invoice number is '.$invoice. '.' .'If you have any query please contact with us .'. '01837637744. Thanks by  punok.com.bd';   // put here your dynamic message text here
         $URL = "http://bulk.fmsms.biz/smsapi?api_key=" . urlencode($api_key) . "&type=text&contacts=" . urlencode($contacts) . "&senderid=" . urlencode($senderid) . "&msg=" . urlencode($sms);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $URL);
@@ -263,9 +262,9 @@ class Order extends Model
         $customer_name=$order->customer->name;
         $contacts=$order->cutomer_phone;
 
-        $api_key = "C20080926059d38fab0643.83594698";
-        $senderid = '8809612446756';
-        $sms = 'Dear ' . $customer_name .'.'. ' Your order has been shiped to '.$courier_name.' courier.'.' Your memo number is ' .$memo_no.' and payable amount '.$total.' Tk.'.' Thanks by madinafashion.com.bd';
+        $api_key = "C2008151606a05deddbd63.40969555";
+        $senderid = '8809612446732';
+        $sms = 'Dear ' . $customer_name .'.'. ' Your order has been shiped to '.$courier_name.' courier.'.' Your memo number is ' .$memo_no.' and payable amount '.$total.' Tk.'.' Thanks by punok.com.bd';
        // put here your dynamic message text here
         $URL = "http://bulk.fmsms.biz/smsapi?api_key=" . urlencode($api_key) . "&type=text&contacts=" . urlencode($contacts) . "&senderid=" . urlencode($senderid) . "&msg=" . urlencode($sms);
         $ch = curl_init();

@@ -134,6 +134,46 @@ __webpack_require__.r(__webpack_exports__);
         });
         return name;
       }
+    },
+    destoryTransaction: function destoryTransaction($id) {
+      var _this3 = this;
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "Destory this transaction!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes!'
+      }).then(function (result) {
+        if (result.value) {
+          axios.get('/api/delete/showroom/transaction/' + $id).then(function (resp) {
+            //console.log(resp)
+            if (resp.data.status == 'OK') {
+              _this3.transactionsList();
+
+              _this3.$toasted.show(resp.data.message, {
+                position: 'top-center',
+                type: 'success',
+                duration: 4000
+              });
+            } else {
+              _this3.$toasted.show('some thing went to wrong', {
+                position: 'top-center',
+                type: 'error',
+                duration: 4000
+              });
+            }
+          });
+        } else {
+          _this3.$toasted.show('Ok ! no action here', {
+            position: 'top-center',
+            type: 'info',
+            duration: 3000
+          });
+        }
+      });
     }
   }
 });
@@ -278,7 +318,26 @@ var render = function() {
                                               staticClass: "fa fa-eye"
                                             })
                                           ]
-                                        )
+                                        ),
+                                        _vm._v(" "),
+                                        transaction.status == 0 &&
+                                        _vm.$can("Showroom Controller")
+                                          ? _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-sm btn-danger",
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.destoryTransaction(
+                                                      transaction.id
+                                                    )
+                                                  }
+                                                }
+                                              },
+                                              [_vm._v(" Destroy ")]
+                                            )
+                                          : _vm._e()
                                       ],
                                       1
                                     )
@@ -344,7 +403,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Comment")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Details")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Action")])
       ])
     ])
   }

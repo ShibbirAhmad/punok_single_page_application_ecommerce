@@ -83,7 +83,7 @@ class ProductController extends Controller
                 $product->sub_category_id = $request->sub_category ?? null;
                 $product->sub_sub_category_id = $request->sub_sub_category ?? null;
                 $product->product_code = $product_code;
-                $product->slug = $this->slugCreator($request->name).'-'.$product_code;
+                $product->slug = $this->slugCreator(strtolower($request->name)).'-'.$product_code;
                 $product->stock = 0;
                 $product->sale_price = $request->sale_price;
                 $product->price = $request->price;
@@ -483,14 +483,12 @@ class ProductController extends Controller
 
                          $c_product_variants=ProductVariant::where('product_id',$c_product->id)->get();
                          if (!empty($c_product_variants)) {
-                             for ($v=0; $v <= count($c_product_variants); $v++) {
-                                    foreach ($c_product_variants as  $item) {
+                                foreach ($c_product_variants as  $item) {
                                         $product_variant = new ProductVariant();
                                         $product_variant->product_id = $product->id;
                                         $product_variant->variant_id = $item->variant_id;
                                         $product_variant->save();
-                                    }
-                             }
+                                }
                          }
 
 

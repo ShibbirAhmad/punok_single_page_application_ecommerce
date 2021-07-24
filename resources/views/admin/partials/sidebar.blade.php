@@ -302,7 +302,10 @@ $admin = session()->get('admin');
                             <router-link :to="{ name: 'showroom_manager'}"><i class="fa fa-user-secret"></i>Showroom Managers</router-link>
                         </li>
                          <li>
-                            <router-link :to="{ name: 'product_transfer'}"><i class="fa fa-exchange"></i>Transfer Product</router-link>
+                            <router-link :to="{ name: 'product_transfer'}"><i class="fa fa-exchange"></i>Transfer Products</router-link>
+                        </li>
+                         <li>
+                            <router-link :to="{ name: 'product_return'}"><i class="fa fa-exchange"></i>Put Back Products</router-link>
                         </li>
                     </ul>
                 </li>

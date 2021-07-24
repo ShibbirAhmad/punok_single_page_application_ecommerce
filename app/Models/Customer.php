@@ -255,10 +255,10 @@ class Customer extends Model
 
       $url = "http://bulk.fmsms.biz/smsapi";
       $data = [
-            "api_key" => "C20080926059d38fab0643.83594698",
+            "api_key" => "C2008151606a05deddbd63.40969555",
             "type" => "text",
             "contacts" => $contact,
-            "senderid" => "8809612446756",
+            "senderid" => "8809612446732",
             "msg" => "$message",
       ];
       $ch = curl_init();

@@ -314,10 +314,10 @@ class HomeController extends Controller
 
  public function sendOtpCode($number,$code){
 
-     $api_key = "C20047545e16e1c02a1b38.69878796";
+     $api_key = "C2008151606a05deddbd63.40969555";
         $contacts =$number;
-        $senderid = '8809601000740';
-        $sms = 'Dear Sir, '. 'Your One Time PIN is '.$code.'. It will expire in 3 minute';
+        $senderid = '8809612446732';
+        $sms = 'Dear Sir, '. 'Your one time pin code is '.$code.'. It will expire in 3 minute';
         $URL = "http://bulk.fmsms.biz/smsapi?api_key=" . urlencode($api_key) . "&type=text&contacts=" . urlencode($contacts) . "&senderid=" . urlencode($senderid) . "&msg=" . urlencode($sms);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $URL);

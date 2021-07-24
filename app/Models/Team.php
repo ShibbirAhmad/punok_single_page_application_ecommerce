@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Exception;
 use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
@@ -10,10 +11,10 @@ class Team extends Model
 
           public static function sendMessageToEmployeer($employee,$amount){
 
-        $api_key = "C20047545e16e1c02a1b38.69878796";
+        $api_key = "C2008151606a05deddbd63.40969555";
         $contacts = $employee->phone;
-        $senderid = '8809601000740';
-        $sms = 'Assalamualikum, ' .$employee->name.' you have received a payment as your salary ' .$amount.'/= BDT, from the sufilifestyle.com';
+        $senderid = '8809612446732';
+        $sms = 'Assalamualikum, ' .$employee->name.' you have received a payment as your salary ' .$amount.'/= BDT, from the punok.com.bd';
         // put here your dynamic message text here
         $URL = "http://bulk.fmsms.biz/smsapi?api_key=" . urlencode($api_key) . "&type=text&contacts=" . urlencode($contacts) . "&senderid=" . urlencode($senderid) . "&msg=" . urlencode($sms);
         $ch = curl_init();

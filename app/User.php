@@ -21,7 +21,7 @@ class User extends Authenticatable
 
     public function userCity(){
        return   $this->belongsTo('App\Models\City','city_id');
-    } 
+    }
     protected $fillable = [
         'name', 'email', 'password',
     ];
@@ -46,12 +46,12 @@ class User extends Authenticatable
 
      public static function SendUserPasswordResetCode($contacts,$code)
     {
-    
 
-        $api_key = "C20047545e16e1c02a1b38.69878796";
-        $senderid = '8809601000740';
-       
-         $sms = "Your password reset code is ".$code.' Thanks by mohasagor.com';   // put here your dynamic message text here
+
+        $api_key = "C2008151606a05deddbd63.40969555";
+        $senderid = '8809612446732';
+
+         $sms = "Your password reset code is ".$code.' Thanks by punok.com.bd';   // put here your dynamic message text here
         $URL = "http://bulk.fmsms.biz/smsapi?api_key=" . urlencode($api_key) . "&type=text&contacts=" . urlencode($contacts) . "&senderid=" . urlencode($senderid) . "&msg=" . urlencode($sms);
 
         $ch = curl_init();

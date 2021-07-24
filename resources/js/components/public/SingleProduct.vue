@@ -79,16 +79,22 @@
                           <h4 class="control-label" for="input-quantity">
                             <b>Quantity</b>
                           </h4>
-                          <input
+                                <input
                             type="number"
                             name="quantity"
                             v-model="cart.quantity"
-                            size="2"
                             value="1"
-                            class="form-control"
+                            class="form-control input_qty"
                             @change="validation"
                             @keyup="validation"
                           />
+
+                          <div @click="cart.quantity += 1" class="incrementor_plus">
+                             <i  class="fa fa-plus"></i>
+                          </div>
+                           <div v-if="cart.quantity > 1" @click=" cart.quantity -= 1 " class="incrementor_minus">
+                             <i  class="fa fa-minus"></i>
+                          </div>
 
                           <div class="clear"></div>
                         </div>
@@ -296,8 +302,6 @@ export default {
         .then((resp) => {
          // console.log(resp);
           if (resp.data.status == "SUCCESS") {
-
-
               this.$store.dispatch("getCartContent");
               this.$toasted.show(resp.data.message, {
               position: "bottom-left",

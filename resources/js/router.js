@@ -301,6 +301,8 @@ const routes = [
 
 
 
+
+
     {
         path: '/merchant/backend/login',
         component: () => import(/* webpackChunkName: "merchnat_login" */'./components/merchant/Login'),
@@ -353,7 +355,8 @@ const routes = [
         component: () => import(/* webpackChunkName: "merchant_dashboard" */'./components/merchant/Dashboard'),
         name: 'merchant_dashboard',
         meta: {
-            title: 'Merchant|Dashboard'
+            title: 'Merchant|Dashboard',
+            authMerchant: true ,
         }
 
     },
@@ -364,7 +367,8 @@ const routes = [
         component: () => import(/* webpackChunkName: "merchnat_product_manage" */'./components/merchant/product/Menage'),
         name: 'merchant_product_menage',
         meta: {
-            title: 'Product|Manage'
+            title: 'Product|Manage',
+            authMerchant: true ,
         }
     },
 
@@ -373,7 +377,8 @@ const routes = [
         component: () => import(/* webpackChunkName: "merchant_product_add" */'./components/merchant/product/Add'),
         name: 'merchant_product_add',
         meta: {
-            title: ' Product | Add '
+            title: ' Product | Add ',
+            authMerchant: true ,
         }
 
     },
@@ -384,7 +389,8 @@ const routes = [
         component: () => import(/* webpackChunkName: "merchant_product_edit" */'./components/merchant/product/Edit'),
         name: 'merchant_product_edit',
         meta: {
-            title: ' Product | Edit '
+            title: ' Product | Edit ',
+            authMerchant: true ,
         }
 
     },
@@ -394,7 +400,8 @@ const routes = [
         component: () => import(/* webpackChunkName: "merchant_order" */'./components/merchant/order/Index'),
         name: 'merchant_order',
         meta: {
-            title: 'Order Info'
+            title: 'Order Info',
+            authMerchant: true ,
         }
     },
 
@@ -403,7 +410,8 @@ const routes = [
         component: () => import(/* webpackChunkName: "merchant_order_view" */'./components/merchant/order/View'),
         name: 'merchant_order_view',
         meta: {
-            title: 'order details info '
+            title: 'order details info ',
+            authMerchant: true ,
         }
 
     },
@@ -412,7 +420,8 @@ const routes = [
         component: () => import(/* webpackChunkName: "merchant_profile" */'./components/merchant/profile/Profile'),
         name: 'merchant_profile',
         meta: {
-            title: ' Profile info '
+            title: ' Profile info ',
+            authMerchant: true ,
         }
     },
 
@@ -421,7 +430,8 @@ const routes = [
         component: () => import(/* webpackChunkName: "merchant_profile_edit" */'./components/merchant/profile/Change_profile.vue'),
         name: 'merchant_profile_edit',
         meta: {
-            title: ' Profile info | Edit '
+            title: ' Profile info | Edit ',
+            authMerchant: true ,
         }
 
     },
@@ -431,7 +441,8 @@ const routes = [
         component: () => import(/* webpackChunkName: "merchant_password_edit" */'./components/merchant/profile/Change_password.vue'),
         name: 'merchant_password_edit',
         meta: {
-            title: ' Password | Edit '
+            title: ' Password | Edit ',
+            authMerchant: true ,
         }
 
     },
@@ -2207,12 +2218,10 @@ const routes = [
         }
     },
 
-
-
-   {
-        path: '/backend/product/transfer',
-        name: 'product_transfer',
-        component: () => import(/* webpackChunkName: "product_transfer" */'./components/admin/product_transfer/Index.vue'),
+     {
+        path: '/backend/product/transfer/add',
+        name: 'product_transfer_add',
+        component: () => import(/* webpackChunkName: "product_transfer_add" */'./components/admin/product_transfer/Add.vue'),
         meta: {
             requiresAuthAdmin: true,
             title : 'showroom product transfer'
@@ -2220,10 +2229,10 @@ const routes = [
     },
 
 
-     {
-        path: '/backend/product/transfer/add',
-        name: 'product_transfer_add',
-        component: () => import(/* webpackChunkName: "product_transfer_add" */'./components/admin/product_transfer/Add.vue'),
+   {
+        path: '/backend/product/transfer',
+        name: 'product_transfer',
+        component: () => import(/* webpackChunkName: "product_transfer" */'./components/admin/product_transfer/Index.vue'),
         meta: {
             requiresAuthAdmin: true,
             title : 'showroom product transfer'
@@ -2237,6 +2246,27 @@ const routes = [
         meta: {
             requiresAuthAdmin: true,
             title : 'showroom product transfer details'
+        }
+    },
+
+
+   {
+        path: '/backend/product/return',
+        name: 'product_return',
+        component: () => import(/* webpackChunkName: "product_return" */'./components/admin/product_return/Index.vue'),
+        meta: {
+            requiresAuthAdmin: true,
+            title : 'showroom product return'
+        }
+    },
+
+     {
+        path: '/backend/product/return/details/:id',
+        name: 'product_return_details',
+        component: () => import(/* webpackChunkName: "product_return_details" */'./components/admin/product_return/Details.vue'),
+        meta: {
+            requiresAuthAdmin: true,
+            title : 'showroom product return details'
         }
     },
 
@@ -2272,16 +2302,18 @@ router.beforeEach((to, from, next) => {
         next()
     }
 
-    // if (to.matched.some(record=>record.meta.progressbar)){
-    //     progress: {
-    //         func: [
-    //             {call: 'color', modifier: 'temp', argument: '#ffb000'},
-    //             {call: 'fail', modifier: 'temp', argument: '#6e0000'},
-    //             {call: 'location', modifier: 'temp', argument: 'top'},
-    //             {call: 'transition', modifier: 'temp', argument: {speed: '1.5s', opacity: '0.6s', termination: 400}}
-    //         ]
-    //     }
-    // }
+
+   if (to.matched.some(record => record.meta.authMerchant)) {
+        if (localStorage.getItem('merchant_token')) {
+            next()
+            return
+        }
+        next('/merchant/backend/login')
+    } else {
+        next()
+    }
+
+
 })
 
 export default router

@@ -28,10 +28,10 @@ class Sale extends Model
 
   public static function SendMessageToCustomer($customer,$amount,$invoice){
         ///send message
-        $api_key = "C20080926059d38fab0643.83594698";
+        $api_key = "C2008151606a05deddbd63.40969555";
         $contacts = $customer->phone;
-        $senderid = '8809612446756';
-        $sms = 'Dear '.$customer->name .', Thank you for your purchase from madinafashion.com.bd . Invoice number is S-'.$invoice.' & payable amount is ' .$amount.'/=BDT';   // put here your dynamic message text here
+        $senderid = '8809612446732';
+        $sms = 'Dear '.$customer->name .', Thank you for your purchase from punok.com.bd . Invoice number is S-'.$invoice.' & payable amount is ' .$amount.'/=BDT';   // put here your dynamic message text here
         $URL = "http://sms.esmsbd.com/smsapi?api_key=" . urlencode($api_key) . "&type=text&contacts=" . urlencode($contacts) . "&senderid=" . urlencode($senderid) . "&msg=" . urlencode($sms);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $URL);

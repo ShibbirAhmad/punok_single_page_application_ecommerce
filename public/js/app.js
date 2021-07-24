@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "chunks/" + ({"Loan":"Loan","LoanDetails":"LoanDetails","SupplierAmount":"SupplierAmount","about_seller":"about_seller","about_us":"about_us","account_purpose":"account_purpose","admin":"admin","admin_dashboard":"admin_dashboard","attribute":"attribute","category":"category","category_slider":"category_slider","company_sale_details":"company_sale_details","managefabricsPurchase":"managefabricsPurchase","officesale":"officesale","purchase":"purchase","variant":"variant","applied_user":"applied_user","bill_statement":"bill_statement","bill_statement_details":"bill_statement_details","blog":"blog","city":"city","comment":"comment","company":"company","company_assets":"company_assets","company_payment_details":"company_payment_details","contact_messgae":"contact_messgae","contact_us":"contact_us","coupon":"coupon","courier":"courier","credit":"credit","creditDue":"creditDue","debit":"debit","fabricsSupplier":"fabricsSupplier","factory_list":"factory_list","fondtransfer":"fondtransfer","home_carrier":"home_carrier","how_to_buy":"how_to_buy","investment":"investment","investor_details":"investor_details","merchant":"merchant","merchant_dashboard":"merchant_dashboard","offer":"offer","order_details":"order_details","order_history":"order_history","paidPayment":"paidPayment","paymentInvoice":"paymentInvoice","paymnetDetails":"paymnetDetails","print_details":"print_details","print_house":"print_house","print_house_details":"print_house_details","product_transfer":"product_transfer","product_transfer_details":"product_transfer_details","publicCarreir":"publicCarreir","public_category":"public_category","public_product_search":"public_product_search","public_sub_category":"public_sub_category","public_sub_sub_category":"public_sub_sub_category","public_team":"public_team","receive_print_details":"receive_print_details","resellerHome":"resellerHome","return_policy":"return_policy","role":"role","salaryDetails":"salaryDetails","selling_offer":"selling_offer","shipment":"shipment","showroom":"showroom","showroom_manager":"showroom_manager","slider":"slider","sub_city":"sub_city","subscriber_list":"subscriber_list","supplier":"supplier","team_member":"team_member","teamsalary":"teamsalary","unpaidPayment":"unpaidPayment","user_dashboard":"user_dashboard","user_profile":"user_profile","vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~63b7d928":"vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~63b7d928","AddSaleExchange":"AddSaleExchange","accoun_purpose_edit":"accoun_purpose_edit","account_purpose_add":"account_purpose_add","addCompany":"addCompany","addCompanySale":"addCompanySale","addFabricsSupplier":"addFabricsSupplier","addLoan":"addLoan","addOrder":"addOrder","addPurchase":"addPurchase","addPurchasefabrics":"addPurchasefabrics","addSale":"addSale","add_factory":"add_factory","add_merchant":"add_merchant","add_sale_campaign":"add_sale_campaign","add_selling_offer":"add_selling_offer","add_team_member":"add_team_member","addwholesale":"addwholesale","adminAdd":"adminAdd","adminProfile":"adminProfile","AccountReport":"AccountReport","DeliveredOrder":"DeliveredOrder","OrderProfite":"OrderProfite","ReturnOrder":"ReturnOrder","SaleProfite":"SaleProfite","approvedOrder":"approvedOrder","cancelOrder":"cancelOrder","newOrder":"newOrder","officesaleReport":"officesaleReport","order":"order","orderReport":"orderReport","pendingOrder":"pendingOrder","profiteReport":"profiteReport","purchaseReport":"purchaseReport","shipmentOrder":"shipmentOrder","sub_category":"sub_category","sub_sub_category":"sub_sub_category","supplier_Report":"supplier_Report","wholesaleOrder":"wholesaleOrder","assign_admin_permission":"assign_admin_permission","assingRoleAdmin":"assingRoleAdmin","attributeAdd":"attributeAdd","bill_statement_add":"bill_statement_add","buy_one_get_one":"buy_one_get_one","carier_detail":"carier_detail","categoryAdd":"categoryAdd","category_slider_add":"category_slider_add","category_slider_edit":"category_slider_edit","categoryedit":"categoryedit","checkout":"checkout","cityAdd":"cityAdd","cityEdit":"cityEdit","code_verified":"code_verified","commentAdd":"commentAdd","companysale":"companysale","contact_messgae_reply":"contact_messgae_reply","coupon_add":"coupon_add","coupon_edit":"coupon_edit","courierAdd":"courierAdd","creditAdd":"creditAdd","creditEdit":"creditEdit","customer":"customer","debitEdit":"debitEdit","editAdmin":"editAdmin","editComment":"editComment","editCompany":"editCompany","editCourier":"editCourier","editPermission":"editPermission","edit_factory":"edit_factory","edit_merchant":"edit_merchant","edit_offer":"edit_offer","edit_sale_campaign":"edit_sale_campaign","edit_selling_offer":"edit_selling_offer","edit_sub_city":"edit_sub_city","edit_team_member":"edit_team_member","fondtransferAdd":"fondtransferAdd","investment_add":"investment_add","investment_edit":"investment_edit","merchant_order_view":"merchant_order_view","merchant_password_edit":"merchant_password_edit","merchant_profile":"merchant_profile","merchant_profile_edit":"merchant_profile_edit","new_password_user":"new_password_user","occasional_campaign":"occasional_campaign","offerAdd":"offerAdd","orderEdit":"orderEdit","otp_login":"otp_login","passwordChange":"passwordChange","password_reset":"password_reset","print_house_add":"print_house_add","print_product_add":"print_product_add","productStock":"productStock","product_transfer_add":"product_transfer_add","purchaseEdit":"purchaseEdit","purchaseView":"purchaseView","receieve_printed_product":"receieve_printed_product","resellerAdd":"resellerAdd","resellerEdit":"resellerEdit","roleAdd":"roleAdd","sale_campaign":"sale_campaign","seasonal campaign":"seasonal campaign","showroom_add":"showroom_add","showroom_edit":"showroom_edit","showroom_manager_add":"showroom_manager_add","showroom_manager_edit":"showroom_manager_edit","slider_add":"slider_add","slider_edit":"slider_edit","sms_campaign":"sms_campaign","sub_category_add":"sub_category_add","sub_category_edit":"sub_category_edit","sub_city_add":"sub_city_add","sub_sub_category_add":"sub_sub_category_add","sub_sub_category_edit":"sub_sub_category_edit","supplierAdd":"supplierAdd","supplierEdit":"supplierEdit","user":"user","userLogin":"userLogin","admin_login":"admin_login","merchant_password_reset":"merchant_password_reset","merchant_register":"merchant_register","merchnat_code_verified":"merchnat_code_verified","merchnat_login":"merchnat_login","new_password_merchant":"new_password_merchant","user_password":"user_password","user_password_reset":"user_password_reset","user_profile_edit":"user_profile_edit","user_register":"user_register","variaantAdd":"variaantAdd","vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4":"vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4","about_and_contact":"about_and_contact","add_carrier":"add_carrier","company_assets_add":"company_assets_add","company_assets_edit":"company_assets_edit","edit_carrier":"edit_carrier","footer_setting":"footer_setting","generl_setting":"generl_setting","merchant_product_add":"merchant_product_add","merchant_product_edit":"merchant_product_edit","order_shipment_return":"order_shipment_return","productAdd":"productAdd","productEdit":"productEdit","show_carrier":"show_carrier","theme_setting":"theme_setting","vendors~debitAdd":"vendors~debitAdd","debitAdd":"debitAdd","vendors~merchant_order~merchnat_product_manage~product":"vendors~merchant_order~merchnat_product_manage~product","merchant_order":"merchant_order","merchnat_product_manage":"merchnat_product_manage","product":"product","viewOrder":"viewOrder","viewSale":"viewSale","vendors~single_product":"vendors~single_product","single_product":"single_product"}[chunkId]||chunkId) + ".bundle.js"
+/******/ 		return __webpack_require__.p + "chunks/" + ({"Loan":"Loan","LoanDetails":"LoanDetails","SupplierAmount":"SupplierAmount","about_seller":"about_seller","about_us":"about_us","account_purpose":"account_purpose","admin":"admin","admin_dashboard":"admin_dashboard","attribute":"attribute","category":"category","category_slider":"category_slider","company_sale_details":"company_sale_details","managefabricsPurchase":"managefabricsPurchase","officesale":"officesale","purchase":"purchase","variant":"variant","applied_user":"applied_user","bill_statement":"bill_statement","bill_statement_details":"bill_statement_details","blog":"blog","city":"city","comment":"comment","company":"company","company_assets":"company_assets","company_payment_details":"company_payment_details","contact_messgae":"contact_messgae","contact_us":"contact_us","coupon":"coupon","courier":"courier","credit":"credit","creditDue":"creditDue","debit":"debit","fabricsSupplier":"fabricsSupplier","factory_list":"factory_list","fondtransfer":"fondtransfer","home_carrier":"home_carrier","how_to_buy":"how_to_buy","investment":"investment","investor_details":"investor_details","merchant":"merchant","merchant_dashboard":"merchant_dashboard","offer":"offer","order_details":"order_details","order_history":"order_history","paidPayment":"paidPayment","paymentInvoice":"paymentInvoice","paymnetDetails":"paymnetDetails","print_details":"print_details","print_house":"print_house","print_house_details":"print_house_details","product_return":"product_return","product_return_details":"product_return_details","product_transfer":"product_transfer","product_transfer_details":"product_transfer_details","publicCarreir":"publicCarreir","public_category":"public_category","public_product_search":"public_product_search","public_sub_category":"public_sub_category","public_sub_sub_category":"public_sub_sub_category","public_team":"public_team","receive_print_details":"receive_print_details","resellerHome":"resellerHome","return_policy":"return_policy","role":"role","salaryDetails":"salaryDetails","selling_offer":"selling_offer","shipment":"shipment","showroom":"showroom","showroom_manager":"showroom_manager","slider":"slider","sub_city":"sub_city","subscriber_list":"subscriber_list","supplier":"supplier","team_member":"team_member","teamsalary":"teamsalary","unpaidPayment":"unpaidPayment","user_dashboard":"user_dashboard","user_profile":"user_profile","vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~63b7d928":"vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~63b7d928","AddSaleExchange":"AddSaleExchange","accoun_purpose_edit":"accoun_purpose_edit","account_purpose_add":"account_purpose_add","addCompany":"addCompany","addCompanySale":"addCompanySale","addFabricsSupplier":"addFabricsSupplier","addLoan":"addLoan","addOrder":"addOrder","addPurchase":"addPurchase","addPurchasefabrics":"addPurchasefabrics","addSale":"addSale","add_factory":"add_factory","add_merchant":"add_merchant","add_sale_campaign":"add_sale_campaign","add_selling_offer":"add_selling_offer","add_team_member":"add_team_member","addwholesale":"addwholesale","adminAdd":"adminAdd","adminProfile":"adminProfile","AccountReport":"AccountReport","DeliveredOrder":"DeliveredOrder","OrderProfite":"OrderProfite","ReturnOrder":"ReturnOrder","SaleProfite":"SaleProfite","approvedOrder":"approvedOrder","cancelOrder":"cancelOrder","newOrder":"newOrder","officesaleReport":"officesaleReport","order":"order","orderReport":"orderReport","pendingOrder":"pendingOrder","profiteReport":"profiteReport","purchaseReport":"purchaseReport","shipmentOrder":"shipmentOrder","sub_category":"sub_category","sub_sub_category":"sub_sub_category","supplier_Report":"supplier_Report","wholesaleOrder":"wholesaleOrder","assign_admin_permission":"assign_admin_permission","assingRoleAdmin":"assingRoleAdmin","attributeAdd":"attributeAdd","bill_statement_add":"bill_statement_add","buy_one_get_one":"buy_one_get_one","carier_detail":"carier_detail","categoryAdd":"categoryAdd","category_slider_add":"category_slider_add","category_slider_edit":"category_slider_edit","categoryedit":"categoryedit","checkout":"checkout","cityAdd":"cityAdd","cityEdit":"cityEdit","code_verified":"code_verified","commentAdd":"commentAdd","companysale":"companysale","contact_messgae_reply":"contact_messgae_reply","coupon_add":"coupon_add","coupon_edit":"coupon_edit","courierAdd":"courierAdd","creditAdd":"creditAdd","creditEdit":"creditEdit","customer":"customer","debitEdit":"debitEdit","editAdmin":"editAdmin","editComment":"editComment","editCompany":"editCompany","editCourier":"editCourier","editPermission":"editPermission","edit_factory":"edit_factory","edit_merchant":"edit_merchant","edit_offer":"edit_offer","edit_sale_campaign":"edit_sale_campaign","edit_selling_offer":"edit_selling_offer","edit_sub_city":"edit_sub_city","edit_team_member":"edit_team_member","fondtransferAdd":"fondtransferAdd","investment_add":"investment_add","investment_edit":"investment_edit","merchant_order_view":"merchant_order_view","merchant_password_edit":"merchant_password_edit","merchant_profile":"merchant_profile","merchant_profile_edit":"merchant_profile_edit","new_password_user":"new_password_user","occasional_campaign":"occasional_campaign","offerAdd":"offerAdd","orderEdit":"orderEdit","otp_login":"otp_login","passwordChange":"passwordChange","password_reset":"password_reset","print_house_add":"print_house_add","print_product_add":"print_product_add","productStock":"productStock","product_transfer_add":"product_transfer_add","purchaseEdit":"purchaseEdit","purchaseView":"purchaseView","receieve_printed_product":"receieve_printed_product","resellerAdd":"resellerAdd","resellerEdit":"resellerEdit","roleAdd":"roleAdd","sale_campaign":"sale_campaign","seasonal campaign":"seasonal campaign","showroom_add":"showroom_add","showroom_edit":"showroom_edit","showroom_manager_add":"showroom_manager_add","showroom_manager_edit":"showroom_manager_edit","slider_add":"slider_add","slider_edit":"slider_edit","sms_campaign":"sms_campaign","sub_category_add":"sub_category_add","sub_category_edit":"sub_category_edit","sub_city_add":"sub_city_add","sub_sub_category_add":"sub_sub_category_add","sub_sub_category_edit":"sub_sub_category_edit","supplierAdd":"supplierAdd","supplierEdit":"supplierEdit","user":"user","userLogin":"userLogin","admin_login":"admin_login","merchant_password_reset":"merchant_password_reset","merchant_register":"merchant_register","merchnat_code_verified":"merchnat_code_verified","merchnat_login":"merchnat_login","new_password_merchant":"new_password_merchant","user_password":"user_password","user_password_reset":"user_password_reset","user_profile_edit":"user_profile_edit","user_register":"user_register","variaantAdd":"variaantAdd","vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4":"vendors~about_and_contact~add_carrier~company_assets_add~company_assets_edit~edit_carrier~footer_set~582809c4","about_and_contact":"about_and_contact","add_carrier":"add_carrier","company_assets_add":"company_assets_add","company_assets_edit":"company_assets_edit","edit_carrier":"edit_carrier","footer_setting":"footer_setting","generl_setting":"generl_setting","merchant_product_add":"merchant_product_add","merchant_product_edit":"merchant_product_edit","order_shipment_return":"order_shipment_return","productAdd":"productAdd","productEdit":"productEdit","show_carrier":"show_carrier","theme_setting":"theme_setting","vendors~debitAdd":"vendors~debitAdd","debitAdd":"debitAdd","vendors~merchant_order~merchnat_product_manage~product":"vendors~merchant_order~merchnat_product_manage~product","merchant_order":"merchant_order","merchnat_product_manage":"merchnat_product_manage","product":"product","viewOrder":"viewOrder","viewSale":"viewSale","vendors~single_product":"vendors~single_product","single_product":"single_product"}[chunkId]||chunkId) + ".bundle.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -87805,7 +87805,8 @@ var routes = [{
   },
   name: 'merchant_dashboard',
   meta: {
-    title: 'Merchant|Dashboard'
+    title: 'Merchant|Dashboard',
+    authMerchant: true
   }
 }, {
   path: '/merchant/backend/product/menage',
@@ -87814,7 +87815,8 @@ var routes = [{
   },
   name: 'merchant_product_menage',
   meta: {
-    title: 'Product|Manage'
+    title: 'Product|Manage',
+    authMerchant: true
   }
 }, {
   path: '/merchant/backend/product/add',
@@ -87823,7 +87825,8 @@ var routes = [{
   },
   name: 'merchant_product_add',
   meta: {
-    title: ' Product | Add '
+    title: ' Product | Add ',
+    authMerchant: true
   }
 }, {
   path: '/merchant/backend/product/edit/:id',
@@ -87832,7 +87835,8 @@ var routes = [{
   },
   name: 'merchant_product_edit',
   meta: {
-    title: ' Product | Edit '
+    title: ' Product | Edit ',
+    authMerchant: true
   }
 }, {
   path: '/merchant/backend/order',
@@ -87841,7 +87845,8 @@ var routes = [{
   },
   name: 'merchant_order',
   meta: {
-    title: 'Order Info'
+    title: 'Order Info',
+    authMerchant: true
   }
 }, {
   path: '/merchant/backend/order/view/:id',
@@ -87850,7 +87855,8 @@ var routes = [{
   },
   name: 'merchant_order_view',
   meta: {
-    title: 'order details info '
+    title: 'order details info ',
+    authMerchant: true
   }
 }, {
   path: '/merchant/backend/profile',
@@ -87859,7 +87865,8 @@ var routes = [{
   },
   name: 'merchant_profile',
   meta: {
-    title: ' Profile info '
+    title: ' Profile info ',
+    authMerchant: true
   }
 }, {
   path: '/merchant/backend/profile/edit',
@@ -87868,7 +87875,8 @@ var routes = [{
   },
   name: 'merchant_profile_edit',
   meta: {
-    title: ' Profile info | Edit '
+    title: ' Profile info | Edit ',
+    authMerchant: true
   }
 }, {
   path: '/merchant/backend/security/edit',
@@ -87877,7 +87885,8 @@ var routes = [{
   },
   name: 'merchant_password_edit',
   meta: {
-    title: ' Password | Edit '
+    title: ' Password | Edit ',
+    authMerchant: true
   }
 }, {
   path: '/backend/dashboard',
@@ -89640,20 +89649,20 @@ var routes = [{
     title: 'showroom manager edit'
   }
 }, {
-  path: '/backend/product/transfer',
-  name: 'product_transfer',
+  path: '/backend/product/transfer/add',
+  name: 'product_transfer_add',
   component: function component() {
-    return __webpack_require__.e(/*! import() | product_transfer */ "product_transfer").then(__webpack_require__.bind(null, /*! ./components/admin/product_transfer/Index.vue */ "./resources/js/components/admin/product_transfer/Index.vue"));
+    return Promise.all(/*! import() | product_transfer_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~63b7d928"), __webpack_require__.e("product_transfer_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/product_transfer/Add.vue */ "./resources/js/components/admin/product_transfer/Add.vue"));
   },
   meta: {
     requiresAuthAdmin: true,
     title: 'showroom product transfer'
   }
 }, {
-  path: '/backend/product/transfer/add',
-  name: 'product_transfer_add',
+  path: '/backend/product/transfer',
+  name: 'product_transfer',
   component: function component() {
-    return Promise.all(/*! import() | product_transfer_add */[__webpack_require__.e("vendors~AccountReport~AddSaleExchange~DeliveredOrder~OrderProfite~ReturnOrder~SaleProfite~about_and_~63b7d928"), __webpack_require__.e("product_transfer_add")]).then(__webpack_require__.bind(null, /*! ./components/admin/product_transfer/Add.vue */ "./resources/js/components/admin/product_transfer/Add.vue"));
+    return __webpack_require__.e(/*! import() | product_transfer */ "product_transfer").then(__webpack_require__.bind(null, /*! ./components/admin/product_transfer/Index.vue */ "./resources/js/components/admin/product_transfer/Index.vue"));
   },
   meta: {
     requiresAuthAdmin: true,
@@ -89668,6 +89677,26 @@ var routes = [{
   meta: {
     requiresAuthAdmin: true,
     title: 'showroom product transfer details'
+  }
+}, {
+  path: '/backend/product/return',
+  name: 'product_return',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | product_return */ "product_return").then(__webpack_require__.bind(null, /*! ./components/admin/product_return/Index.vue */ "./resources/js/components/admin/product_return/Index.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true,
+    title: 'showroom product return'
+  }
+}, {
+  path: '/backend/product/return/details/:id',
+  name: 'product_return_details',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | product_return_details */ "product_return_details").then(__webpack_require__.bind(null, /*! ./components/admin/product_return/Details.vue */ "./resources/js/components/admin/product_return/Details.vue"));
+  },
+  meta: {
+    requiresAuthAdmin: true,
+    title: 'showroom product return details'
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -89699,17 +89728,20 @@ router.beforeEach(function (to, from, next) {
     next('/public/user/login');
   } else {
     next();
-  } // if (to.matched.some(record=>record.meta.progressbar)){
-  //     progress: {
-  //         func: [
-  //             {call: 'color', modifier: 'temp', argument: '#ffb000'},
-  //             {call: 'fail', modifier: 'temp', argument: '#6e0000'},
-  //             {call: 'location', modifier: 'temp', argument: 'top'},
-  //             {call: 'transition', modifier: 'temp', argument: {speed: '1.5s', opacity: '0.6s', termination: 400}}
-  //         ]
-  //     }
-  // }
+  }
 
+  if (to.matched.some(function (record) {
+    return record.meta.authMerchant;
+  })) {
+    if (localStorage.getItem('merchant_token')) {
+      next();
+      return;
+    }
+
+    next('/merchant/backend/login');
+  } else {
+    next();
+  }
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
 

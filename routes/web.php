@@ -763,7 +763,8 @@ Route::post('api/edit/site/footer/info/{id}','FooterSettingController@edit_foote
     Route::get('api/showroom/transaction/list','ShowroomController@showroomTransactions');
     Route::get('api/get/product/transfer/details/{id}','ShowroomController@transactionDetails');
     Route::post('api/transfer/product/into/showroom','ShowroomController@transferProducts');
-
+    //new
+    Route::get('api/delete/showroom/transaction/{id}','ShowroomController@destoryTransaction');
 
     Route::post('api/apply/membership','CustomerController@addMemberShip');
     Route::get('api/get/membership/list','CustomerController@membersipList');

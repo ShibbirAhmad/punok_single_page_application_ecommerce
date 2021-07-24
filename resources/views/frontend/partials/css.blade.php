@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/owl.transitions.css')}}"/>
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/responsive.css')}}"/>
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/stylesheet-skin3.css')}}"/>
-<link href='//fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/scrol.css')}}"/>
 <link rel="stylesheet" href="{{ asset('admin/css/sweetalert2.css') }}">
 {{-- <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/customize.css')}}"/> --}}
@@ -1858,6 +1858,11 @@ span.price-new {
 
 
 
+    .incrementor_minus , .incrementor_plus {
+        display: none;
+    }
+
+
 
 @media only screen and (max-width: 900px) {
 
@@ -2744,6 +2749,30 @@ span.price-new {
 
 
 @media screen and (max-width:600px) {
+
+
+      .input_qty {
+               padding: 10px 130px !important;
+           }
+           .incrementor_plus {
+                display: block ;
+                position: absolute;
+                margin-top: -8%;
+                margin-left: 81%;
+                font-size: 20px;
+                color: var(--primary-color);
+           }
+           .incrementor_minus {
+                display: block ;
+                position: absolute;
+                margin-top: -8%;
+                margin-left: 5%;
+                font-size: 20px;
+                color: var(--primary-color);
+            }
+
+
+
     .discount {
         margin: -7px;
         right: -24px;

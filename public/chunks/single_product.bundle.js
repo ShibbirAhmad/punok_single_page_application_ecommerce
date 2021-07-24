@@ -235,6 +235,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -725,11 +731,10 @@ var render = function() {
                                   expression: "cart.quantity"
                                 }
                               ],
-                              staticClass: "form-control",
+                              staticClass: "form-control input_qty",
                               attrs: {
                                 type: "number",
                                 name: "quantity",
-                                size: "2",
                                 value: "1"
                               },
                               domProps: { value: _vm.cart.quantity },
@@ -748,6 +753,34 @@ var render = function() {
                                 }
                               }
                             }),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "incrementor_plus",
+                                on: {
+                                  click: function($event) {
+                                    _vm.cart.quantity += 1
+                                  }
+                                }
+                              },
+                              [_c("i", { staticClass: "fa fa-plus" })]
+                            ),
+                            _vm._v(" "),
+                            _vm.cart.quantity > 1
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "incrementor_minus",
+                                    on: {
+                                      click: function($event) {
+                                        _vm.cart.quantity -= 1
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fa fa-minus" })]
+                                )
+                              : _vm._e(),
                             _vm._v(" "),
                             _c("div", { staticClass: "clear" })
                           ])

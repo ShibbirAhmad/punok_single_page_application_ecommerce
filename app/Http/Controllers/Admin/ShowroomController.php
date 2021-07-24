@@ -249,6 +249,33 @@ class ShowroomController extends Controller
 
 
 
+    public function destoryTransaction($id){
+
+            DB::transaction(function ()  use($id) {
+                $transfer= ProductTransfer::findOrFail($id);
+                if ($transfer->status==0) {
+                        $trnsfered_products = ProductTransferItem::where('product_transfer_id',$transfer->id)->get();
+                        foreach ($trnsfered_products as $item) {
+                                    //update stock of product
+                                    $p_stock=Product::findOrFail($item->product_id);
+                                    $p_stock->stock=$p_stock->stock + $item->quantity;
+                                    $p_stock->save();
+                                    //deleting transfered item
+                                    $item->delete();
+                        }
+                        $transfer->delete() ;
+                    }
+                 });
+                return response()->json([
+                    'status' => 'OK',
+                    'message' => 'Product transfered successfully'
+                ]);
+
+
+       }
+
+
+
 
 
 
